@@ -1,24 +1,3 @@
-# README
+# Plantsy
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Plantsy is an Etsy clone that features listings of plants and plant related products that users can add/remove from their shopping cart. Users can also favorite listings and favorite shops.
