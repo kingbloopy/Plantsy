@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   window.store = store;
+
+
   const newUser = {email: 'kbloops@test.com', name: 'king', password: 'secret'}
   window.newUser = newUser;
   window.user = { email: 'kbloops@test.com', password: 'secret'}

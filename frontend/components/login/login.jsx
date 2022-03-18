@@ -8,6 +8,7 @@ class LoginForm extends React.Component {
       password: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitDemoUser = this.handleSubmitDemoUser.bind(this);
   }
 
   update(field){
@@ -37,7 +38,7 @@ class LoginForm extends React.Component {
     return(
       <ul className="login-form__form__errors" style={{listStyleType: "none"}}>
         { errors.length > 1 ? (
-          errors.map((error, i) => <li>{error}</li>)
+          errors.map((error, i) => <li key={i}>{error}</li>)
           ) : (
             <li>{errors[0]}</li>
           )
@@ -88,15 +89,15 @@ class LoginForm extends React.Component {
             {this.props.forgotPasswordLink}
           </div>
 
-          <input type="submit" className="login-form__form__submit"/>
+          <input type="submit" className="login-form__form__submit" value="Sign in"/>
 
           {this.props.troubleLink}
 
-          <h5>OR</h5>
+          <p>OR</p>
 
-          {/* <button onClick={this.props.login(this.demoUser)}>Continue with Demo User</button> */}
+            <button className="login-form__form__demo-button" onClick={this.handleSubmitDemoUser}>Continue with Demo User</button>
 
-          <p>
+          <p className="login-form__form__terms">
             By clicking Sign in or Continue, you agree to Plantsy's Terms of Use and Privacy Policy. 
           </p>
 

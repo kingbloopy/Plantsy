@@ -1,3 +1,4 @@
+User.delete_all
 
 demo_user = User.create!(
   name: 'Demo',

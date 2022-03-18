@@ -5,7 +5,6 @@ const Welcome = ({ currentUser, logout }) => {
   const sessionLinks = () => (
     <div className="welcome-links">
       <Link to="/sign-in">Sign in</Link>
-      <Link to="/register">Register</Link>
     </div>
   );
 
