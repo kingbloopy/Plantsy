@@ -36,16 +36,28 @@ class User < ApplicationRecord
     self.session_token ||= SecureRandom::urlsafe_base64
   end
 
-  def check_email(check_email)
+  def self.invalid_email?(check_email)
+    return true if check_email.length < 5
+
     at_count = check_email.count('@')
     period_count = check_email.count('.')
 
     if (at_count != 1)
-      return false
+      return true
     elsif (period_count != 1)
-      return false
+      return true
     end
-    return true
+
+    at_idx = check_email.index('@')
+    period_idx = check_email.index('.')
+    if (check_email[period_idx + 1]).nil? || (check_email[period_idx - 1]).nil?
+      return true
+    end
+    if (check_email[at_idx + 1]).nil? || (check_email[at_idx- 1]).nil?
+      return true
+    end
+
+    false
   end
 
   private
@@ -63,14 +75,13 @@ class User < ApplicationRecord
   end
 
   def is_valid_email
-    at_count = email.count('@')
-    period_count = email.count('.')
-
     if !email.present?
       errors[:base] << 'Email can\'t be blank.'
-    elsif (at_count != 1)
-      errors[:base] << 'Please enter a valid email address.'
-    elsif (period_count != 1)
+    end
+
+    at_count = email.count('@')
+    period_count = email.count('.')
+    if User.invalid_email?(email)
       errors[:base] << 'Please enter a valid email address.'
     end
   end

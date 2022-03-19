@@ -5,12 +5,61 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      rememberMe: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitDemoUser = this.handleSubmitDemoUser.bind(this);
-    this.errors = this.props.errors;
   }
+
+  toggleRememberMe = value => {
+    this.setState({ rememberMe: value });
+    if (value === true){
+      this.remeberUser();
+    } else {
+      this.forgetUser();
+    }
+  }
+
+  // ------
+
+  rememberUser = async () => {
+    try {
+      await AsyncStorage.setItem('YOUR-KEY', this.state.email);
+    } catch (error) {
+      // Error saving data
+    }
+  };
+
+  getRememberedUser = async () => {
+    try {
+      const email = await AsyncStorage.getItem('YOUR-KEY');
+      if (email !== null) {
+        // We have email!!
+        return email;
+      }
+    } catch (error) {
+      // Error retrieving data
+    }
+  };
+
+  forgetUser = async () => {
+    try {
+      await AsyncStorage.removeItem('Longtail-User');
+    } catch (error) {
+      // Error removing
+    }
+  };
+
+  async componentDidMount() {
+    const email = await this.getRememberedUser();
+    this.setState({
+      email: email || "",
+      rememberMe: email ? true : false
+    });
+  }
+
+  // -------
 
   update(field){
     return e => this.setState({
@@ -20,7 +69,6 @@ class LoginForm extends React.Component {
 
   handleSubmit(e){
     e.preventDefault();
-    // const user = Object.assign({}, this.state);
     const user = {
       email: (this.state.email).toLowerCase(),
       password: (this.state.password).toLowerCase()
@@ -92,8 +140,13 @@ class LoginForm extends React.Component {
 
           <div>
             <label className="login-form__form__check-label">
-              <input type="checkbox" className="login-form__form__checkbox"/>
-              Stay signed in
+              <input 
+              type="checkbox" 
+              className="login-form__form__checkbox" 
+              value={this.state.rememberMe}
+              onValueChange={(value) => this.toggleRememberMe(value)}
+              />
+              Remember me
             </label>
             {this.props.forgotPasswordLink}
           </div>
