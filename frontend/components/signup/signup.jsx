@@ -37,21 +37,6 @@ class SignUpForm extends React.Component {
     this.props.login(demoUser);
   }
 
-  renderErrors() {
-    const errors = this.props.errors;
-    // remove inline styling!!
-    return (
-      <ul className="signup-form__form__errors" style={{ listStyleType: "none" }}>
-        {errors.length > 1 ? (
-          errors.map((error, i) => <li key={i}>{error}</li>)
-        ) : (
-          <li>{errors[0]}</li>
-        )
-        }
-      </ul>
-    );
-  }
-
   componentDidMount() {
     this.props.removeErrors()
   }
@@ -69,8 +54,6 @@ class SignUpForm extends React.Component {
 
             <div className="signup-form__form__input-wrapper">
 
-              {this.renderErrors()}
-
               <label className="signup-form__form__label">Email address
                 <input
                   type="text"
@@ -79,6 +62,7 @@ class SignUpForm extends React.Component {
                   onChange={this.update('email')}
                 />
               </label>
+              <p className="signup-form__form__error">{this.props.errors.email}</p>
 
               <label className="signup-form__form__label">First name
                 <input
@@ -88,6 +72,7 @@ class SignUpForm extends React.Component {
                   onChange={this.update('name')}
                 />
               </label>
+              <p className="signup-form__form__error">{this.props.errors.name}</p>
 
               <label className="signup-form__form__label">Password
                 <input
@@ -97,6 +82,7 @@ class SignUpForm extends React.Component {
                   onChange={this.update('password')}
                 />
               </label>
+              <p className="signup-form__form__error">{this.props.errors.password}</p>
             </div>
 
             <input type="submit" className="signup-form__form__submit" value="Register" />

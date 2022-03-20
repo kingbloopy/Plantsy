@@ -2,6 +2,7 @@ const path = require('path');
 
 module.exports = {
   entry: './frontend/plantsy.jsx',
+  // entry: ["regenerator-runtime/runtime.js", './frontend/plantsy.jsx'],
   output: {
     path: path.resolve(__dirname, 'app', 'assets', 'javascripts'),
     filename: 'bundle.js',

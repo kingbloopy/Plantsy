@@ -1,65 +1,16 @@
 import React from "react";
+// import 'regenerator-runtime/runtime';
 
 class LoginForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
       email: '',
-      password: '',
-      rememberMe: false
+      password: ''
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitDemoUser = this.handleSubmitDemoUser.bind(this);
   }
-
-  toggleRememberMe = value => {
-    this.setState({ rememberMe: value });
-    if (value === true){
-      this.remeberUser();
-    } else {
-      this.forgetUser();
-    }
-  }
-
-  // ------
-
-  rememberUser = async () => {
-    try {
-      await AsyncStorage.setItem('YOUR-KEY', this.state.email);
-    } catch (error) {
-      // Error saving data
-    }
-  };
-
-  getRememberedUser = async () => {
-    try {
-      const email = await AsyncStorage.getItem('YOUR-KEY');
-      if (email !== null) {
-        // We have email!!
-        return email;
-      }
-    } catch (error) {
-      // Error retrieving data
-    }
-  };
-
-  forgetUser = async () => {
-    try {
-      await AsyncStorage.removeItem('Longtail-User');
-    } catch (error) {
-      // Error removing
-    }
-  };
-
-  async componentDidMount() {
-    const email = await this.getRememberedUser();
-    this.setState({
-      email: email || "",
-      rememberMe: email ? true : false
-    });
-  }
-
-  // -------
 
   update(field){
     return e => this.setState({
@@ -85,21 +36,6 @@ class LoginForm extends React.Component {
     this.props.login(demoUser);
   }
 
-  renderErrors(){
-    const errors = this.props.errors;
-    // remove inline styling!!
-    return(
-      <ul className="login-form__form__errors" style={{listStyleType: "none"}}>
-        { errors.length > 1 ? (
-          errors.map((error, i) => <li key={i}>{error}</li>)
-          ) : (
-            <li>{errors[0]}</li>
-          )
-        }
-      </ul>
-    );
-  }
-
   componentDidMount(){
     this.props.removeErrors()
   }
@@ -117,8 +53,6 @@ class LoginForm extends React.Component {
 
           <div className="login-form__form__input-wrapper">
 
-            {this.renderErrors()}
-
             <label className="login-form__form__label">Email address
               <input
               type="text"
@@ -128,6 +62,8 @@ class LoginForm extends React.Component {
               />
             </label>
 
+              <p className="login-form__form__error">{this.props.errors.email}</p>
+
             <label className="login-form__form__label">Password
               <input
               type="password"
@@ -136,15 +72,14 @@ class LoginForm extends React.Component {
               onChange={this.update('password')}
               />
             </label>
+              <p className="login-form__form__error">{this.props.errors.password}</p>
           </div>
 
           <div>
             <label className="login-form__form__check-label">
               <input 
               type="checkbox" 
-              className="login-form__form__checkbox" 
-              value={this.state.rememberMe}
-              onValueChange={(value) => this.toggleRememberMe(value)}
+              className="login-form__form__checkbox"
               />
               Remember me
             </label>

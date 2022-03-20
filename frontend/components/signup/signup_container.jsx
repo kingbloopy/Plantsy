@@ -3,9 +3,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { signup, login, removeErrors } from '../../actions/session_actions';
 import SignUpForm from './signup';
+import { ErrorsUtil } from "../../util/errors_util";
 
 const mapStateToProps = ({ errors }) => ({
-  errors: errors.session
+  errors: ErrorsUtil(errors.session)
 });
 
 const mapDispatchToProps = dispatch => ({
