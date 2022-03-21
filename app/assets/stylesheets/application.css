@@ -14,7 +14,3 @@
  *= require_self
  */
 
-@import './base/reset.scss';
-@import './base/navbar.scss';
-@import './base/session.scss';
-@import './base/welcome.scss';
