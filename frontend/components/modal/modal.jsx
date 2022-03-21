@@ -19,6 +19,12 @@ const Modal = ({ modal, closeModal }) => {
     default:
       return null;
   }
+
+  const toggleModal = () => {
+    let modal = document.querySelector('.modal-background');
+    modal.classList.toggle('show-modal');
+  }
+  
   return (
     <div className="modal-background" onClick={closeModal}>
       <div className="modal-child" onClick={e => e.stopPropagation()}>

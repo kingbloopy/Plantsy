@@ -1,4 +1,5 @@
 import React from "react";
+import classNames from "classnames";
 // import 'regenerator-runtime/runtime';
 
 class LoginForm extends React.Component {
@@ -6,7 +7,7 @@ class LoginForm extends React.Component {
     super(props);
     this.state = {
       email: '',
-      password: ''
+      password: '',
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleSubmitDemoUser = this.handleSubmitDemoUser.bind(this);
