@@ -5,10 +5,12 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import WelcomeContainer from "./welcome/welcome_container";
 import LoginFormContainer from "./login/login_container";
 import SignUpFormContainer from "./signup/signup_container";
+import Modal from './modal/modal';
 
 
 const App = () => (
   <div>
+    <Modal/>
     <header>
     {/* <ProtectedRoute exact path="/welcome" /> */}
     <WelcomeContainer />

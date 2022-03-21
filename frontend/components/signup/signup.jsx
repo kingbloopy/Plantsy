@@ -25,7 +25,7 @@ class SignUpForm extends React.Component {
       name: (this.state.name).toLowerCase(),
       password: (this.state.password).toLowerCase()
     }
-    this.props.signup(user);
+    this.props.signup(user).then(this.props.closeModal);
   }
 
   handleSubmitDemoUser(e) {
@@ -34,7 +34,7 @@ class SignUpForm extends React.Component {
       email: 'demo@demo.com',
       password: 'demo123'
     }
-    this.props.login(demoUser);
+    this.props.login(demoUser).then(this.props.closeModal);
   }
 
   componentDidMount() {

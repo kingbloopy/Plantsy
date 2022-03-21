@@ -24,7 +24,7 @@ class LoginForm extends React.Component {
       email: (this.state.email).toLowerCase(),
       password: (this.state.password).toLowerCase()
     }
-    this.props.login(user);
+    this.props.login(user).then(this.props.closeModal);
   }
 
   handleSubmitDemoUser(e){
@@ -33,7 +33,7 @@ class LoginForm extends React.Component {
       email: 'demo@demo.com',
       password: 'demo123'
     }
-    this.props.login(demoUser);
+    this.props.login(demoUser).then(this.props.closeModal);
   }
 
   componentDidMount(){
@@ -48,7 +48,8 @@ class LoginForm extends React.Component {
 
           <div className="login-form__form__header-wrapper">
           <h1>Sign in</h1>
-          {this.props.registerLink}
+          {this.props.registerButton}
+          {/* {this.props.registerLink} */}
           </div>
 
           <div className="login-form__form__input-wrapper">
