@@ -8,6 +8,8 @@
   transform: scale(1.1);
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
   z-index: 4;
+  text-align: center;
+  cursor: pointer;
 }
 
 .modal-child {
@@ -18,22 +20,7 @@
   background-color: white;
   padding: 1rem 1.5rem;
   width: 24rem;
-  border-radius: 2rem;
-}
-
-#close-modal {
-  height: 30px;
-  width: 30px;
-  float: right;
-  width: 1.5rem;
-  line-height: 1.5rem;
-  text-align: center;
-  cursor: pointer;
-}
-
-.show-modal {
-  opacity: 1;
-  visibility: visible;
-  transform: scale(1.0);
-  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+  border-radius: 1.5rem;
+  transition: background-color 1s ease-in;
+  max-width: 260px;
 }

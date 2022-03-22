@@ -50,34 +50,37 @@ class LoginForm extends React.Component {
           <div className="login-form__form__header-wrapper">
           <h1>Sign in</h1>
           {this.props.registerButton}
-          {/* {this.props.registerLink} */}
           </div>
 
           <div className="login-form__form__input-wrapper">
-
-            <label className="login-form__form__label">Email address
-              <input
-              type="text"
-              className="login-form__form__input"
-              value={this.state.email}
-              onChange={this.update('email')}
-              />
-            </label>
-
+            
+            <div className="login-form__form__inputs">
+              <label className="login-form__form__label">Email address
+                <input
+                type="text"
+                className="login-form__form__input"
+                value={this.state.email}
+                onChange={this.update('email')}
+                />
+              </label>
               <p className="login-form__form__error">{this.props.errors.email}</p>
+            </div>
 
-            <label className="login-form__form__label">Password
-              <input
-              type="password"
-              className="login-form__form__input"
-              value={this.state.password}
-              onChange={this.update('password')}
-              />
-            </label>
+            <div className="login-form__form__inputs">
+              <label className="login-form__form__label">Password
+                <input
+                type="password"
+                className="login-form__form__input"
+                value={this.state.password}
+                onChange={this.update('password')}
+                />
+              </label>
               <p className="login-form__form__error">{this.props.errors.password}</p>
+            </div>
+
           </div>
 
-          <div>
+          <div className="login-form__form__input2-wrapper">
             <label className="login-form__form__check-label">
               <input 
               type="checkbox" 
@@ -88,13 +91,16 @@ class LoginForm extends React.Component {
             {this.props.forgotPasswordLink}
           </div>
 
-          <input type="submit" className="login-form__form__submit" value="Sign in"/>
+          <div className="login-form__form__lower-link-wrapper">
+            <input type="submit" className="login-form__form__submit" value="Sign in"/>
 
-          {this.props.troubleLink}
+            {this.props.troubleLink}
 
-          <p>OR</p>
+            <p>OR</p>
 
-            <button className="login-form__form__demo-button" onClick={this.handleSubmitDemoUser}>Continue with Demo User</button>
+            <button className="demo-user-button" onClick={this.handleSubmitDemoUser}>Continue with Demo User</button>
+
+          </div>
 
           <p className="login-form__form__terms">
             By clicking Sign in or Continue, you agree to Plantsy's Terms of Use and Privacy Policy. 

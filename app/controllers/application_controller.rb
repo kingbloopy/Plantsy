@@ -1,8 +1,4 @@
 class ApplicationController < ActionController::Base
-
-  # remove this when done!!!
-  skip_before_action :verify_authenticity_token
-
   helper_method :current_user, :logged_in?
 
   private

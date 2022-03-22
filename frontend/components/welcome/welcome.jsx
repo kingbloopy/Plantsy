@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Welcome = ({ currentUser, logout, openModal }) => {
+
+
   const sessionLinks = () => (
     <div className="splash">
         <div className="splash__nav-wrapper">

@@ -54,44 +54,50 @@ class SignUpForm extends React.Component {
 
             <div className="signup-form__form__input-wrapper">
 
-              <label className="signup-form__form__label">Email address
-                <input
-                  type="text"
-                  className="signup-form__form__input"
-                  value={this.state.email}
-                  onChange={this.update('email')}
-                />
-              </label>
-              <p className="signup-form__form__error">{this.props.errors.email}</p>
+              <div className="signup-form__form__inputs">
+                <label className="signup-form__form__label">Email address
+                  <input
+                    type="text"
+                    className="signup-form__form__input"
+                    value={this.state.email}
+                    onChange={this.update('email')}
+                  />
+                </label>
+                <p className="signup-form__form__error">{this.props.errors.email}</p>
+              </div>
 
-              <label className="signup-form__form__label">First name
-                <input
-                  type="text"
-                  className="signup-form__form__input"
-                  value={this.state.name}
-                  onChange={this.update('name')}
-                />
-              </label>
-              <p className="signup-form__form__error">{this.props.errors.name}</p>
+              <div className="signup-form__form__inputs">
+                <label className="signup-form__form__label">First name
+                  <input
+                    type="text"
+                    className="signup-form__form__input"
+                    value={this.state.name}
+                    onChange={this.update('name')}
+                  />
+                </label>
+                <p className="signup-form__form__error">{this.props.errors.name}</p>
+              </div>
 
-              <label className="signup-form__form__label">Password
-                <input
-                  type="password"
-                  className="signup-form__form__input"
-                  value={this.state.password}
-                  onChange={this.update('password')}
-                />
-              </label>
-              <p className="signup-form__form__error">{this.props.errors.password}</p>
+              <div className="signup-form__form__inputs">
+                <label className="signup-form__form__label">Password
+                  <input
+                    type="password"
+                    className="signup-form__form__input"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                  />
+                </label>
+                <p className="signup-form__form__error">{this.props.errors.password}</p>
+              </div>
             </div>
 
-            <input type="submit" className="signup-form__form__submit" value="Register" />
+            <div className="signup-form__form__lower-inputs">
+              <input type="submit" className="signup-form__form__submit" value="Register" />
 
-            {this.props.troubleLink}
+              <p>OR</p>
 
-            <p>OR</p>
-
-            <button className="signup-form__form__demo-button" onClick={this.handleSubmitDemoUser}>Continue with Demo User</button>
+              <button className="signup-form__form__demo-button" onClick={this.handleSubmitDemoUser}>Continue with Demo User</button>
+            </div>
 
             <p className="signup-form__form__terms">
               By clicking Register or Continue, you agree to Plantsy's Terms of Use and Privacy Policy.
