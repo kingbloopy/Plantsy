@@ -3,7 +3,8 @@ import { closeModal } from '../../actions/modal_actions';
 import { connect } from "react-redux";
 import LoginFormContainer from "../login/login_container";
 import SignupFormContainer from "../signup/signup_container";
-import classNames from "classnames";
+import ForgotPasswordContainer from "./forgot_password";
+import TroubleModalContainer from "./trouble_signing_in";
 
 const Modal = ({ modal, closeModal }) => {
 
@@ -17,6 +18,12 @@ const Modal = ({ modal, closeModal }) => {
       break;
     case 'signup':
       component = <SignupFormContainer />;
+      break;
+    case 'forgot':
+      component = <ForgotPasswordContainer />;
+      break;
+    case 'trouble':
+      component = <TroubleModalContainer />;
       break;
     default:
       return null;

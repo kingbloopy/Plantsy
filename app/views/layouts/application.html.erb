@@ -5,10 +5,16 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <script type="text/javascript">
+      window.plantsyLogo = "<%= image_url('plantsy_logo.png') %>";
+    </script>
     
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@100;300;400;500;600&family=Space+Mono&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather+Sans:wght@300;400;500;600;800&family=Montserrat:wght@100;300;400;500;600&family=Prompt:wght@200;300;400;600&family=Space+Mono&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
 
   <body>

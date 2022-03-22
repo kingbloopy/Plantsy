@@ -6,9 +6,9 @@ const Welcome = ({ currentUser, logout, openModal }) => {
 
   const sessionLinks = () => (
     <div className="splash">
+      <img className="s-logo" src={window.plantsyLogo} />
         <div className="splash__nav-wrapper">
         <button className="splash__sign-in-button" onClick={() => openModal('login')}>Sign in</button>
-          {/* <Link className="splash__sign-in-button" to="/sign-in">Sign in</Link> */}
         </div>
         <div className="splash__message-wrapper">
           <h2 className="splash__message">Explore one-of-a-kind finds from independent growers</h2>
@@ -21,6 +21,7 @@ const Welcome = ({ currentUser, logout, openModal }) => {
     const capitalizedName = name[0].toUpperCase() + name.slice(1).toLowerCase();
     return(
     <div className="welcome">
+      <img className="w-logo" src={window.plantsyLogo} />
       <div className="welcome__nav-wrapper">
         <button className="welcome__logout" onClick={logout}>Sign out</button>
       </div>
