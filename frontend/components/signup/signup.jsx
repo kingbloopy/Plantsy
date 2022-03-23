@@ -23,7 +23,7 @@ const SignUpForm = props => {
     const user = {
       email: (email).toLowerCase(),
       name: (name).toLowerCase(),
-      password: (password).toLowerCase()
+      password: password
     }
     props.signup(user).then(props.closeModal);
   }

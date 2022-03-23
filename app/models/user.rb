@@ -8,10 +8,6 @@ class User < ApplicationRecord
   validate :name_presence
   validate :password_minimum
 
-  has_many :products,
-  foreign_key: :seller_id,
-  class_name: :Product
-
   after_initialize :ensure_session_token
   attr_reader :password
 

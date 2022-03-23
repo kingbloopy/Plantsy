@@ -17,7 +17,7 @@ const LoginForm = props => {
   const handleSubmit = e => {
     e.preventDefault();
     const user = {
-      email,
+      email: (email).toLowerCase(),
       password
     }
     props.login(user).then(props.closeModal);
