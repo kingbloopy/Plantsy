@@ -13,10 +13,29 @@ class Api::ProductsController < ApplicationController
 
   # def create
   #   @product = Product.new(product_params)
+  #   @product.seller_id = current_user.id
   #   if @product.save
   #     render :show
   #   else
   #     render json: @product.errors.full_messages, status: 404
+  #   end
+  # end
+
+  # def destroy
+  #   @product = current_user.products.find_by(id: params[:id])
+  #   if @product && @product.destroy
+  #     render json: @product.id
+  #   else
+  #     render json: @product.errors.full_messages, status: 404
+  #   end
+  # end
+
+  # def update
+  #   @product = current_user.products.find_by(id: params[:id])
+  #   if @product && @product.update(pin_params)
+  #     render :show
+  #   else
+  #     render json: @product.errors.full_messages, status: 422
   #   end
   # end
 

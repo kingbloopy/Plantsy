@@ -9,11 +9,16 @@ demo_user = User.create!(
 )
 
 monstera = Product.create!(
-  title: 'Monstera Deli'
+  title: 'Monstera Deli',
+  category: 'House Plants',
+  description: 'Nicknamed the “swiss cheese plant”, the Monstera deliciosa is famous for its quirky natural leaf holes. These holes are theorized to maximize sun fleck capture on the forest floor. Depending on the season and maturity of the plant, your Monstera could arrive with no holes just yet, and be sized to grow alongside you. ',
+  price: 39.99,
+  quantity: 3,
+  seller_id: 1
 )
 
 file = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/IMG_7136.JPG')
-demo_user.photos.attach(io: file, filename: "IMG_7136.JPG")
+monstera.photos.attach(io: file, filename: "IMG_7136.JPG")
 
 user1 = User.create!(
   name: 'Lacey',
@@ -36,7 +41,7 @@ user3 = User.create!(
 user4 = User.create!(
   name: 'Charlie',
   email: 'charlieday400@gmail.com',
-  password: 'demo123'
+  password: 'paddyspub'
 )
 
 user5 = User.create!(
@@ -59,7 +64,7 @@ user7 = User.create!(
 
 user8 = User.create!(
   name: 'Abed',
-  email: 'troy.abed.adventures@aol.com',
+  email: 'troy-abed-adventures@aol.com',
   password: 'loveCommunityCollege'
 )
 
@@ -71,7 +76,7 @@ user9 = User.create!(
 
 user10 = User.create!(
   name: 'Broc',
-  email: 'brocoli.love@brocoli.com',
+  email: 'brocolilove@brocoli.com',
   password: 'brocoli'
 )
 
