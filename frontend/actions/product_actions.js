@@ -1,15 +1,15 @@
-export * as ProductUtil from '../util/product_api_util';
+import * as ProductUtil from '../util/product_api_util';
 
-export const RECEIEVE_ALL_PRODUCTS = 'RECEIEVE_ALL_PRODUCTS';
-export const RECEIEVE_PRODUCT = 'RECEIEVE_PRODUCT';
+export const RECEIVE_ALL_PRODUCTS = 'RECEIVE_ALL_PRODUCTS';
+export const RECEIVE_PRODUCT = 'RECEIVE_PRODUCT';
 
 const receiveAllProducts = products => ({
-  type: RECEIEVE_ALL_PRODUCTS,
+  type: RECEIVE_ALL_PRODUCTS,
   products
 });
 
 const receiveProduct = product => ({
-  type: RECEIEVE_PRODUCT,
+  type: RECEIVE_PRODUCT,
   product
 });
 
