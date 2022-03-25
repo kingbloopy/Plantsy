@@ -13,9 +13,9 @@ const App = () => (
     <Modal/>
     <header>
       <HeaderContainer/>
-      <ExploreContainer/>
     </header>
-    {/* <Test/> */}
+      <ExploreContainer/>
+    <Test/>
   </div>
 );
 

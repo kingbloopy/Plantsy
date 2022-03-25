@@ -1,37 +1,78 @@
+@import './root.scss';
+
 .header {
+  display: flex;
+  // align-items: center;
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+
+  &__cart {
+    &__wrapper {
+      margin-left: 25px;
+      padding: 10px 12px;
+      border-radius: 24px;
+      -webkit-transition: background 0.8s;
+      transition: background 0.8s;
+
+      &:hover {
+        background-color: $hover-button;
+        cursor: pointer;
+        color: $dark-green;
+        transform: scale(1.02);
+        transition: ease-in 0.16s;
+      }
+    }
+    &__img {
+      width: 22px;
+      height: 22px;
+    }
+  }
+
+  &__search-input {
+    width: 100%;
+    flex: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+    border-radius: 34px;
+    border: 1.5px solid $dark-green;
+
+    &:hover{
+      border: 1.5px solid $highlight-green;
+    }
+  }
 
   &__nav-wrapper {
     display: flex;
     justify-content: flex-end;
+    // height: 30px;
+  }
 
-    &__signin-button, &__logout-button {
-    text-decoration: none;
-    margin-right: 50px;
-    margin-top: 30px;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 1.4;
-    padding-top: 9px;
-    padding-bottom: 9px;
-    padding-left: 15px;
-    padding-right: 15px;
-    border-radius: 24px;
-    color: black;
-    -webkit-transition: background 0.8s;
-    transition: background 0.8s;
-    
-      &:hover {
-        background-color: rgb(230, 230, 230);
-        cursor: pointer;
-        color: black;
-      }
+  &__signin-button, &__logout-button {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 24px;
+  color: $dark-green;
+  -webkit-transition: background 0.8s;
+  transition: background 0.8s;
+  
+    &:hover {
+      background-color: $hover-button;
+      cursor: pointer;
+      color: $dark-green;
+      transform: scale(1.02);
+      transition: ease-in 0.16s;
     }
   }
 
   &__logo {
-    width: 160px;
-    position: absolute;
-    margin-left: 30px;
-    margin-top: 20px;
+    max-width: 160px;
+    width: 100%;
+    height: 45px;
   }
 }

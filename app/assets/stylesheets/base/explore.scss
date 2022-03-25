@@ -1,3 +1,5 @@
+@import './root.scss';
+
 .explore {
   &__wrapper {
     display: flex;
@@ -5,17 +7,59 @@
     
     &__welcome-message, &__explore-message {
       font-size: 32px;
-      color: white;
-      // color: black;
+      // color: $charcoal;
+      color: $dark-green;
       margin-top: 30px;
-      background-color: rgb(104,132,52);
-      // background-color: rgb(255, 239, 176);
+      background-color: $light-green;
+      // background-color: $light-green;
+      border-top: 2px solid $hover-button;
       padding-top: 60px;
       padding-bottom: 120px;
       width: 100%;
       text-align: center;
       font-weight: 200;
       font-family: 'Merriweather Sans', sans-serif;
+    }
+  }
+
+  &__circles-wrapper {
+    margin-top: -72px;
+    display: flex;
+    justify-content: space-around;
+    
+    &__circle-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 10px;
+
+      &:hover {
+        border-bottom: 2px solid $lighter-green;
+      }
+      
+      &:hover > &__circle {
+        cursor: pointer;
+        transform: scale(1.1);
+        transition: ease-in 0.16s;
+      }
+
+      &:hover > h1 {
+        color: $lighter-green;
+        cursor: pointer;
+      }
+      
+      &__circle {
+        width: 100px;
+        border-radius: 50%;
+        border: 1px solid rgba(74, 130, 51, 0.15);
+      }
+
+      & > h1 {
+        color: $dark-green;
+        margin-top: 14px;
+        font-size: 16px;
+        font-weight: 500;
+      }
     }
   }
   

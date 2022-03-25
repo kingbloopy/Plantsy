@@ -1,3 +1,5 @@
+@import './root.scss';
+
 .forgot-pass {
   & > h1 {
     font-size: 20px;
@@ -8,12 +10,12 @@
   & > p {
     margin-top: 10px;
     font-size: 14px;
-    color: rgb(96, 96, 96);
+    color: $grey-green;
     line-height: 18px;
   }
 
   & > button {
-      border:  1.5px black solid;
+      border: $border;
       padding-top: 14px;
       padding-bottom: 14px;
       padding-left: 36px;
@@ -26,7 +28,7 @@
       
 
       &:hover {
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        box-shadow: $box-shadow;
       }
   }
 }
