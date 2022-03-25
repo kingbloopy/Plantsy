@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import Welcome from "./welcome";
+import Header from "./header";
 import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
 
@@ -12,4 +12,4 @@ const mapDispatchToProps = dispatch => ({
   openModal: modal => dispatch(openModal(modal))
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Welcome);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

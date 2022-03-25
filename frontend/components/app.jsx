@@ -1,26 +1,21 @@
 import React from "react";
-import { Provider } from "react";
+// import { Provider } from "react";
 import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_util";
-import WelcomeContainer from "./welcome/welcome_container";
-import LoginFormContainer from "./login/login_container";
-import SignUpFormContainer from "./signup/signup_container";
 import Modal from './modal/modal';
 import Test from "./test";
+import HeaderContainer from "./header/header_container";
+import ExploreContainer from "./explore/expore_container";
 
 
 const App = () => (
   <div>
     <Modal/>
     <header>
-    {/* <ProtectedRoute exact path="/welcome" /> */}
-    <WelcomeContainer />
+      <HeaderContainer/>
+      <ExploreContainer/>
     </header>
-    <Test/>
-    <Switch>
-    {/* <AuthRoute exact path="/sign-in" component={LoginFormContainer}/>
-    <AuthRoute exact path="/register" component={SignUpFormContainer}/> */}
-    </Switch>
+    {/* <Test/> */}
   </div>
 );
 
