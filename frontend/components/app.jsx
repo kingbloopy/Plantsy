@@ -6,6 +6,8 @@ import Modal from './modal/modal';
 import Test from "./test";
 import HeaderContainer from "./header/header_container";
 import ExploreContainer from "./explore/expore_container";
+import RecommendedContainer from "./recommended/recommended_container";
+import ProductContainer from "./products/product_show_container";
 
 
 const App = () => (
@@ -15,7 +17,11 @@ const App = () => (
       <HeaderContainer/>
     </header>
       <ExploreContainer/>
-    <Test/>
+      <Switch>
+      <Route path="/products/:productId" component={ProductContainer} />
+      <ProtectedRoute path="/" component={RecommendedContainer} />
+      </Switch>
+    {/* <Test/> */}
   </div>
 );
 

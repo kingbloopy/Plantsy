@@ -4,12 +4,11 @@ import { connect } from "react-redux";
 import { useEffect } from "react";
 
 const Test = (props) => {
+  console.log(props);
 
   useEffect(() => {
     props.fetchAllProducts();
   }, []);
-  
-  // const pro = props.products[0];
 
   if (props.products.length > 0){
     return (
@@ -18,7 +17,9 @@ const Test = (props) => {
           {props.products.map((pro, i) => {
             return <li key={i}>
               <h1>{pro.title}: ${pro.price}</h1>
+              {pro.description.split('\n').map((text, idx) => <p key={idx}>{text}</p>)}
               {pro.photoURLs.map((photo_url, idx) => <img key={idx} className="test-pic" src={photo_url} />)}
+              <br/>
             </li>
           })}
         </ul>
@@ -29,23 +30,13 @@ const Test = (props) => {
     return (
     <div className="test">
         <h1>{pro.title}: ${pro.price}</h1>
+        {pro.description.split('\n').map((text, idx) => <p key={idx}>{text}</p>)}
       {pro.photoURLs.map((photo_url, idx) => <img key={idx} className="test-pic" src={photo_url} />)}
     </div>
     );
   } else {
     return null;
   }
-
-  // return props.products.length > 0 ? (
-  //   <div className="test">
-  //     <h1>{pro.title}</h1>
-  //     <h2>{pro.category}</h2>
-  //     <p>{pro.description}</p>
-  //     {pro.photoURLs.map((photo_url, idx) => <img key={idx} className="test-pic" src={photo_url} />)}
-  //   </div>
-  // ) : (
-  //   null
-  // )
 }
 
 const mapStateToProps = ({ entities }) => ({
