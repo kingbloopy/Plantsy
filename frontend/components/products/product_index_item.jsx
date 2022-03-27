@@ -10,20 +10,18 @@ const ProductItem = props => {
   }
 
   return (
-    <div className="recommended__product-wrapper">
-      <div className="recommended__pic-wrapper">
-        <Link className="recommended__link" to={`/products/${product.id}`}>
-          <img className="recommended__pic-link" src={window.tester2} />
-            {/* <img className="recommended__pic-link" src={product.photoURLs[0]} alt={product.title} /> */}
-        </Link>
+    <div className="recommended__pic-wrapper">
+      <Link className="recommended__link" to={`/products/${product.id}`}>
+        <img className="recommended__pic-link" src={window.tester2} />
+          {/* <img className="recommended__pic-link" src={product.photoURLs[0]} alt={product.title} /> */}
+      </Link>
+      <div className="recommended__price-wrapper">
+        {decimalCount(product.price) ? (
+          <p className="recommended__price">${product.price}0</p>
+        ) : (
+            <p className="recommended__price">${product.price}</p>
+        )}
       </div>
-        <div className="recommended__price-wrapper">
-          {decimalCount(product.price) ? (
-            <p className="recommended__price">${product.price}0</p>
-          ) : (
-              <p className="recommended__price">${product.price}</p>
-          )}
-        </div>
     </div>
   );
 }

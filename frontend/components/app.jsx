@@ -5,9 +5,8 @@ import { AuthRoute, ProtectedRoute } from "../util/route_util";
 import Modal from './modal/modal';
 import Test from "./test";
 import HeaderContainer from "./header/header_container";
-import ExploreContainer from "./explore/expore_container";
-import RecommendedContainer from "./recommended/recommended_container";
 import ProductShowContainer from "./products/product_show_container";
+import SplashContainer from "./splash/splash_container";
 
 
 const App = () => (
@@ -16,10 +15,10 @@ const App = () => (
     <header>
       <HeaderContainer/>
     </header>
-      <ExploreContainer/>
       <Switch>
       <Route exact path="/products/:productId" component={ProductShowContainer}/>
-      <ProtectedRoute path="/" component={RecommendedContainer} />
+      <SplashContainer exact path="/" />
+      {/* <ProtectedRoute path="/" component={SplashContainer} /> */}
       </Switch>
   </div>
 );
