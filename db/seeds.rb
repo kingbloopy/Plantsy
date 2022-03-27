@@ -30,7 +30,8 @@ user2 = User.create!(
 
 shop2 = Shop.create!(
   name: 'Glowy Gardens',
-  owner_id: 2
+  owner_id: 2,
+  sales: 20
 )
 
 
@@ -175,7 +176,8 @@ user3 = User.create!(
 
 shop3 = Shop.create!(
   name: 'Bonita Foliage',
-  owner_id: 3
+  owner_id: 3,
+  sales: 32
 )
 
 calathea1 = Product.create!(
@@ -308,7 +310,8 @@ user4 = User.create!(
 
 shop4 = Shop.create!(
   name: 'Bombotany',
-  owner_id: 4
+  owner_id: 4,
+  sales: 4
 )
 
 calathea2 = Product.create!(
@@ -427,7 +430,8 @@ user5 = User.create!(
 
 shop5 = Shop.create!(
   name: 'A Green Beginning',
-  owner_id: 5
+  owner_id: 5,
+  sales: 12
 )
 
 monstera2 = Product.create!(
@@ -524,7 +528,8 @@ user6 = User.create!(
 
 shop6 = Shop.create!(
 name: 'Green Leaf Goods',
-owner_id: 6
+owner_id: 6,
+sales: 13
 )
 
 monstera3 = Product.create!(
@@ -628,7 +633,8 @@ user7 = User.create!(
 
 shop7 = Shop.create!(
   name: 'Flower Power',
-  owner_id: 7
+  owner_id: 7,
+  sales: 45
 )
 
 ladyslipper = Product.create!(
@@ -708,7 +714,8 @@ user8 = User.create!(
 
 shop8 = Shop.create!(
   name: 'Lush Inc',
-  owner_id: 8
+  owner_id: 8,
+  sales: 40
 )
 
 zygo = Product.create!(
@@ -813,7 +820,8 @@ user9 = User.create!(
 
 shop9 = Shop.create!(
   name: 'Green Goods',
-  owner_id: 9
+  owner_id: 9,
+  sales: 28
 )
 
 pothos1 = Product.create!(
@@ -927,7 +935,8 @@ user10 = User.create!(
 
 shop10 = Shop.create!(
   name: 'Leaf Love',
-  owner_id: 10
+  owner_id: 10,
+  sales: 22
 )
 
 pothos2 = Product.create!(
@@ -1041,7 +1050,8 @@ user11 = User.create!(
 
 shop11 = Shop.create!(
   name: 'Leaflet Designs',
-  owner_id: 11
+  owner_id: 11,
+  sales: 7
 )
 
 animals = Product.create!(
@@ -1108,7 +1118,8 @@ user12 = User.create!(
 
 shop12 = Shop.create!(
   name: 'GogoGreen Co',
-  owner_id: 12
+  owner_id: 12,
+  sales: 3
 )
 
 prop1 = Product.create!(
@@ -1168,7 +1179,8 @@ user13 = User.create!(
 
 shop13 = Shop.create!(
   name: 'Sunshine Succulents',
-  owner_id: 13
+  owner_id: 13,
+  sales: 33
 )
 
 arr1 = Product.create!(
@@ -1314,7 +1326,8 @@ user14 = User.create!(
 
 shop14 = Shop.create!(
   name: 'The Next Gardener Inc',
-  owner_id: 14
+  owner_id: 14,
+  sales: 16
 )
 
 clippers = Product.create!(
@@ -1435,7 +1448,8 @@ user15 = User.create!(
 
 shop15 = Shop.create!(
   name: 'Desert Thumb',
-  owner_id: 15
+  owner_id: 15,
+  sales: 21
 )
 
 tillandsia1 = Product.create!(
@@ -1459,7 +1473,7 @@ tillandsia1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'de
 tillandsia2 = Product.create!(
   title: 'Tillandsia in Hanging Container',
   category: 'Air Plant',
-  description: "2in+ tall or wide, random tillandsia variety in cute gold metal hanging container",
+  description: "2in+ tall or wide, random tillandsia variety in cute gold metal hanging container.",
   price: 15.00,
   quantity: 7,
   seller_id: 15

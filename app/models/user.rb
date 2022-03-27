@@ -52,7 +52,7 @@ class User < ApplicationRecord
 
     if (at_count != 1)
       return true
-    elsif (period_count != 1)
+    elsif (period_count < 1)
       return true
     end
 

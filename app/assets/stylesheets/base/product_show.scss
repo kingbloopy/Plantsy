@@ -1,0 +1,13 @@
+.product-pic {
+  width: 300px;
+}
+
+
+.product-show {
+  display: flex;
+
+  &__product-info {
+    display: flex;
+    flex-direction: column;
+  }
+}
