@@ -6,5 +6,13 @@ class Product < ApplicationRecord
   class_name: :User
 
   has_many_attached :photos
+
+  has_one :shop,
+  through: :seller,
+  source: :shop
+
+  def shop_name
+    shop.name
+  end
   
 end

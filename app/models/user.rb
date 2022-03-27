@@ -12,6 +12,10 @@ class User < ApplicationRecord
   foreign_key: :seller_id,
   class_name: :Product
 
+  has_one :shop,
+  foreign_key: :owner_id,
+  class_name: :Shop
+
   after_initialize :ensure_session_token
   attr_reader :password
 

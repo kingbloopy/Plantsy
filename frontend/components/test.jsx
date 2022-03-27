@@ -18,7 +18,7 @@ const Test = (props) => {
             return <li key={i}>
               <h1>{pro.title}: ${pro.price}</h1>
               {pro.description.split('\n').map((text, idx) => <p key={idx}>{text}</p>)}
-              {pro.photoURLs.map((photo_url, idx) => <img key={idx} className="test-pic" src={photo_url} />)}
+              {/* {pro.photoURLs.map((photo_url, idx) => <img key={idx} className="test-pic" src={photo_url} />)} */}
               <br/>
             </li>
           })}
@@ -31,7 +31,7 @@ const Test = (props) => {
     <div className="test">
         <h1>{pro.title}: ${pro.price}</h1>
         {pro.description.split('\n').map((text, idx) => <p key={idx}>{text}</p>)}
-      {pro.photoURLs.map((photo_url, idx) => <img key={idx} className="test-pic" src={photo_url} />)}
+      {/* {pro.photoURLs.map((photo_url, idx) => <img key={idx} className="test-pic" src={photo_url} />)} */}
     </div>
     );
   } else {

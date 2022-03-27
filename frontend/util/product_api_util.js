@@ -12,6 +12,13 @@ export const fetchProduct = productId => (
   })
 );
 
+export const fetchByCategory = category => (
+  $.ajax({
+    method: 'GET',
+    url: `/api/products/?category=${category}`
+  })
+)
+
 // export const fetchUserProducts = userId => (
 //   $.ajax({
 //     method: 'GET',

@@ -1,7 +1,9 @@
 User.delete_all
 Product.delete_all
+Shop.delete_all
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('products')
+ActiveRecord::Base.connection.reset_pk_sequence!('shops')
 ActiveRecord::Base.connection.reset_pk_sequence!('active_storage_attachments')
 ActiveRecord::Base.connection.reset_pk_sequence!('active_storage_blobs')
 
@@ -13,161 +15,10 @@ demo_user = User.create!(
   password: 'demo123'
 )
 
-# -----------------------------------------
-user1 = User.create!(
-  name: 'Lacey',
-  email: 'laceywild22@gmail.com',
-  password: 'horseLover22'
+demo_shop = Shop.create!(
+  name: 'Demo Shop',
+  owner_id: 1
 )
-
-tillandsia1 = Product.create!(
-  title: 'Colorful Assorted Tillandsias',
-  category: 'Air Plant',
-  description: "Grab bag of 10 tillandsia air plants, in a mix of varieties.
-
-  Perfect for craft projects, terrariums, vertical garden displays and more. Plant sizes will range from 1 Inch to 12 Inches tall.",
-  price: 24.75,
-  quantity: 6,
-  seller_id: 2
-)
-tillandsia1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-tillandsia1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
-
-# tillsA1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsA1.JPG')
-# tillandsia1.photos.attach(io: tillsA1, filename: 'tillsA1.JPG')
-# tillsA2 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsA2.JPG')
-# tillandsia1.photos.attach(io: tillsA2, filename: 'tillsB2.JPG')
-# tillsA3 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsA3.PNG')
-# tillandsia1.photos.attach(io: tillsA3, filename: 'tillsA3.PNG')
-
-tillandsia2 = Product.create!(
-  title: 'Tillandsia in Hanging Container',
-  category: 'Air Plant',
-  description: "2in+ tall or wide, random tillandsia variety in cute gold metal hanging container",
-  price: 15.00,
-  quantity: 7,
-  seller_id: 2
-)
-tillandsia2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-tillandsia2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
-# tillsB1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsB1.JPG')
-# tillandsia2.photos.attach(io: tillsB1, filename: 'tillsB1.JPG')
-
-cymbidium1 = Product.create!(
-  title: 'Cymbidium Koushu',
-  category: 'Orchid',
-  description: "Cymbidium Koushu Tango is a dazzling orchid that produces intense ruby red blooms, showing its excellent breeding by the Mukoyama Nursery in Japan, one of the leading Cymbidium orchid hybridizers in the world. Just like the dance for which it was named, this is one red-hot orchid! Its vibrant red petals coupled with its deep, dark lip results in a very seductive bloom. This Cymbidium orchid is very hardy, easy to grow, and also on the smaller side (not quite miniature, but close), making it an easy fit for any collection. You can grow this in any kind of chunky orchid bark, watering twice per week and fertilizing every other week. Avoid direct sun; moderate to bright shady conditions are best. This is a warm-tolerant orchid and can also tolerate near-freezing temperatures for short durations, but bring inside if expecting prolonged cold.",
-  price: 26.99,
-  quantity: 1,
-  seller_id: 2
-)
-cymbidium1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-cymbidium1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
-# cymbidium1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumA1.JPG'), filename: 'cymbidiumA1.JPG')
-# cymbidium1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumA2.JPG'), filename: 'cymbidiumA2.JPG')
-
-cymbidium2 = Product.create!(
-  title: 'Light Pink Cymbidium',
-  category: 'Orchid',
-  description: 'Plants are potted up in 3.25" square pots, with two or three growths. For Cymbidiums, NBS (Near Blooming Size) means the plant is 12 - 18 months from reaching Blooming Size (a size typically capable of blooming PLEASE NOTE: NOT IN BLOOM when shipped.',
-  price: 23.00,
-  quantity: 3,
-  seller_id: 2
-)
-cymbidium2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-cymbidium2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
-# cymbidium2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB3.JPG'), filename: 'cymbidiumB3.JPG')
-# cymbidium2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB1.jpg'), filename: 'cymbidiumB1.jpg')
-# cymbidium2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB2.JPG'), filename: 'cymbidiumB2.JPG')
-
-cactus1 = Product.create!(
-  title: 'Angel Wings Cactus - Opuntia Microdasys Albata',
-  category: 'Cactus',
-  description: "Careful- this Angel Wings Cactus can be a bit devilish! While the Opuntia may be prickly, the striking bright white spines and pretty seasonal blossoms makes this plant a Lazy Garden favorite. Easy to care for with low light and an occasional watering, this not-so angelic cactus is a match made in heaven for every lazy gardener’s home!",
-  price: 15.00,
-  quantity: 8,
-  seller_id: 2
-)
-cactus1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-cactus1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
-# cactus1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/angel-wings1.jpg'), filename: 'angel-wings1.jpg')
-# cactus1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/angel-wings2.jpg'), filename: 'angel-wings2.jpg')
-
-cactus2 = Product.create!(
-  title: 'Large Peruvian Apple Cactus',
-  category: 'Cactus',
-  description: "Columnar variety of cactus with color variations ranging from yellow / green, green, blue / green, and gray. During the growing season, Apr - Oct, the cactus will produce 6-8” diameter white colored flowers that only bloom for one night.  They also produce an edible fruit the size of a lemon, similar to a dragon fruit. Comes in a 10inch grow pot",
-  price: 80.95,
-  quantity: 1,
-  seller_id: 2
-)
-cactus2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-cactus2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
-# cactus2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/cardon.JPG'), filename: 'cardon.JPG')
-
-cactus3 = Product.create!(
-  title: 'Miniature Saguaro, Euphorbia Aeruginosa, Spurge Cactus, dwarf tree-like cactus',
-  category: 'Cactus',
-  description: "Miniature Saguaro, Scientific Names: Euphorbia Aeruginosa. You will receive a plant similar to the ones in the photos with a pot and soil. The plant will be carefully wrapped and nestled in crinkle paper so that any shock to the packaging can be absorbed and remain safe. Our paper packaging allows the plants to breathe during their travel! 
-  
-  ~Care instructions will be provided with plant.",
-  price: 15.99,
-  quantity: 7,
-  seller_id: 2
-)
-cactus3.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
-# cactus3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/euphorbia.JPG'), filename: 'euphorbia.JPG')
-
-cactus4 = Product.create!(
-  title: 'Miniature Ceramic Pot with tiny LIVE Micro Mini Cactus',
-  category: 'Cactus',
-  description: "ADORABLE Miniature Ceramic Pot holding Live Micro Cactus! These little guys are very hardy, and do not require a lot of attention and care.",
-  price: 21.00,
-  quantity: 10,
-  seller_id: 2
-)
-cactus4.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-cactus4.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
-# cactus4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus1.jpg'), filename: 'minicactus1.jpg')
-# cactus4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus2.jpg'), filename: 'minicactus2.jpg')
-# cactus4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus3.jpg'), filename: 'minicactus3.jpg')
-
-cactus5 = Product.create!(
-  title: 'Pink Christmas Cactus',
-  category: 'Cactus',
-  description: "Pink Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, pink, salmon, and bi-color. Pink Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright pink and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
-  price: 19.95,
-  quantity: 6,
-  seller_id: 2
-)
-cactus5.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-cactus5.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
-# cactus5.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasA1.JPG'), filename: 'xmasA1.JPG')
-# cactus5.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasA2.JPG'), filename: 'xmasA2.JPG')
-
-cactus6 = Product.create!(
-  title: 'Red Christmas Cactus',
-  category: 'Cactus',
-  description: "Red Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, pink, salmon, and bi-color. Red Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright red and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
-  price: 19.95,
-  quantity: 7,
-  seller_id: 2
-)
-cactus6.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-cactus6.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
-# cactus6.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasB1.JPG'), filename: 'xmasB1.JPG')
-# cactus6.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasB2.JPG'), filename: 'xmasB2.JPG')
-
-cactus7 = Product.create!(
-  title: 'Peach Christmas Cactus',
-  category: 'Cactus',
-  description: "Peach Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, peach, salmon, and bi-color. Peach Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright peach and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
-  price: 19.95,
-  quantity: 14,
-  seller_id: 2
-)
-cactus7.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
-# cactus7.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasC1.JPG'), filename: 'xmasC1.JPG')
 
 
 # # -----------------------------------------
@@ -176,6 +27,12 @@ user2 = User.create!(
   email: 'ware-wolves-rule@yahoo.com',
   password: 'vampiresSuck99'
 )
+
+shop2 = Shop.create!(
+  name: 'Glowy Gardens',
+  owner_id: 2
+)
+
 
 aloe1 = Product.create!(
   title: 'Green Aloe',
@@ -297,15 +154,7 @@ herbbox.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.
 strawbox = Product.create!(
   title: "Hanging Planter for Strawberry Plants",
   category: 'Pottery',
-  description: "The latest planting bags: You will get two latest large-capacity planting bags, stylish and lovely appearance and breathable and environmentally friendly materials to make your plants grow better.
-  
-  Environmental protection material: The plant planting bag is made of the strongest environmentally friendly PE material and breathable fabric. It is precisely sewn, durable, resistant to deformation and corrosion, and can be reused.
-  
-  Save space: Use the upside-down planting bag to plant strawberries, mint, etc., and hang them on the balcony corridors to save space in the vegetable garden, create your own sky garden, and beautify the environment.
-  
-  Guarding plants: The holes and materials of the planting bag can ensure air circulation, so that the root system can absorb oxygen and discharge excess water to avoid root rot caused by overwatering.
-  
-  Widely applicable: Garden planting bag is suitable for patio balcony or gardening, suitable for tomatoes, flowers, succulents, green plants and any plants that you want to observe root growth at any time",
+  description: "The latest planting bags: You will get two latest large-capacity planting bags, stylish and lovely appearance and breathable and environmentally friendly materials to make your plants grow better. \n \n Environmental protection material: The plant planting bag is made of the strongest environmentally friendly PE material and breathable fabric. It is precisely sewn, durable, resistant to deformation and corrosion, and can be reused. \n \n Save space: Use the upside-down planting bag to plant strawberries, mint, etc., and hang them on the balcony corridors to save space in the vegetable garden, create your own sky garden, and beautify the environment. \n \n Guarding plants: The holes and materials of the planting bag can ensure air circulation, so that the root system can absorb oxygen and discharge excess water to avoid root rot caused by overwatering. \n \n Widely applicable: Garden planting bag is suitable for patio balcony or gardening, suitable for tomatoes, flowers, succulents, green plants and any plants that you want to observe root growth at any time",
   price: 16.99,
   quantity: 18,
   seller_id: 2
@@ -322,6 +171,11 @@ user3 = User.create!(
   name: 'Morty',
   email: 'morty-adventures@gmail.com',
   password: 'getSwifty'
+)
+
+shop3 = Shop.create!(
+  name: 'Bonita Foliage',
+  owner_id: 3
 )
 
 calathea1 = Product.create!(
@@ -396,7 +250,7 @@ aspfern.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.
 bambpalm = Product.create!(
   title: "Bamboo Palm",
   category: 'House Plant',
-  description: "With dense foliage and lush fronds, the Bamboo Palm makes a statement. An air-purifying plant adaptable to low light, this palm can reach heights of up to 8 feet tall in the right conditions. The Bamboo Palm is a tropical indoor houseplant that compliments any space. Not to be confused with real bamboo, this plant is low maintenance and easy to care for. Native to the forests of Mexico and Central America, Bamboo Palms grow in the shade of larger trees unlike other palms, which makes them adaptable to less than ideal lighting conditions. It is a great choice for the home or office because it rates highly on NASA’s list of air-purifying plants.",
+  description: "With dense foliage and lush fronds, the Bamboo Palm makes a statement. An air-purifying plant adaptable to low light, this palm can reach heights of up to 8 feet tall in the right conditions. \n \n The Bamboo Palm is a tropical indoor houseplant that compliments any space. Not to be confused with real bamboo, this plant is low maintenance and easy to care for. Native to the forests of Mexico and Central America, Bamboo Palms grow in the shade of larger trees unlike other palms, which makes them adaptable to less than ideal lighting conditions. It is a great choice for the home or office because it rates highly on NASA’s list of air-purifying plants.",
   price: 150.95,
   quantity: 1,
   seller_id: 3
@@ -450,6 +304,11 @@ user4 = User.create!(
   name: 'Charlie',
   email: 'charlieday400@gmail.com',
   password: 'paddyspub'
+)
+
+shop4 = Shop.create!(
+  name: 'Bombotany',
+  owner_id: 4
 )
 
 calathea2 = Product.create!(
@@ -566,10 +425,15 @@ user5 = User.create!(
   password: 'IamAcat'
 )
 
+shop5 = Shop.create!(
+  name: 'A Green Beginning',
+  owner_id: 5
+)
+
 monstera2 = Product.create!(
   title: 'Swiss Cheese Plant',
   category: 'House Plant',
-  description: 'Monstera Adansonii (Swiss Cheese). They thrive from indirect sun & love to quickly grow and climb every which way. If you allow the plant to grow up a stake or trellis, it will develop larger, picturesque leaves with very defined Swiss Cheese like holes. ~ Please note that tears in leaves, splits in leaves, leaves growing through splits in leafs, crinkling in leaves growing through leafs, and long vines are very normal for this plant. It is nothing to be concerned about and is not damage, just nature. Also, if a leaf or two has browning on the tips or a knick on the leaf, this is also normal for a plant growing over time.',
+  description: "Monstera Adansonii (Swiss Cheese). They thrive from indirect sun & love to quickly grow and climb every which way. If you allow the plant to grow up a stake or trellis, it will develop larger, picturesque leaves with very defined Swiss Cheese like holes. \n \n ~ Please note that tears in leaves, splits in leaves, leaves growing through splits in leafs, crinkling in leaves growing through leafs, and long vines are very normal for this plant. It is nothing to be concerned about and is not damage, just nature. Also, if a leaf or two has browning on the tips or a knick on the leaf, this is also normal for a plant growing over time.",
   price: 50.25,
   quantity: 4,
   seller_id: 5
@@ -584,23 +448,7 @@ monstera2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo
 minimoney = Product.create!(
   title: "Mini Money Tree",
   category: 'House Plant',
-  description: "The Mini Money Tree is a perfect indoor foliage plant to give you a tropical feel. With its stout stem and bright green palm-looking leaves, it looks both like a tree and a tiny palm. 
-  
-  Native from Mexico to northern South America, the Money Tree is also very popular in Taiwan and other East Asian countries. The Mini Money Tree gets its name because the Feng Shui practice believes it will bring positive energy and good luck to the owner. It has been said this plant reduces stress, anxiety and may also help lessen sleeping disorders. 
-  
-  Difficulty: No-fuss. 
-  
-  Light: Low, Artificial Partial, Bright Indirect. 
-  
-  Pet Friendly: Yes. 
-  
-  Air Cleaner: Yes. 
-  
-  Pet Friendly Details: non-toxic to cats and dogs. 
-  
-  Air Cleaner Details: Purifies air polluted with synthetic chemicals from cleaning products. 
-  
-  Healthy plant pre-potted with premium soil. Plant size: 9in-15in tall (including pot). Ecopots pot and saucer. Pot size: 6.3in in diameter, 5in tall. Saucer size: 6in in diameter.",
+  description: "The Mini Money Tree is a perfect indoor foliage plant to give you a tropical feel. With its stout stem and bright green palm-looking leaves, it looks both like a tree and a tiny palm. \n \n Native from Mexico to northern South America, the Money Tree is also very popular in Taiwan and other East Asian countries. The Mini Money Tree gets its name because the Feng Shui practice believes it will bring positive energy and good luck to the owner. It has been said this plant reduces stress, anxiety and may also help lessen sleeping disorders. \n \n Difficulty: No-fuss. \n \n Light: Low, Artificial Partial, Bright Indirect. \n \n Pet Friendly: Yes. \n \n Air Cleaner: Yes. \n \n Pet Friendly Details: non-toxic to cats and dogs. \n \n Air Cleaner Details: Purifies air polluted with synthetic chemicals from cleaning products. \n \n Healthy plant pre-potted with premium soil. Plant size: 9in-15in tall (including pot). Ecopots pot and saucer. Pot size: 6.3in in diameter, 5in tall. Saucer size: 6in in diameter.",
   price: 49.00,
   quantity: 4,
   seller_id: 5
@@ -613,11 +461,7 @@ minimoney.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo
 paradise = Product.create!(
   title: "Bird of Paradise",
   category: 'House Plant',
-  description: "The Bird of Paradise is considered the queen of the indoor plant world. This large, upright plant adds a rich, tropical flair to your space as its glossy, banana-shaped leaves fan out. It is relatively hardy and adapts to a wide spectrum of light conditions from direct sun to low, indirect light, but will flourish in a sunny spot.
-  
-  Water and humidity are important to keep your Bird of Paradise healthy. It needs consistent watering to keep the soil moist, but never wet or soggy. In addition to careful watering, it will benefit from regular misting to boost its humidity. The Bird of Paradise is native to South Africa where it receives a lot of light and warmth.
-  
-  When grown indoors, there will not be enough light to trigger the plant to produce a bloom. However, the majestic foliage and graceful stems make a statement on their own. The leaves of your Bird of Paradise are naturally perforated and may split in transit, and over time. This is completely natural and not a cause for concern. In the wild, perforating leaves is how the Bird of Paradise becomes more aerodynamic to stand up to the high winds of the tropics.",
+  description: "The Bird of Paradise is considered the queen of the indoor plant world. This large, upright plant adds a rich, tropical flair to your space as its glossy, banana-shaped leaves fan out. It is relatively hardy and adapts to a wide spectrum of light conditions from direct sun to low, indirect light, but will flourish in a sunny spot.\n \n Water and humidity are important to keep your Bird of Paradise healthy. It needs consistent watering to keep the soil moist, but never wet or soggy. In addition to careful watering, it will benefit from regular misting to boost its humidity. The Bird of Paradise is native to South Africa where it receives a lot of light and warmth. \n \n When grown indoors, there will not be enough light to trigger the plant to produce a bloom. However, the majestic foliage and graceful stems make a statement on their own. The leaves of your Bird of Paradise are naturally perforated and may split in transit, and over time. This is completely natural and not a cause for concern. In the wild, perforating leaves is how the Bird of Paradise becomes more aerodynamic to stand up to the high winds of the tropics.",
   price: 198.00,
   quantity: 3,
   seller_id: 5
@@ -631,11 +475,7 @@ paradise.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2
 parlor = Product.create!(
   title: "Parlor Palm",
   category: 'House Plant',
-  description: "This slow-growing, compact palm thrives in a variety of light situations and tight spaces. It’s dark green fronds create a bushy, lush plant perfect for tabletops, desks, and shelves.
-  
-  The Parlor Palm will do best in bright, filtered light, but will readily adapt to low light as well. 
-    
-  Native to Mexico and Central America, the Parlor Palm requires very little care and is an excellent air purifier.  This indoor plant is highly adaptable making it perfect for offices, businesses with less than ideal growing conditions.",
+  description: "This slow-growing, compact palm thrives in a variety of light situations and tight spaces. It’s dark green fronds create a bushy, lush plant perfect for tabletops, desks, and shelves. \n \n The Parlor Palm will do best in bright, filtered light, but will readily adapt to low light as well. \n \n Native to Mexico and Central America, the Parlor Palm requires very little care and is an excellent air purifier.  This indoor plant is highly adaptable making it perfect for offices, businesses with less than ideal growing conditions.",
   price: 49.98,
   quantity: 1,
   seller_id: 5
@@ -661,9 +501,7 @@ pinkag.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.p
 pep = Product.create!(
   title: "Peperomia Collection",
   category: 'House Plant',
-  description: "These pet-friendly peperomia plants are some of the most hardy plants, thanks to their semi-succulent leaves that store excess water. With a variety of texture and color, our Pet-Peromia are adaptable to almost any spot in your home. 
-  
-  Arriving in clay pots, this collection looks great displayed individually or in a trio on our hanging saucer. The Pet-Peromia Collection is a group of three pet-friendly plants, including Peperomia Green, Peperomia Happy Bean, and Peperomia Schumi Red. All three plants are compact and trailing, making them perfect accents for a table or bookshelf. With leaves featuring unique colors, textures, and shapes, this is an easy-care collection that won’t mind a little extra attention from your furry friends. All three Peperomia in this collection are native to South America. They have semi-succulent stems and leaves, making them resilient plants that won’t be affected by a missed watering every once in a while.",
+  description: "These pet-friendly peperomia plants are some of the most hardy plants, thanks to their semi-succulent leaves that store excess water. With a variety of texture and color, our Pet-Peromia are adaptable to almost any spot in your home. \n \n Arriving in clay pots, this collection looks great displayed individually or in a trio on our hanging saucer. The Pet-Peromia Collection is a group of three pet-friendly plants, including Peperomia Green, Peperomia Happy Bean, and Peperomia Schumi Red. All three plants are compact and trailing, making them perfect accents for a table or bookshelf. With leaves featuring unique colors, textures, and shapes, this is an easy-care collection that won’t mind a little extra attention from your furry friends. All three Peperomia in this collection are native to South America. They have semi-succulent stems and leaves, making them resilient plants that won’t be affected by a missed watering every once in a while.",
   price: 69.00,
   quantity: 4,
   seller_id: 5
@@ -683,6 +521,11 @@ user6 = User.create!(
   email: 'lucy-in-the-sky@gmail.com',
   password: 'diamonds!'
   )
+
+shop6 = Shop.create!(
+name: 'Green Leaf Goods',
+owner_id: 6
+)
 
 monstera3 = Product.create!(
   title: 'Monstera Deliciosa (swiss cheese)',
@@ -739,7 +582,7 @@ ponytail.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2
 prayer = Product.create!(
   title: 'Lemon Lime Prayer Plant',
   category: 'House Plant',
-  description: "Lemon Lime Prayer Plant (Maranta leuconeura 'Lemon Lime') Thiago is from the tropics in Brazil and loves to dance in the moonlight. He gets his nickname 'prayer plant' from his leaves folding up at night, which mimics hands praying. It's been said he does this to make sure his roots get access to rainfall. Aww, thoughtful and handsome—swipe right? Low to bright indirect light. Direct light will scorch his leaves.",
+  description: "Lemon Lime Prayer Plant (Maranta leuconeura 'Lemon Lime') \n \n Thiago is from the tropics in Brazil and loves to dance in the moonlight. He gets his nickname 'prayer plant' from his leaves folding up at night, which mimics hands praying. It's been said he does this to make sure his roots get access to rainfall. Aww, thoughtful and handsome—swipe right? Low to bright indirect light. Direct light will scorch his leaves.",
   price: 28.50,
   quantity: 1,
   seller_id: 6
@@ -781,6 +624,11 @@ user7 = User.create!(
   name: 'Lilah',
   email: 'germanshepard-love@doggie.com',
   password: 'goodgirl'
+)
+
+shop7 = Shop.create!(
+  name: 'Flower Power',
+  owner_id: 7
 )
 
 ladyslipper = Product.create!(
@@ -840,7 +688,7 @@ nakedman.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2
 oncidium = Product.create!(
   title: 'Sweet Sugar Oncidium Orchid',
   category: 'Orchid',
-  description: "The delicate, airy blossoms of the Sweet Sugar Oncidium Orchid appear on central spikes and secondary stems in a cloud of sunny yellow with orange and chestnut highlights. Oncidiums prefer cool to intermediate growing conditions (65-85°F during the day; 55-60°F at night). Provide very bright, indirect light. A spot near a south facing window is ideal. Full cultural instructions included.",
+  description: "The delicate, airy blossoms of the Sweet Sugar Oncidium Orchid appear on central spikes and secondary stems in a cloud of sunny yellow with orange and chestnut highlights. \n Oncidiums prefer cool to intermediate growing conditions (65-85°F during the day; 55-60°F at night). Provide very bright, indirect light. A spot near a south facing window is ideal. Full cultural instructions included.",
   price: 32.99,
   quantity: 4,
   seller_id: 7
@@ -856,6 +704,11 @@ user8 = User.create!(
   name: 'Abed',
   email: 'troy-abed-adventures@aol.com',
   password: 'loveCommunityCollege'
+)
+
+shop8 = Shop.create!(
+  name: 'Lush Inc',
+  owner_id: 8
 )
 
 zygo = Product.create!(
@@ -956,6 +809,11 @@ user9 = User.create!(
   name: 'Juni',
   email: 'juniper1611@gmail.com',
   password: 'desertdweller123'
+)
+
+shop9 = Shop.create!(
+  name: 'Green Goods',
+  owner_id: 9
 )
 
 pothos1 = Product.create!(
@@ -1067,6 +925,11 @@ user10 = User.create!(
   password: 'brocoli'
   )
 
+shop10 = Shop.create!(
+  name: 'Leaf Love',
+  owner_id: 10
+)
+
 pothos2 = Product.create!(
   title: 'Long Trailing Pothos',
   category: 'House Plant',
@@ -1176,6 +1039,11 @@ user11 = User.create!(
   password: 'web9875'
   )
 
+shop11 = Shop.create!(
+  name: 'Leaflet Designs',
+  owner_id: 11
+)
+
 animals = Product.create!(
   title: "Adorable Animal Pottery Set",
   category: 'Pottery',
@@ -1238,6 +1106,11 @@ user12 = User.create!(
   password: 'ghost11'
   )
 
+shop12 = Shop.create!(
+  name: 'GogoGreen Co',
+  owner_id: 12
+)
+
 prop1 = Product.create!(
   title: "Glass Propagation Vase",
   category: 'Pottery',
@@ -1292,6 +1165,11 @@ user13 = User.create!(
   email: 'succulentgirl@yahoo.com',
   password: '7895681256'
   )
+
+shop13 = Shop.create!(
+  name: 'Sunshine Succulents',
+  owner_id: 13
+)
 
 arr1 = Product.create!(
   title: "Assorted Succulent Arrangment",
@@ -1434,6 +1312,11 @@ user14 = User.create!(
   password: 'orangesunset22'
   )
 
+shop14 = Shop.create!(
+  name: 'The Next Gardener Inc',
+  owner_id: 14
+)
+
 clippers = Product.create!(
   title: "Garden Clippers",
   category: 'Supplies',
@@ -1451,11 +1334,7 @@ clippers.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2
 fert1 = Product.create!(
   title: "Houseplant Special Fertilizer",
   category: 'Supplies',
-  description: "Effective for both foliage and flowering plants, the Houseplant Special Fertilizer is a must-have product in your care routine. Containing a boost of phosphorus, it will encourage bigger, healthier blooms as well as lush foliage. It works well on plants such as tradescantia, bird of paradise, hoya, schefflera, aglaonema, and more. 
-  
-  Jack’s Houseplant Special Fertilizer (15-30-15) promotes healthy growth for foliage and flowering plants. With key micronutrients to prevent underfeeding, Jack’s Houseplant Special Fertilizer is great for long-term indoor plant care. This versatile fertilizer can be used both indoors and outdoors, working well with plants such as tradescantia, bird of paradise, hoya, schefflera, aglaonema and other foliage plants. 
-  
-  For optimal results, use ½ teaspoon per gallon of water during the active growing seasons. Most plants desire fertilizer once a month during the spring and summer. No fertilizing is typically needed during the fall and winter months as this is your plant’s natural dormancy time. Always remember to apply fertilizer to damp soil.",
+  description: "Effective for both foliage and flowering plants, the Houseplant Special Fertilizer is a must-have product in your care routine. Containing a boost of phosphorus, it will encourage bigger, healthier blooms as well as lush foliage. It works well on plants such as tradescantia, bird of paradise, hoya, schefflera, aglaonema, and more. \n \n Jack’s Houseplant Special Fertilizer (15-30-15) promotes healthy growth for foliage and flowering plants. With key micronutrients to prevent underfeeding, Jack’s Houseplant Special Fertilizer is great for long-term indoor plant care. This versatile fertilizer can be used both indoors and outdoors, working well with plants such as tradescantia, bird of paradise, hoya, schefflera, aglaonema and other foliage plants. \n \n For optimal results, use ½ teaspoon per gallon of water during the active growing seasons. Most plants desire fertilizer once a month during the spring and summer. No fertilizing is typically needed during the fall and winter months as this is your plant’s natural dormancy time. Always remember to apply fertilizer to damp soil.",
   price: 12.00,
   quantity: 10,
   seller_id: 14
@@ -1496,9 +1375,7 @@ glove.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.pn
 neem = Product.create!(
   title: "Neem Oil",
   category: 'Supplies',
-  description: "Bonide Neem Oil is an all-purpose insecticide, miticide, and fungicide for organic gardening. Neem oil is great for plant owners to have on hand to treat active pests and diseases and prevent future outbreaks. 
-  
-  Bonide Neem Oil is highly recommended for plant parents who need a natural and all-purpose product to treat their plants. Derived from the Neem seed, Neem Oil kills pests, eggs, and larvae on contact. It’s effective to treat a variety of pests, including spider mites, scale, and gnats. It also treats many fungal diseases such as leaf spot and powdery mildew. Most commonly used on houseplants, roses, flowers, vegetables, herbs, spices, trees, turf and shrubs. Always follow the direction on the label.",
+  description: "Bonide Neem Oil is an all-purpose insecticide, miticide, and fungicide for organic gardening. Neem oil is great for plant owners to have on hand to treat active pests and diseases and prevent future outbreaks. \n \n Bonide Neem Oil is highly recommended for plant parents who need a natural and all-purpose product to treat their plants. Derived from the Neem seed, Neem Oil kills pests, eggs, and larvae on contact. It’s effective to treat a variety of pests, including spider mites, scale, and gnats. It also treats many fungal diseases such as leaf spot and powdery mildew. Most commonly used on houseplants, roses, flowers, vegetables, herbs, spices, trees, turf and shrubs. Always follow the direction on the label.",
   price: 15.00,
   quantity: 10,
   seller_id: 14
@@ -1547,4 +1424,164 @@ watercan.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2
 # watercan.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/watercan1.JPG'), filename: 'watercan1.JPG')
 # watercan.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/watercan2.JPG'), filename: 'watercan2.JPG')
 
+
+
+# -----------------------------------------------
+user15 = User.create!(
+  name: 'Lacey',
+  email: 'laceywild22@gmail.com',
+  password: 'horseLover22'
+)
+
+shop15 = Shop.create!(
+  name: 'Desert Thumb',
+  owner_id: 15
+)
+
+tillandsia1 = Product.create!(
+  title: 'Colorful Assorted Tillandsias',
+  category: 'Air Plant',
+  description: "Grab bag of 10 tillandsia air plants, in a mix of varieties. \n \n Perfect for craft projects, terrariums, vertical garden displays and more. Plant sizes will range from 1 Inch to 12 Inches tall.",
+  price: 24.75,
+  quantity: 6,
+  seller_id: 15
+)
+tillandsia1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
+tillandsia1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+
+# tillsA1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsA1.JPG')
+# tillandsia1.photos.attach(io: tillsA1, filename: 'tillsA1.JPG')
+# tillsA2 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsA2.JPG')
+# tillandsia1.photos.attach(io: tillsA2, filename: 'tillsB2.JPG')
+# tillsA3 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsA3.PNG')
+# tillandsia1.photos.attach(io: tillsA3, filename: 'tillsA3.PNG')
+
+tillandsia2 = Product.create!(
+  title: 'Tillandsia in Hanging Container',
+  category: 'Air Plant',
+  description: "2in+ tall or wide, random tillandsia variety in cute gold metal hanging container",
+  price: 15.00,
+  quantity: 7,
+  seller_id: 15
+)
+tillandsia2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
+tillandsia2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+# tillsB1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsB1.JPG')
+# tillandsia2.photos.attach(io: tillsB1, filename: 'tillsB1.JPG')
+
+cymbidium1 = Product.create!(
+  title: 'Cymbidium Koushu',
+  category: 'Orchid',
+  description: "Cymbidium Koushu Tango is a dazzling orchid that produces intense ruby red blooms, showing its excellent breeding by the Mukoyama Nursery in Japan, one of the leading Cymbidium orchid hybridizers in the world. \n \n Just like the dance for which it was named, this is one red-hot orchid! Its vibrant red petals coupled with its deep, dark lip results in a very seductive bloom. This Cymbidium orchid is very hardy, easy to grow, and also on the smaller side (not quite miniature, but close), making it an easy fit for any collection. You can grow this in any kind of chunky orchid bark, watering twice per week and fertilizing every other week. Avoid direct sun; moderate to bright shady conditions are best. This is a warm-tolerant orchid and can also tolerate near-freezing temperatures for short durations, but bring inside if expecting prolonged cold.",
+  price: 26.99,
+  quantity: 1,
+  seller_id: 15
+)
+cymbidium1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
+cymbidium1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+# cymbidium1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumA1.JPG'), filename: 'cymbidiumA1.JPG')
+# cymbidium1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumA2.JPG'), filename: 'cymbidiumA2.JPG')
+
+cymbidium2 = Product.create!(
+  title: 'Light Pink Cymbidium',
+  category: 'Orchid',
+  description: 'Plants are potted up in 3.25" square pots, with two or three growths. For Cymbidiums, NBS (Near Blooming Size) means the plant is 12 - 18 months from reaching Blooming Size (a size typically capable of blooming PLEASE NOTE: NOT IN BLOOM when shipped.',
+  price: 23.00,
+  quantity: 3,
+  seller_id: 15
+)
+cymbidium2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
+cymbidium2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+# cymbidium2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB3.JPG'), filename: 'cymbidiumB3.JPG')
+# cymbidium2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB1.jpg'), filename: 'cymbidiumB1.jpg')
+# cymbidium2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB2.JPG'), filename: 'cymbidiumB2.JPG')
+
+cactus1 = Product.create!(
+  title: 'Angel Wings Cactus - Opuntia Microdasys Albata',
+  category: 'Cactus',
+  description: "Careful- this Angel Wings Cactus can be a bit devilish! While the Opuntia may be prickly, the striking bright white spines and pretty seasonal blossoms makes this plant a Lazy Garden favorite. Easy to care for with low light and an occasional watering, this not-so angelic cactus is a match made in heaven for every lazy gardener’s home!",
+  price: 15.00,
+  quantity: 8,
+  seller_id: 15
+)
+cactus1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
+cactus1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+# cactus1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/angel-wings1.jpg'), filename: 'angel-wings1.jpg')
+# cactus1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/angel-wings2.jpg'), filename: 'angel-wings2.jpg')
+
+cactus2 = Product.create!(
+  title: 'Large Peruvian Apple Cactus',
+  category: 'Cactus',
+  description: "Columnar variety of cactus with color variations ranging from yellow / green, green, blue / green, and gray. During the growing season, Apr - Oct, the cactus will produce 6-8” diameter white colored flowers that only bloom for one night.  They also produce an edible fruit the size of a lemon, similar to a dragon fruit. Comes in a 10inch grow pot",
+  price: 80.95,
+  quantity: 1,
+  seller_id: 15
+)
+cactus2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
+cactus2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+# cactus2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/cardon.JPG'), filename: 'cardon.JPG')
+
+cactus3 = Product.create!(
+  title: 'Miniature Saguaro, Euphorbia Aeruginosa, Spurge Cactus, dwarf tree-like cactus',
+  category: 'Cactus',
+  description: "Miniature Saguaro, Scientific Names: Euphorbia Aeruginosa. You will receive a plant similar to the ones in the photos with a pot and soil. The plant will be carefully wrapped and nestled in crinkle paper so that any shock to the packaging can be absorbed and remain safe. Our paper packaging allows the plants to breathe during their travel! 
+  
+  ~Care instructions will be provided with plant.",
+  price: 15.99,
+  quantity: 7,
+  seller_id: 15
+)
+cactus3.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+# cactus3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/euphorbia.JPG'), filename: 'euphorbia.JPG')
+
+cactus4 = Product.create!(
+  title: 'Miniature Ceramic Pot with tiny LIVE Micro Mini Cactus',
+  category: 'Cactus',
+  description: "ADORABLE Miniature Ceramic Pot holding Live Micro Cactus! These little guys are very hardy, and do not require a lot of attention and care.",
+  price: 21.00,
+  quantity: 10,
+  seller_id: 15
+)
+cactus4.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
+cactus4.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+# cactus4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus1.jpg'), filename: 'minicactus1.jpg')
+# cactus4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus2.jpg'), filename: 'minicactus2.jpg')
+# cactus4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus3.jpg'), filename: 'minicactus3.jpg')
+
+cactus5 = Product.create!(
+  title: 'Pink Christmas Cactus',
+  category: 'Cactus',
+  description: "Pink Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, pink, salmon, and bi-color. Pink Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright pink and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
+  price: 19.95,
+  quantity: 6,
+  seller_id: 15
+)
+cactus5.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
+cactus5.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+# cactus5.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasA1.JPG'), filename: 'xmasA1.JPG')
+# cactus5.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasA2.JPG'), filename: 'xmasA2.JPG')
+
+cactus6 = Product.create!(
+  title: 'Red Christmas Cactus',
+  category: 'Cactus',
+  description: "Red Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, pink, salmon, and bi-color. Red Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright red and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
+  price: 19.95,
+  quantity: 7,
+  seller_id: 15
+)
+cactus6.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
+cactus6.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+# cactus6.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasB1.JPG'), filename: 'xmasB1.JPG')
+# cactus6.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasB2.JPG'), filename: 'xmasB2.JPG')
+
+cactus7 = Product.create!(
+  title: 'Peach Christmas Cactus',
+  category: 'Cactus',
+  description: "Peach Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, peach, salmon, and bi-color. Peach Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright peach and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
+  price: 19.95,
+  quantity: 14,
+  seller_id: 15
+)
+cactus7.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+# cactus7.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasC1.JPG'), filename: 'xmasC1.JPG')
 

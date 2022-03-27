@@ -22,3 +22,8 @@ export const fetchProduct = (productId) => dispatch => (
   ProductUtil.fetchProduct(productId)
   .then(product => dispatch(receiveProduct(product)))
 );
+
+export const fetchByCategory = category => dispatch => (
+  ProductUtil.fetchByCategory(category)
+  .then(products => dispatch(receiveAllProducts(products)))
+)

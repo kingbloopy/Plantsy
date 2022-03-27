@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import React from "react";
+import ProductItem from "../products/product_index_item";
 
 const Recommended = (props) => {
 
@@ -14,22 +15,16 @@ const Recommended = (props) => {
       recProducts.push(randPro);
     }
 
-    decimalCount = num => {
-      let count = 0;
-      if (!!(num % 1)) count++
-      return count;
-    }
-
     return (
       <div className="recommended">
-        <ul className="recommended__wrapper">
-          {recProducts.map((pro, i) => {
-            return <li className="recommended__img" key={i}>
-              {pro.photoURLs.map((photo_url, i) => <img key={i} className="test-pic" src={photo_url} />)}
-              <p>${pro.price}0</p>
-            </li>
-          })}
-        </ul>
+        <h1>Recommended for you</h1>
+        <div className="recommended__header-wrapper">
+          <ul className="recommended__wrapper">
+            {recProducts.map((product, i) => {
+              return <ProductItem className="recommended__product" product={product} key={i}/>
+            })}
+          </ul>
+        </div>
       </div>
     );
   } else {
@@ -38,3 +33,12 @@ const Recommended = (props) => {
 }
 
 export default Recommended;
+
+// return <li className="recommended__img" key={i}>
+//   {pro.photoURLs.map((photo_url, i) => <img key={i} className="test-pic" src={photo_url} />)}
+//   {decimalCount(pro.price) ? (
+//     <p>${pro.price}0</p>
+//   ) : (
+//     <p>${pro.price}</p>
+//   )}
+// </li>

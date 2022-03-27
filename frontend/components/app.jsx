@@ -7,7 +7,7 @@ import Test from "./test";
 import HeaderContainer from "./header/header_container";
 import ExploreContainer from "./explore/expore_container";
 import RecommendedContainer from "./recommended/recommended_container";
-import ProductContainer from "./products/product_show_container";
+import ProductShowContainer from "./products/product_show_container";
 
 
 const App = () => (
@@ -18,10 +18,9 @@ const App = () => (
     </header>
       <ExploreContainer/>
       <Switch>
-      <Route path="/products/:productId" component={ProductContainer} />
+      <Route exact path="/products/:productId" component={ProductShowContainer}/>
       <ProtectedRoute path="/" component={RecommendedContainer} />
       </Switch>
-    {/* <Test/> */}
   </div>
 );
 

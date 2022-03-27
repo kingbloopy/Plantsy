@@ -1,4 +1,61 @@
+@import './root.scss';
 
 .recommended {
-  display: none;
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+
+  & > h1 {
+    margin-left: 52px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  &__header-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__wrapper {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+  }
+  
+  &__pic-wrapper {
+    text-decoration: none;
+    width: 150px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 10px;
+
+    &:hover {
+      box-shadow: $box-shadow;
+      transition: ease-in 0.16s;
+    }
+  }
+  
+  &__pic-link {
+    width: 150px;
+    height: 150px;
+  }
+  
+  &__price-wrapper {
+    font-size: 14px;
+    font-weight: 500;
+    // margin-left: 10px;
+    z-index: 100;
+    background-color: aqua;
+    width: fit-content;
+    z-index: 50;
+    
+    & > p {
+      // margin-top: -80px;
+      color: red;
+    }
+    // padding: 8px;
+  }
 }
