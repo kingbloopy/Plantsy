@@ -1,0 +1,100 @@
+@import './root.scss';
+
+.product-pics {
+  width: 100%;
+
+  &__inner {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 80vh;
+  }
+
+  &__main-pic-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__svg-button {
+    border-radius: 50%;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    box-shadow: $box-shadow;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+    & > svg {
+      color: $dark-green;
+      padding: 5px;
+      width: 34px;
+      height: 34px;
+      -webkit-transition: background 0.8s;
+      transition: background 0.8s;
+      border-radius: 50%;
+      
+      &:hover {
+        background-color: $hover-button;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &__main-picture {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    position: relative;
+    left: 7%;
+  }
+
+  &__small-pics-wrapper {
+    max-width: 100px;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  %__small-picture-item {
+    border: 1px transparent;
+  }
+
+  &__small-picture {
+    width: 95%;
+    height: 80%;
+    border-radius: 18px;
+    padding: 2px;
+    border: 2px solid transparent;
+
+    &:hover {
+      border: 2px solid $highlight-green;
+      cursor: pointer;
+      border-radius: 18px;
+    }
+    
+    &::after {
+      border: 2px solid $dark-green;
+    }
+  }
+
+}
+
+
+#left-svg-button {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+#right-svg-button {
+  left: 14%;
+  z-index: 2;
+
+  &:hover {
+    cursor: pointer;
+  }
+}

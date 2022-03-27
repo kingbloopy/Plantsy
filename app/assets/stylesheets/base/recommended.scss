@@ -4,9 +4,12 @@
   padding-top: 50px;
   display: flex;
   flex-direction: column;
+  margin-left: 50px;
+  margin-right: 50px;
+  padding-bottom: 50px;
 
   & > h1 {
-    margin-left: 52px;
+    // margin-left: 52px;
     font-size: 14px;
     font-weight: 500;
   }
@@ -27,8 +30,8 @@
   
   &__pic-wrapper {
     text-decoration: none;
-    width: 150px;
-    height: 100px;
+    width: 230px;
+    height: 155px;
     overflow: hidden;
     border-radius: 10px;
     position: relative;
@@ -40,8 +43,8 @@
   }
   
   &__pic-link {
-    width: 150px;
-    height: 150px;
+    width: 230px;
+    height: 230px;
   }
   
   &__price-wrapper {
@@ -51,7 +54,7 @@
     font-weight: 500;
     margin-left: 10px;
     position: absolute;
-    margin-top: -86px;
+    margin-top: -114px;
     padding: 6px;
     border-radius: 18px;
     z-index: 100;
