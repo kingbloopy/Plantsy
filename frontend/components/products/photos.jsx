@@ -7,10 +7,6 @@ const Photos = props => {
   let [mainPic, setMainPic] = useState(photos[0]);
   let [index, setIndex] = useState(0);
 
-  console.log('MAINPIC', mainPic);
-  console.log('INDEX', index);
-  console.log('LENGTH', photos.length);
-
   const rightClickHandler = e => {
     e.preventDefault();
     let newIndex =
@@ -54,13 +50,15 @@ const Photos = props => {
               <path d="M16,21a0.994,0.994,0,0,1-.664-0.253L5.5,12l9.841-8.747a1,1,0,0,1,1.328,1.494L8.5,12l8.159,7.253A1,1,0,0,1,16,21Z"></path>
             </svg>
           </button>
-          <img className="product-pics__main-picture"
-            src={mainPic === undefined ? (
-              photos[0]
-            ) : (
-              mainPic
-            )}
-          ></img>
+          <div className="product-pics__main-picture-wrapper">
+            <img className="product-pics__main-picture"
+              src={mainPic === undefined ? (
+                photos[0]
+              ) : (
+                mainPic
+              )}
+            ></img>
+          </div>
           <button className="product-pics__svg-button" id="right-svg-button" onClick={rightClickHandler}>
             <svg
               xmlns="http://www.w3.org/2000/svg"

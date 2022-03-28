@@ -11,6 +11,10 @@ class Product < ApplicationRecord
   through: :seller,
   source: :shop
 
+  has_many :carts,
+  foreign_key: :product_id,
+  class_name: :CartItem
+
   def shop_name
     shop.name
   end

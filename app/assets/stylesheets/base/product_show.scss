@@ -4,11 +4,14 @@
   border-top: 2px solid rgb(182, 189, 158);
   display: flex;
   padding: 50px;
-  gap: 200px;
+  
 
   &__product-info {
     display: flex;
     flex-direction: column;
+    max-width: 430px;
+    width: 100%;
+
   }
 
   &__seller-info {
