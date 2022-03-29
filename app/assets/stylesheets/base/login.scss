@@ -62,21 +62,21 @@
       }
     }
 
-    &__input2-wrapper {
-      display: flex;
-      justify-content: space-between;
-      line-height: 1.5rem;
+    // &__input2-wrapper {
+    //   display: flex;
+    //   justify-content: space-between;
+    //   line-height: 1.5rem;
 
-      & > label {
-        font-size: 14px;
-      }
+    //   & > label {
+    //     font-size: 14px;
+    //   }
 
-      & > .forgot-password {
-        font-size: 10px;
-        color: $grey-green;
-        text-decoration: underline;
-      }
-    }
+    //   & > .forgot-password {
+    //     font-size: 10px;
+    //     color: $grey-green;
+    //     text-decoration: underline;
+    //   }
+    // }
 
     &__lower-link-wrapper {
       display: flex;
@@ -90,12 +90,7 @@
         text-decoration: underline;
       }
 
-      & > p {
-        font-size: 12px;
-        color: $grey-green;
-        margin-top: 15px;
-      }
-
+      
       & > .demo-user-button {
         border: $border;
         padding-top: 15px;
@@ -104,10 +99,38 @@
         font-weight: 500;
         border-radius: 24px;
         margin-top: 16px;
-
+        
         &:hover {
           box-shadow: $box-shadow;
         }
+      }
+    }
+
+    &__or {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      align-items: center;
+
+      & > p {
+        font-size: 12px;
+        color: $grey-green;
+        padding-top: 8px;
+        padding-bottom: 7px;
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+      
+      &::before {
+        content: '';
+        border-top: 1px solid rgb(197, 206, 190);
+        width: 100%;
+      }
+
+      &::after {
+        content: '';
+        border-top: 1px solid rgb(197, 206, 190);
+        width: 100%;
       }
     }
 
@@ -119,6 +142,7 @@
     }
 
     &__submit {
+      margin-top: 6px;
       padding-top: 15px !important;
       padding-bottom: 15px !important;
       font-size: 14px !important;

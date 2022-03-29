@@ -93,7 +93,9 @@ const SignUpForm = props => {
           <div className="signup-form__form__lower-inputs">
             <input type="submit" className="signup-form__form__submit" value="Register" />
 
-            <p>OR</p>
+            <div className="signup-form__form__or">
+              <p>OR</p>
+            </div>
 
             <button className="signup-form__form__demo-button" onClick={handleSubmitDemoUser}>Continue with Demo User</button>
           </div>

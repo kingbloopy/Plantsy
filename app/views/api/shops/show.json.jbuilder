@@ -1,1 +1,1 @@
-json.extract! @shop, :name
+json.extract! @shop, :name, :sales

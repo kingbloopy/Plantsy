@@ -14,9 +14,5 @@ class Product < ApplicationRecord
   has_many :carts,
   foreign_key: :product_id,
   class_name: :CartItem
-
-  def shop_name
-    shop.name
-  end
   
 end

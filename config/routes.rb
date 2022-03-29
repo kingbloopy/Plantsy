@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     end
     resource :session, only: [:create, :destroy]
     resources :products, only: [:create, :show, :index, :update, :destroy]
+    resources :cartitems, only: [:create, :update, :destroy, :index]
   end
 
 

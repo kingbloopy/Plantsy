@@ -74,7 +74,7 @@ const LoginForm = props => {
 
         </div>
 
-        <div className="login-form__form__input2-wrapper">
+        {/* <div className="login-form__form__input2-wrapper">
           <label className="login-form__form__check-label">
             <input 
             type="checkbox" 
@@ -84,14 +84,16 @@ const LoginForm = props => {
             Remember me
           </label>
           {props.forgotPasswordLink}
-        </div>
+        </div> */}
 
         <div className="login-form__form__lower-link-wrapper">
           <input type="submit" className="login-form__form__submit" value="Sign in"/>
 
           {props.troubleLink}
 
-          <p>OR</p>
+          <div className="login-form__form__or">
+            <p>OR</p>
+          </div>
 
           <button className="demo-user-button" onClick={handleSubmitDemoUser}>Continue with Demo User</button>
 

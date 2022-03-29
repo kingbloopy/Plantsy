@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = ({ currentUser, logout, openModal }) => {
 
@@ -7,7 +8,9 @@ const Header = ({ currentUser, logout, openModal }) => {
 
       <div className="header__upper">
 
-        <img className="header__logo" src={window.plantsyLogo} />
+        <Link className="header__link" to="/">
+          <img className="header__logo" src={window.plantsyLogo} />
+        </Link>
 
         <div className="header__search-wrapper">
           <input className="header__search-input" placeholder="Search for anything"></input>
@@ -22,9 +25,9 @@ const Header = ({ currentUser, logout, openModal }) => {
           )}
         </div>
 
-        <div className="header__cart__wrapper">
+        <Link className="header__cart__wrapper" to="/cart">
           <img className="header__cart__img" src={window.cartImg}></img>
-        </div>
+        </Link>
       </div>
       
 

@@ -7,6 +7,7 @@ import Test from "./test";
 import HeaderContainer from "./header/header_container";
 import ProductShowContainer from "./products/product_show_container";
 import SplashContainer from "./splash/splash_container";
+import CartContainer from "./cart/cart_container";
 
 
 const App = () => (
@@ -17,8 +18,8 @@ const App = () => (
     </header>
       <Switch>
       <Route exact path="/products/:productId" component={ProductShowContainer}/>
+      <Route exact path="/cart" component={CartContainer} />
       <SplashContainer exact path="/" />
-      {/* <ProtectedRoute path="/" component={SplashContainer} /> */}
       </Switch>
   </div>
 );

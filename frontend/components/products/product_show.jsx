@@ -20,15 +20,26 @@ const ProductShow = props => {
     return(
       <div className="product-show">
   
-        <Photos photos={product.photoURLs} />
+        <Photos photos={[window.tester1, window.tester2]} />
+        {/* <Photos photos={product.photoURLs} /> */}
   
         <div className="product-show__product-info">
           <div className="product-show__seller-info">
             <Link to="#" className="product-show__seller-info__shop">{product.shop}</Link>
-            <p>{product.sales} sales</p>
+            {product.sales ? (
+              <p>{product.sales} sales</p>
+              ): (
+              <p>0 sales</p>
+            )}
           </div>
   
+
           <h1 className="product-show__title">{product.title}</h1>
+          <div className="product-show__in-stock">
+            <p>In stock</p>
+            <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20px" height="20px"><path d="M 19.980469 5.9902344 A 1.0001 1.0001 0 0 0 19.292969 6.2929688 L 9 16.585938 L 5.7070312 13.292969 A 1.0001 1.0001 0 1 0 4.2929688 14.707031 L 8.2929688 18.707031 A 1.0001 1.0001 0 0 0 9.7070312 18.707031 L 20.707031 7.7070312 A 1.0001 1.0001 0 0 0 19.980469 5.9902344 z" /></svg>
+          </div>
+
   
           
           <div className="product-show__pq-wrapper">
@@ -37,12 +48,13 @@ const ProductShow = props => {
           ) : (
             <p className="product-show__price">${product.price}</p>
           )}
-  
-          <div className="product-show__quantity-wrapper">
-            <p>Quantity</p>
-          <QuantityCounter max={product.quantity}/>
+
+            <div className="product-show__quantity-wrapper">
+              <p>Quantity:</p>
+              <QuantityCounter max={product.quantity}/>
+            </div>
           </div>
-          </div>
+
   
           <button type="button" className="product-show__add-cart">Add to cart</button>
           <div className="product-show__d-wrapper">

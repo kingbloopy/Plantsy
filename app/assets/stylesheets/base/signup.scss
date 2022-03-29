@@ -17,7 +17,6 @@
       }
     }
 
-
     &__input-wrapper {
       margin-top: 10px;
       display: flex;
@@ -79,12 +78,6 @@
         }
       }
 
-      & > p {
-        font-size: 12px;
-        color: $grey-green;
-        margin-top: 15px;
-      }
-
       & > button {
         border: $border;
         padding-top: 15px;
@@ -97,6 +90,34 @@
         &:hover {
           box-shadow: $box-shadow;
         }
+      }
+    }
+
+    &__or {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 15px;
+      align-items: center;
+
+      & > p {
+        font-size: 12px;
+        color: $grey-green;
+        padding-top: 8px;
+        padding-bottom: 7px;
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+      
+      &::before {
+        content: '';
+        border-top: 1px solid rgb(197, 206, 190);
+        width: 100%;
+      }
+
+      &::after {
+        content: '';
+        border-top: 1px solid rgb(197, 206, 190);
+        width: 100%;
       }
     }
 

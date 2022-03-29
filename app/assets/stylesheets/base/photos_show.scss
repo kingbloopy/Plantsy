@@ -16,7 +16,7 @@
     align-items: center;
     margin-left: 10px;
     max-width: 600px;
-    margin-bottom: 105px;
+    // margin-bottom: 105px;
   }
 
   &__svg-button {
@@ -61,25 +61,28 @@
 
   &__small-pics-wrapper {
     max-width: 80px;
-    height: 520px;
+    height: 540px;
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  %__small-picture-item {
+  &__small-picture-item {
     border: 1px transparent;
+    width: 80px;
+    height: 80px;
+    padding: 6px;
+    overflow: hidden;
   }
 
   &__small-picture {
-    width: 95%;
-    height: 80%;
+    width: 100%;
+    height: 100%;
     border-radius: 18px;
-    padding: 2px;
-    border: 2px solid transparent;
-
+    opacity: 70%;
+    
     &:hover {
-      border: 2px solid $highlight-green;
+      opacity: 100%;
       cursor: pointer;
       border-radius: 18px;
     }
@@ -100,7 +103,7 @@
 }
 
 #right-svg-button {
-  left: 56.7%;
+  left: 55.9%;
   position: absolute;
 
   &:hover {
