@@ -1,4 +1,4 @@
-class Api::CartController < ApplicationController
+class Api::CartitemsController < ApplicationController
 
   def index
     @cart = CartItem.all.select{|product| product.user_id == current_user.id}
@@ -15,8 +15,8 @@ class Api::CartController < ApplicationController
   end
 
   def update
+    @cartitem = CartItem.find_by(id: params[:id])
     if logged_in?
-      @cartitem = CartItem.find_by(id: params[:id])
       if @cartitem && (params[:increase] == true)
         @cartitem.quantity += get_quantity
         @cartitem.save

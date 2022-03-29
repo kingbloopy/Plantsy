@@ -47,6 +47,8 @@
     align-items: center;
     background-color: rgb(244, 247, 243);
     position: relative;
+    -webkit-transition: background 0.8s;
+    transition: background 0.8s;
 
     & > svg {
       width: 20px;
@@ -70,6 +72,8 @@
     &:focus-within {
       border: 1.8px solid $highlight-green;
       background-color: white;
+      -webkit-transition: background 0.8s;
+      transition: background 0.8s;
 
       & > svg {
         background-color: $hover-button;
@@ -85,6 +89,8 @@
       outline: none;
       color: $dark-green;
       font-family: 'Montserrat', sans-serif;
+      -webkit-transition: background 0.8s;
+      transition: background 0.8s;
 
       &::placeholder {
         font-size: 16px;
@@ -94,6 +100,8 @@
       
       &:focus {
         background-color: white;
+        -webkit-transition: background 0.8s;
+        transition: background 0.8s;
       }
     }
 

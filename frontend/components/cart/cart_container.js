@@ -2,9 +2,9 @@ import { fetchCart, removeCartItem, updateCartItem } from '../../actions/cartite
 import { connect } from 'react-redux';
 import CartShow from './cart_show';
 
-const mapStateToProps = ({ entities }) => ({
+const mapStateToProps = ({ entities, session }) => ({
   cartItems: Object.keys(entities.cart).map(key => entities.cart[key]),
-  // currentUser: entities.users[entities.session.id]
+  currentUser: entities.users[session.id]
 });
 
 const mapDispatchToProps = dispatch => ({
