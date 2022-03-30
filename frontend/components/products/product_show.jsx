@@ -7,7 +7,6 @@ import { checkForCartItem } from "../../util/cart_selectors";
 const ProductShow = props => {
   const { product, currentUser, cart, maxQuantity } = props;
   let [count, setCount] = useState(1);
-  console.log(maxQuantity)
   
   let [currentMax, setCurrentMax] = useState(maxQuantity);
 
@@ -49,12 +48,6 @@ const ProductShow = props => {
       const id = checkForCartItem(cart, product.id);
       const cartItem = {id: id, product_id: product.id, user_id: currentUser.id, quantity: count }
 
-      console.log('ITEM EXISTS', id);
-
-      console.log('CURRENTMAX', currentMax);
-      console.log('MAX', maxQuantity);
-      console.log('COUNT', count);
-
       setCurrentMax(currentMax -= count);
 
       id ? props.updateCartItem(cartItem, true) : props.addCartItem(cartItem);
@@ -69,7 +62,6 @@ const ProductShow = props => {
     let outOfStock;
     let addCart;
     if (currentMax <= 0) {
-      // setCount(0);
       addCart = null;
       outOfStock = "__out-of-stock"
     } else {
@@ -94,10 +86,16 @@ const ProductShow = props => {
           </div>
 
           <h1 className="product-show__title">{product.title}</h1>
+          {currentMax > 2 ? (
           <div className="product-show__in-stock">
             <p>In stock</p>
             <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20px" height="20px"><path d="M 19.980469 5.9902344 A 1.0001 1.0001 0 0 0 19.292969 6.2929688 L 9 16.585938 L 5.7070312 13.292969 A 1.0001 1.0001 0 1 0 4.2929688 14.707031 L 8.2929688 18.707031 A 1.0001 1.0001 0 0 0 9.7070312 18.707031 L 20.707031 7.7070312 A 1.0001 1.0001 0 0 0 19.980469 5.9902344 z" /></svg>
           </div>
+          ) : (
+          <div className="product-show__low-stock">
+            <p>Low in stock</p>
+          </div>
+          )}
 
           <div className="product-show__pq-wrapper">
           {decimalCount(product.price) ? (

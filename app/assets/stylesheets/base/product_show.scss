@@ -44,6 +44,20 @@
     }
   }
 
+  &__low-stock {
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding-right: 10px;
+    margin-top: 50px;
+    margin-bottom: 6px;
+
+    & > p {
+      font-size: 14px;
+      color: rgb(195, 79, 30);
+    }
+  }
+
   &__pq-wrapper {
     display: flex;
     justify-content: space-between;
