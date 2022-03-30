@@ -5,12 +5,26 @@ import Photos from "./photos";
 import { checkForCartItem } from "../../util/cart_selectors";
 
 const ProductShow = props => {
-  const { product, currentUser, cart } = props;
+  const { product, currentUser, cart, maxQuantity } = props;
   let [count, setCount] = useState(1);
   
+  let [currentMax, setCurrentMax] = useState(maxQuantity);
+
   useEffect(() => {
     props.fetchProduct(props.match.params.productId);
   }, []);
+
+  useEffect(() => {
+    setCurrentMax(maxQuantity);
+  }, [maxQuantity]);
+
+  useEffect(() => {
+    if (currentMax <= 0) {
+      setCount(0);
+    } else {
+      setCount(1);
+    }
+  }, [currentMax]);
 
   const decimalCount = num => {
     const n = num.toString();
@@ -18,61 +32,36 @@ const ProductShow = props => {
   }
 
   const increment = () => {
-    const max = product.quantity;
-    if (count >= max) return;
+    if (count >= currentMax) return;
     setCount(count += 1);
   }
 
   const decrement = () => {
-    if (count <= 0) return;
+    if (count <= 1) return;
     setCount(count -= 1);
   }
 
   const addItemHandleClick = e => {
-    e.preventDefault(e);
-    // if (currentUser){
-    //   const item = checkForCartItem(cart, product.id);
-    //   const cartItem = {id: item.id, product_id: product.id, user_id: currentUser.id, quantity: count }
-
-    //   console.log('ITEM EXISTS', item);
-
-    //   item ? props.updateCartItem(cartItem, true) : props.addCartItem(cartItem);
-    // } else {
-    //   props.openModal('login');
-    // }
+    e.preventDefault();
 
     if (currentUser){
       const id = checkForCartItem(cart, product.id);
       const cartItem = {id: id, product_id: product.id, user_id: currentUser.id, quantity: count }
 
-      console.log('ITEM EXISTS', id);
+      setCurrentMax(currentMax -= count);
 
       id ? props.updateCartItem(cartItem, true) : props.addCartItem(cartItem);
     } else {
       props.openModal('login');
     }
+
   }
-
-  // const getCurrentQuantity = () => {
-  //   const item = checkForCartItem(cart, product.id);
-  //   console.log('CART', cart);
-  //   console.log('PRODUCT-ID', product.id);
-  //   console.log('ITEM', item);
-  //   if (item) {
-  //     return item.quantity
-  //   } else {
-  //     return 0;
-  //   }
-  // }
   
-  
-  if (props.product) {
+  if (product) {
 
-    const max = product.quantity;
     let outOfStock;
     let addCart;
-    if (count >= max) {
-    // if (getCurrentQuantity() >= max) {
+    if (currentMax <= 0) {
       addCart = null;
       outOfStock = "__out-of-stock"
     } else {
@@ -97,10 +86,16 @@ const ProductShow = props => {
           </div>
 
           <h1 className="product-show__title">{product.title}</h1>
+          {currentMax > 2 ? (
           <div className="product-show__in-stock">
             <p>In stock</p>
             <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20px" height="20px"><path d="M 19.980469 5.9902344 A 1.0001 1.0001 0 0 0 19.292969 6.2929688 L 9 16.585938 L 5.7070312 13.292969 A 1.0001 1.0001 0 1 0 4.2929688 14.707031 L 8.2929688 18.707031 A 1.0001 1.0001 0 0 0 9.7070312 18.707031 L 20.707031 7.7070312 A 1.0001 1.0001 0 0 0 19.980469 5.9902344 z" /></svg>
           </div>
+          ) : (
+          <div className="product-show__low-stock">
+            <p>Low in stock</p>
+          </div>
+          )}
 
           <div className="product-show__pq-wrapper">
           {decimalCount(product.price) ? (

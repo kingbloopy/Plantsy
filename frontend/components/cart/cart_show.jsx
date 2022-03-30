@@ -1,14 +1,15 @@
 import React from "react";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { Link } from "react-router-dom";
 import CartFooter from "./cart_footer";
+import CartItem from "./cart_item";
 
 const CartShow = props => {
   const { cartItems, updateCartItem, removeCartItem, currentUser } = props;
 
-  useEffect(() => {
+  // useEffect(() => {
     // props.fetchCart();
-  }, []);
+  // }, []);
 
   if (cartItems.length === 0){
   return (
@@ -43,8 +44,25 @@ const CartShow = props => {
     );
   } else {
     return (
-      <div>
-        <h1>Your cart has items.</h1>
+      <div className="cart-items">
+        {cartItems.length === 1 ? (
+          <div>
+            <h1 className="cart-items__amount">{cartItems.length} item in your cart</h1>
+            <ul className="cart-items__items-wrapper">
+              <CartItem removeCartItem={props.removeCartItem} updateCartItem={props.updateCartItem} item={cartItems[0]}/>
+            </ul>
+          </div>
+          ) : (
+            <div>
+              <h1 className="cart-items__amount">{cartItems.length} items in your cart</h1>
+              <ul className="cart-items__items-wrapper">
+                {cartItems.map((item, idx) => {
+                  <CartItem removeCartItem={props.removeCartItem} updateCartItem={props.updateCartItem} item={item} key={idx}/>
+                })}
+              </ul>
+            </div>
+        )}
+        
         <CartFooter/>
       </div>
     );

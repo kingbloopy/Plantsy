@@ -51,6 +51,13 @@
       }
     }
 
+    &__error {
+      text-align: start;
+      font-size: 12px;
+      margin-top: 8px;
+      color: $red;
+    }
+
     &__input {
       padding: 8px;
       border-radius: 6px;
