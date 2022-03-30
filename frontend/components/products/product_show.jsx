@@ -30,6 +30,17 @@ const ProductShow = props => {
 
   const addItemHandleClick = e => {
     e.preventDefault(e);
+    // if (currentUser){
+    //   const item = checkForCartItem(cart, product.id);
+    //   const cartItem = {id: item.id, product_id: product.id, user_id: currentUser.id, quantity: count }
+
+    //   console.log('ITEM EXISTS', item);
+
+    //   item ? props.updateCartItem(cartItem, true) : props.addCartItem(cartItem);
+    // } else {
+    //   props.openModal('login');
+    // }
+
     if (currentUser){
       const id = checkForCartItem(cart, product.id);
       const cartItem = {id: id, product_id: product.id, user_id: currentUser.id, quantity: count }
@@ -42,17 +53,26 @@ const ProductShow = props => {
     }
   }
 
-  const outOfStock = () => {
-    const itemId = checkForCartItem(cart, product.id);
-    props.fetchCartItem(itemId);
-  }
+  // const getCurrentQuantity = () => {
+  //   const item = checkForCartItem(cart, product.id);
+  //   console.log('CART', cart);
+  //   console.log('PRODUCT-ID', product.id);
+  //   console.log('ITEM', item);
+  //   if (item) {
+  //     return item.quantity
+  //   } else {
+  //     return 0;
+  //   }
+  // }
   
   
   if (props.product) {
+
     const max = product.quantity;
     let outOfStock;
     let addCart;
-    if (count === max) {
+    if (count >= max) {
+    // if (getCurrentQuantity() >= max) {
       addCart = null;
       outOfStock = "__out-of-stock"
     } else {
