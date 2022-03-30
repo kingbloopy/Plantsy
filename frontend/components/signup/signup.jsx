@@ -25,6 +25,7 @@ const SignUpForm = props => {
       name: (name).toLowerCase(),
       password: password
     }
+    console.log('USER', user);
     props.signup(user).then(props.closeModal);
   }
 

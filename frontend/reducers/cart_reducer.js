@@ -11,7 +11,11 @@ const cartReducer = (state = {}, action) => {
       delete nextState[action.cartitemId]
       return nextState;
     case RECEIVE_CURRENT_USER:
-      return action.user.cart;
+      if (action.user.cart) {
+        return action.user.cart;
+      } else {
+        return state;
+      }
     case LOGOUT_CURRENT_USER:
       return {};
     default:
