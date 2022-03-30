@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Photos from "./photos";
 import { checkForCartItem } from "../../util/cart_selectors";
@@ -7,22 +7,25 @@ import { checkForCartItem } from "../../util/cart_selectors";
 const ProductShow = props => {
   const { product, currentUser, cart, maxQuantity } = props;
   let [count, setCount] = useState(1);
+  console.log(maxQuantity)
+  
   let [currentMax, setCurrentMax] = useState(maxQuantity);
 
-  // let currentMax;
-  // if (product) currentMax = product.quantity;
-
-  // let currentMax;
-  // if (product) currentMax = useRef(product.quantity);
-
-  // useEffect(() => {
-  //   currentMax.current = currentMax.current - count;
-  // });
-  
   useEffect(() => {
     props.fetchProduct(props.match.params.productId);
-    setCurrentMax(maxQuantity);
   }, []);
+
+  useEffect(() => {
+    setCurrentMax(maxQuantity);
+  }, [maxQuantity]);
+
+  useEffect(() => {
+    if (currentMax <= 0) {
+      setCount(0);
+    } else {
+      setCount(1);
+    }
+  }, [currentMax]);
 
   const decimalCount = num => {
     const n = num.toString();
@@ -42,27 +45,12 @@ const ProductShow = props => {
   const addItemHandleClick = e => {
     e.preventDefault();
 
-    // if (currentUser){
-    //   const item = checkForCartItem(cart, product.id);
-    //     console.log('ITEM EXISTS', item);
-    //     const cartItem = {id: item.id, product_id: product.id, user_id: currentUser.id, quantity: count }
-
-    //     setCurrentMax(currentMax -= count);
-
-    //   item ? props.updateCartItem(cartItem, true) : props.addCartItem(cartItem);
-    // } else {
-    //   props.openModal('login');
-    // }
-
     if (currentUser){
       const id = checkForCartItem(cart, product.id);
       const cartItem = {id: id, product_id: product.id, user_id: currentUser.id, quantity: count }
 
       console.log('ITEM EXISTS', id);
 
-      // console.log('CURRENTMAX1', currentMax);
-      // console.log('COUNT1', count);
-      // currentMax -= count;
       console.log('CURRENTMAX', currentMax);
       console.log('MAX', maxQuantity);
       console.log('COUNT', count);
@@ -75,33 +63,13 @@ const ProductShow = props => {
     }
 
   }
-
-  // const getCurrentQuantity = () => {
-  //   if (currentUser){
-  //     debugger
-  //     const item = checkForCartItem(cart, product.id);
-  //     // console.log('CART', cart);
-  //     // console.log('PRODUCT-ID', product.id);
-  //     // console.log('ITEM', item);
-  //     if (item) {
-  //       return item.quantity
-  //     } else {
-  //       return 0;
-  //     }
-  //   }
-  // }
   
-  
-  if (props.product) {
-    // const max = product.quantity;
-    // console.log('MAX', max);
-    // max = product.quantity;
+  if (product) {
 
     let outOfStock;
     let addCart;
     if (currentMax <= 0) {
-    // if (count >= max) {
-    // if (getCurrentQuantity() >= max) {
+      // setCount(0);
       addCart = null;
       outOfStock = "__out-of-stock"
     } else {
