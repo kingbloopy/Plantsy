@@ -8,7 +8,7 @@ const cartReducer = (state = {}, action) => {
     case RECEIVE_CART:
       return action.items;
     case REMOVE_CARTITEM:
-      delete nextState[action.cartitemId]
+      delete nextState[action.itemId]
       return nextState;
     case RECEIVE_CURRENT_USER:
       if (action.user.cart) {
