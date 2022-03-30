@@ -1,7 +1,8 @@
+import { proposalPlugins } from "@babel/preset-env/data/shipped-proposals";
 import React from "react";
 import { Link } from "react-router-dom";
 
-const Header = ({ currentUser, logout, openModal }) => {
+const Header = ({ currentUser, logout, openModal, cart }) => {
 
   return (
     <div className="header">
@@ -25,9 +26,22 @@ const Header = ({ currentUser, logout, openModal }) => {
           )}
         </div>
 
-        <Link className="header__cart__wrapper" to="/cart">
-          <img className="header__cart__img" src={window.cartImg}></img>
-        </Link>
+        {cart.length === 0 ? (
+          <div className="cart-number-wrapper">
+            <p className="empty"></p>
+            <Link className="header__cart__wrapper" to="/cart">
+              <img className="header__cart__img" src={window.cartImg}></img>
+            </Link>
+          </div>
+        ) : (
+          <div className="cart-number-wrapper">
+            <p>{cart.length}</p>
+            <Link className="header__cart__wrapper" to="/cart">
+              <img className="header__cart__img" src={window.cartImg}></img>
+            </Link>
+          </div>
+        )}
+
       </div>
       
 

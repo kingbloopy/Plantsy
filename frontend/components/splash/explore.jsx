@@ -3,7 +3,6 @@ import React from "react";
 const Explore = ({ currentUser }) => {
 
   let capitalizedName;
-
   if (currentUser){
     const name = (currentUser.name);
     capitalizedName = name[0].toUpperCase() + name.slice(1).toLowerCase();

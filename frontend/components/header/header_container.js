@@ -4,7 +4,8 @@ import { logout } from '../../actions/session_actions';
 import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ session, entities }) => ({
-  currentUser: entities.users[session.id]
+  currentUser: entities.users[session.id],
+  cart: Object.keys(entities.cart)
 });
 
 const mapDispatchToProps = dispatch => ({
