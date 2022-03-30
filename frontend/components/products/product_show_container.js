@@ -7,7 +7,8 @@ import { addCartItem, updateCartItem, fetchCart } from '../../actions/cartitem_a
 const mapStateToProps = (state, ownProps) => ({
   product: state.entities.products[ownProps.match.params.productId],
   currentUser: state.entities.users[state.session.id],
-  cart: Object.values(state.entities.cart)
+  cart: Object.values(state.entities.cart),
+  maxQuantity: (state.entities.products[ownProps.match.params.productId]).quantity
 });
 
 export default connect(mapStateToProps, {

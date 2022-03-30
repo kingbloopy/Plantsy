@@ -1,15 +1,27 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Photos from "./photos";
 import { checkForCartItem } from "../../util/cart_selectors";
 
 const ProductShow = props => {
-  const { product, currentUser, cart } = props;
+  const { product, currentUser, cart, maxQuantity } = props;
   let [count, setCount] = useState(1);
+  let [currentMax, setCurrentMax] = useState(maxQuantity);
+
+  // let currentMax;
+  // if (product) currentMax = product.quantity;
+
+  // let currentMax;
+  // if (product) currentMax = useRef(product.quantity);
+
+  // useEffect(() => {
+  //   currentMax.current = currentMax.current - count;
+  // });
   
   useEffect(() => {
     props.fetchProduct(props.match.params.productId);
+    setCurrentMax(maxQuantity);
   }, []);
 
   const decimalCount = num => {
@@ -18,23 +30,24 @@ const ProductShow = props => {
   }
 
   const increment = () => {
-    const max = product.quantity;
-    if (count >= max) return;
+    if (count >= currentMax) return;
     setCount(count += 1);
   }
 
   const decrement = () => {
-    if (count <= 0) return;
+    if (count <= 1) return;
     setCount(count -= 1);
   }
 
   const addItemHandleClick = e => {
-    e.preventDefault(e);
+    e.preventDefault();
+
     // if (currentUser){
     //   const item = checkForCartItem(cart, product.id);
-    //   const cartItem = {id: item.id, product_id: product.id, user_id: currentUser.id, quantity: count }
+    //     console.log('ITEM EXISTS', item);
+    //     const cartItem = {id: item.id, product_id: product.id, user_id: currentUser.id, quantity: count }
 
-    //   console.log('ITEM EXISTS', item);
+    //     setCurrentMax(currentMax -= count);
 
     //   item ? props.updateCartItem(cartItem, true) : props.addCartItem(cartItem);
     // } else {
@@ -47,31 +60,47 @@ const ProductShow = props => {
 
       console.log('ITEM EXISTS', id);
 
+      // console.log('CURRENTMAX1', currentMax);
+      // console.log('COUNT1', count);
+      // currentMax -= count;
+      console.log('CURRENTMAX', currentMax);
+      console.log('MAX', maxQuantity);
+      console.log('COUNT', count);
+
+      setCurrentMax(currentMax -= count);
+
       id ? props.updateCartItem(cartItem, true) : props.addCartItem(cartItem);
     } else {
       props.openModal('login');
     }
+
   }
 
   // const getCurrentQuantity = () => {
-  //   const item = checkForCartItem(cart, product.id);
-  //   console.log('CART', cart);
-  //   console.log('PRODUCT-ID', product.id);
-  //   console.log('ITEM', item);
-  //   if (item) {
-  //     return item.quantity
-  //   } else {
-  //     return 0;
+  //   if (currentUser){
+  //     debugger
+  //     const item = checkForCartItem(cart, product.id);
+  //     // console.log('CART', cart);
+  //     // console.log('PRODUCT-ID', product.id);
+  //     // console.log('ITEM', item);
+  //     if (item) {
+  //       return item.quantity
+  //     } else {
+  //       return 0;
+  //     }
   //   }
   // }
   
   
   if (props.product) {
+    // const max = product.quantity;
+    // console.log('MAX', max);
+    // max = product.quantity;
 
-    const max = product.quantity;
     let outOfStock;
     let addCart;
-    if (count >= max) {
+    if (currentMax <= 0) {
+    // if (count >= max) {
     // if (getCurrentQuantity() >= max) {
       addCart = null;
       outOfStock = "__out-of-stock"
