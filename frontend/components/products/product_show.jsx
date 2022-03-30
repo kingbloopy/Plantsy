@@ -1,18 +1,15 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { openModal } from "../../actions/modal_actions";
 import Photos from "./photos";
 import { checkForCartItem } from "../../util/cart_selectors";
 
 const ProductShow = props => {
-  const { product, currentUser } = props;
+  const { product, currentUser, cart } = props;
   let [count, setCount] = useState(1);
-  // let [cart, setCart] = useState(currentUser.cart);
   
   useEffect(() => {
     props.fetchProduct(props.match.params.productId);
-    props.fetchCart();
   }, []);
 
   const decimalCount = num => {
@@ -33,18 +30,36 @@ const ProductShow = props => {
 
   const addItemHandleClick = e => {
     e.preventDefault(e);
-    const cartItem = {product_id: product.id, user_id: currentUser.id, quantity: count}
     if (currentUser){
-      const increase = true;
-      console.log('ITEM EXISTS', checkForCartItem(currentUser.cart, product.id));
+      const id = checkForCartItem(cart, product.id);
+      const cartItem = {id: id, product_id: product.id, user_id: currentUser.id, quantity: count }
 
-      checkForCartItem(currentUser.cart, product.id) ? props.updateCartItem(cartItem.id, cartItem, increase) : props.addCartItem(cartItem);
+      console.log('ITEM EXISTS', id);
+
+      id ? props.updateCartItem(cartItem, true) : props.addCartItem(cartItem);
     } else {
-      openModal('login');
+      props.openModal('login');
     }
   }
+
+  const outOfStock = () => {
+    const itemId = checkForCartItem(cart, product.id);
+    props.fetchCartItem(itemId);
+  }
+  
   
   if (props.product) {
+    const max = product.quantity;
+    let outOfStock;
+    let addCart;
+    if (count === max) {
+      addCart = null;
+      outOfStock = "__out-of-stock"
+    } else {
+      addCart = addItemHandleClick
+      outOfStock = "";
+    }
+
     return(
       <div className="product-show">
   
@@ -84,7 +99,7 @@ const ProductShow = props => {
             </div>
           </div>
 
-          <button type="button" className="product-show__add-cart" onClick={addItemHandleClick}>Add to cart</button>
+          <button type="button" className={`product-show__add-cart${outOfStock}`} onClick={addCart}>Add to cart</button>
           <div className="product-show__d-wrapper">
             <h4>Description</h4>
             <p className="product-show__body">{product.description}</p>

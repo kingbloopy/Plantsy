@@ -1,9 +1,9 @@
 // if item already exists in the cart
 export const checkForCartItem = (cart, productId) => {
 
-  let exists = false;
+  let id;
   cart.forEach(cartItem => {
-    if (cartItem.product_id === productId) exists = true;
+    if (cartItem.product_id === productId) id = cartItem.id;
   });
-  return exists;
+  return id;
 }

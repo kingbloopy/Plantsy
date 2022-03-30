@@ -2,31 +2,19 @@ import { connect } from "react-redux";
 import ProductShow from "./product_show";
 import { fetchProduct } from "../../actions/product_actions";
 import { openModal } from '../../actions/modal_actions';
-import { addCartItem, updateCartItem, fetchCart } from '../../actions/cartitem_actions';
-// import { checkForCartItem } from "../../util/cart_selectors";
+import { addCartItem, updateCartItem, fetchCart, fetchCartItem } from '../../actions/cartitem_actions';
 
-const mapStateToProps = (state, ownProps) => {
-  const product = state.entities.products[ownProps.match.params.productId];
-  const currentUser = state.entities.users[state.session.id];
-  const cart = currentUser.cart;
-  // let productId;
-  // if (product){
-  //   productId = product.id
-  // }
-  // console.log('CONTAINER', state.entities.cart)
-  return {
-    product,
-    // itemExists: checkForCartItem(cart, productId),
-    currentUser,
-    cart
-    // cart: state.entities.cart
-  }
-}
+const mapStateToProps = (state, ownProps) => ({
+  product: state.entities.products[ownProps.match.params.productId],
+  currentUser: state.entities.users[state.session.id],
+  cart: Object.values(state.entities.cart)
+});
 
 export default connect(mapStateToProps, {
   fetchProduct, 
   openModal,
   addCartItem,
   updateCartItem,
-  fetchCart
+  fetchCart,
+  fetchCartItem
 })(ProductShow);

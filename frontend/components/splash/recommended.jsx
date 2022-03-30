@@ -33,12 +33,3 @@ const Recommended = (props) => {
 }
 
 export default Recommended;
-
-// return <li className="recommended__img" key={i}>
-//   {pro.photoURLs.map((photo_url, i) => <img key={i} className="test-pic" src={photo_url} />)}
-//   {decimalCount(pro.price) ? (
-//     <p>${pro.price}0</p>
-//   ) : (
-//     <p>${pro.price}</p>
-//   )}
-// </li>

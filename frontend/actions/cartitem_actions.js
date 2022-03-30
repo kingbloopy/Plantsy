@@ -13,7 +13,6 @@ const deleteCartItem = itemId => ({
   itemId
 });
 
-
 export const fetchCart = () => dispatch => (
   CartitemUtil.fetchCart()
   .then(items => dispatch(receiveCart(items)))
@@ -29,7 +28,7 @@ export const removeCartItem = cartitemId => dispatch => (
   .then(() => dispatch(deleteCartItem(cartitemId)))
 );
 
-export const updateCartItem = (cartitemId, cartitem, increase) => dispatch => (
-  CartitemUtil.updateCartitem(cartitemId, cartitem, increase)
+export const updateCartItem = (cartitem, increase) => dispatch => (
+  CartitemUtil.updateCartitem(cartitem, increase)
   .then(items => dispatch(receiveCart(items)))
 );

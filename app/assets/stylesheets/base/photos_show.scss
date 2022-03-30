@@ -16,7 +16,6 @@
     align-items: center;
     margin-left: 10px;
     max-width: 600px;
-    // margin-bottom: 105px;
   }
 
   &__svg-button {
@@ -53,10 +52,14 @@
     display: flex;
     justify-content: center;
   }
-
+  
   &__main-picture {
     height: 540px;
     border-radius: 20px;
+    // transform: scale(1.1);
+    // transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    // animation-name: fadeIn;
+    // animation-duration: 600ms;
   }
 
   &__small-pics-wrapper {
@@ -97,6 +100,7 @@
 
 #left-svg-button {
   margin-right: 9px;
+  z-index: 2;
   &:hover {
     cursor: pointer;
   }
@@ -110,3 +114,13 @@
     cursor: pointer;
   }
 }
+
+// @keyframes fadeIn {
+//   from {
+//     opacity: 0;
+//   }
+
+//   to {
+//     opacity: 1;
+//   }
+// }
