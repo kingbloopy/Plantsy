@@ -14,6 +14,14 @@ const CartShow = props => {
     return total;
   }
 
+  const checkoutHandleClick = e => {
+    e.preventDefault();
+    cartItems.forEach(item => {
+      removeCartItem(item.id);
+    });
+    props.openModal('checkout')
+  }
+
   const underline = idx => {
     return idx === cartItems.length - 1 ? 'last' : 'underline'
   }
@@ -126,7 +134,8 @@ const CartShow = props => {
               </div>
 
               <div className="cart-payment__inner__lower-wrapper">
-                <button>Proceed to checkout</button>
+                <button onClick={checkoutHandleClick}>Proceed to checkout</button>
+                {/* <button onClick={() => props.openModal('checkout')}>Proceed to checkout</button> */}
                 <p>*Additional duties and taxes may apply</p>
               </div>
             </div>
