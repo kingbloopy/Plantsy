@@ -74,7 +74,9 @@ const CartItem = props => {
         </div>
 
         <div className="cart-item__content-wrapper">
-          <img src={props.item.photoUrl}/>
+          <div className="cart-item__content-wrapper__img-wrapper">
+            <img src={props.item.photoUrl}/>
+          </div>
           <div className="cart-item__content-left">
             <Link to={`/products/${props.item.product_id}`}>{props.item.title}</Link>
             <p className="cart-item__content__quantity">{props.item.quantity}</p>
