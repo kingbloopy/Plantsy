@@ -9,8 +9,9 @@ const CheckoutModal = props => {
       <p>Please note, checkout purposes are for demonstration only</p>
 
       <h2>If you enjoyed your experience with Plantsy, feel free to check out my portfolio:</h2>
-      {/* add link to portfolio website */}
-      <Link to="null">Maggies's Portfolio</Link>
+      <a target="_blank" href="https://github.com/kingbloopy">
+        Maggie's Portfolio
+      </a>
     </div>
   );
 }
