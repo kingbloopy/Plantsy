@@ -145,7 +145,8 @@
     display: flex;
     justify-content: space-around;
     
-    & > li {
+    & > a {
+      text-decoration: none;
       font-size: 12px;
 
       &:after {

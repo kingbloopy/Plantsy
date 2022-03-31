@@ -26,4 +26,4 @@ export const fetchProduct = (productId) => dispatch => (
 export const fetchByCategory = category => dispatch => (
   ProductUtil.fetchByCategory(category)
   .then(products => dispatch(receiveAllProducts(products)))
-)
+);

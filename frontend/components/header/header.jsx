@@ -1,4 +1,3 @@
-import { proposalPlugins } from "@babel/preset-env/data/shipped-proposals";
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -46,16 +45,16 @@ const Header = ({ currentUser, logout, openModal, cart }) => {
       
 
       <ul className="header__nav-links">
-        <li>Bromeliads</li>
-        <li>Herbs</li>
-        <li>Orchids</li>
-        <li>Pottery</li>
-        <li>Houseplants</li>
-        <li>Succulents</li>
-        <li>Cacti</li>
-        <li>Supplies</li>
-        <li>Air Plants</li>
-        <li>Bonsai</li>
+        <Link to="/bromeliads">Bromeliads</Link>
+        <Link to="/herbs">Herbs</Link>
+        <Link to="/orchids">Orchids</Link>
+        <Link to="/pottery">Pottery</Link>
+        <Link to="/houseplants">Houseplants</Link>
+        <Link to="/succulents">Succulents</Link>
+        <Link to="/cacti">Cacti</Link>
+        <Link to="supplies">Supplies</Link>
+        <Link to="air-plants">Air Plants</Link>
+        <Link to="bonsai">Bonsai</Link>
       </ul>
     </div>
   );
