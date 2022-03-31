@@ -1,6 +1,7 @@
-import { fetchCart, removeCartItem, updateCartItem } from '../../actions/cartitem_actions';
+import { fetchCart, removeCartItem } from '../../actions/cartitem_actions';
 import { connect } from 'react-redux';
 import CartShow from './cart_show';
+import { openModal } from '../../actions/modal_actions';
 
 const mapStateToProps = ({ entities, session }) => ({
   cartItems: Object.keys(entities.cart).map(key => entities.cart[key]),
@@ -10,7 +11,7 @@ const mapStateToProps = ({ entities, session }) => ({
 const mapDispatchToProps = dispatch => ({
   fetchCart: () => dispatch(fetchCart()),
   removeCartItem: cartItemId => dispatch(removeCartItem(cartItemId)),
-  updateCartItem: (cartItemId, cartitem, increase) => dispatch(updateCartItem(cartItemId, cartitem, increase))
+  openModal: modal => dispatch(openModal(modal))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartShow);

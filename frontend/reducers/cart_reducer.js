@@ -8,10 +8,14 @@ const cartReducer = (state = {}, action) => {
     case RECEIVE_CART:
       return action.items;
     case REMOVE_CARTITEM:
-      delete nextState[action.cartitemId]
+      delete nextState[action.itemId]
       return nextState;
     case RECEIVE_CURRENT_USER:
-      return action.user.cart;
+      if (action.user.cart) {
+        return action.user.cart;
+      } else {
+        return state;
+      }
     case LOGOUT_CURRENT_USER:
       return {};
     default:

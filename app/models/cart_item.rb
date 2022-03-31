@@ -12,5 +12,17 @@ class CartItem < ApplicationRecord
   def total_price
     self.quantity * self.product.price
   end
+
+  def shop
+    {
+      id: self.product.shop.id,
+      name: self.product.shop.name,
+      owner_id: self.product.shop.owner_id
+    }
+  end
+
+  def available
+    self.product.quantity
+  end
 end
 
