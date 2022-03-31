@@ -1,13 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { openModal } from "../../actions/modal_actions";
 
 const SmallFooter = props => {
   return (
     <div className="small-footer">
       <div className="small-footer__top">
         <h1>Have a question? We've got some answers.</h1>
-        <button>Go to Help Center</button>
+        <button onClick={() => props.openModal('help')}>Go to Help Center</button>
         <div className="small-footer__top__energy">
           <img src={window.energy}/>
           <h2>Plantsy is powered by 100% renewable electricity.</h2>
@@ -37,4 +37,8 @@ const SmallFooter = props => {
   );
 }
 
-export default connect(null, null)(SmallFooter);
+const mapDispatchToProps = dispatch => ({
+  openModal: modal => dispatch(openModal(modal))
+});
+
+export default connect(null, mapDispatchToProps)(SmallFooter);

@@ -1,0 +1,27 @@
+@import './root.scss';
+
+.help-center {
+  padding: 10px 0px;
+  & > h1 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+
+  & > h2 {
+    font-size: 18px;
+    color: $grey-green;
+    margin-bottom: 20px;
+  }
+
+  & > a {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+
+    &:hover {
+      text-decoration: underline;
+      color: $logo-green;
+    }
+  }
+}

@@ -6,6 +6,7 @@ import SignupFormContainer from "../signup/signup_container";
 import ForgotPasswordContainer from "./forgot_password";
 import TroubleModalContainer from "./trouble_signing_in";
 import CheckoutModalContainer from "./checkout_modal";
+import HelpModalContainer from "./help_center";
 import { useState } from "react";
 
 const Modal = ({ modal, closeModal }) => {
@@ -38,6 +39,9 @@ const Modal = ({ modal, closeModal }) => {
       break;
     case 'checkout':
       component = <CheckoutModalContainer />;
+      break;
+    case 'help':
+      component = <HelpModalContainer/>;
       break;
     default:
       return null;
