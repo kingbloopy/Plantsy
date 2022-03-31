@@ -1,13 +1,11 @@
 import React from "react";
-// import { Provider } from "react";
-import { Route, Redirect, Switch, Link, HashRouter } from "react-router-dom";
-import { AuthRoute, ProtectedRoute } from "../util/route_util";
+import { Route, Switch, } from "react-router-dom";
 import Modal from './modal/modal';
-import Test from "./test";
 import HeaderContainer from "./header/header_container";
 import ProductShowContainer from "./products/product_show_container";
 import SplashContainer from "./splash/splash_container";
 import CartContainer from "./cart/cart_container";
+import FooterContainer from "./footer/footer";
 
 
 const App = () => (
@@ -16,11 +14,14 @@ const App = () => (
     <header>
       <HeaderContainer/>
     </header>
-      <Switch>
+    <Switch>
       <Route exact path="/products/:productId" component={ProductShowContainer}/>
       <Route exact path="/cart" component={CartContainer} />
       <SplashContainer exact path="/" />
-      </Switch>
+    </Switch>
+    <footer>
+      <FooterContainer/>
+    </footer>
   </div>
 );
 
