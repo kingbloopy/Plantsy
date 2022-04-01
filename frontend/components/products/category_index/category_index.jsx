@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 import CategoryItem from "./category_item";
+import Spinner from '../../misc/spinner';
 
 const CategoryIndex = props => {
   const location = useLocation();
@@ -81,7 +82,9 @@ const CategoryIndex = props => {
         </ul>
       </div>
     </div>
-  ) : null
+  ) : (
+    <Spinner/>
+  );
 }
 
 export default CategoryIndex;
