@@ -75,8 +75,8 @@ const CartItem = props => {
 
         <div className="cart-item__content-wrapper">
           <Link to={`/products/${props.item.product_id}`} className="cart-item__content-wrapper__img-wrapper">
-            <img src={window.tester2}/>
-            {/* <img src={props.item.photoUrl}/> */}
+            {/* <img src={window.tester2}/> */}
+            <img src={props.item.photoUrl}/>
           </Link>
           <div className="cart-item__content-wrapper__text-wrapper">
             <div className="cart-item__content-left">
