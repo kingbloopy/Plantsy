@@ -17,7 +17,7 @@ demo_user = User.create!(
 
 demo_shop = Shop.create!(
   name: 'Demo Shop',
-  owner_id: 1
+  owner_id: demo_user.id
 )
 
 
@@ -30,7 +30,7 @@ user2 = User.create!(
 
 shop2 = Shop.create!(
   name: 'Glowy Gardens',
-  owner_id: 2,
+  owner_id: user2.id,
   sales: 20
 )
 
@@ -41,7 +41,7 @@ aloe1 = Product.create!(
   description: 'These healthy aloe vera plants bring a wonderful sense of greenery and healing to a space. Revered for their medicinal power and hardy nature, aloe vera plants are one everyone can acquire many uses and enjoyment from.',
   price: 14.99,
   quantity: 2,
-  seller_id: 2
+  seller_id: user2.id
 )
 # aloe1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # aloe1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -56,8 +56,7 @@ aloe2 = Product.create!(
   description: 'Excellent houseplant; very little maintenance needed. Looks great in kitchens, window sills and in any indoor setting. Known for providing health benefits to skin.',
   price: 12.50,
   quantity: 11,
-  seller_id: 2
-)
+  seller_id: user2.id)
 # aloe2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # aloe2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 aloeB1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/aloe/aloeB1.jpg')
@@ -71,8 +70,7 @@ basil = Product.create!(
   description: "Basil's taste is like sweet mint and anise flavor that marries well with pesto recipes or anything with a tomato base. Its dark green leaves give a lovely, clove-like spicy aroma. It's antioxidant, and beta-carotene qualities help keep cells healthy and disease-free.",
   price: 6.99,
   quantity: 23,
-  seller_id: 2
-)
+  seller_id: user2.id)
 # basil.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # basil.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 basil.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/basil.JPG'), filename: 'basil.JPG')
@@ -83,8 +81,7 @@ herbs1 = Product.create!(
   description: "HAND SELECTED: Every pack of herbs we send is hand-picked. You will receive a unique collection of species that are fully rooted and similar to the product photos. Note that we rotate our nursery stock often, so the exact species we send changes every week.",
   price: 28.15,
   quantity: 9,
-  seller_id: 2
-)
+  seller_id: user2.id)
 # herbs1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # herbs1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 herbs1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsA1.JPG'), filename: 'herbsA1.JPG')
@@ -96,8 +93,8 @@ herbs2 = Product.create!(
   description: "Herbs are ready to harvest when the plant has enough foliage to maintain growth. Always harvest before the plant flowers, as flowering can cause an unpleasant, bitter taste. Harvest frequently to maintain the shape of the plant, encourage new growth, and satisfy your tastebuds. The more you prune, the more you grow, the more you benefit.",
   price: 35.00,
   quantity: 7,
-  seller_id: 2
-)
+  seller_id: user2.id
+  )
 # herbs2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # herbs2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 herbs2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsB1.JPG'), filename: 'herbsB1.JPG')
@@ -110,7 +107,7 @@ mint = Product.create!(
   description: "This is the classic mint variety, with extra-large, fragrant leaves that lend themselves beautifully to chopping and crushing for use in desserts, drinks, meat dishes (such as lamb), and yogurt sauce. Plants grow easily and quickly, and can take over the garden if you're not careful. Consider growing mint in containers. Harvest often for best growth. Plants can be grown in part shade.",
   price: 13.27,
   quantity: 19,
-  seller_id: 2
+  seller_id: user2.id
 )
 # mint.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 mint.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/mint.jpg'), filename: 'mint.jpg')
@@ -121,7 +118,7 @@ rosemary = Product.create!(
   description: "Tiny, strongly aromatic & flavorful leaves, blue blooms. Garden use: Herb garden, flower border, containers, low clipped hedge. Culinary use: Italian & Mediterranean dishes, vinegars & oils, breads. Plant in full sun for the best yields.",
   price: 21.48,
   quantity: 10,
-  seller_id: 2
+  seller_id: user2.id
 )
 # rosemary.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # rosemary.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -134,7 +131,7 @@ strawb = Product.create!(
   description: "Everbearing Strawberries--a low-maintenance, high-yield favorite among strawberry lovers--is extremely popular due to its ability to produce well after spring ends. In fact, Everbearing Strawberries are often harvested as late as the first frost! That means that you'll enjoy delicious, juicy strawberries for many months to come.",
   price: 17.94,
   quantity: 12,
-  seller_id: 2
+  seller_id: user2.id
 )
 # strawb.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # strawb.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -147,8 +144,8 @@ herbbox = Product.create!(
   description: "Wooden trough/box/pot for to plant fresh herbs. Can be used indoor or outdoor to make your garden more beautiful!",
   price: 15.50,
   quantity: 9,
-  seller_id: 2
-  )
+  seller_id: user2.id
+)
 # herbbox.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 herbbox.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/herbbox.jpg'), filename: 'herbbox.jpg')
 
@@ -158,8 +155,8 @@ strawbox = Product.create!(
   description: "The latest planting bags: You will get two latest large-capacity planting bags, stylish and lovely appearance and breathable and environmentally friendly materials to make your plants grow better. \n \n Environmental protection material: The plant planting bag is made of the strongest environmentally friendly PE material and breathable fabric. It is precisely sewn, durable, resistant to deformation and corrosion, and can be reused. \n \n Save space: Use the upside-down planting bag to plant strawberries, mint, etc., and hang them on the balcony corridors to save space in the vegetable garden, create your own sky garden, and beautify the environment. \n \n Guarding plants: The holes and materials of the planting bag can ensure air circulation, so that the root system can absorb oxygen and discharge excess water to avoid root rot caused by overwatering. \n \n Widely applicable: Garden planting bag is suitable for patio balcony or gardening, suitable for tomatoes, flowers, succulents, green plants and any plants that you want to observe root growth at any time",
   price: 16.99,
   quantity: 18,
-  seller_id: 2
-  )
+  seller_id: user2.id
+)
 # strawbox.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # strawbox.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 strawbox.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/strawbpot1.JPG'), filename: 'strawbpot1.JPG')
@@ -176,7 +173,7 @@ user3 = User.create!(
 
 shop3 = Shop.create!(
   name: 'Bonita Foliage',
-  owner_id: 3,
+  owner_id: user3.id,
   sales: 32
 )
 
@@ -188,7 +185,7 @@ calathea1 = Product.create!(
   This plant is sensitive and may not be beginner friendly.',
   price: 11.25,
   quantity: 16,
-  seller_id: 3
+  seller_id: user3.id
 )
 # calathea1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # calathea1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -203,7 +200,7 @@ hanging1 = Product.create!(
   description: 'Handmade twine plant hanger with 6" pot for indoor house plants. *Plant not included*',
   price: 25.20,
   quantity: 23,
-  seller_id: 3
+  seller_id: user3.id
 )
 # hanging1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # hanging1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -216,7 +213,7 @@ hanging2 = Product.create!(
   description: 'Cream colored teartrop shaped plant hangers. Can be mounted on the wall and hung by a leather strap. Dimensions: 10" height, 6" width.',
   price: 13.00,
   quantity: 12,
-  seller_id: 3
+  seller_id: user3.id
 )
 # hanging2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # hanging2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -231,7 +228,7 @@ pinkanth = Product.create!(
   description: "This bright pink Anthurium lives up to its nickname, the flamingo flower. Rarely without their showy blooms, Anthuriums are known as the world’s longest blooming houseplant  Each bloom can last up to eight weeks, and new ones will pop up often. These aren’t actual flowers, but modified waxy leaves. Anthuriums flourish and bloom best in bright indirect light.",
   price: 60.00,
   quantity: 11,
-  seller_id: 3
+  seller_id: user3.id
 )
 # pinkanth.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # pinkanth.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -244,7 +241,7 @@ aspfern = Product.create!(
   description: "Add hassle-free greenery to your living space with this Large Asparagus Fern from Threshold™. Showcasing a voluminous green fern arrangement potted inside a wooden pot, this artificial plant creates a summery touch of style year-round in your home. This artificial potted plant stays fresh and beautiful at all times without the hassle and worry of maintenance. Use this potted artificial flower alone or in a group of other faux plants to create a lovely indoor arrangement.",
   price: 20.00,
   quantity: 3,
-  seller_id: 3
+  seller_id: user3.id
 )
 # aspfern.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 aspfern.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/asparagus-fern.JPG'), filename: 'asparagus-fern.JPG')
@@ -255,7 +252,7 @@ bambpalm = Product.create!(
   description: "With dense foliage and lush fronds, the Bamboo Palm makes a statement. An air-purifying plant adaptable to low light, this palm can reach heights of up to 8 feet tall in the right conditions. \n \n The Bamboo Palm is a tropical indoor houseplant that compliments any space. Not to be confused with real bamboo, this plant is low maintenance and easy to care for. Native to the forests of Mexico and Central America, Bamboo Palms grow in the shade of larger trees unlike other palms, which makes them adaptable to less than ideal lighting conditions. It is a great choice for the home or office because it rates highly on NASA’s list of air-purifying plants.",
   price: 150.95,
   quantity: 1,
-  seller_id: 3
+  seller_id: user3.id
 )
 # bambpalm.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # bambpalm.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -268,7 +265,7 @@ chinese = Product.create!(
   description: "Those unique, pancake-shaped leaves! Those sprightly stems! Who can resist the Claude? The exquisite Chinese money plant never takes itself too seriously, what with its playful silhouette and uplifting green hue. Ours is nestled in an off-white ceramic pot bearing a distinctive geometric pattern. Symbolic of friendship and togetherness, it’s a thoughtful gift idea for anyone who brings joy to your life.",
   price: 38.99,
   quantity: 2,
-  seller_id: 3
+  seller_id: user3.id
 )
 # chinese.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 chinese.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/chinese-money.JPG'), filename: 'chinese-money.JPG')
@@ -279,7 +276,7 @@ croton = Product.create!(
   description: "Crotons make great indoor plants, their colors are dependent on how healthy they are, and the amount of sunlight they get. The healthier they are, the more vivid they can get.",
   price: 52.00,
   quantity: 9,
-  seller_id: 3
+  seller_id: user3.id
 )
 # croton.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # croton.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -293,7 +290,7 @@ ag1 = Product.create!(
   description: "Native to the tropical and subtropical regions of Asia and New Guinea, Aglaonema Maria has been cultivated for centuries as a good luck charm. Known to live a long and healthy life, it is believed to bring wellbeing to the home and all its dwellers. Aglaonema Maria wears a luminant sage-green foliage that brings class and sophistication to any room. Aglaonema Maria grows best in a well-lit space. Avoid placing it in direct sunlight or spaces without natural light.",
   price: 52.00,
   quantity: 5,
-  seller_id: 3
+  seller_id: user3.id
 )
 # ag1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # ag1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -310,7 +307,7 @@ user4 = User.create!(
 
 shop4 = Shop.create!(
   name: 'Bombotany',
-  owner_id: 4,
+  owner_id: user4.id,
   sales: 4
 )
 
@@ -320,7 +317,7 @@ calathea2 = Product.create!(
   description: 'Catathea white fusion with marrbled purple and white leaves. Comes in an 8" size grow pot',
   price: 12.75,
   quantity: 4,
-  seller_id: 4
+  seller_id: user4.id
 )
 # calathea2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 catathea2file = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/calathea/calathea2.jpg')
@@ -332,7 +329,7 @@ monstera1 = Product.create!(
   description: 'Nicknamed the “swiss cheese plant”, the Monstera deliciosa is famous for its quirky natural leaf holes. These holes are theorized to maximize sun fleck capture on the forest floor. Depending on the season and maturity of the plant, your Monstera could arrive with no holes just yet, and be sized to grow alongside you.',
   price: 39.99,
   quantity: 3,
-  seller_id: 4
+  seller_id: user4.id
 )
 # monstera1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # monstera1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -347,7 +344,7 @@ fiddle = Product.create!(
   description: "Everyone's favorite indoor plant is here, arriving at your home ready to display in your favorite pot. The Fiddle Leaf, or Ficus lyrata, is a species of flowering plant in the mulberry and fig family Moraceae. Native to western Africa, from Cameroon west to Sierra Leone, growing wild in lowland tropical environments.",
   price: 54.00,
   quantity: 1,
-  seller_id: 4
+  seller_id: user4.id
 )
 # fiddle.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # fiddle.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -361,7 +358,7 @@ goldstar = Product.create!(
   description: "This listing is for 1 Dracaena Goldstar Plant in 10in pot - It is about 60inches tall. It has beautiful color. Does well in bright light.",
   price: 139.00,
   quantity: 1,
-  seller_id: 4
+  seller_id: user4.id
 )
 # goldstar.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # goldstar.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -374,7 +371,7 @@ hoja = Product.create!(
   description: "Hoyas are known for their long vines full of waxy foliage. There are dozens of different varieties boasting unique color schemes, patterns and leaf shapes. They do not need much water or attention to be happy.",
   price: 24.00,
   quantity: 4,
-  seller_id: 4
+  seller_id: user4.id
 )
 # hoja.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # hoja.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -388,7 +385,7 @@ ivy = Product.create!(
   description: "Botanical Name: Hedera helix; Common Name: English ivy; Origin: Ireland, Scandinavia, western Asia and northern Africa; 'Goldchild’ English ivy has round-tipped leaves of 3 to 5 lobes with bright gold edges and green-gray centers. It will grow several inches upward then drape downward around the container.",
   price: 38.24,
   quantity: 5,
-  seller_id: 4
+  seller_id: user4.id
 )
 # ivy.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 ivy.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/ivy.jpg'), filename: 'ivy.jpg')
@@ -399,7 +396,7 @@ fern = Product.create!(
   description: "'Maidenhair Fern' actually refers to the genus Adiantum, which has over 250 species. Our Maidenhair fern, sometimes called the 'Black' Maidenhair Fern, is native to the southern half of the United States and South America, but has a worldwide distribution today. It is a popular choice for its many soft, delicate leaves and easy care. The Black Maidenhair fern grows up to 15 in in height, and prefers care similar to other ferns, preferring indirect sunlight or partial shade and moderate moisture.",
   price: 35.25,
   quantity: 14,
-  seller_id: 4
+  seller_id: user4.id
 )
 # fern.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # fern.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -412,7 +409,7 @@ marg = Product.create!(
   description: "A fun and bold Dracaena variety with woven tree stems and spiky, upright leaves. Also known as the Madagascar Dragon Tree, this potted tree is 4-5 feet tall and has been recognized for its air-purifying qualities. This Dracaena Marginata variety is tall with an open braid weave consisting of multiple stems. Its thin, green leaves banded in red or pink on top of slender canes make a delicate, abstract silhouette. As it grows, this statement plant maintains its upright appearance making it perfect for blank walls, behind furniture, or narrow corners. Dracaena Marginatas are easy, low-maintenance indoor plants that will thrive and adapt in almost any environment, often growing well in low to medium light spaces. Plus, NASA lists the Dracaena Marginata as an excellent plant for removing harmful chemicals from the air.",
   price: 199.94,
   quantity: 2,
-  seller_id: 4
+  seller_id: user4.id
 )
 # marg.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # marg.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -430,7 +427,7 @@ user5 = User.create!(
 
 shop5 = Shop.create!(
   name: 'A Green Beginning',
-  owner_id: 5,
+  owner_id: user5.id,
   sales: 12
 )
 
@@ -440,7 +437,7 @@ monstera2 = Product.create!(
   description: "Monstera Adansonii (Swiss Cheese). They thrive from indirect sun & love to quickly grow and climb every which way. If you allow the plant to grow up a stake or trellis, it will develop larger, picturesque leaves with very defined Swiss Cheese like holes. \n \n ~ Please note that tears in leaves, splits in leaves, leaves growing through splits in leafs, crinkling in leaves growing through leafs, and long vines are very normal for this plant. It is nothing to be concerned about and is not damage, just nature. Also, if a leaf or two has browning on the tips or a knick on the leaf, this is also normal for a plant growing over time.",
   price: 50.25,
   quantity: 4,
-  seller_id: 5
+  seller_id: user5.id
 )
 # monstera2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # monstera2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -455,7 +452,7 @@ minimoney = Product.create!(
   description: "The Mini Money Tree is a perfect indoor foliage plant to give you a tropical feel. With its stout stem and bright green palm-looking leaves, it looks both like a tree and a tiny palm. \n \n Native from Mexico to northern South America, the Money Tree is also very popular in Taiwan and other East Asian countries. The Mini Money Tree gets its name because the Feng Shui practice believes it will bring positive energy and good luck to the owner. It has been said this plant reduces stress, anxiety and may also help lessen sleeping disorders. \n \n Difficulty: No-fuss. \n \n Light: Low, Artificial Partial, Bright Indirect. \n \n Pet Friendly: Yes. \n \n Air Cleaner: Yes. \n \n Pet Friendly Details: non-toxic to cats and dogs. \n \n Air Cleaner Details: Purifies air polluted with synthetic chemicals from cleaning products. \n \n Healthy plant pre-potted with premium soil. Plant size: 9in-15in tall (including pot). Ecopots pot and saucer. Pot size: 6.3in in diameter, 5in tall. Saucer size: 6in in diameter.",
   price: 49.00,
   quantity: 4,
-  seller_id: 5
+  seller_id: user5.id
 )
 # minimoney.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # minimoney.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -468,7 +465,7 @@ paradise = Product.create!(
   description: "The Bird of Paradise is considered the queen of the indoor plant world. This large, upright plant adds a rich, tropical flair to your space as its glossy, banana-shaped leaves fan out. It is relatively hardy and adapts to a wide spectrum of light conditions from direct sun to low, indirect light, but will flourish in a sunny spot.\n \n Water and humidity are important to keep your Bird of Paradise healthy. It needs consistent watering to keep the soil moist, but never wet or soggy. In addition to careful watering, it will benefit from regular misting to boost its humidity. The Bird of Paradise is native to South Africa where it receives a lot of light and warmth. \n \n When grown indoors, there will not be enough light to trigger the plant to produce a bloom. However, the majestic foliage and graceful stems make a statement on their own. The leaves of your Bird of Paradise are naturally perforated and may split in transit, and over time. This is completely natural and not a cause for concern. In the wild, perforating leaves is how the Bird of Paradise becomes more aerodynamic to stand up to the high winds of the tropics.",
   price: 198.00,
   quantity: 3,
-  seller_id: 5
+  seller_id: user5.id
 )
 # paradise.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # paradise.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -482,7 +479,7 @@ parlor = Product.create!(
   description: "This slow-growing, compact palm thrives in a variety of light situations and tight spaces. It’s dark green fronds create a bushy, lush plant perfect for tabletops, desks, and shelves. \n \n The Parlor Palm will do best in bright, filtered light, but will readily adapt to low light as well. \n \n Native to Mexico and Central America, the Parlor Palm requires very little care and is an excellent air purifier.  This indoor plant is highly adaptable making it perfect for offices, businesses with less than ideal growing conditions.",
   price: 49.98,
   quantity: 1,
-  seller_id: 5
+  seller_id: user5.id
 )
 # parlor.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # parlor.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -495,7 +492,7 @@ pinkag = Product.create!(
   description: "Pink Aglaonema Chinese Evergreen Plants are a simple, slow-growing variety that are accented with stunning strips of bright pink along the leaves. The large, narrow leaves have a distinct oval shape, and their color is brought out best with medium or indirect light. This houseplant needs water when the soil begins to dry out.",
   price: 10.00,
   quantity: 8,
-  seller_id: 5
+  seller_id: user5.id
 )
 # pinkag.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # pinkag.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -508,7 +505,7 @@ pep = Product.create!(
   description: "These pet-friendly peperomia plants are some of the most hardy plants, thanks to their semi-succulent leaves that store excess water. With a variety of texture and color, our Pet-Peromia are adaptable to almost any spot in your home. \n \n Arriving in clay pots, this collection looks great displayed individually or in a trio on our hanging saucer. The Pet-Peromia Collection is a group of three pet-friendly plants, including Peperomia Green, Peperomia Happy Bean, and Peperomia Schumi Red. All three plants are compact and trailing, making them perfect accents for a table or bookshelf. With leaves featuring unique colors, textures, and shapes, this is an easy-care collection that won’t mind a little extra attention from your furry friends. All three Peperomia in this collection are native to South America. They have semi-succulent stems and leaves, making them resilient plants that won’t be affected by a missed watering every once in a while.",
   price: 69.00,
   quantity: 4,
-  seller_id: 5
+  seller_id: user5.id
 )
 # pep.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # pep.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -528,7 +525,7 @@ user6 = User.create!(
 
 shop6 = Shop.create!(
 name: 'Green Leaf Goods',
-owner_id: 6,
+owner_id: user6.id,
 sales: 13
 )
 
@@ -538,8 +535,8 @@ monstera3 = Product.create!(
   description: 'Botanical Name: Philodendron Monstera deliciosa; Common Names: Monstera; Description: Native to the tropical forests of Central and South America, these plants have glossy, heart shaped leaves which develops its unique splits in its maturity. It is a climbing, evergreen perennial vine that is perhaps most noted for its large perforated leaves on thick plant stems and its long cord-like aerial roots.',
   price: 35.00,
   quantity: 8,
-  seller_id: 6
-  )
+  seller_id: user6.id
+)
 # monstera3.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 monstera3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraC2.jpg'), filename: 'monsteraC2.jpg')
 
@@ -549,8 +546,8 @@ snake2 = Product.create!(
   description: "Sanseveria, otherwise known as the snake Plant (named because of the shape of the leaves NOT because it attracts snakes). This stemless evergreen will add years of beauty and elegance to any decor and recently proved to oxygenate your home or office. Its sword-shaped leaves are deep green with light gray-green horizontal stripes and its upright character makes it a popular choice in any space.",
   price: 37.98,
   quantity: 7,
-  seller_id: 6
-  )
+  seller_id: user6.id
+)
 # snake2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # snake2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 snake2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeB1.JPG'), filename: 'snakeB1.JPG')
@@ -563,8 +560,8 @@ spath = Product.create!(
   description: "Best in bright, indirect light; can tolerate low light levels, but will produce more blooms with more light. Water once a week, or when top inch of soil is dry",
   price: 34.99,
   quantity: 12,
-  seller_id: 6
-  )
+  seller_id: user6.id
+)
 # spath.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # spath.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 spath.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/spath/spath2.JPG'), filename: 'spath2.JPG')
@@ -577,8 +574,8 @@ ponytail = Product.create!(
   description: "The Ponytail Palm is drought tolerant, slow-growing, and requires very little care. This plant is ideal for people with very little time or who travel regularly. The Ponytail Palm will be perfectly happy being watered every couple of weeks and left alone to soak up the sunlight. This distinct plant brings a little fun to any room in your home. The Ponytail Palm is neither a palm nor a tree — it’s actually a succulent and a member of the Agave family, native to the southeastern desert of Mexico. The bulb-like trunk is used to store water and the long leaves that grow from the top of the trunk resemble a ponytail.",
   price: 55.00,
   quantity: 7,
-  seller_id: 6
-  )
+  seller_id: user6.id
+)
 # ponytail.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # ponytail.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 ponytail.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/ponytail1.JPG'), filename: 'ponytail1.JPG')
@@ -590,8 +587,8 @@ prayer = Product.create!(
   description: "Lemon Lime Prayer Plant (Maranta leuconeura 'Lemon Lime') \n \n Thiago is from the tropics in Brazil and loves to dance in the moonlight. He gets his nickname 'prayer plant' from his leaves folding up at night, which mimics hands praying. It's been said he does this to make sure his roots get access to rainfall. Aww, thoughtful and handsome—swipe right? Low to bright indirect light. Direct light will scorch his leaves.",
   price: 28.50,
   quantity: 1,
-  seller_id: 6
-  )
+  seller_id: user6.id
+)
 # prayer.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # prayer.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 prayer.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/prayer1.jpg'), filename: 'prayer1.jpg')
@@ -603,8 +600,8 @@ serpant = Product.create!(
   description: "Bushy and beautiful, our China Doll/Serpent Tree/Emerald Tree for delivery adds a touch of class to any room. They are technically a small, fast-growing tree. Because they have multiple stems and fine foliage, their canopy looks seriously lush. This isn't a beginner's plant — they need a moderate amount of attention to thrive. Give them the right conditions, and you'll be rewarded as they are lush and fast-growing and easily one of the most popular indoor plants because of their split delicate leaves and glossy foliage. They thrive in indirect light, so they would be a perfect addition to any room in your house!",
   price: 50.00,
   quantity: 9,
-  seller_id: 6
-  )
+  seller_id: user6.id
+)
 # serpant.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # serpant.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 serpant.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/serpant1.jpg'), filename: 'serpant1.jpg')
@@ -617,8 +614,8 @@ spider = Product.create!(
   description: "The Spider plant is a flowering perennial native tropical South Africa. The leaves of the spider plant are thin ribbon like strands which end in a point and grow upward and bend downward giving it the look of a spider. The Spider plant produces small white flowers that grow along a long stalk independent to the leaves of the spider plant. Also known for their air purifying qualities, the spider plant is a great companion to any household of office.",
   price: 25.00,
   quantity: 4,
-  seller_id: 6
-  )
+  seller_id: user6.id
+)
 # spider.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 spider.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/spider.JPG'), filename: 'spider.JPG')
 
@@ -633,7 +630,7 @@ user7 = User.create!(
 
 shop7 = Shop.create!(
   name: 'Flower Power',
-  owner_id: 7,
+  owner_id: user7.id,
   sales: 45
 )
 
@@ -643,8 +640,8 @@ ladyslipper = Product.create!(
   description: "Phragmipedium Sorcerer/'s Apprentice has large and commanding 3-4 inch orange flowers with green-yellow accents. This variety is a sequential bloomer. Live orchid plant comes in a 4.5 inch nursery pot with the perfect potting media to keep your new friend happy and healthy.",
   price: 46.00,
   quantity: 2,
-  seller_id: 7
-  )
+  seller_id: user7.id
+)
 # ladyslipper.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # ladyslipper.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 ladyslipper.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/lady-slipper2.jpg'), filename: 'lady-slipper2.jpg')
@@ -656,8 +653,8 @@ macrame1 = Product.create!(
   description: "Beautiful macrame rope plant holder. Intricate designs and embroidery in pots. It can be used in balcony and gardens and don’t take up garden space and can be beautifully decorated and hung along with the plant pots. If you like decorating your garden or balcony space with plants it’s a product that will add a new look to it. The product can be a great garden accessory to support and beautify your plants.",
   price: 15.95,
   quantity: 7,
-  seller_id: 7
-  )
+  seller_id: user7.id
+)
 # macrame1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # macrame1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 macrame1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameA1.JPG'), filename: 'macrameA1.JPG')
@@ -670,8 +667,8 @@ macrame2 = Product.create!(
   description: "STYLISH AND UNIQUE The modern, vintage-inspired plant hanger adds the perfect touch to your living space or office. This beauty will freshen up your home and balcony garden, or brighten up an office. It can also keep your plants out of your pet's reach or be used as a convenient space saver. EASY INSTALLATION The hangers are suitable for indoor and outdoor use. Just expand the 4 leg strings, and place your plant pot in the middle of the Plant Hanger. It is great for a boho home decor. Keke Macrame Plant Hanger can be used for the living room, kitchen, hall, patio, high or low ceiling.",
   price: 20.00,
   quantity: 5,
-  seller_id: 7
-  )
+  seller_id: user7.id
+)
 # macrame2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # macrame2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 macrame2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameB1.JPG'), filename: 'macrameB1.JPG')
@@ -684,8 +681,8 @@ nakedman = Product.create!(
   description: "Orchis Italica is widely popular for their petals which in shape, resemble naked men. Preferring partial shade and low nutrient soil and they flower in late spring. Orchis Italica grows up to 50cm in height, with bright pink, densely clustered flowers. Many orchids do not have a flowering season and flowers may be produced at any time if the right conditions are being met. Terrestrial orchids grown outdoors will mostly flower in the summer months. Flowers can last for several months. Autumn is the best season for planting. Spread out the roots in the upper 10 cm (4 inches) of the soil, the rhizome 2-3 cm (1 inch) below the surface, shoot buds upwards. Fill in the remaining substrate without compressing it, and water thoroughly. *Includes 50 seeds*",
   price: 12.99,
   quantity: 3,
-  seller_id: 7
-  )
+  seller_id: user7.id
+)
 # nakedman.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # nakedman.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 nakedman.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/monkey-face1.JPG'), filename: 'monkey-face1.JPG')
@@ -697,8 +694,8 @@ oncidium = Product.create!(
   description: "The delicate, airy blossoms of the Sweet Sugar Oncidium Orchid appear on central spikes and secondary stems in a cloud of sunny yellow with orange and chestnut highlights. \n Oncidiums prefer cool to intermediate growing conditions (65-85°F during the day; 55-60°F at night). Provide very bright, indirect light. A spot near a south facing window is ideal. Full cultural instructions included.",
   price: 32.99,
   quantity: 4,
-  seller_id: 7
-  )
+  seller_id: user7.id
+)
 # oncidium.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # oncidium.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
   oncidium.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/oncidium2.jpg'), filename: 'oncidium2.jpg')
@@ -714,7 +711,7 @@ user8 = User.create!(
 
 shop8 = Shop.create!(
   name: 'Lush Inc',
-  owner_id: 8,
+  owner_id: user8.id,
   sales: 40
 )
 
@@ -724,8 +721,8 @@ zygo = Product.create!(
   description: "Zygo Advance Australia is Z. Titanic x Z. Helen-Ku. The flowers are rather fragrant, and pleasingly so. This orchid's generic name, derived from the Greek word 'zygon', means 'yoked petal.' It refers to the yoke-like growth at the base of the lip caused by the fusion of petals and sepals They occur in humid forests in South America at low- to mid-elevation regions, with most species found in Brazil. The ones for sale are mericlones and all should be beautiful. They stand 15 inches high or more measured from the bottom of the 4-inch pot.",
   price: 42.99,
   quantity: 1,
-  seller_id: 8
-  )
+  seller_id: user8.id
+)
 # zygo.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # zygo.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 zygo.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/zygopetalum4.jpg'), filename: 'zygopetalum4.jpg')
@@ -737,8 +734,7 @@ brom2 = Product.create!(
   description: "An epiphytic plant native to Brazil with thick, arching, and gray-green leaves. Like an orchid, it attaches itself to trees and large plants. Product Size : 32 Oz. Includes terracotta planter.",
   price: 50.25,
   quantity: 38,
-  seller_id: 8
-  )
+  seller_id: user8.id)
 # brom2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # brom2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataB1.JPG'), filename: 'fasciataB1.JPG')
@@ -750,8 +746,8 @@ umbrella = Product.create!(
   description: "The Umbrella plant is the dwarf version of the larger Schefflera Acrinophylla native to Taiwan. This evergreen wields very slender stalks with oblong leaves arranged in a circular fashion at the end of each stem.",
   price: 21.25,
   quantity: 29,
-  seller_id: 8
-  )
+  seller_id: user8.id
+)
 # umbrella.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # umbrella.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 umbrella.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/umbrella1.jpg'), filename: 'umbrella1.jpg')
@@ -764,8 +760,8 @@ zz = Product.create!(
   description: "The Zamioculcas zamiifolia, known adoringly as the ZZ Plant, is popular for a wealth of good reasons. It is incredibly easy to care for, tolerant of a wide range of environments, and is visually unique. Though it has little need for attention and care, the ZZ Plant will reward you anyway with long stems covered in small, dark green leaflets. Comes in handmade blue ceramic pot.",
   price: 70.25,
   quantity: 2,
-  seller_id: 8
-  )
+  seller_id: user8.id
+)
 # zz.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 zz.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/zz.JPG'), filename: 'zz.JPG')
 
@@ -775,8 +771,8 @@ chocchip = Product.create!(
   description: "Dendrobium Chocolate Chip is an exquisite hybrid between the legendary Micro Chip and normanbyense. It’s a unique miniature orchid with sprays of delicate speckled white flowers. The front of the flowers is detailed with purple lining, while the back of each flower is as close to a chocolate chip cookie as an orchid could ever be! Chocolate Chip is perfect for the entry-level collector who doesn’t have a bunch of space for their collection but wants something extraordinary and impressive. This compact Latouria type Dendrobium is evergreen and has mystical little flowers that shoot out from all sides of the plant. Canes are almost Seussian with their quirky top-heavy shape! Lightly cinnamon-fragrant blooms!",
   price: 44.99,
   quantity: 18,
-  seller_id: 8
-  )
+  seller_id: user8.id
+)
 # chocchip.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # chocchip.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 chocchip.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/chocchip1.jpg'), filename: 'chocchip1.jpg')
@@ -788,8 +784,8 @@ enobi = Product.create!(
   description: "This mini Dendrobium is a beautiful compact grower with pure, bright purple DenPhal-style blooms.",
   price: 34.00,
   quantity: 3,
-  seller_id: 8
-  )
+  seller_id: user8.id
+)
 # enobi.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # enobi.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 enobi.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/enobipurple1.jpg'), filename: 'enobipurple1.jpg')
@@ -801,8 +797,8 @@ snow = Product.create!(
   description: "Dendrobium Mini Snowflake is an exquisite primary hybrid (aberrans x johnsoniae). It's a unique miniature orchid with sprays of delicate snowy white flowers. Dendrobium Mini Snowflake is perfect for the entry level collector who doesn’t have a bunch of space for their collection, but wants something extraordinary and impressive. Pseudobulbs are almost Seussian with their quirky top-heavy shape!",
   price: 44.00,
   quantity: 1,
-  seller_id: 8
-  )
+  seller_id: user8.id
+)
 # snow.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # snow.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 snow.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/minisnowflake1.JPG'), filename: 'minisnowflake1.JPG')
@@ -820,7 +816,7 @@ user9 = User.create!(
 
 shop9 = Shop.create!(
   name: 'Green Goods',
-  owner_id: 9,
+  owner_id: user9.id,
   sales: 28
 )
 
@@ -830,8 +826,8 @@ pothos1 = Product.create!(
   description: "The Golden Pothos is the king of easy growing. With its lush heart-shaped foliage this trailing vine will impress you with its ability to drape beautifully over a shelf or hanging basket and liven up any room. Although the Pothos enjoys plenty of indirect sunlight, they can also thrive comfortably in a low light environment and like many indoor plants, water when the top soil is dry to the touch.",
   price: 14.38,
   quantity: 10,
-  seller_id: 9
-  )
+  seller_id: user9.id
+)
 # pothos1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # pothos1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 pothos1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/pothos/pothosA1.JPG'), filename: 'pothosA1.JPG')
@@ -843,8 +839,8 @@ brom1 = Product.create!(
   description: "Featuring colorful, long-lasting blooms, the Bromeliad Aechmea Pink is a unique flowering plant to add a touch of the tropics to your space. With blooms that last for up to six months, these are sure to brighten any home.",
   price: 36.99,
   quantity: 20,
-  seller_id: 9
-  )
+  seller_id: user9.id
+)
 # brom1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # brom1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataA1.JPG'), filename: 'fasciataA1.JPG')
@@ -856,8 +852,8 @@ brom3 = Product.create!(
   description: "Exotic and rare Blue Tango Bromeliad. Its blooms feature bright pink and purple flowers.",
   price: 45.00,
   quantity: 4,
-  seller_id: 9
-  )
+  seller_id: user9.id
+)
 # brom3.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # brom3.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/flowerbromA1.jpg'), filename: 'flowerbromA1.jpg')
@@ -869,8 +865,8 @@ brom4 = Product.create!(
   description: "Exotic and rare Mango Tango Bromeliad. Its blooms feature bright red and orange flowers.",
   price: 45.00,
   quantity: 5,
-  seller_id: 9
-  )
+  seller_id: user9.id
+)
 # brom4.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # brom4.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/flowerbromB1.jpg'), filename: 'flowerbromB1.jpg')
@@ -882,8 +878,8 @@ brom5 = Product.create!(
   description: "Guzmania Bromeliads add significant intrigue, color and beauty to your Green Space. They have long, slender evergreen leaves that are topped by a single brilliant inflorescence of tongue-like petals. The bloom will be deep red, maroon, orange, pink, or yellow, or some combination thereof. Bromeliad flowers can last 3 to 6 months, but they typically flower just once. * Fun Fact: The Guzmania genus is named after Anastasio Guzman, a Spanish pharmacist and naturalist who died in 1807.",
   price: 38.00,
   quantity: 18,
-  seller_id: 9
-  )
+  seller_id: user9.id
+)
 # brom5.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # brom5.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom5.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/orangebrom1.jpg'), filename: 'orangebrom1.jpg')
@@ -895,8 +891,8 @@ brom6 = Product.create!(
   description: "Does it get any cuter than a pineapple plant with fruit? We doubt it. Nestled among the spiky foliage, the tasty fruit — which symbolizes hospitality — can be harvested and eaten once they are ripe. Save the top, replant them, and wait for a new one to grow. One of the easiest tropical plants to care for, they just need lots of sunshine and a little water.",
   price: 42.50,
   quantity: 3,
-  seller_id: 9
-  )
+  seller_id: user9.id
+)
 # brom6.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # brom6.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom6.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/pineapple1.JPG'), filename: 'pineapple1.JPG')
@@ -908,8 +904,8 @@ brom7 = Product.create!(
   description: "Guzmania bromeliads feature long, narrow, shiny green leaves that rise from a deep central cup. Their large & showy flower bracts arise in the summer, in an amazing array of colors. Low maintenance; Height can reach up to 2'; Requires low light and should be kept out of direct sunlight; Ideal temperature is 55-80°F; Toxicity: non-toxic and pet safe; USDA hardiness zones for outdoor planting: 10-11",
   price: 30.00,
   quantity: 12,
-  seller_id: 9
-  )
+  seller_id: user9.id
+)
 # brom7.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # brom7.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom7.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/purplebrom.jpg'), filename: 'purplebrom.jpg')
@@ -920,8 +916,8 @@ brom8 = Product.create!(
   description: "Guzmania bromeliads feature long, narrow, shiny green leaves that rise from a deep central cup. Their large & showy flower bracts arise in the summer, in an amazing array of colors. Low maintenance; Height can reach up to 2'; Requires low light and should be kept out of direct sunlight; Ideal temperature is 55-80°F; Toxicity: non-toxic and pet safe; USDA hardiness zones for outdoor planting: 10-11",
   price: 30.00,
   quantity: 12,
-  seller_id: 9
-  )
+  seller_id: user9.id
+)
 # brom8.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom8.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/redbrom.jpg'), filename: 'redbrom.jpg')
 
@@ -935,7 +931,7 @@ user10 = User.create!(
 
 shop10 = Shop.create!(
   name: 'Leaf Love',
-  owner_id: 10,
+  owner_id: user10.id,
   sales: 22
 )
 
@@ -945,7 +941,7 @@ pothos2 = Product.create!(
   description: "The Delray Plants Golden Pothos is a foliage plant with interesting colors. Its long been a staple in interiors cape. The Golden Pothos is a classic broad leaf plant. Delray Plants updated this classic with an upgraded pot fit for a new generation. The plant for sale is a large, mature pothos, with lots of length and trailing growth.",
   price: 45.00,
   quantity: 1,
-  seller_id: 10
+  seller_id: user10.id
   )
 # pothos2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # pothos2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -958,7 +954,7 @@ snake1 = Product.create!(
   description: "Sanseveria (mother-in-law's tongue or snake plant) is the ideal plant for those who have little time. These plants making striking displays in home, office or patio. It produces elegant variegated foliage.",
   price: 35.00,
   quantity: 3,
-  seller_id: 10
+  seller_id: user10.id
   )
 # snake1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # snake1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -971,7 +967,7 @@ bonsai1 = Product.create!(
   description: "This captivating Rock Juniper Bonsai tree features the power and tranquility of Bonsai but in a smaller size. If space is a limitation, this juniper bonsai tree can add color and harmony while still possessing all the characteristics of its larger version.",
   price: 35.00,
   quantity: 5,
-  seller_id: 10
+  seller_id: user10.id
   )
 # bonsai1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # bonsai1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -984,7 +980,7 @@ bonsai2 = Product.create!(
   description: "This Japanese native is a needled evergreen bonsai tree. Its wide reaching branches give it lovely pads as it ages, and the flat fanned foliage make this bonsai truly stunning at any age. It is a traditional tree for bonsai. It is incredibly hardy, making it an excellent first bonsai tree.",
   price: 104.99,
   quantity: 2,
-  seller_id: 10
+  seller_id: user10.id
   )
 # bonsai2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # bonsai2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -997,7 +993,7 @@ pinkphal = Product.create!(
   description: "Add a pop of pink to your tablescape with this popular Phalaenopsis orchid. One of the easiest varieties to grow as a houseplant, it is affectionately called the beginner orchid. You may notice a small amount of blooms on your orchid upon delivery. These blooms will open quicker in a warm indoor setting. It will typically bloom about once a year, for up to three months. After a blooming cycle, the flowers will wilt and fall off. This is the orchid’s way to store up energy to re-bloom again next season.",
   price: 18.99,
   quantity: 2,
-  seller_id: 10
+  seller_id: user10.id
   )
 # pinkphal.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # pinkphal.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1010,7 +1006,7 @@ whitephal = Product.create!(
   description: "Add a pop of white and green to your tablescape with this popular Phalaenopsis orchid. One of the easiest varieties to grow as a houseplant, it is affectionately called the beginner orchid. You may notice a small amount of blooms on your orchid upon delivery. These blooms will open quicker in a warm indoor setting. It will typically bloom about once a year, for up to three months. After a blooming cycle, the flowers will wilt and fall off. This is the orchid’s way to store up energy to re-bloom again next season.",
   price: 18.99,
   quantity: 5,
-  seller_id: 10
+  seller_id: user10.id
   )
 # whitephal.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # whitephal.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1023,7 +1019,7 @@ smallphal = Product.create!(
   description: "Add a pop of pink to your tablescape with these popular Phalaenopsis orchids. One of the easiest varieties to grow as a houseplant, it is affectionately called the beginner orchid. You may notice a small amount of blooms on your orchids upon delivery. These blooms will open quicker in a warm indoor setting. It will typically bloom about once a year, for up to three months. After a blooming cycle, the flowers will wilt and fall off. This is the orchid’s way to store up energy to re-bloom again next season. You will recieve three small 6in tall orchids or varying colors.",
   price: 45.00,
   quantity: 6,
-  seller_id: 10
+  seller_id: user10.id
   )
 # smallphal.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 smallphal.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/smallphal.jpg'), filename: 'smallphal.jpg')
@@ -1034,7 +1030,7 @@ wilsonara = Product.create!(
   description: "Live Wilsonara (Oncidium Alliance) Orchid Plant. Blooming size, but not currently in bloom",
   price: 39.00,
   quantity: 2,
-  seller_id: 10
+  seller_id: user10.id
   )
 # wilsonara.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # wilsonara.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1050,7 +1046,7 @@ user11 = User.create!(
 
 shop11 = Shop.create!(
   name: 'Leaflet Designs',
-  owner_id: 11,
+  owner_id: user11.id,
   sales: 7
 )
 
@@ -1060,7 +1056,7 @@ animals = Product.create!(
   description: "Adorable handmade set of animal pottery. Can be used to plant small succulents or other plants of choice. Set includes all four items featured in the photo",
   price: 50.00,
   quantity: 1,
-  seller_id: 11
+  seller_id: user11.id
   )
 # animals.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 animals.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/animals.JPG'), filename: 'animals.JPG')
@@ -1071,7 +1067,7 @@ coral = Product.create!(
   description: "Handmade ceramic pot made to resemble coral or other neat underwater organisms. Pot size measures 7in in height and 5in in width.",
   price: 28.00,
   quantity: 4,
-  seller_id: 11
+  seller_id: user11.id
   )
 # coral.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 coral.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/coral.JPG'), filename: 'coral.JPG')
@@ -1082,7 +1078,7 @@ faces = Product.create!(
   description: "Currently only avaiable in the terracotta color. Beautiful handmade sleeping face pot to plant cacti, succulents and more!",
   price: 38.00,
   quantity: 2,
-  seller_id: 11
+  seller_id: user11.id
   )
 # faces.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 faces.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/faces.jpg'), filename: 'faces.jpg')
@@ -1093,7 +1089,7 @@ fox = Product.create!(
   description: "Cute set of 3, fox pots. The set includes three pieces ranging from small-medium-large as seen in the photo.",
   price: 35.00,
   quantity: 3,
-  seller_id: 11
+  seller_id: user11.id
   )
 # fox.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 fox.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/fox.jpg'), filename: 'fox.jpg')
@@ -1104,7 +1100,7 @@ leafpot = Product.create!(
   description: "Set of two matching handmade ceramic pots. You will receive one lime green and one light blue pot featuring a lovely leaf design.",
   price: 30.00,
   quantity: 1,
-  seller_id: 11
+  seller_id: user11.id
   )
 # leafpot.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 leafpot.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/leaf.JPG'), filename: 'leaf.JPG')
@@ -1118,7 +1114,7 @@ user12 = User.create!(
 
 shop12 = Shop.create!(
   name: 'GogoGreen Co',
-  owner_id: 12,
+  owner_id: user12.id,
   sales: 3
 )
 
@@ -1128,7 +1124,7 @@ prop1 = Product.create!(
   description: "6in tall glass propagation vase for new cuttings to root. Includes vase and vase topper.",
   price: 16.50,
   quantity: 15,
-  seller_id: 12
+  seller_id: user12.id
   )
 # prop1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # prop1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1141,7 +1137,7 @@ prop2 = Product.create!(
   description: "6in tall glass propagation tubes for new cuttings to root. Includes three tubes and holder.",
   price: 18.50,
   quantity: 12,
-  seller_id: 12
+  seller_id: user12.id
   )
 # prop2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # prop2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1154,7 +1150,7 @@ retro = Product.create!(
   description: "Stunning retro handpainted pot for plants. Wild assortment of blues, golds, and pinks to give a vibrant and retro vibe to your home.",
   price: 14.98,
   quantity: 2,
-  seller_id: 12
+  seller_id: user12.id
   )
 # retro.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 retro.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/retro.JPG'), filename: 'retro.JPG')
@@ -1165,7 +1161,7 @@ teal = Product.create!(
   description: "A lovely pair for any of your houseplants. This marbled teal ceramic pot will hold any 6in houseplant.",
   price: 24.60,
   quantity: 5,
-  seller_id: 12
+  seller_id: user12.id
   )
 # teal.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 teal.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/teal-ceramic.JPG'), filename: 'teal-ceramic.JPG')
@@ -1179,7 +1175,7 @@ user13 = User.create!(
 
 shop13 = Shop.create!(
   name: 'Sunshine Succulents',
-  owner_id: 13,
+  owner_id: user13.id,
   sales: 33
 )
 
@@ -1189,7 +1185,7 @@ arr1 = Product.create!(
   description: "Arrangment comes with a variety of assorted succulents in a cement grey bowl.",
   price: 45.00,
   quantity: 5,
-  seller_id: 13
+  seller_id: user13.id
   )
 # arr1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 arr1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/arr1.JPG'), filename: 'arr1.JPG')
@@ -1200,7 +1196,7 @@ arr2 = Product.create!(
   description: "Arrangment comes with a variety of assorted succulents in a cute white bird shaped bowl.",
   price: 35.00,
   quantity: 3,
-  seller_id: 13
+  seller_id: user13.id
   )
 # arr2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 arr2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/arr2.jpg'), filename: 'arr2.jpg')
@@ -1211,7 +1207,7 @@ arr3 = Product.create!(
   description: "Arrangment comes with a variety of assorted succulents in a handmade cream colored ceramic pot.",
   price: 40.00,
   quantity: 1,
-  seller_id: 13
+  seller_id: user13.id
   )
 # arr3.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 arr3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/arr3.jpg'), filename: 'arr3.jpg')
@@ -1222,7 +1218,7 @@ assort1 = Product.create!(
   description: "Assortment of handpicked 4in succulents. Purchase will come with 5 plants. See photos for potential options.",
   price: 15.50,
   quantity: 25,
-  seller_id: 13
+  seller_id: user13.id
   )
 # assort1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # assort1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1235,7 +1231,7 @@ assort2 = Product.create!(
   description: "Assortment of tiny handpicked succulents. Purchase will come with 8 small baby plants. See photos for potential options.",
   price: 9.50,
   quantity: 25,
-  seller_id: 13
+  seller_id: user13.id
   )
 # assort2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # assort2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1248,7 +1244,7 @@ bear = Product.create!(
   description: "Bear's Paw (Cotyledon tomentosa ssp. tomentosa) (Harvey): A small shrublet with thick, wedge-like leaves and a velvety coating. Its fuzzy leaves have a toothed edge highlighted in dark red and truly resemble a bear's paw. This makes a great houseplant, though it's hard to keep from touching its leaves every time you pass it. It produces pale coral to white flowers.",
   price: 9.98,
   quantity: 12,
-  seller_id: 13
+  seller_id: user13.id
   )
 # bear.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # bear.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1262,7 +1258,7 @@ cot = Product.create!(
   description: "Cotyledon pendens is a rare succulent shrublet with hanging stems up to 2 feet (60 cm) long. The leaf surface is whitish grey-green due to the powdery bloom, the leaf margin is an attractive reddish color. The inflorescence is produced at the ends of the branches. The flowers are bell shaped, orange-red, up to 1.6 inches (4 cm) long, with a cylindrical tube slightly bulging in the middle.",
   price: 15.00,
   quantity: 4,
-  seller_id: 13
+  seller_id: user13.id
   )
 # cot.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # cot.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1276,7 +1272,7 @@ dolphin = Product.create!(
   description: "String of Dolphins are one of a kind succulent with leaves shaped like DOLPHINS! This unique Strings comes in a full 6in hanging pot with a hanger for convenient organization. String of Dolphins are easy to care for, just make sure not to overwater and let the plant dry out between watering! String of Dolphins Care: Water every 10-14 days when top 3in of soil is dry. Do not overwater as string of dolphins are prone to root rot. Medium indirect sunlight or under grow lights. Temperature: 65°F - 75°F",
   price: 39.00,
   quantity: 2,
-  seller_id: 13
+  seller_id: user13.id
   )
 # dolphin.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 dolphin.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/dolphins.jpg'), filename: 'dolphins.jpg')
@@ -1287,7 +1283,7 @@ pearl = Product.create!(
   description: "The delicate Senecio Rowleyanus, or String of Pearls, is one of the most beautiful hanging succulents we carry. It's long tendrils are decorated with perfectly round beads and look fantastic on top of a bookshelf or hanging in your sunny window. ",
   price: 39.95,
   quantity: 3,
-  seller_id: 13
+  seller_id: user13.id
   )
 # pearl.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 pearl.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/stringpearls.jpg'), filename: 'stringpearls.jpg')
@@ -1298,7 +1294,7 @@ donkey = Product.create!(
   description: "These succulents are one of the cutest plants that you definitely love to have in your collection. Plants like to hang out of the pot. This plant is extremely easy to loose their leaves naturally, please be aware of the nature of the plant, we also try our best to get them ready for the trip, however, some broken leaves are unavoidable on arrival. Just put the leaves on the soil together with your cuttings, they will grow up and become more baby plants to fill your pot. Well drained soil, moist soil, pots must have drainage holes. Established plants are ok on full sun. Uprooted cuttings and leaves grow better in partial sun area, under some shade.",
   price: 28.00,
   quantity: 6,
-  seller_id: 13
+  seller_id: user13.id
   )
 # donkey.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 donkey.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/donkey-tail.jpg'), filename: 'donkey-tail.jpg')
@@ -1309,7 +1305,7 @@ party = Product.create!(
   description: "Assorted succulent party favors. Comes in a variety of species. Can be wrapped in any color decor according to the party theme of your choice. Priced per individual plant.",
   price: 2.00,
   quantity: 80,
-  seller_id: 13
+  seller_id: user13.id
   )
 # party.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # party.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1326,7 +1322,7 @@ user14 = User.create!(
 
 shop14 = Shop.create!(
   name: 'The Next Gardener Inc',
-  owner_id: 14,
+  owner_id: user14.id,
   sales: 16
 )
 
@@ -1336,7 +1332,7 @@ clippers = Product.create!(
   description: "Sharp steel garden clippers/trimmers with teal handle.",
   price: 25.90,
   quantity: 16,
-  seller_id: 14
+  seller_id: user14.id
   )
 # clippers.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # clippers.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1350,7 +1346,7 @@ fert1 = Product.create!(
   description: "Effective for both foliage and flowering plants, the Houseplant Special Fertilizer is a must-have product in your care routine. Containing a boost of phosphorus, it will encourage bigger, healthier blooms as well as lush foliage. It works well on plants such as tradescantia, bird of paradise, hoya, schefflera, aglaonema, and more. \n \n Jack’s Houseplant Special Fertilizer (15-30-15) promotes healthy growth for foliage and flowering plants. With key micronutrients to prevent underfeeding, Jack’s Houseplant Special Fertilizer is great for long-term indoor plant care. This versatile fertilizer can be used both indoors and outdoors, working well with plants such as tradescantia, bird of paradise, hoya, schefflera, aglaonema and other foliage plants. \n \n For optimal results, use ½ teaspoon per gallon of water during the active growing seasons. Most plants desire fertilizer once a month during the spring and summer. No fertilizing is typically needed during the fall and winter months as this is your plant’s natural dormancy time. Always remember to apply fertilizer to damp soil.",
   price: 12.00,
   quantity: 10,
-  seller_id: 14
+  seller_id: user14.id
   )
 # fert1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # fert1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1364,7 +1360,7 @@ fert2 = Product.create!(
   description: "This nutrient-rich fertilizer works wonders on both indoor and outdoor plants. Releasing nutrients slowly over 4 months, Jack’s ClassiCote Fertilizer is the ideal selection for forgetful plant parents and plants that resent being over-fertilized. With controlled release nutrients including phosphorus and magnesium, Jack’s ClassiCote Fertilizer with Crystal Green’s® crystalline compounds provides continuous nutrition for over four months, supporting stronger roots and vital green growth. Using a time-release formula, plants can feed on key nutrients in small increments, giving them more time for absorption instead of washing away during watering. Jack’s Classicote Fertilizer is great for outdoor potted plants, flowering plants, and is a beneficial addition to your potting soil when repotting.",
   price: 16.00,
   quantity: 10,
-  seller_id: 14
+  seller_id: user14.id
   )
 # fert2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # fert2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1378,7 +1374,7 @@ glove = Product.create!(
   description: "Durable and lightweight, the Pink Garden Gloves are form-fitting to provide you with nimble hand protection for indoor and outdoor gardening, weeding, and plant care. Sealed with latex foam on the palm and fingers, these gloves help keep moisture out without sacrificing flexibility. Designed by Womenswork with a custom fit for women in mind.",
   price: 25.00,
   quantity: 10,
-  seller_id: 14
+  seller_id: user14.id
   )
 # glove.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # glove.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1391,7 +1387,7 @@ neem = Product.create!(
   description: "Bonide Neem Oil is an all-purpose insecticide, miticide, and fungicide for organic gardening. Neem oil is great for plant owners to have on hand to treat active pests and diseases and prevent future outbreaks. \n \n Bonide Neem Oil is highly recommended for plant parents who need a natural and all-purpose product to treat their plants. Derived from the Neem seed, Neem Oil kills pests, eggs, and larvae on contact. It’s effective to treat a variety of pests, including spider mites, scale, and gnats. It also treats many fungal diseases such as leaf spot and powdery mildew. Most commonly used on houseplants, roses, flowers, vegetables, herbs, spices, trees, turf and shrubs. Always follow the direction on the label.",
   price: 15.00,
   quantity: 10,
-  seller_id: 14
+  seller_id: user14.id
   )
 # neem.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # neem.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1404,7 +1400,7 @@ shovel1 = Product.create!(
   description: "This stainless steel Soil Scoop is an essential tool for repotting and planting both indoor and outdoor plants. This tool allows you to move generous amounts of soil at once and is helpful for mixing in slow-release fertilizer as you repot. Add this useful tool to your collection and repot your plants with ease.",
   price: 30.00,
   quantity: 12,
-  seller_id: 14
+  seller_id: user14.id
   )
 # shovel1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # shovel1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1417,7 +1413,7 @@ shovel2 = Product.create!(
   description: "This versatile Hand Trowel is useful for repotting and planting both indoors and out. With a wide, deep dish and narrow tip, this tool will dig, transplant, and scoop soil with ease. Excellent for smaller plants and pots, as well as outdoor gardening, this high-quality, stainless steel tool is great to have on-hand for all your gardening needs.",
   price: 30.00,
   quantity: 11,
-  seller_id: 14
+  seller_id: user14.id
   )
 # shovel2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # shovel2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1430,7 +1426,7 @@ watercan = Product.create!(
   description: "This steel white watering canister/bucket is a great addition to your indoor or outdoor plant needs. Water your plants in fashion with this sleek white leek-proof look.",
   price: 35.00,
   quantity: 5,
-  seller_id: 14
+  seller_id: user14.id
   )
 # watercan.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # watercan.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1448,7 +1444,7 @@ user15 = User.create!(
 
 shop15 = Shop.create!(
   name: 'Desert Thumb',
-  owner_id: 15,
+  owner_id: user15.id,
   sales: 21
 )
 
@@ -1458,7 +1454,7 @@ tillandsia1 = Product.create!(
   description: "Grab bag of 10 tillandsia air plants, in a mix of varieties. \n \n Perfect for craft projects, terrariums, vertical garden displays and more. Plant sizes will range from 1 Inch to 12 Inches tall.",
   price: 24.75,
   quantity: 6,
-  seller_id: 15
+  seller_id: user15.id
 )
 # tillandsia1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # tillandsia1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1476,7 +1472,7 @@ tillandsia2 = Product.create!(
   description: "2in+ tall or wide, random tillandsia variety in cute gold metal hanging container.",
   price: 15.00,
   quantity: 7,
-  seller_id: 15
+  seller_id: user15.id
 )
 # tillandsia2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # tillandsia2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1489,7 +1485,7 @@ cymbidium1 = Product.create!(
   description: "Cymbidium Koushu Tango is a dazzling orchid that produces intense ruby red blooms, showing its excellent breeding by the Mukoyama Nursery in Japan, one of the leading Cymbidium orchid hybridizers in the world. \n \n Just like the dance for which it was named, this is one red-hot orchid! Its vibrant red petals coupled with its deep, dark lip results in a very seductive bloom. This Cymbidium orchid is very hardy, easy to grow, and also on the smaller side (not quite miniature, but close), making it an easy fit for any collection. You can grow this in any kind of chunky orchid bark, watering twice per week and fertilizing every other week. Avoid direct sun; moderate to bright shady conditions are best. This is a warm-tolerant orchid and can also tolerate near-freezing temperatures for short durations, but bring inside if expecting prolonged cold.",
   price: 26.99,
   quantity: 1,
-  seller_id: 15
+  seller_id: user15.id
 )
 # cymbidium1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # cymbidium1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1502,7 +1498,7 @@ cymbidium2 = Product.create!(
   description: 'Plants are potted up in 3.25" square pots, with two or three growths. For Cymbidiums, NBS (Near Blooming Size) means the plant is 12 - 18 months from reaching Blooming Size (a size typically capable of blooming PLEASE NOTE: NOT IN BLOOM when shipped.',
   price: 23.00,
   quantity: 3,
-  seller_id: 15
+  seller_id: user15.id
 )
 # cymbidium2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # cymbidium2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1516,7 +1512,7 @@ cactus1 = Product.create!(
   description: "Careful- this Angel Wings Cactus can be a bit devilish! While the Opuntia may be prickly, the striking bright white spines and pretty seasonal blossoms makes this plant a Lazy Garden favorite. Easy to care for with low light and an occasional watering, this not-so angelic cactus is a match made in heaven for every lazy gardener’s home!",
   price: 15.00,
   quantity: 8,
-  seller_id: 15
+  seller_id: user15.id
 )
 # cactus1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # cactus1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1529,7 +1525,7 @@ cactus2 = Product.create!(
   description: "Columnar variety of cactus with color variations ranging from yellow / green, green, blue / green, and gray. During the growing season, Apr - Oct, the cactus will produce 6-8” diameter white colored flowers that only bloom for one night.  They also produce an edible fruit the size of a lemon, similar to a dragon fruit. Comes in a 10inch grow pot",
   price: 80.95,
   quantity: 1,
-  seller_id: 15
+  seller_id: user15.id
 )
 # cactus2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # cactus2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1543,7 +1539,7 @@ cactus3 = Product.create!(
   ~Care instructions will be provided with plant.",
   price: 15.99,
   quantity: 7,
-  seller_id: 15
+  seller_id: user15.id
 )
 # cactus3.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 cactus3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/euphorbia.JPG'), filename: 'euphorbia.JPG')
@@ -1554,7 +1550,7 @@ cactus4 = Product.create!(
   description: "ADORABLE Miniature Ceramic Pot holding Live Micro Cactus! These little guys are very hardy, and do not require a lot of attention and care.",
   price: 21.00,
   quantity: 10,
-  seller_id: 15
+  seller_id: user15.id
 )
 # cactus4.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # cactus4.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1568,7 +1564,7 @@ cactus5 = Product.create!(
   description: "Pink Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, pink, salmon, and bi-color. Pink Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright pink and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
   price: 19.95,
   quantity: 6,
-  seller_id: 15
+  seller_id: user15.id
 )
 # cactus5.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # cactus5.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1581,7 +1577,7 @@ cactus6 = Product.create!(
   description: "Red Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, pink, salmon, and bi-color. Red Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright red and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
   price: 19.95,
   quantity: 7,
-  seller_id: 15
+  seller_id: user15.id
 )
 # cactus6.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
 # cactus6.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
@@ -1594,7 +1590,7 @@ cactus7 = Product.create!(
   description: "Peach Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, peach, salmon, and bi-color. Peach Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright peach and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
   price: 19.95,
   quantity: 14,
-  seller_id: 15
+  seller_id: user15.id
 )
 # cactus7.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 cactus7.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasC1.JPG'), filename: 'xmasC1.JPG')
