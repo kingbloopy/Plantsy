@@ -967,7 +967,7 @@ snake1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.p
 
 bonsai1 = Product.create!(
   title: 'Aged Juniper Bonsai',
-  category: 'House Plant',
+  category: 'Bonsai',
   description: "This captivating Rock Juniper Bonsai tree features the power and tranquility of Bonsai but in a smaller size. If space is a limitation, this juniper bonsai tree can add color and harmony while still possessing all the characteristics of its larger version.",
   price: 35.00,
   quantity: 5,
@@ -980,7 +980,7 @@ bonsai1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.
 
 bonsai2 = Product.create!(
   title: 'Hinoki Cypress Bonsai Tree',
-  category: 'House Plant',
+  category: 'Bonsai',
   description: "This Japanese native is a needled evergreen bonsai tree. Its wide reaching branches give it lovely pads as it ages, and the flat fanned foliage make this bonsai truly stunning at any age. It is a traditional tree for bonsai. It is incredibly hardy, making it an excellent first bonsai tree.",
   price: 104.99,
   quantity: 2,
