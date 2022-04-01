@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Explore = ({ currentUser }) => {
 
@@ -19,35 +20,35 @@ const Explore = ({ currentUser }) => {
       </div>
       <div className="explore__circles-wrapper">
 
-        <div className="explore__circles-wrapper__circle-wrapper">
+        <Link to="/bromeliads" className="explore__circles-wrapper__circle-wrapper">
           <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.bromeliad}></img>
           <h1 className="title">Bromeliads</h1>
-        </div>
+        </Link>
 
-        <div className="explore__circles-wrapper__circle-wrapper">
+        <Link to="herbs" className="explore__circles-wrapper__circle-wrapper">
           <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.herbs}></img>
           <h1 className="title">Herbs</h1>
-        </div>
+        </Link>
 
-        <div className="explore__circles-wrapper__circle-wrapper">
+        <Link to="orchids" className="explore__circles-wrapper__circle-wrapper">
           <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.orchid}></img>
           <h1 className="title">Orchids</h1>
-        </div>
+        </Link>
 
-        <div className="explore__circles-wrapper__circle-wrapper">
+        <Link to="houseplants" className="explore__circles-wrapper__circle-wrapper">
           <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.houseplants}></img>
           <h1 className="title">House Plants</h1>
-        </div>
+        </Link>
 
-        <div className="explore__circles-wrapper__circle-wrapper">
+        <Link to="succulents" className="explore__circles-wrapper__circle-wrapper">
           <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.succulents}></img>
           <h1 className="title">Succulents</h1>
-        </div>
+        </Link>
 
-        <div className="explore__circles-wrapper__circle-wrapper">
+        <Link to="cacti" className="explore__circles-wrapper__circle-wrapper">
           <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.cactus}></img>
           <h1 className="title">Cacti</h1>
-        </div>
+        </Link>
 
       </div>
     </div>

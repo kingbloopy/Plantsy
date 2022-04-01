@@ -7,7 +7,7 @@
   background: rgba(0, 0, 0, 0.7);
   transform: scale(1.1);
   transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
-  z-index: 4;
+  z-index: 10;
   text-align: center;
   cursor: pointer;
   animation-name: fadeIn;
