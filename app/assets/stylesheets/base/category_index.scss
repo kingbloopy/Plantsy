@@ -43,8 +43,9 @@
 }
 
 .category-item {
-  max-width: 290px;
-  width: 100%;
+  // max-width: 290px;
+  // width: 100%;
+  padding: 6px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -82,9 +83,15 @@
     border-radius: 6px;
     position: relative;
 
+    &:hover {
+      box-shadow: $box-shadow;
+      transition: ease-in 0.16s;
+    }
+
     & > img {
       width: 290px;
       height: 290px;
+
     }
   }
 }

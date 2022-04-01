@@ -60,6 +60,7 @@ const CategoryIndex = props => {
 
   useEffect(() => {
     props.fetchByCategory(searchCategory);
+    window.scrollTo(0, 0);
   }, [path]);
 
   console.log(props.products);

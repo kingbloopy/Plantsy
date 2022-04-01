@@ -19,6 +19,7 @@
     
     &:hover {
       box-shadow: $box-shadow;
+      transition: ease-in 0.16s;
     }
   }
 
@@ -109,6 +110,7 @@
         
         &:hover {
           box-shadow: $box-shadow;
+          transition: ease-in 0.16s;
         }
       }
     }
