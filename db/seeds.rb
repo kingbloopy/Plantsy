@@ -314,7 +314,7 @@ shop4 = Shop.create!(
 calathea2 = Product.create!(
   title: 'Calathea',
   category: 'House Plant',
-  description: 'Catathea white fusion with marrbled purple and white leaves. Comes in an 8" size grow pot',
+  description: 'Catathea white fusion with marbled purple and white leaves. Comes in an 8" size grow pot',
   price: 12.75,
   quantity: 4,
   seller_id: user4.id
