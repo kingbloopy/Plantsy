@@ -64,9 +64,7 @@ const CategoryIndex = props => {
     window.scrollTo(0, 0);
   }, [path]);
 
-  console.log(props.products);
-
-  return props.products ? (
+  return props.products[props.products.length - 1] ? (
     <div className="category-index">
       <div className="category-index__info-wrapper">
         <h1>{category}</h1>

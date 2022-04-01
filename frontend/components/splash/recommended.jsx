@@ -9,7 +9,7 @@ const Recommended = (props) => {
     props.fetchAllProducts();
   }, []);
 
-  if (props.products.length > 0 && props.currentUser) {
+  if (props.products[props.products.length - 1] && props.currentUser) {
     const recProducts = [];
     while (recProducts.length !== 10){
       const randPro = props.products[Math.floor(Math.random() * props.products.length)];
@@ -28,6 +28,8 @@ const Recommended = (props) => {
         </div>
       </div>
     );
+  } else if (props.products.length > 0 && !props.currentUser) {
+    return null;
   } else {
     return (
       <Spinner/>
