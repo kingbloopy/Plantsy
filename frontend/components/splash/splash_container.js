@@ -9,7 +9,7 @@ const mapStateToProps = ({ entities, session }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  fetchAllProducts: () => dispatch(fetchAllProducts())
+  fetchAllProducts: () => dispatch(fetchAllProducts()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Splash);

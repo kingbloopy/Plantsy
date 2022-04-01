@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import React from "react";
 import ProductItem from "../products/product_index_item";
+import Spinner from '../misc/spinner';
 
 const Recommended = (props) => {
 
@@ -28,7 +29,9 @@ const Recommended = (props) => {
       </div>
     );
   } else {
-    return null;
+    return (
+      <Spinner/>
+    );
   }
 }
 

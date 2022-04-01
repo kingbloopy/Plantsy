@@ -49,4 +49,6 @@
 
 .quantity-counter button:hover {
   background-color: $hover-button;
+  -webkit-transition: background 0.8s;
+  transition: background 0.8s;
 }

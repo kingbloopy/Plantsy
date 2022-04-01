@@ -12,6 +12,7 @@ const ProductShow = props => {
 
   useEffect(() => {
     props.fetchProduct(props.match.params.productId);
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
