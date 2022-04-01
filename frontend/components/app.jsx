@@ -7,33 +7,40 @@ import SplashContainer from "./splash/splash_container";
 import CartContainer from "./cart/cart_container";
 import FooterContainer from "./footer/footer";
 import CategoryIndexContainer from "./products/category_index/category_index_container";
+import { Fragment } from 'react';
+import ScrollButton from "./misc/scroll_button";
+import { Content } from './misc/scroll_styles';
+
 
 
 const App = () => (
-  <div>
-    <Modal/>
-    <header>
-      <HeaderContainer/>
-    </header>
-    <Switch>
-      <Route path="/bromeliads" component={CategoryIndexContainer}/>
-      <Route path="/herbs" component={CategoryIndexContainer}/>
-      <Route path="/orchids" component={CategoryIndexContainer}/>
-      <Route path="/pottery" component={CategoryIndexContainer}/>
-      <Route path="/houseplants" component={CategoryIndexContainer}/>
-      <Route path="/succulents" component={CategoryIndexContainer}/>
-      <Route path="/cacti" component={CategoryIndexContainer}/>
-      <Route path="/supplies" component={CategoryIndexContainer}/>
-      <Route path="/air-plants" component={CategoryIndexContainer}/>
-      <Route path="/bonsai" component={CategoryIndexContainer}/>
-      <Route exact path="/products/:productId" component={ProductShowContainer}/>
-      <Route exact path="/cart" component={CartContainer} />
-      <SplashContainer exact path="/" />
-    </Switch>
-    <footer>
-      <FooterContainer/>
-    </footer>
-  </div>
+  <Fragment>
+    <Content>
+      <Modal/>
+      <header>
+        <HeaderContainer/>
+      </header>
+      <Switch>
+        <Route path="/bromeliads" component={CategoryIndexContainer}/>
+        <Route path="/herbs" component={CategoryIndexContainer}/>
+        <Route path="/orchids" component={CategoryIndexContainer}/>
+        <Route path="/pottery" component={CategoryIndexContainer}/>
+        <Route path="/houseplants" component={CategoryIndexContainer}/>
+        <Route path="/succulents" component={CategoryIndexContainer}/>
+        <Route path="/cacti" component={CategoryIndexContainer}/>
+        <Route path="/supplies" component={CategoryIndexContainer}/>
+        <Route path="/air-plants" component={CategoryIndexContainer}/>
+        <Route path="/bonsai" component={CategoryIndexContainer}/>
+        <Route exact path="/products/:productId" component={ProductShowContainer}/>
+        <Route exact path="/cart" component={CartContainer} />
+        <SplashContainer exact path="/" />
+      </Switch>
+      <footer>
+        <FooterContainer/>
+      </footer>
+        <ScrollButton />
+    </Content>
+  </Fragment>
 );
 
 export default App;
