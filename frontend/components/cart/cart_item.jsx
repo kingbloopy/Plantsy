@@ -38,20 +38,22 @@ const CartItem = props => {
       shipDate1 = 1 + randomNum();
       shipDate2 = shipDate1 + 3;
       shipMonth = month + 1;
-    }
-    if ((month === 4 || month === 6 || month == 9 || month === 11) && day === 30){
+    } else if ((month === 4 || month === 6 || month == 9 || month === 11) && day === 30){
       shipDate1 = 1 + randomNum();
       shipDate2 = shipDate1 + 3;
       shipMonth = month + 1;
-    } if (day === 31){
+    } else if (day === 31){
       shipDate1 = 1 + randomNum();
       shipDate2 = shipDate1 + 3;
       shipMonth = month + 1;
-    }
-    if (month === 12 && day === 31){
+    } else if (month === 12 && day === 31){
       shipDate1 = 1 + randomNum();
       shipDate2 = shipDate1 + 3;
       shipMonth = 1;
+    } else {
+      shipDate1 = day + randomNum();
+      shipDate2 = shipDate1 + 3;
+      shipMonth = month;
     }
     return `${months[shipMonth]} ${shipDate1}-${months[shipMonth]} ${shipDate2}`
   }
@@ -75,8 +77,8 @@ const CartItem = props => {
 
         <div className="cart-item__content-wrapper">
           <Link to={`/products/${props.item.product_id}`} className="cart-item__content-wrapper__img-wrapper">
-            <img src={window.tester2}/>
-            {/* <img src={props.item.photoUrl}/> */}
+            {/* <img src={window.tester2}/> */}
+            <img src={props.item.photoUrl}/>
           </Link>
           <div className="cart-item__content-wrapper__text-wrapper">
             <div className="cart-item__content-left">

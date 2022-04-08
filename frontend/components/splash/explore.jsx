@@ -21,32 +21,32 @@ const Explore = ({ currentUser }) => {
       <div className="explore__circles-wrapper">
 
         <Link to="/bromeliads" className="explore__circles-wrapper__circle-wrapper">
-          <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.bromeliad}></img>
+          <img className="explore__circles-wrapper__circle-wrapper__circle" src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/bromeliad.jpg"></img>
           <h1 className="title">Bromeliads</h1>
         </Link>
 
         <Link to="herbs" className="explore__circles-wrapper__circle-wrapper">
-          <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.herbs}></img>
+          <img className="explore__circles-wrapper__circle-wrapper__circle" src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/herbs.jpg"></img>
           <h1 className="title">Herbs</h1>
         </Link>
 
         <Link to="orchids" className="explore__circles-wrapper__circle-wrapper">
-          <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.orchid}></img>
+          <img className="explore__circles-wrapper__circle-wrapper__circle" src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/orchid.jpg"></img>
           <h1 className="title">Orchids</h1>
         </Link>
 
         <Link to="houseplants" className="explore__circles-wrapper__circle-wrapper">
-          <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.houseplants}></img>
+          <img className="explore__circles-wrapper__circle-wrapper__circle" src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/houseplants.jpg"></img>
           <h1 className="title">House Plants</h1>
         </Link>
 
         <Link to="succulents" className="explore__circles-wrapper__circle-wrapper">
-          <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.succulents}></img>
+          <img className="explore__circles-wrapper__circle-wrapper__circle" src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/succulents.jpg"></img>
           <h1 className="title">Succulents</h1>
         </Link>
 
         <Link to="cacti" className="explore__circles-wrapper__circle-wrapper">
-          <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.cactus}></img>
+          <img className="explore__circles-wrapper__circle-wrapper__circle" src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/cactus.jpg"></img>
           <h1 className="title">Cacti</h1>
         </Link>
 
