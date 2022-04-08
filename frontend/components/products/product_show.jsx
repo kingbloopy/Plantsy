@@ -73,8 +73,8 @@ const ProductShow = props => {
     return(
       <div className="product-show">
   
-        <Photos photos={[window.tester1, window.tester2]} />
-        {/* <Photos photos={product.photoURLs} /> */}
+        {/* <Photos photos={[window.tester1, window.tester2]} /> */}
+        <Photos photos={product.photoURLs} />
   
         <div className="product-show__product-info">
           <div className="product-show__seller-info">
