@@ -4,7 +4,7 @@ import { fetchProduct } from "../../actions/product_actions";
 import { openModal } from '../../actions/modal_actions';
 import { addCartItem, updateCartItem, fetchCart } from '../../actions/cartitem_actions';
 
-const mapStateToProps = (state, ownProps) => {posts
+const mapStateToProps = (state, ownProps) => {
   return {
   product: state.entities.products[ownProps.match.params.productId],
   maxQuantity: state.entities.products[ownProps.match.params.productId] ? state.entities.products[ownProps.match.params.productId].quantity : null,

@@ -18,7 +18,9 @@ const Recommended = (props) => {
 
     return (
       <div className="recommended">
-        <h1>Recommended for you</h1>
+        <div className="recommended__title-wrapper">
+          <h1>Recommended for you</h1>
+        </div>
         <div className="recommended__header-wrapper">
           <ul className="recommended__wrapper">
             {recProducts.map((product, i) => {
