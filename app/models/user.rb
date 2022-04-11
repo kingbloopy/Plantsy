@@ -20,6 +20,10 @@ class User < ApplicationRecord
   foreign_key: :user_id,
   class_name: :CartItem
 
+  has_many :reviews,
+  foreign_key: :reviewer_id,
+  class_name: :Review
+
   after_initialize :ensure_session_token
   attr_reader :password
 
