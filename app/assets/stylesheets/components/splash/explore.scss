@@ -59,7 +59,8 @@
       }
       
       &__circle {
-        width: 120px;
+        max-width: 120px;
+        width: 100%;
         border-radius: 50%;
         border: 1px solid rgba(74, 130, 51, 0.15);
       }

@@ -34,8 +34,10 @@
   
   &__pic-wrapper {
     text-decoration: none;
-    width: 230px;
-    height: 155px;
+    max-width: 230px;
+    width: 100%;
+    max-height: 155px;
+    height: 100%;
     overflow: hidden;
     border-radius: 10px;
     position: relative;
@@ -47,8 +49,9 @@
   }
   
   &__pic-link {
-    width: 230px;
-    height: 230px;
+    max-width: 230px;
+    width: 100%;
+    max-height: 230px;
   }
   
   &__price-wrapper {
@@ -58,7 +61,8 @@
     font-weight: 500;
     margin-left: 10px;
     position: absolute;
-    margin-top: -114px;
+    // margin-top: -114px;
+    margin-top: -50%;
     padding: 6px;
     border-radius: 18px;
     z-index: 100;
