@@ -1,25 +1,28 @@
 @import './root.scss';
 
 .cart {
-  padding: 30px 50px;
+  padding-bottom: 30px;
+  
   &__inner {
     display: flex;
     justify-content: space-between;
+    padding: 30px 50px;
   }
 }
 
 .cart-items {
   max-width: 770px;
   width: 100%;
-
+  
   &:last-child:active {
     content: '';
     display: block;
     padding-bottom: 26px;
     border-bottom: 1px solid transparent;
   }
-
+  
   &__upper {
+    padding: 30px 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
