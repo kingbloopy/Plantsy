@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { openModal } from '../../actions/modal_actions';
+import { connect } from "react-redux";
 
 const CartFooter = props => {
   return (
@@ -14,7 +16,7 @@ const CartFooter = props => {
 
         <div className="cart-footer__top-right">
           <h1>&copy; Plantsy, Inc.</h1>
-          <Link to="/">Help Center</Link>
+          <button onClick={() => props.openModal('help')}>Help Center</button>
         </div>
       </div>
       <div className="lower-header">
@@ -28,4 +30,8 @@ const CartFooter = props => {
   );
 }
 
-export default CartFooter;
+const mapDispatchToProps = dispatch => ({
+  openModal: modal => dispatch(openModal(modal))
+})
+
+export default connect(null, mapDispatchToProps)(CartFooter);
