@@ -10,8 +10,8 @@ const OrchidItem = ({ item }) => {
 
   return item ? (
     <Link to={`/products/${item.id}`}>
-      {/* <img className="recommended__pic-link" src={window.tester2} alt={item.title} /> */}
-      <img src={item.photoURLs[0]} alt={item.title} />
+      <img className="recommended__pic-link" src={window.tester2} alt={item.title} />
+      {/* <img src={item.photoURLs[0]} alt={item.title} /> */}
       {decimalCount(item.price) ? (
         <p className="recommended__price">${item.price}0</p>
       ) : (
