@@ -4,9 +4,11 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show, :update, :destroy] do
     end
     resource :session, only: [:create, :destroy]
-    resources :products, only: [:create, :show, :index, :update, :destroy]
+    resources :products, only: [:create, :show, :index, :update, :destroy] do
+      resources :reviews, only: [:index]
+    end
     resources :cartitems, only: [:create, :update, :destroy, :index]
-    resources :reviews, only: [:index, :create, :update, :destroy]
+    resources :reviews, only: [:create, :update, :destroy]
   end
 
 

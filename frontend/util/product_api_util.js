@@ -29,7 +29,7 @@ export const fetchByCategory = category => (
 // export const createProduct = product => (
 //   $.ajax({
 //     method: 'POST',
-//     method: '/api/products',
+//     url: '/api/products',
 //     data: { product }
 //   })
 // );
@@ -37,7 +37,7 @@ export const fetchByCategory = category => (
 // export const updateProduct = product => (
 //   $.ajax({
 //     method: 'PATCH',
-//     method: `/api/products/${product.id}`,
+//     url: `/api/products/${product.id}`,
 //     data: { product }
 //   })
 // );
@@ -45,6 +45,6 @@ export const fetchByCategory = category => (
 // export const deleteProduct = product => (
 //   $.ajax({
 //     method: 'DELETE',
-//     method: `/api/products/${product.id}`,
+//     url: `/api/products/${product.id}`,
 //   })
 // );
