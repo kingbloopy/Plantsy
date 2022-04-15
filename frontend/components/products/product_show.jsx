@@ -73,8 +73,28 @@ const ProductShow = props => {
     return(
       <div className="product-show">
   
-        <Photos photos={[window.tester1, window.tester2]} />
-        {/* <Photos photos={product.photoURLs} /> */}
+        <Photos 
+        productId={product.id} 
+        currentUserId={props.currentUserId} 
+        reviews={props.reviews} 
+        fetchAllReviews={props.fetchAllReviews} 
+        photos={[window.tester1, window.tester2]} 
+        createReview={props.createReview}
+        updateReview={props.updateReview}
+        removeReview={props.removeReview}
+        title={product.title}
+        average={product.averageRating}/>
+        {/* <Photos 
+        productId={product.id} 
+        currentUserId={props.currentUserId} 
+        reviews={props.reviews} 
+        fetchAllReviews={props.fetchAllReviews} 
+        createReview={props.createReview}
+        updateReview={props.updateReview}
+        removeReview={props.removeReview}
+        photos={product.photoURLs}
+        title={product.title}
+        average={product.averageRating}/> */}
   
         <div className="product-show__product-info">
           <div className="product-show__seller-info">

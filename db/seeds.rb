@@ -731,7 +731,7 @@ zygo.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orch
 brom2 = Product.create!(
   title: "Bromeliad 'Silvervase'",
   category: 'Bromeliad',
-  description: "An epiphytic plant native to Brazil with thick, arching, and gray-green leaves. Like an orchid, it attaches itself to trees and large plants. Product Size : 32 Oz. Includes terracotta planter.",
+  description: "An epiphytic plant native to Brazil with thick, arching, and gray-green leaves. Like an orchid, it attaches itself to trees and large plants. Product Size: 32 Oz. Includes terracotta planter.",
   price: 50.25,
   quantity: 38,
   seller_id: user8.id)

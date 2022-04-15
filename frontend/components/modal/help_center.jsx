@@ -6,8 +6,8 @@ const HelpCenter = props => {
     <div className="help-center">
       <h1>Have a question?</h1>
       <h2>Feel free to contact me directly with any questions regarding Plantsy or more:</h2>
-      <a href="mailto:kingbloopy@gmail.com">
-        kingbloopy@gmail.com
+      <a href="mailto:maggiemae.mcd@gmail.com">
+        maggiemae.mcd@gmail.com
       </a>
     </div>
   );
