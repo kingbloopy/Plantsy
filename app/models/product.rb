@@ -16,7 +16,10 @@ class Product < ApplicationRecord
   class_name: :CartItem
 
   has_many :reviews,
-  foreign_key: :product_id,
-  class_name: :Review
+  foreign_key: :product_id
+
+  def average_rating
+    reviews.average(:rating)
+  end
   
 end

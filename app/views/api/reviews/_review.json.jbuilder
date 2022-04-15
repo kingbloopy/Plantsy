@@ -1,0 +1,1 @@
+json.extract! review, :id, :rating, :content, :product, :reviewer_id, :created_at
