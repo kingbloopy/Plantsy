@@ -1,0 +1,69 @@
+@import '../../root.scss';
+
+.reviews {
+  margin-top: 40px;
+  max-width: 650px;
+  width: 100%;
+
+  &__upper-wrapper {
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgb(182, 189, 158);
+
+    & > h1 {
+      font-size: 26px;
+      font-weight: 100;
+      font-family: 'Merriweather Sans', sans-serif;
+    }
+  }
+
+  &__star-wrapper {
+    gap: 4px;
+    display: flex;
+
+    & > svg {
+      fill: $dark-green;
+    }
+  }
+
+  &__wrapper {
+    margin-bottom: 50px;
+
+    & > p {
+      padding-top: 10px;
+    }
+
+    &__rating {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+      justify-content: space-between;
+      
+      & > div {
+        align-items: center;
+        gap: 20px;
+        display: flex;
+
+        & > h2 {
+          font-size: 14px;
+          color: $grey-green;
+        }
+  
+        & > a {
+          font-size: 14px;
+          text-decoration: underline;
+          -webkit-transition: color 0.8s;
+          transition: color 0.8s;
+  
+          &:hover {
+            color: $highlight-green;
+          }
+        }
+      }
+
+    }
+  }
+}

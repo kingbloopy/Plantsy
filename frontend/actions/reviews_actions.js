@@ -18,10 +18,18 @@ export const fetchAllReviews = productId => dispatch => (
     .then(reviews => dispatch(receiveAllReviews(reviews)))
 );
 
-export const createReview = review => dispatch => (
-  ReviewsUtil.createReview(review)
-    .then(reviews => dispatch(receiveAllReviews(reviews)))
-);
+export const createReview = review => dispatch => {
+  debugger
+  return (
+    ReviewsUtil.createReview(review)
+      .then(reviews => dispatch(receiveAllReviews(reviews)))
+  )
+}
+
+// export const createReview = review => dispatch => (
+//   ReviewsUtil.createReview(review)
+//     .then(reviews => dispatch(receiveAllReviews(reviews)))
+// );
 
 export const removeReview = reviewId => dispatch => (
   ReviewsUtil.deleteReview(reviewId)

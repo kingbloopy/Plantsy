@@ -135,7 +135,9 @@ const ProductShow = props => {
             </div>
           </div>
 
-          <button type="button" className={`product-show__add-cart${outOfStock}`} onClick={addCart}>Add to cart</button>
+          <div className="product-show__add-wrapper">
+            <button type="button" className={`product-show__add-cart${outOfStock}`} onClick={addCart}>Add to cart</button>
+          </div>
           <div className="product-show__d-wrapper">
             <h4>Description</h4>
             <p className="product-show__body">{product.description}</p>
