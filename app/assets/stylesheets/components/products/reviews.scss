@@ -47,8 +47,7 @@
     }
   }
 
-    &__text-wrapper {
-      margin-bottom: 10px;
+    &__text-wrapper, .displayed {
       max-width: 650px;
       width: 100%;
       max-height: 300px;
@@ -86,6 +85,7 @@
     }
 
   &__errors {
+    margin-top: 10px;
     font-size: 16px;
     color: $red;
   }
@@ -106,6 +106,7 @@
   }
 
   &__star-wrapper {
+    margin-bottom: 10px;
     gap: 4px;
     display: flex;
 
@@ -117,14 +118,11 @@
   &__wrapper {
     margin-bottom: 50px;
 
-    & > p {
-      padding-top: 10px;
-    }
-
     &__rating {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      height: 36px;
       
       & > div {
         align-items: center;
@@ -186,4 +184,22 @@
 .stars-rating > input:checked~label:hover~label {
   cursor: pointer;
   color: $dark-green;
+}
+
+.hide {
+  display: none;
+}
+
+.save-button {
+  display: block;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 24px;
+  -webkit-transition: background 0.8s;
+  transition: background 0.8s;
+      
+  &:hover {
+    background-color: $hover-button;
+    cursor: pointer;
+  }
 }

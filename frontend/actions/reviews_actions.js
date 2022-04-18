@@ -36,5 +36,5 @@ export const removeReview = reviewId => dispatch => (
 
 export const updateReview = (review) => dispatch => (
   ReviewsUtil.updateReview(review)
-    .then(reviews => dispatch(receiveAllReviews(reviews)))
+    .then(review => dispatch(receiveReview(review)))
 );
