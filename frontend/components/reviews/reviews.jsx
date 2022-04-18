@@ -43,6 +43,12 @@ const Reviews = props => {
     }
   }
 
+  const getAvg = () => {
+    let total = 0;
+    props.reviews.forEach(review => total += review.rating);
+    return Math.round(total/props.reviews.length);
+  }
+
   const properName = name => {
     return name[0].toUpperCase() + name.slice(1).toLowerCase();
   }
@@ -79,11 +85,11 @@ const Reviews = props => {
       {props.currentUserId ? (
       <form onSubmit={handleReview}>
         <div className="reviews__radio-wrapper">
-          <input className="rating-radio" onChange={update('rating')} value='1' type='radio'/>
-          <input className="rating-radio" onChange={update('rating')} value='2' type='radio'/>
-          <input className="rating-radio" onChange={update('rating')} value='3' type='radio'/>
-          <input className="rating-radio" onChange={update('rating')} value='4' type='radio'/>
-          <input className="rating-radio" onChange={update('rating')} value='5' type='radio'/>
+          <input className="rating-radio" onChange={update('rating')} value='1' name="star" type='radio'/>
+          <input className="rating-radio" onChange={update('rating')} value='2' name="star" type='radio'/>
+          <input className="rating-radio" onChange={update('rating')} value='3' name="star" type='radio'/>
+          <input className="rating-radio" onChange={update('rating')} value='4' name="star" type='radio'/>
+          <input className="rating-radio" onChange={update('rating')} value='5' name="star" type='radio'/>
         </div>
         <div className="reviews__text-wrapper">
           <textarea onChange={update('review')} value={review} placeholder={`Add a review for ${props.title}`} />
