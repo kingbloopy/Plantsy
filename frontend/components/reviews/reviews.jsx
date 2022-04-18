@@ -58,7 +58,7 @@ const Reviews = props => {
         <h1>{props.reviews.length} {plural}</h1>
         <div className="reviews__star-wrapper">
           {generateStars(Math.round(props.average))}
-          </div>
+        </div>
       </div>
         {props.reviews.map((review, idx) => (
           <ReviewItems review={review}
@@ -66,6 +66,7 @@ const Reviews = props => {
           currentUserId={props.currentUserId}
           removeReview={props.removeReview}
           updateReview={props.updateReview}
+          productId={props.productId}
           />
         ))}
       {props.currentUserId ? (

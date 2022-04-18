@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const ReviewItems = props => {
-  let [editClass, setEditClass] = useState('hidden');
-  let [content, setContent] = useState(props.review.content)
-  let [initialContent, setInitialContent] = useState(props.review.content)
-  let [editButton, setEditButton] = useState('reviews__edit')
-  let [saveButton, setSaveButton] = useState('hide')
   const review = props.review;
+  let [editClass, setEditClass] = useState('hidden');
+  let [rating, setRating] = useState(review.rating);
+  let [content, setContent] = useState(review.content);
+  let [editButton, setEditButton] = useState('reviews__edit');
+  let [saveButton, setSaveButton] = useState('hide');
+  let [stars, setStars] = useState('reviews__star-wrapper');
+  let [editStars, setEditStars] = useState('hide');
 
   const generateStars = rating => {
     const stars = [];
@@ -26,16 +28,41 @@ const ReviewItems = props => {
     return name[0].toUpperCase() + name.slice(1).toLowerCase();
   }
 
+  const update = field => {
+    return e => {
+      if (field === 'content') {
+        setContent(e.target.value);
+      } else if (field === 'rating') {
+        setRating(e.target.value)
+      }
+    }
+  }
+
   const handleEdit = () => {
     if (editClass === 'hidden') {
       setEditClass('displayed');
       setEditButton('hide');
       setSaveButton('save-button');
+      setStars('hide');
+      setEditStars('stars-rating');
     } else {
+      setEditStars('hide');
+      setStars('reviews__star-wrapper')
       setEditClass('hidden');
       setEditButton('reviews__edit');
       setSaveButton('hide');
+      handleSaveEdit();
     }
+  }
+
+  const handleSaveEdit = () => {
+    const rev = {
+      product_id: props.productId,
+      rating: rating,
+      content: content,
+      id: review.id
+    }
+    props.updateReview(rev);
   }
 
   return (
@@ -57,12 +84,24 @@ const ReviewItems = props => {
           null
         )}
       </div>
-      <div className="reviews__star-wrapper">
+      <div className={stars}>
         {generateStars(review.rating)}
       </div>
+        <div className={editStars}>
+          <input checked={rating === 5 ? true : false} onChange={update('rating')} type="radio" id="star5" name="rating" value="5" />
+          <label className="star" htmlFor="star5" title="Awesome" aria-hidden="true"></label>
+          <input checked={rating === 4 ? true : false} onChange={update('rating')} type="radio" id="star4" name="rating" value="4" />
+          <label className="star" htmlFor="star4" title="Great" aria-hidden="true"></label>
+          <input checked={rating === 3 ? true : false} onChange={update('rating')} type="radio" id="star3" name="rating" value="3" />
+          <label className="star" htmlFor="star3" title="Very good" aria-hidden="true"></label>
+          <input checked={rating === 2 ? true : false} onChange={update('rating')} type="radio" id="star2" name="rating" value="2" />
+          <label className="star" htmlFor="star2" title="Good" aria-hidden="true"></label>
+          <input checked={rating === 1 ? true : false} onChange={update('rating')} type="radio" id="star1" name="rating" value="1" />
+          <label className="star" htmlFor="star1" title="Bad" aria-hidden="true"></label>
+        </div>
       {(props.currentUserId === review.reviewer_id) && (editClass === 'displayed') ? (
         <div className={editClass}>
-          <textarea value={content} />
+          <textarea onChange={update('content')} value={content} />
         </div>
       ) : (
         <p>{review.content}</p>
