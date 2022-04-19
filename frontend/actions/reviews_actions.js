@@ -2,10 +2,16 @@ import * as ReviewsUtil from '../util/reviews_util';
 
 export const RECEIVE_ALL_REVIEWS = 'RECEIVE_ALL_REVIEWS';
 export const REMOVE_REVIEW = 'REMOVE_REVIEW';
+export const RECEIVE_REVIEW = 'RECEIVE_REVIEW';
 
 const receiveAllReviews = reviews => ({
   type: RECEIVE_ALL_REVIEWS,
   reviews
+});
+
+const receiveReview = review => ({
+  type: RECEIVE_REVIEW,
+  review
 });
 
 const deleteReview = reviewId => ({
@@ -20,7 +26,7 @@ export const fetchAllReviews = productId => dispatch => (
 
 export const createReview = review => dispatch => (
   ReviewsUtil.createReview(review)
-    .then(reviews => dispatch(receiveAllReviews(reviews)))
+    .then(review => dispatch(receiveReview(review)))
 );
 
 export const removeReview = reviewId => dispatch => (
@@ -30,5 +36,5 @@ export const removeReview = reviewId => dispatch => (
 
 export const updateReview = (review) => dispatch => (
   ReviewsUtil.updateReview(review)
-    .then(reviews => dispatch(receiveAllReviews(reviews)))
+    .then(review => dispatch(receiveReview(review)))
 );

@@ -1,0 +1,169 @@
+@import '../../root.scss';
+
+.reviews {
+  margin-top: 40px;
+  max-width: 650px;
+  width: 100%;
+
+  &__remove, &__edit {
+    padding-top: 7px;
+    padding-bottom: 5px;
+    padding-left: 7px;
+    padding-right: 8px;
+    border-radius: 50%;
+    -webkit-transition: background 0.8s;
+    transition: background 0.8s;
+    
+    & > svg {
+      fill: $dark-green;
+    }
+    
+    &:hover {
+      background-color: $hover-button;
+      cursor: pointer;
+    }
+  }
+  
+  &__edit {
+    padding-top: 9px;
+    padding-bottom: 7px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  &__button {
+    color: $dark-green;
+    margin-top: 16px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 18px;
+    border: $border;
+    padding: 12px 20px;
+    border-radius: 24px;
+    
+    &:hover {
+      box-shadow: $box-shadow;
+      transition: ease-in 0.16s;
+    }
+  }
+
+    &__text-wrapper, .displayed {
+      max-width: 650px;
+      width: 100%;
+      max-height: 300px;
+      min-height: 60px;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 2px solid rgba(132, 167, 66, 0.3);
+      border-radius: 10px;
+    
+      &:focus-within {
+        border-radius: 10px;
+        border: 2px solid $highlight-green;
+      }
+    
+      & > textarea {
+        width: 90%;
+        height: 60%;
+        resize: none;
+        border: none;
+        outline: none;
+        font-size: 16px;
+        font-weight: 500;
+        font-family: 'Montserrat', sans-serif;
+        color: $dark-green;
+        
+        &::placeholder {
+          font-weight: 400;
+          font-size: 14px;
+          font-family: 'Montserrat', sans-serif;
+          color: $grey-green;
+        }
+      }
+    }
+
+  &__errors {
+    margin-top: 10px;
+    font-size: 16px;
+    color: $red;
+  }
+
+  &__upper-wrapper {
+    margin-bottom: 40px;
+    display: flex;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgb(182, 189, 158);
+
+    & > h1 {
+      font-size: 26px;
+      font-weight: 100;
+      font-family: 'Merriweather Sans', sans-serif;
+    }
+  }
+
+  &__star-wrapper {
+    margin-bottom: 10px;
+    gap: 4px;
+    display: flex;
+
+    & > svg {
+      fill: $dark-green;
+    }
+  }
+
+  &__wrapper {
+    margin-bottom: 50px;
+
+    &__rating {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 36px;
+      
+      & > div {
+        align-items: center;
+        gap: 20px;
+        display: flex;
+
+        & > h2 {
+          font-size: 14px;
+          color: $grey-green;
+        }
+  
+        & > a {
+          font-size: 14px;
+          text-decoration: underline;
+          -webkit-transition: color 0.8s;
+          transition: color 0.8s;
+  
+          &:hover {
+            color: $highlight-green;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+
+.hide {
+  display: none;
+}
+
+.save-button {
+  display: block;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 24px;
+  -webkit-transition: background 0.8s;
+  transition: background 0.8s;
+      
+  &:hover {
+    background-color: $hover-button;
+    cursor: pointer;
+  }
+}

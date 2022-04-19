@@ -72,76 +72,81 @@ const ProductShow = props => {
 
     return(
       <div className="product-show">
-  
-        <Photos 
-        productId={product.id} 
-        currentUserId={props.currentUserId} 
-        reviews={props.reviews} 
-        fetchAllReviews={props.fetchAllReviews} 
-        photos={[window.tester1, window.tester2]} 
-        createReview={props.createReview}
-        updateReview={props.updateReview}
-        removeReview={props.removeReview}
-        title={product.title}
-        average={product.averageRating}/>
-        {/* <Photos 
-        productId={product.id} 
-        currentUserId={props.currentUserId} 
-        reviews={props.reviews} 
-        fetchAllReviews={props.fetchAllReviews} 
-        createReview={props.createReview}
-        updateReview={props.updateReview}
-        removeReview={props.removeReview}
-        photos={product.photoURLs}
-        title={product.title}
-        average={product.averageRating}/> */}
-  
-        <div className="product-show__product-info">
-          <div className="product-show__seller-info">
-            <Link to="#" className="product-show__seller-info__shop">{product.shop}</Link>
-            {product.sales ? (
-              <p>{product.sales} sales</p>
-              ): (
-              <p>0 sales</p>
+        <div className="product-show__inner">
+          <Photos 
+          productId={product.id} 
+          currentUserId={props.currentUserId} 
+          reviews={props.reviews} 
+          fetchAllReviews={props.fetchAllReviews} 
+          photos={[window.tester1, window.tester2]} 
+          createReview={props.createReview}
+          updateReview={props.updateReview}
+          removeReview={props.removeReview}
+          title={product.title}
+          average={product.averageRating}/>
+          {/* <Photos 
+          productId={product.id} 
+          currentUserId={props.currentUserId} 
+          reviews={props.reviews} 
+          fetchAllReviews={props.fetchAllReviews} 
+          createReview={props.createReview}
+          updateReview={props.updateReview}
+          removeReview={props.removeReview}
+          photos={product.photoURLs}
+          title={product.title}
+          average={product.averageRating}/> */}
+    
+          <div className="product-show__product-info">
+            <div className="product-show__seller-info">
+              <Link to="#" className="product-show__seller-info__shop">{product.shop}</Link>
+              {product.sales ? (
+                <p>{product.sales} sales</p>
+                ): (
+                <p>0 sales</p>
+              )}
+            </div>
+
+            <h1 className="product-show__title">{product.title}</h1>
+            {currentMax > 2 ? (
+            <div className="product-show__in-stock">
+              <p>In stock</p>
+              <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20px" height="20px"><path d="M 19.980469 5.9902344 A 1.0001 1.0001 0 0 0 19.292969 6.2929688 L 9 16.585938 L 5.7070312 13.292969 A 1.0001 1.0001 0 1 0 4.2929688 14.707031 L 8.2929688 18.707031 A 1.0001 1.0001 0 0 0 9.7070312 18.707031 L 20.707031 7.7070312 A 1.0001 1.0001 0 0 0 19.980469 5.9902344 z" /></svg>
+            </div>
+            ) : (
+            <div className="product-show__low-stock">
+              <p>Low in stock</p>
+            </div>
             )}
-          </div>
 
-          <h1 className="product-show__title">{product.title}</h1>
-          {currentMax > 2 ? (
-          <div className="product-show__in-stock">
-            <p>In stock</p>
-            <svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20px" height="20px"><path d="M 19.980469 5.9902344 A 1.0001 1.0001 0 0 0 19.292969 6.2929688 L 9 16.585938 L 5.7070312 13.292969 A 1.0001 1.0001 0 1 0 4.2929688 14.707031 L 8.2929688 18.707031 A 1.0001 1.0001 0 0 0 9.7070312 18.707031 L 20.707031 7.7070312 A 1.0001 1.0001 0 0 0 19.980469 5.9902344 z" /></svg>
-          </div>
-          ) : (
-          <div className="product-show__low-stock">
-            <p>Low in stock</p>
-          </div>
-          )}
+            <div className="product-show__pq-wrapper">
+            {decimalCount(product.price) ? (
+              <p className="product-show__price">${product.price}0</p>
+            ) : (
+              <p className="product-show__price">${product.price}</p>
+            )}
 
-          <div className="product-show__pq-wrapper">
-          {decimalCount(product.price) ? (
-            <p className="product-show__price">${product.price}0</p>
-          ) : (
-            <p className="product-show__price">${product.price}</p>
-          )}
-
-            <div className="product-show__quantity-wrapper">
-              <p>Quantity:</p>
-              <div className="quantity-counter">
-                <button type="button" onClick={decrement}>&minus;</button>
-                <span>{count}</span>
-                <button type="button" onClick={increment}>&#43;</button>
+              <div className="product-show__quantity-wrapper">
+                <p>Quantity:</p>
+                <div className="quantity-counter">
+                  <button type="button" onClick={decrement}>&minus;</button>
+                  <span>{count}</span>
+                  <button type="button" onClick={increment}>&#43;</button>
+                </div>
               </div>
+            </div>
+
+            <div className="product-show__add-wrapper">
+              <button type="button" className={`product-show__add-cart${outOfStock}`} onClick={addCart}>Add to cart</button>
+            </div>
+            <div className="product-show__d-wrapper">
+              <h4>Description</h4>
+              <p className="product-show__body">{product.description}</p>
             </div>
           </div>
 
-          <button type="button" className={`product-show__add-cart${outOfStock}`} onClick={addCart}>Add to cart</button>
-          <div className="product-show__d-wrapper">
-            <h4>Description</h4>
-            <p className="product-show__body">{product.description}</p>
-          </div>
-          <p className="product-show__time">{product.date}</p>
         </div>
+  
+        <p className="product-show__time">{product.date}</p>
   
       </div>
     );
