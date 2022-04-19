@@ -12,6 +12,8 @@ const ReviewItems = props => {
   let [stars, setStars] = useState('reviews__star-wrapper');
   let [editStars, setEditStars] = useState('hide');
 
+  console.log('RATING', rating)
+
   const generateStars = rating => {
     const stars = [];
     let i = 0;
@@ -44,7 +46,7 @@ const ReviewItems = props => {
       setEditButton('hide');
       setSaveButton('save-button');
       setStars('hide');
-      setEditStars('stars-rating');
+      setEditStars('edit-rating');
     } else {
       setEditStars('hide');
       setStars('reviews__star-wrapper')
@@ -88,16 +90,26 @@ const ReviewItems = props => {
         {generateStars(review.rating)}
       </div>
         <div className={editStars}>
-          <input checked={rating === 5 ? true : false} onChange={update('rating')} type="radio" id="star5" name="rating" value="5" />
-          <label className="star" htmlFor="star5" title="Awesome" aria-hidden="true"></label>
-          <input checked={rating === 4 ? true : false} onChange={update('rating')} type="radio" id="star4" name="rating" value="4" />
-          <label className="star" htmlFor="star4" title="Great" aria-hidden="true"></label>
-          <input checked={rating === 3 ? true : false} onChange={update('rating')} type="radio" id="star3" name="rating" value="3" />
-          <label className="star" htmlFor="star3" title="Very good" aria-hidden="true"></label>
-          <input checked={rating === 2 ? true : false} onChange={update('rating')} type="radio" id="star2" name="rating" value="2" />
-          <label className="star" htmlFor="star2" title="Good" aria-hidden="true"></label>
-          <input checked={rating === 1 ? true : false} onChange={update('rating')} type="radio" id="star1" name="rating" value="1" />
-          <label className="star" htmlFor="star1" title="Bad" aria-hidden="true"></label>
+          <input onChange={update('rating')} type="radio" id="editstar5" name="rating" value="5" />
+          <label className="editstar" htmlFor="editstar5" title="Awesome" aria-hidden="true"></label>
+          <input onChange={update('rating')} type="radio" id="editstar4" name="rating" value="4" />
+          <label className="editstar" htmlFor="editstar4" title="Great" aria-hidden="true"></label>
+          <input onChange={update('rating')} type="radio" id="editstar3" name="rating" value="3" />
+          <label className="editstar" htmlFor="editstar3" title="Very good" aria-hidden="true"></label>
+          <input onChange={update('rating')} type="radio" id="editstar2" name="rating" value="2" />
+          <label className="editstar" htmlFor="editstar2" title="Good" aria-hidden="true"></label>
+          <input onChange={update('rating')} type="radio" id="editstar1" name="rating" value="1" />
+          <label className="editstar" htmlFor="editstar1" title="Bad" aria-hidden="true"></label>
+          {/* <input checked={rating === 5 ? true : false} onChange={update('rating')} type="radio" id="editstar5" name="rating" value="5" />
+          <label className="editstar" htmlFor="editstar5" title="Awesome" aria-hidden="true"></label>
+          <input checked={rating === 4 ? true : false} onChange={update('rating')} type="radio" id="editstar4" name="rating" value="4" />
+          <label className="editstar" htmlFor="editstar4" title="Great" aria-hidden="true"></label>
+          <input checked={rating === 3 ? true : false} onChange={update('rating')} type="radio" id="editstar3" name="rating" value="3" />
+          <label className="editstar" htmlFor="editstar3" title="Very good" aria-hidden="true"></label>
+          <input checked={rating === 2 ? true : false} onChange={update('rating')} type="radio" id="editstar2" name="rating" value="2" />
+          <label className="editstar" htmlFor="editstar2" title="Good" aria-hidden="true"></label>
+          <input checked={rating === 1 ? true : false} onChange={update('rating')} type="radio" id="editstar1" name="rating" value="1" />
+          <label className="editstar" htmlFor="editstar1" title="Bad" aria-hidden="true"></label> */}
         </div>
       {(props.currentUserId === review.reviewer_id) && (editClass === 'displayed') ? (
         <div className={editClass}>

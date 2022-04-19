@@ -35,7 +35,7 @@ const Reviews = props => {
       props.createReview(rev);
       setReview('');
     } else {
-      setErrors('Rating is required')
+      setErrors('Please enter a rating before submitting a review')
     }
   }
   
@@ -48,6 +48,14 @@ const Reviews = props => {
         setRating(e.target.value)
       }
     }
+  }
+
+  const checkReviews = () => {
+    let isReview = true;
+    props.reviews.forEach(review => {
+      if (review.reviewer_id === props.currentUserId) isReview = false;
+    });
+    return isReview;
   }
 
   const plural = props.reviews.length === 1 ? 'review' : 'reviews'
@@ -69,7 +77,7 @@ const Reviews = props => {
           productId={props.productId}
           />
         ))}
-      {props.currentUserId ? (
+      {props.currentUserId && checkReviews() ? (
       <form onSubmit={handleReview}>
           <div className="stars-rating">
             <input onChange={update('rating')} type="radio" id="star5" name="rating" value="5" />

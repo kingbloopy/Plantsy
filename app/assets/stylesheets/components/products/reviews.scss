@@ -150,41 +150,6 @@
 }
 
 
-.stars-rating {
-  display: flex;
-  flex-direction: row-reverse;
-  width: fit-content;
-  margin-bottom: 10px;
-}
-.stars-rating > label {
-  color: rgba(96, 103, 94, 0.5);
-}
-
-.stars-rating > label:before {
-  margin: 3px;
-  font-size: 30px;
-  content: '\2605';
-}
-
-.stars-rating > input {
-  display: none;
-}
-
-.stars-rating > input:checked~label,
-.stars-rating:not(:checked)>label:hover,
-.stars-rating:not(:checked)>label:hover~label {
-  color: $dark-green;
-  cursor: pointer;
-}
-
-.stars-rating > input:checked+label:hover,
-.stars-rating > input:checked~label:hover,
-.stars-rating > label:hover~input:checked~label,
-.stars-rating > input:checked~label:hover~label {
-  cursor: pointer;
-  color: $dark-green;
-}
-
 .hide {
   display: none;
 }
