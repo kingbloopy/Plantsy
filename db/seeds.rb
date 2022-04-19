@@ -1,9 +1,11 @@
 User.delete_all
 Product.delete_all
 Shop.delete_all
+Review.delete_all
 ActiveRecord::Base.connection.reset_pk_sequence!('users')
 ActiveRecord::Base.connection.reset_pk_sequence!('products')
 ActiveRecord::Base.connection.reset_pk_sequence!('shops')
+ActiveRecord::Base.connection.reset_pk_sequence!('reviews')
 ActiveRecord::Base.connection.reset_pk_sequence!('active_storage_attachments')
 ActiveRecord::Base.connection.reset_pk_sequence!('active_storage_blobs')
 
@@ -28,12 +30,89 @@ user2 = User.create!(
   password: 'vampiresSuck99'
 )
 
+user3 = User.create!(
+  name: 'Morty',
+  email: 'morty-adventures@gmail.com',
+  password: 'getSwifty'
+)
+
+user4 = User.create!(
+  name: 'Charlie',
+  email: 'charlieday400@gmail.com',
+  password: 'paddyspub'
+)
+
+user5 = User.create!(
+  name: 'Mishka',
+  email: 'mishkakittymeow@aol.com',
+  password: 'IamAcat'
+)
+
+user6 = User.create!(
+  name: 'Lucy',
+  email: 'lucy-in-the-sky@gmail.com',
+  password: 'diamonds!'
+)
+
+user7 = User.create!(
+  name: 'Lilah',
+  email: 'germanshepard-love@doggie.com',
+  password: 'goodgirl'
+)
+
+user8 = User.create!(
+  name: 'Abed',
+  email: 'troy-abed-adventures@aol.com',
+  password: 'loveCommunityCollege'
+)
+
+user9 = User.create!(
+  name: 'Juni',
+  email: 'juniper1611@gmail.com',
+  password: 'desertdweller123'
+)
+
+user10 = User.create!(
+  name: 'Broc',
+  email: 'brocolilove@brocoli.com',
+  password: 'brocoli'
+)
+
+user11 = User.create!(
+  name: 'Peter',
+  email: 'spiderman@gmail.com',
+  password: 'web9875'
+)
+
+user12 = User.create!(
+  name: 'Jon',
+  email: 'jon-snow@whitewall.com',
+  password: 'ghost11'
+)
+
+user13 = User.create!(
+  name: 'Violet',
+  email: 'succulentgirl@yahoo.com',
+  password: '7895681256'
+)
+
+user14 = User.create!(
+  name: 'Lily',
+  email: 'lilikoi@lils.com',
+  password: 'orangesunset22'
+)
+
+user15 = User.create!(
+  name: 'Lacey',
+  email: 'laceywild22@gmail.com',
+  password: 'horseLover22'
+)
+
 shop2 = Shop.create!(
   name: 'Glowy Gardens',
   owner_id: user2.id,
   sales: 20
 )
-
 
 aloe1 = Product.create!(
   title: 'Green Aloe',
@@ -43,12 +122,24 @@ aloe1 = Product.create!(
   quantity: 2,
   seller_id: user2.id
 )
-# aloe1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# aloe1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 aloeA1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/aloe/aloeA1.JPG')
 aloe1.photos.attach(io: aloeA1, filename: 'aloeA1.JPG')
 aloeA3 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/aloe/aloeA3.JPG')
 aloe1.photos.attach(io: aloeA3, filename: 'aloeA3.JPG')
+
+aloerev1 = Review.create!(
+  reviewer_id: user15.id,
+  product_id: aloe1.id,
+  rating: 5,
+  content: 'These plants are so easy to grow and have so many great uses! The grower packaged everything so nicely and my little aloe was delivered nice and safe!'
+)
+aloerev2 = Review.create!(
+  reviewer_id: user12.id,
+  product_id: aloe1.id,
+  rating: 5,
+  content: 'Love my aloe plant'
+)
+
 
 aloe2 = Product.create!(
   title: 'Lush Aloe Plant',
@@ -57,12 +148,17 @@ aloe2 = Product.create!(
   price: 12.50,
   quantity: 11,
   seller_id: user2.id)
-# aloe2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# aloe2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 aloeB1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/aloe/aloeB1.jpg')
 aloe2.photos.attach(io: aloeB1, filename: 'aloeB1.jpg')
 aloeB2 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/aloe/aloeB2.jpg')
 aloe2.photos.attach(io: aloeB2, filename: 'aloeB2.jpg')
+
+aloerev3 = Review.create!(
+  reviewer_id: user11.id,
+  product_id: aloe2.id,
+  rating: 5,
+  content: 'Aloe is the best! Not only is this plant adorable and so easy to take care of, but I also use some of the leaves on my sunburns'
+)
 
 basil = Product.create!(
   title: 'Live Basil Plant',
@@ -71,9 +167,20 @@ basil = Product.create!(
   price: 6.99,
   quantity: 23,
   seller_id: user2.id)
-# basil.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# basil.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 basil.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/basil.JPG'), filename: 'basil.JPG')
+
+basilrev1 = Review.create!(
+  reviewer_id: user3.id,
+  product_id: basil.id,
+  rating: 3,
+  content: 'This plant came rather wilted when arrived but luckily I was able to soak it in water to bring it back to life. Basil is great to have on hand for cooking purposes but I think next time I may just get a live plant from the grocery store.'
+)
+basilrev2 = Review.create!(
+  reviewer_id: user4.id,
+  product_id: basil.id,
+  rating: 4,
+  content: ''
+)
 
 herbs1 = Product.create!(
   title: 'Live Aromatic and Edible Herb Assortment',
@@ -82,10 +189,27 @@ herbs1 = Product.create!(
   price: 28.15,
   quantity: 9,
   seller_id: user2.id)
-# herbs1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# herbs1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 herbs1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsA1.JPG'), filename: 'herbsA1.JPG')
 herbs1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsA2.jpg'), filename: 'herbsA2.jpg')
+
+herbsrev1 = Review.create!(
+  reviewer_id: user5.id,
+  product_id: herbs1.id,
+  rating: 5,
+  content: ''
+)
+herbsrev2 = Review.create!(
+  reviewer_id: user6.id,
+  product_id: herbs1.id,
+  rating: 5,
+  content: 'This is such a lovely assortment of live herbs and top quality too! Will be buying again as all of them are thriving in my garden right now!'
+)
+herbsrev3 = Review.create!(
+  reviewer_id: user7.id,
+  product_id: herbs1.id,
+  rating: 4,
+  content: ''
+)
 
 herbs2 = Product.create!(
   title: "Chef's Choice Herb Kit",
@@ -94,12 +218,17 @@ herbs2 = Product.create!(
   price: 35.00,
   quantity: 7,
   seller_id: user2.id
-  )
-# herbs2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# herbs2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 herbs2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsB1.JPG'), filename: 'herbsB1.JPG')
 herbs2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsB2.JPG'), filename: 'herbsB2.JPG')
 herbs2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsB3.JPG'), filename: 'herbsB3.JPG')
+
+herbsrev4 = Review.create!(
+  reviewer_id: user9.id,
+  product_id: herbs2.id,
+  rating: 5,
+  content: 'Love my herbs'
+)
 
 mint = Product.create!(
   title: "Sweet Mint Plant",
@@ -109,7 +238,6 @@ mint = Product.create!(
   quantity: 19,
   seller_id: user2.id
 )
-# mint.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 mint.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/mint.jpg'), filename: 'mint.jpg')
 
 rosemary = Product.create!(
@@ -120,10 +248,15 @@ rosemary = Product.create!(
   quantity: 10,
   seller_id: user2.id
 )
-# rosemary.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# rosemary.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 rosemary.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/rosemary1.jpg'), filename: 'rosemary1.jpg')
 rosemary.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/rosemary2.jpg'), filename: 'rosemary2.jpg')
+
+rosemaryrev1 = Review.create!(
+  reviewer_id: user10.id,
+  product_id: rosemary.id,
+  rating: 5,
+  content: 'Rosemary is one of my favorite herbs to cook with and I am so glad that now I can start growing my own rosemary bush in the garden. The seller packaged the plant very nicely and it was not damaged when it arrived.'
+)
 
 strawb = Product.create!(
   title: "Live Everbearing Strawberry Plant",
@@ -133,10 +266,27 @@ strawb = Product.create!(
   quantity: 12,
   seller_id: user2.id
 )
-# strawb.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# strawb.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 strawb.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/strawb1.jpg'), filename: 'strawb1.jpg')
 strawb.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/strawb2.JPG'), filename: 'strawb2.JPG')
+
+strawbrev1 = Review.create!(
+  reviewer_id: user8.id,
+  product_id: strawb.id,
+  rating: 5,
+  content: "It doesn't get much cuter than this! My very own little strawberry plant!"
+)
+strawbrev2 = Review.create!(
+  reviewer_id: user5.id,
+  product_id: strawb.id,
+  rating: 1,
+  content: "Mine never made any strawberries."
+)
+strawbrev3 = Review.create!(
+  reviewer_id: user8.id,
+  product_id: strawb.id,
+  rating: 4,
+  content: "These make the most delicious strawberry fruits and are a cute addition to my garden. Although, the fruits only bloom for about 2 weeks."
+)
 
 herbbox = Product.create!(
   title: "Wooden Herb Box",
@@ -146,7 +296,6 @@ herbbox = Product.create!(
   quantity: 9,
   seller_id: user2.id
 )
-# herbbox.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 herbbox.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/herbbox.jpg'), filename: 'herbbox.jpg')
 
 strawbox = Product.create!(
@@ -157,19 +306,19 @@ strawbox = Product.create!(
   quantity: 18,
   seller_id: user2.id
 )
-# strawbox.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# strawbox.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 strawbox.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/strawbpot1.JPG'), filename: 'strawbpot1.JPG')
 strawbox.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/strawbpot2.JPG'), filename: 'strawbpot2.JPG')
 strawbox.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/strawbpot3.JPG'), filename: 'strawbpot3.JPG')
 
+strawboxrev1 = Review.create!(
+  reviewer_id: user3.id,
+  product_id: strawbox.id,
+  rating: 5,
+  content: "Bought this for my daughers birthday and we love picking strawberries together now in the summertime!"
+)
+
 
 # # -----------------------------------------
-user3 = User.create!(
-  name: 'Morty',
-  email: 'morty-adventures@gmail.com',
-  password: 'getSwifty'
-)
 
 shop3 = Shop.create!(
   name: 'Bonita Foliage',
@@ -187,12 +336,17 @@ calathea1 = Product.create!(
   quantity: 16,
   seller_id: user3.id
 )
-# calathea1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# calathea1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 catathea4 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/calathea/calathea4.JPG')
 calathea1.photos.attach(io: catathea4, filename: 'calathea4.JPG')
 catathea3 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/calathea/calathea3.jpg')
 calathea1.photos.attach(io: catathea3, filename: 'calathea3.jpg')
+
+calathearev1 = Review.create!(
+  reviewer_id: user13.id,
+  product_id: calathea1.id,
+  rating: 4,
+  content: 'Super pretty plant but I killed it immediately'
+)
 
 hanging1 = Product.create!(
   title: 'Leather and Twine Plant Hanger & Pot',
@@ -202,10 +356,21 @@ hanging1 = Product.create!(
   quantity: 23,
   seller_id: user3.id
 )
-# hanging1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# hanging1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 hangingA1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/hanging-planter/hangingA1.JPG')
 hanging1.photos.attach(io: hangingA1, filename: 'hangingA1.JPG')
+
+hangingrev1 = Review.create!(
+  reviewer_id: user13.id,
+  product_id: hanging1.id,
+  rating: 4,
+  content: ''
+)
+hangingrev2 = Review.create!(
+  reviewer_id: user15.id,
+  product_id: hanging1.id,
+  rating: 5,
+  content: ''
+)
 
 hanging2 = Product.create!(
   title: 'Cream Hanging Wall Pottery',
@@ -215,8 +380,6 @@ hanging2 = Product.create!(
   quantity: 12,
   seller_id: user3.id
 )
-# hanging2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# hanging2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 hangingB2 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/hanging-planter/hangingB2.JPG')
 hanging2.photos.attach(io: hangingB2, filename: 'hangingB2.JPG')
 hangingB1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/hanging-planter/hangingB1.JPG')
@@ -230,34 +393,49 @@ pinkanth = Product.create!(
   quantity: 11,
   seller_id: user3.id
 )
-# pinkanth.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# pinkanth.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 pinkanth.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/anthurium1.jpg'), filename: 'anthurium1.jpg')
 pinkanth.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/anthurium2.JPG'), filename: 'anthurium2.JPG')
+
+pinkanthrev1 = Review.create!(
+  reviewer_id: user4.id,
+  product_id: pinkanth.id,
+  rating: 5,
+  content: ''
+)
+pinkanthrev2 = Review.create!(
+  reviewer_id: user8.id,
+  product_id: pinkanth.id,
+  rating: 3,
+  content: 'Not sure why but the leaves turned brown at the tips only after a week of having this plant. Pretty bummed.'
+)
 
 aspfern = Product.create!(
   title: "Large Asparagus Fern",
   category: 'House Plant',
-  description: "Add hassle-free greenery to your living space with this Large Asparagus Fern from Threshold™. Showcasing a voluminous green fern arrangement potted inside a wooden pot, this artificial plant creates a summery touch of style year-round in your home. This artificial potted plant stays fresh and beautiful at all times without the hassle and worry of maintenance. Use this potted artificial flower alone or in a group of other faux plants to create a lovely indoor arrangement.",
+  description: "Add hassle-free greenery to your living space with this Large Asparagus Fern from Threshold™. \n \n Showcasing a voluminous green fern arrangement potted inside a wooden pot, this artificial plant creates a summery touch of style year-round in your home. This artificial potted plant stays fresh and beautiful at all times without the hassle and worry of maintenance. Use this potted artificial flower alone or in a group of other faux plants to create a lovely indoor arrangement.",
   price: 20.00,
   quantity: 3,
   seller_id: user3.id
 )
-# aspfern.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 aspfern.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/asparagus-fern.JPG'), filename: 'asparagus-fern.JPG')
 
 bambpalm = Product.create!(
   title: "Bamboo Palm",
   category: 'House Plant',
-  description: "With dense foliage and lush fronds, the Bamboo Palm makes a statement. An air-purifying plant adaptable to low light, this palm can reach heights of up to 8 feet tall in the right conditions. \n \n The Bamboo Palm is a tropical indoor houseplant that compliments any space. Not to be confused with real bamboo, this plant is low maintenance and easy to care for. Native to the forests of Mexico and Central America, Bamboo Palms grow in the shade of larger trees unlike other palms, which makes them adaptable to less than ideal lighting conditions. It is a great choice for the home or office because it rates highly on NASA’s list of air-purifying plants.",
+  description: "With dense foliage and lush fronds, the Bamboo Palm makes a statement. An air-purifying plant adaptable to low light, this palm can reach heights of up to 8 feet tall in the right conditions. \n \n The Bamboo Palm is a tropical indoor houseplant that compliments any space. Not to be confused with real bamboo, this plant is low maintenance and easy to care for. Native to the forests of Mexico and Central America, Bamboo Palms grow in the shade of larger trees unlike other palms, which makes them adaptable to less than ideal lighting conditions. \n It is a great choice for the home or office because it rates highly on NASA’s list of air-purifying plants.",
   price: 150.95,
   quantity: 1,
   seller_id: user3.id
 )
-# bambpalm.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# bambpalm.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 bambpalm.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/bamboopalm1.JPG'), filename: 'bamboopalm1.JPG')
 bambpalm.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/bamboopalm2.JPG'), filename: 'bamboopalm2.JPG')
+
+bambpalmrev1 = Review.create!(
+  reviewer_id: user8.id,
+  product_id: bambpalm.id,
+  rating: 5,
+  content: 'Such an elegant and beautiful plant'
+)
 
 chinese = Product.create!(
   title: "Chinese Money Plant",
@@ -267,8 +445,14 @@ chinese = Product.create!(
   quantity: 2,
   seller_id: user3.id
 )
-# chinese.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 chinese.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/chinese-money.JPG'), filename: 'chinese-money.JPG')
+
+chineserev1 = Review.create!(
+  reviewer_id: user2.id,
+  product_id: chinese.id,
+  rating: 2,
+  content: "The plant was completly smushed when it arrived in the mail, I'm so sad"
+)
 
 croton = Product.create!(
   title: "Croton",
@@ -278,32 +462,43 @@ croton = Product.create!(
   quantity: 9,
   seller_id: user3.id
 )
-# croton.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# croton.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 croton.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/croton1.jpg'), filename: 'croton1.jpg')
 croton.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/croton2.jpg'), filename: 'croton2.jpg')
 croton.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/croton3.jpg'), filename: 'croton3.jpg')
 
+crotonrev1 = Review.create!(
+  reviewer_id: user10.id,
+  product_id: croton.id,
+  rating: 4,
+  content: ''
+)
+crotonrev1 = Review.create!(
+  reviewer_id: user11.id,
+  product_id: croton.id,
+  rating: 5,
+  content: ''
+)
+
 ag1 = Product.create!(
   title: "Aglaonema Maria",
   category: 'House Plant',
-  description: "Native to the tropical and subtropical regions of Asia and New Guinea, Aglaonema Maria has been cultivated for centuries as a good luck charm. Known to live a long and healthy life, it is believed to bring wellbeing to the home and all its dwellers. Aglaonema Maria wears a luminant sage-green foliage that brings class and sophistication to any room. Aglaonema Maria grows best in a well-lit space. Avoid placing it in direct sunlight or spaces without natural light.",
+  description: "Native to the tropical and subtropical regions of Asia and New Guinea, Aglaonema Maria has been cultivated for centuries as a good luck charm. Known to live a long and healthy life, it is believed to bring wellbeing to the home and all its dwellers. Aglaonema Maria wears a luminant sage-green foliage that brings class and sophistication to any room. \n Aglaonema Maria grows best in a well-lit space. Avoid placing it in direct sunlight or spaces without natural light.",
   price: 52.00,
   quantity: 5,
   seller_id: user3.id
 )
-# ag1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# ag1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 ag1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/diamondag2.jpg'), filename: 'diamondag2.jpg')
 ag1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/diamondag1.JPG'), filename: 'diamondag1.JPG')
 
+agrev1 = Review.create!(
+  reviewer_id: user9.id,
+  product_id: ag1.id,
+  rating: 5,
+  content: ''
+)
+
 
 # # -----------------------------------------
-user4 = User.create!(
-  name: 'Charlie',
-  email: 'charlieday400@gmail.com',
-  password: 'paddyspub'
-)
 
 shop4 = Shop.create!(
   name: 'Bombotany',
@@ -319,7 +514,6 @@ calathea2 = Product.create!(
   quantity: 4,
   seller_id: user4.id
 )
-# calathea2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 catathea2file = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/calathea/calathea2.jpg')
 calathea2.photos.attach(io: catathea2file, filename: 'calathea2.jpg')
 
@@ -331,12 +525,23 @@ monstera1 = Product.create!(
   quantity: 3,
   seller_id: user4.id
 )
-# monstera1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# monstera1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 monsteraA1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraA1.jpg')
 monstera1.photos.attach(io: monsteraA1, filename: 'monsteraA1.jpg')
 monsteraA2 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraA2.jpg')
 monstera1.photos.attach(io: monsteraA2, filename: 'monsteraA2.jpg')
+
+monsterarev1 = Review.create!(
+  reviewer_id: user5.id,
+  product_id: monstera1.id,
+  rating: 5,
+  content: 'The Swiss Cheese Plant ~ a beautiful classic that I am very, very happy with!'
+)
+monsterarev2 = Review.create!(
+  reviewer_id: user12.id,
+  product_id: monstera1.id,
+  rating: 5,
+  content: 'This plant is so funky and cool. I decided to put it in my living room and I have already gotten so many complements on it. Just have to make sure I keep it alive!'
+)
 
 fiddle = Product.create!(
   title: "Fiddle Leaf Fig",
@@ -346,11 +551,16 @@ fiddle = Product.create!(
   quantity: 1,
   seller_id: user4.id
 )
-# fiddle.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# fiddle.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 fiddle.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/fiddle1.JPG'), filename: 'fiddle1.JPG')
 fiddle.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/fiddle2.jpg'), filename: 'fiddle2.jpg')
 fiddle.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/fiddle3.jpg'), filename: 'fiddle3.jpg')
+
+fiddlerev1 = Review.create!(
+  reviewer_id: user15.id,
+  product_id: fiddle.id,
+  rating: 5,
+  content: ''
+)
 
 goldstar = Product.create!(
   title: "Dracaena Goldstar Plant in 2g pot - About 60in tall",
@@ -360,10 +570,9 @@ goldstar = Product.create!(
   quantity: 1,
   seller_id: user4.id
 )
-# goldstar.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# goldstar.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 goldstar.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/goldstar1.JPG'), filename: 'goldstar1.JPG')
 goldstar.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/goldstar2.JPG'), filename: 'goldstar2.JPG')
+
 
 hoja = Product.create!(
   title: "Hoya Carnosa (Jade)",
@@ -373,8 +582,6 @@ hoja = Product.create!(
   quantity: 4,
   seller_id: user4.id
 )
-# hoja.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# hoja.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 hoja.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/hoja1.JPG'), filename: 'hoja1.JPG')
 hoja.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/hoja2.JPG'), filename: 'hoja2.JPG')
 hoja.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/hoja3.JPG'), filename: 'hoja3.JPG')
@@ -387,8 +594,14 @@ ivy = Product.create!(
   quantity: 5,
   seller_id: user4.id
 )
-# ivy.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 ivy.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/ivy.jpg'), filename: 'ivy.jpg')
+
+ivyrev1 = Review.create!(
+  reviewer_id: user6.id,
+  product_id: ivy.id,
+  rating: 3,
+  content: 'I bought this plant a while ago and as I have been able to keep it alive, I am a little dissapointed by how slowly it grows. Was hoping I would have more of a trailing-vine type of plant by now but it is still very tiny.'
+)
 
 fern = Product.create!(
   title: "Maidenhair Fern",
@@ -398,32 +611,43 @@ fern = Product.create!(
   quantity: 14,
   seller_id: user4.id
 )
-# fern.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# fern.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 fern.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/maidenhair1.jpg'), filename: 'maidenhair1.jpg')
 fern.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/maidenhair2.jpg'), filename: 'maidenhair2.jpg')
+
+calathearev1 = Review.create!(
+  reviewer_id: user7.id,
+  product_id: fern.id,
+  rating: 5,
+  content: 'This little plant is beautiful and I love mine!'
+)
+calathearev2 = Review.create!(
+  reviewer_id: user14.id,
+  product_id: fern.id,
+  rating: 5,
+  content: ''
+)
 
 marg = Product.create!(
   title: "Dracaena Marginata Open Weave",
   category: 'House Plant',
-  description: "A fun and bold Dracaena variety with woven tree stems and spiky, upright leaves. Also known as the Madagascar Dragon Tree, this potted tree is 4-5 feet tall and has been recognized for its air-purifying qualities. This Dracaena Marginata variety is tall with an open braid weave consisting of multiple stems. Its thin, green leaves banded in red or pink on top of slender canes make a delicate, abstract silhouette. As it grows, this statement plant maintains its upright appearance making it perfect for blank walls, behind furniture, or narrow corners. Dracaena Marginatas are easy, low-maintenance indoor plants that will thrive and adapt in almost any environment, often growing well in low to medium light spaces. Plus, NASA lists the Dracaena Marginata as an excellent plant for removing harmful chemicals from the air.",
+  description: "A fun and bold Dracaena variety with woven tree stems and spiky, upright leaves. Also known as the Madagascar Dragon Tree, this potted tree is 4-5 feet tall and has been recognized for its air-purifying qualities. This Dracaena Marginata variety is tall with an open braid weave consisting of multiple stems. Its thin, green leaves banded in red or pink on top of slender canes make a delicate, abstract silhouette. \n As it grows, this statement plant maintains its upright appearance making it perfect for blank walls, behind furniture, or narrow corners. Dracaena Marginatas are easy, low-maintenance indoor plants that will thrive and adapt in almost any environment, often growing well in low to medium light spaces. \n Plus, NASA lists the Dracaena Marginata as an excellent plant for removing harmful chemicals from the air.",
   price: 199.94,
   quantity: 2,
   seller_id: user4.id
 )
-# marg.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# marg.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 marg.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/marginata1.JPG'), filename: 'marginata1.JPG')
 marg.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/marginata2.JPG'), filename: 'marginata2.JPG')
+
+margrev1 = Review.create!(
+  reviewer_id: user13.id,
+  product_id: marg.id,
+  rating: 5,
+  content: 'This tree is so unique and elegant and makes my kitchen look awesome!'
+)
 
 
 
 # # -----------------------------------------
-user5 = User.create!(
-  name: 'Mishka',
-  email: 'mishkakittymeow@aol.com',
-  password: 'IamAcat'
-)
 
 shop5 = Shop.create!(
   name: 'A Green Beginning',
@@ -439,8 +663,6 @@ monstera2 = Product.create!(
   quantity: 4,
   seller_id: user5.id
 )
-# monstera2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# monstera2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 monsteraB1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraB1.JPG')
 monstera2.photos.attach(io: monsteraB1, filename: 'monsteraB1.JPG')
 monstera2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraB2.JPG'), filename: 'monsteraB2.JPG')
@@ -454,10 +676,15 @@ minimoney = Product.create!(
   quantity: 4,
   seller_id: user5.id
 )
-# minimoney.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# minimoney.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 minimoney.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/minimoney1.JPG'), filename: 'minimoney1.JPG')
 minimoney.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/minimoney2.JPG'), filename: 'minimoney2.JPG')
+
+minimoneyrev1 = Review.create!(
+  reviewer_id: user2.id,
+  product_id: minimoney.id,
+  rating: 5,
+  content: 'This plant is indestructible! I have had this little dude in my office at work and it just keeps sprouting me new leaves.'
+)
 
 paradise = Product.create!(
   title: "Bird of Paradise",
@@ -467,8 +694,6 @@ paradise = Product.create!(
   quantity: 3,
   seller_id: user5.id
 )
-# paradise.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# paradise.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 paradise.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/paradise1.jpg'), filename: 'paradise1.jpg')
 paradise.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/paradise2.jpg'), filename: 'paradise2.jpg')
 paradise.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/paradise3.jpg'), filename: 'paradise3.jpg')
@@ -481,8 +706,6 @@ parlor = Product.create!(
   quantity: 1,
   seller_id: user5.id
 )
-# parlor.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# parlor.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 parlor.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/parlorpalm1.JPG'), filename: 'parlorpalm1.JPG')
 parlor.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/parlorpalm2.JPG'), filename: 'parlorpalm2.JPG')
 
@@ -494,34 +717,43 @@ pinkag = Product.create!(
   quantity: 8,
   seller_id: user5.id
 )
-# pinkag.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# pinkag.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 pinkag.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/pinkag1.jpg'), filename: 'pinkag1.jpg')
 pinkag.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/pinkag2.PNG'), filename: 'pinkag2.PNG')
+
+pinkagrev1 = Review.create!(
+  reviewer_id: user10.id,
+  product_id: pinkag.id,
+  rating: 4,
+  content: 'Such a gorgeous plant!'
+)
+pinkagrev1 = Review.create!(
+  reviewer_id: user11.id,
+  product_id: pinkag.id,
+  rating: 5,
+  content: ''
+)
 
 pep = Product.create!(
   title: "Peperomia Collection",
   category: 'House Plant',
-  description: "These pet-friendly peperomia plants are some of the most hardy plants, thanks to their semi-succulent leaves that store excess water. With a variety of texture and color, our Pet-Peromia are adaptable to almost any spot in your home. \n \n Arriving in clay pots, this collection looks great displayed individually or in a trio on our hanging saucer. The Pet-Peromia Collection is a group of three pet-friendly plants, including Peperomia Green, Peperomia Happy Bean, and Peperomia Schumi Red. All three plants are compact and trailing, making them perfect accents for a table or bookshelf. With leaves featuring unique colors, textures, and shapes, this is an easy-care collection that won’t mind a little extra attention from your furry friends. All three Peperomia in this collection are native to South America. They have semi-succulent stems and leaves, making them resilient plants that won’t be affected by a missed watering every once in a while.",
+  description: "These pet-friendly peperomia plants are some of the most hardy plants, thanks to their semi-succulent leaves that store excess water. With a variety of texture and color, our Pet-Peromia are adaptable to almost any spot in your home. \n \n Arriving in clay pots, this collection looks great displayed individually or in a trio on our hanging saucer. The Pet-Peromia Collection is a group of three pet-friendly plants, including Peperomia Green, Peperomia Happy Bean, and Peperomia Schumi Red. All three plants are compact and trailing, making them perfect accents for a table or bookshelf. With leaves featuring unique colors, textures, and shapes, this is an easy-care collection that won’t mind a little extra attention from your furry friends. \n All three Peperomia in this collection are native to South America. They have semi-succulent stems and leaves, making them resilient plants that won’t be affected by a missed watering every once in a while.",
   price: 69.00,
   quantity: 4,
   seller_id: user5.id
 )
-# pep.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# pep.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 pep.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/peperomia-collection1.JPG'), filename: 'peperomia-collection1.JPG')
 pep.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/peperomia-collection2.JPG'), filename: 'peperomia-collection2.JPG')
 pep.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/peperomia-collection3.JPG'), filename: 'peperomia-collection3.JPG')
 pep.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/peperomia-collection4.JPG'), filename: 'peperomia-collection4.JPG')
 
-
+peprev1 = Review.create!(
+  reviewer_id: user7.id,
+  product_id: pep.id,
+  rating: 5,
+  content: 'This collection is amazing and such high quality. You can tell that the grower put a lot of love into their plants and took very good care of them. Very happy with this purchase!'
+)
 
 # # -----------------------------------------
-user6 = User.create!(
-  name: 'Lucy',
-  email: 'lucy-in-the-sky@gmail.com',
-  password: 'diamonds!'
-  )
 
 shop6 = Shop.create!(
 name: 'Green Leaf Goods',
@@ -537,8 +769,14 @@ monstera3 = Product.create!(
   quantity: 8,
   seller_id: user6.id
 )
-# monstera3.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 monstera3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraC2.jpg'), filename: 'monsteraC2.jpg')
+
+monstera3rev1 = Review.create!(
+  reviewer_id: user12.id,
+  product_id: monstera3.id,
+  rating: 4,
+  content: ''
+)
 
 snake2 = Product.create!(
   title: 'Sanseveria',
@@ -548,8 +786,6 @@ snake2 = Product.create!(
   quantity: 7,
   seller_id: user6.id
 )
-# snake2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# snake2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 snake2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeB1.JPG'), filename: 'snakeB1.JPG')
 snake2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeB2.jpg'), filename: 'snakeB2.jpg')
 snake2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeB3.JPG'), filename: 'snakeB3.JPG')
@@ -562,24 +798,46 @@ spath = Product.create!(
   quantity: 12,
   seller_id: user6.id
 )
-# spath.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# spath.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 spath.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/spath/spath2.JPG'), filename: 'spath2.JPG')
 spath.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/spath/spath1.JPG'), filename: 'spath1.JPG')
 spath.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/spath/spath3.JPG'), filename: 'spath3.JPG')
 
+spathrev1 = Review.create!(
+  reviewer_id: user7.id,
+  product_id: spath.id,
+  rating: 2,
+  content: "All of the dirt fell out of the packaging when this arrived. I don't think the seller properly packed this before shipping. Will likely not be buying plants from them again."
+)
+spathrev2 = Review.create!(
+  reviewer_id: user8.id,
+  product_id: spath.id,
+  rating: 1,
+  content: ""
+)
+spathrev3 = Review.create!(
+  reviewer_id: user9.id,
+  product_id: spath.id,
+  rating: 4,
+  content: "I really like this beautiful Peace Lily, although I did not realize how much water it needs."
+)
+
 ponytail = Product.create!(
   title: 'Ponytail Palm',
   category: 'House Plant',
-  description: "The Ponytail Palm is drought tolerant, slow-growing, and requires very little care. This plant is ideal for people with very little time or who travel regularly. The Ponytail Palm will be perfectly happy being watered every couple of weeks and left alone to soak up the sunlight. This distinct plant brings a little fun to any room in your home. The Ponytail Palm is neither a palm nor a tree — it’s actually a succulent and a member of the Agave family, native to the southeastern desert of Mexico. The bulb-like trunk is used to store water and the long leaves that grow from the top of the trunk resemble a ponytail.",
+  description: "The Ponytail Palm is drought tolerant, slow-growing, and requires very little care. This plant is ideal for people with very little time or who travel regularly. The Ponytail Palm will be perfectly happy being watered every couple of weeks and left alone to soak up the sunlight. This distinct plant brings a little fun to any room in your home. \n The Ponytail Palm is neither a palm nor a tree — it’s actually a succulent and a member of the Agave family, native to the southeastern desert of Mexico. The bulb-like trunk is used to store water and the long leaves that grow from the top of the trunk resemble a ponytail.",
   price: 55.00,
   quantity: 7,
   seller_id: user6.id
 )
-# ponytail.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# ponytail.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 ponytail.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/ponytail1.JPG'), filename: 'ponytail1.JPG')
 ponytail.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/ponytail2.JPG'), filename: 'ponytail2.JPG')
+
+ponytailrev1 = Review.create!(
+  reviewer_id: user2.id,
+  product_id: ponytail.id,
+  rating: 5,
+  content: ''
+)
 
 prayer = Product.create!(
   title: 'Lemon Lime Prayer Plant',
@@ -589,8 +847,6 @@ prayer = Product.create!(
   quantity: 1,
   seller_id: user6.id
 )
-# prayer.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# prayer.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 prayer.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/prayer1.jpg'), filename: 'prayer1.jpg')
 prayer.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/prayer2.jpg'), filename: 'prayer2.jpg')
 
@@ -602,11 +858,22 @@ serpant = Product.create!(
   quantity: 9,
   seller_id: user6.id
 )
-# serpant.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# serpant.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 serpant.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/serpant1.jpg'), filename: 'serpant1.jpg')
 serpant.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/serpant2.jpg'), filename: 'serpant2.jpg')
 serpant.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/serpant3.jpg'), filename: 'serpant3.jpg')
+
+serpantrev1 = Review.create!(
+  reviewer_id: user2.id,
+  product_id: serpant.id,
+  rating: 4,
+  content: 'Cute!'
+)
+serpantrev2 = Review.create!(
+  reviewer_id: user14.id,
+  product_id: serpant.id,
+  rating: 5,
+  content: 'So happy with this plant!'
+)
 
 spider = Product.create!(
   title: 'Spider Plant',
@@ -616,17 +883,11 @@ spider = Product.create!(
   quantity: 4,
   seller_id: user6.id
 )
-# spider.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 spider.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/spider.JPG'), filename: 'spider.JPG')
 
 
 
 # # -----------------------------------------
-user7 = User.create!(
-  name: 'Lilah',
-  email: 'germanshepard-love@doggie.com',
-  password: 'goodgirl'
-)
 
 shop7 = Shop.create!(
   name: 'Flower Power',
@@ -642,10 +903,15 @@ ladyslipper = Product.create!(
   quantity: 2,
   seller_id: user7.id
 )
-# ladyslipper.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# ladyslipper.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 ladyslipper.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/lady-slipper2.jpg'), filename: 'lady-slipper2.jpg')
 ladyslipper.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/lady-slipper1.jpg'), filename: 'lady-slipper1.jpg')
+
+ladyslipperrev1 = Review.create!(
+  reviewer_id: user9.id,
+  product_id: ladyslipper.id,
+  rating: 5,
+  content: 'The orchid is such a funky and unique variety. I have been wanting a Phragmipedium for years and was having trouble finding a grower until I joined Plantsy!'
+)
 
 macrame1 = Product.create!(
   title: "Macrame Plant Hanger",
@@ -655,11 +921,16 @@ macrame1 = Product.create!(
   quantity: 7,
   seller_id: user7.id
 )
-# macrame1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# macrame1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 macrame1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameA1.JPG'), filename: 'macrameA1.JPG')
 macrame1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameA2.JPG'), filename: 'macrameA2.JPG')
 macrame1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameA3.JPG'), filename: 'macrameA3.JPG')
+
+macrame1rev1 = Review.create!(
+  reviewer_id: user10.id,
+  product_id: macrame1.id,
+  rating: 5,
+  content: 'This is great for my room and keep my pothos trailing, hanging and happy.'
+)
 
 macrame2 = Product.create!(
   title: "Tan Macrame Plant Hanger",
@@ -669,8 +940,6 @@ macrame2 = Product.create!(
   quantity: 5,
   seller_id: user7.id
 )
-# macrame2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# macrame2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 macrame2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameB1.JPG'), filename: 'macrameB1.JPG')
 macrame2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameB2.JPG'), filename: 'macrameB2.JPG')
 macrame2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameB3.JPG'), filename: 'macrameAB.JPG')
@@ -683,10 +952,21 @@ nakedman = Product.create!(
   quantity: 3,
   seller_id: user7.id
 )
-# nakedman.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# nakedman.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 nakedman.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/monkey-face1.JPG'), filename: 'monkey-face1.JPG')
 nakedman.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/monkey-face2.JPG'), filename: 'monkey-face2.JPG')
+
+nakedmanrev2 = Review.create!(
+  reviewer_id: user4.id,
+  product_id: nakedman.id,
+  rating: 5,
+  content: ""
+)
+nakedmanrev1 = Review.create!(
+  reviewer_id: user13.id,
+  product_id: nakedman.id,
+  rating: 5,
+  content: "Wow! How often do you come across seeds for a plant like this! I am so excited and have just planted my seeds, following the instructions the grower provided with the packaging. Hoping I'll get my own dancing naked man orchids soon!"
+)
 
 oncidium = Product.create!(
   title: 'Sweet Sugar Oncidium Orchid',
@@ -696,18 +976,24 @@ oncidium = Product.create!(
   quantity: 4,
   seller_id: user7.id
 )
-# oncidium.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# oncidium.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
-  oncidium.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/oncidium2.jpg'), filename: 'oncidium2.jpg')
+oncidium.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/oncidium2.jpg'), filename: 'oncidium2.jpg')
 oncidium.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/oncidium1.JPG'), filename: 'oncidium1.JPG')
 oncidium.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/oncidium3.jpg'), filename: 'oncidium3.jpg')
 
-# # -----------------------------------------
-user8 = User.create!(
-  name: 'Abed',
-  email: 'troy-abed-adventures@aol.com',
-  password: 'loveCommunityCollege'
+oncidiumrev1 = Review.create!(
+  reviewer_id: user6.id,
+  product_id: oncidium.id,
+  rating: 5,
+  content: 'Packaging was great and my orchid arrived safely!'
 )
+oncidiumrev2 = Review.create!(
+  reviewer_id: user12.id,
+  product_id: oncidium.id,
+  rating: 5,
+  content: 'I bought this plant only a few weeks ago and it has already bloomed two new spikes!'
+)
+
+# # -----------------------------------------
 
 shop8 = Shop.create!(
   name: 'Lush Inc',
@@ -723,10 +1009,15 @@ zygo = Product.create!(
   quantity: 1,
   seller_id: user8.id
 )
-# zygo.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# zygo.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 zygo.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/zygopetalum4.jpg'), filename: 'zygopetalum4.jpg')
 zygo.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/zygopetalum2.JPG'), filename: 'zygopetalum2.JPG')
+
+zygorev1 = Review.create!(
+  reviewer_id: user5.id,
+  product_id: zygo.id,
+  rating: 4,
+  content: ''
+)
 
 brom2 = Product.create!(
   title: "Bromeliad 'Silvervase'",
@@ -735,10 +1026,15 @@ brom2 = Product.create!(
   price: 50.25,
   quantity: 38,
   seller_id: user8.id)
-# brom2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# brom2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataB1.JPG'), filename: 'fasciataB1.JPG')
 brom2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataB2.JPG'), filename: 'fasciataB2.JPG')
+
+brom2rev1 = Review.create!(
+  reviewer_id: user15.id,
+  product_id: brom2.id,
+  rating: 5,
+  content: 'Compared to bromeliads I have bought at the grocery store, this one has lasted the longest, by far!'
+)
 
 umbrella = Product.create!(
   title: "Schefflera Arboricola 'Umbrella'",
@@ -748,8 +1044,6 @@ umbrella = Product.create!(
   quantity: 29,
   seller_id: user8.id
 )
-# umbrella.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# umbrella.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 umbrella.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/umbrella1.jpg'), filename: 'umbrella1.jpg')
 umbrella.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/umbrella2.jpg'), filename: 'umbrella2.jpg')
 umbrella.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/umbrella3.jpg'), filename: 'umbrella3.jpg')
@@ -762,8 +1056,26 @@ zz = Product.create!(
   quantity: 2,
   seller_id: user8.id
 )
-# zz.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 zz.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/zz.JPG'), filename: 'zz.JPG')
+
+zzrev1 = Review.create!(
+  reviewer_id: user9.id,
+  product_id: zz.id,
+  rating: 5,
+  content: ''
+)
+zzrev2 = Review.create!(
+  reviewer_id: user14.id,
+  product_id: zz.id,
+  rating: 5,
+  content: ''
+)
+zzrev3 = Review.create!(
+  reviewer_id: user7.id,
+  product_id: zz.id,
+  rating: 5,
+  content: ''
+)
 
 chocchip = Product.create!(
   title: "Dendrobium Chocolate Chip Fragrant Orchid",
@@ -773,10 +1085,15 @@ chocchip = Product.create!(
   quantity: 18,
   seller_id: user8.id
 )
-# chocchip.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# chocchip.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 chocchip.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/chocchip1.jpg'), filename: 'chocchip1.jpg')
 chocchip.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/chocchip2.jpg'), filename: 'chocchip2.jpg')
+
+chocchiprev1 = Review.create!(
+  reviewer_id: user9.id,
+  product_id: chocchip.id,
+  rating: 5,
+  content: 'I collect orchids and have never owned anything like this until I saw this listing on Plantsy. I knew I had to get it and am stoked for more flowers bloom!'
+)
 
 enobi = Product.create!(
   title: "Live Purple Mini Orchid Dendrobium Enobi",
@@ -786,8 +1103,6 @@ enobi = Product.create!(
   quantity: 3,
   seller_id: user8.id
 )
-# enobi.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# enobi.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 enobi.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/enobipurple1.jpg'), filename: 'enobipurple1.jpg')
 enobi.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/enobipurple2.jpg'), filename: 'enobipurple2.jpg')
 
@@ -799,20 +1114,24 @@ snow = Product.create!(
   quantity: 1,
   seller_id: user8.id
 )
-# snow.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# snow.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 snow.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/minisnowflake1.JPG'), filename: 'minisnowflake1.JPG')
 snow.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/minisnowflake2.JPG'), filename: 'minisnowflake2.JPG')
 snow.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/minisnowflake3.JPG'), filename: 'minisnowflake3.JPG')
 
-
+snowrev2 = Review.create!(
+  reviewer_id: user3.id,
+  product_id: snow.id,
+  rating: 5,
+  content: ''
+)
+snowrev1 = Review.create!(
+  reviewer_id: user9.id,
+  product_id: snow.id,
+  rating: 5,
+  content: 'Flowers truly smell amazing'
+)
 
 # # -----------------------------------------
-user9 = User.create!(
-  name: 'Juni',
-  email: 'juniper1611@gmail.com',
-  password: 'desertdweller123'
-)
 
 shop9 = Shop.create!(
   name: 'Green Goods',
@@ -828,10 +1147,15 @@ pothos1 = Product.create!(
   quantity: 10,
   seller_id: user9.id
 )
-# pothos1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# pothos1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 pothos1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/pothos/pothosA1.JPG'), filename: 'pothosA1.JPG')
 pothos1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/pothos/pothosA4.JPG'), filename: 'pothosA4.JPG')
+
+pothos1rev1 = Review.create!(
+  reviewer_id: user14.id,
+  product_id: pothos1.id,
+  rating: 3,
+  content: 'Was really hoping this was going to be bigger when it came in the mail but hopefully it will grow fast.'
+)
 
 brom1 = Product.create!(
   title: 'Bromeliad Aechmea Pink',
@@ -841,8 +1165,6 @@ brom1 = Product.create!(
   quantity: 20,
   seller_id: user9.id
 )
-# brom1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# brom1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataA1.JPG'), filename: 'fasciataA1.JPG')
 brom1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataA2.JPG'), filename: 'fasciataA2.JPG')
 
@@ -854,10 +1176,15 @@ brom3 = Product.create!(
   quantity: 4,
   seller_id: user9.id
 )
-# brom3.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# brom3.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/flowerbromA1.jpg'), filename: 'flowerbromA1.jpg')
 brom3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/flowerbromA2.jpg'), filename: 'flowerbromA2.jpg')
+
+brom3rev1 = Review.create!(
+  reviewer_id: user10.id,
+  product_id: brom3.id,
+  rating: 4,
+  content: ''
+)
 
 brom4 = Product.create!(
   title: 'Mango Tango Bromeliad',
@@ -867,8 +1194,6 @@ brom4 = Product.create!(
   quantity: 5,
   seller_id: user9.id
 )
-# brom4.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# brom4.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/flowerbromB1.jpg'), filename: 'flowerbromB1.jpg')
 brom4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/flowerbromB2.jpg'), filename: 'flowerbromB2.jpg')
 
@@ -880,10 +1205,21 @@ brom5 = Product.create!(
   quantity: 18,
   seller_id: user9.id
 )
-# brom5.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# brom5.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom5.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/orangebrom1.jpg'), filename: 'orangebrom1.jpg')
 brom5.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/orangebrom2.jpg'), filename: 'orangebrom2.jpg')
+
+brom5rev1 = Review.create!(
+  reviewer_id: user7.id,
+  product_id: brom5.id,
+  rating: 5,
+  content: 'Love my new bromeliad.'
+)
+brom5rev1 = Review.create!(
+  reviewer_id: user6.id,
+  product_id: brom5.id,
+  rating: 5,
+  content: ''
+)
 
 brom6 = Product.create!(
   title: 'Pineapple Plant with Fruit',
@@ -893,8 +1229,6 @@ brom6 = Product.create!(
   quantity: 3,
   seller_id: user9.id
 )
-# brom6.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# brom6.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom6.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/pineapple1.JPG'), filename: 'pineapple1.JPG')
 brom6.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/pineapple2.JPG'), filename: 'pineapple2.JPG')
 
@@ -906,9 +1240,14 @@ brom7 = Product.create!(
   quantity: 12,
   seller_id: user9.id
 )
-# brom7.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# brom7.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom7.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/purplebrom.jpg'), filename: 'purplebrom.jpg')
+
+brom7rev1 = Review.create!(
+  reviewer_id: user11.id,
+  product_id: brom7.id,
+  rating: 3,
+  content: ''
+)
 
 brom8 = Product.create!(
   title: 'Red Bromeliad Guzmania, 6" Pot',
@@ -918,16 +1257,10 @@ brom8 = Product.create!(
   quantity: 12,
   seller_id: user9.id
 )
-# brom8.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 brom8.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/redbrom.jpg'), filename: 'redbrom.jpg')
 
 
 # # -----------------------------------------
-user10 = User.create!(
-  name: 'Broc',
-  email: 'brocolilove@brocoli.com',
-  password: 'brocoli'
-  )
 
 shop10 = Shop.create!(
   name: 'Leaf Love',
@@ -942,11 +1275,16 @@ pothos2 = Product.create!(
   price: 45.00,
   quantity: 1,
   seller_id: user10.id
-  )
-# pothos2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# pothos2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 pothos2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/pothos/pothosB2.jpg'), filename: 'pothosB2.jpg')
 pothos2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/pothos/pothosB3.PNG'), filename: 'pothosB3.PNG')
+
+pothos2rev1 = Review.create!(
+  reviewer_id: user9.id,
+  product_id: pothos2.id,
+  rating: 5,
+  content: 'Great healthy plant.'
+)
 
 snake1 = Product.create!(
   title: 'Snake Plant',
@@ -955,11 +1293,16 @@ snake1 = Product.create!(
   price: 35.00,
   quantity: 3,
   seller_id: user10.id
-  )
-# snake1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# snake1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 snake1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeA2.JPG'), filename: 'snakeA2.JPG')
 snake1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeA3.PNG'), filename: 'snakeA3.PNG')
+
+snake1rev1 = Review.create!(
+  reviewer_id: user4.id,
+  product_id: snake1.id,
+  rating: 5,
+  content: 'This looks so elegant in my bedroom!'
+)
 
 bonsai1 = Product.create!(
   title: 'Aged Juniper Bonsai',
@@ -968,11 +1311,16 @@ bonsai1 = Product.create!(
   price: 35.00,
   quantity: 5,
   seller_id: user10.id
-  )
-# bonsai1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# bonsai1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 bonsai1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bonsai/bonsaiA2.jpg'), filename: 'bonsaiA2.jpg')
 bonsai1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bonsai/bonsaiA1.jpg'), filename: 'bonsaiA1.jpg')
+
+bonsai1rev1 = Review.create!(
+  reviewer_id: user3.id,
+  product_id: bonsai1.id,
+  rating: 4,
+  content: ''
+)
 
 bonsai2 = Product.create!(
   title: 'Hinoki Cypress Bonsai Tree',
@@ -981,9 +1329,7 @@ bonsai2 = Product.create!(
   price: 104.99,
   quantity: 2,
   seller_id: user10.id
-  )
-# bonsai2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# bonsai2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 bonsai2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bonsai/cypressbonsai1.JPG'), filename: 'cypressbonsai1.JPG')
 bonsai2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bonsai/cypressbonsai2.JPG'), filename: 'cypressbonsai2.JPG')
 
@@ -994,24 +1340,46 @@ pinkphal = Product.create!(
   price: 18.99,
   quantity: 2,
   seller_id: user10.id
-  )
-# pinkphal.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# pinkphal.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 pinkphal.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/pinkphal1.jpg'), filename: 'pinkphal1.jpg')
 pinkphal.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/pinkphal2.jpg'), filename: 'pinkphal2.jpg')
+
+pinkphalrev1 = Review.create!(
+  reviewer_id: user9.id,
+  product_id: pinkphal.id,
+  rating: 5,
+  content: 'This phalaenopsis orchid has bloomed so many times now in just a few weeks.'
+)
+pinkphalrev2 = Review.create!(
+  reviewer_id: user8.id,
+  product_id: pinkphal.id,
+  rating: 5,
+  content: ''
+)
+pinkphalrev3 = Review.create!(
+  reviewer_id: user11.id,
+  product_id: pinkphal.id,
+  rating: 4,
+  content: 'Pretty but kind of small'
+)
 
 whitephal = Product.create!(
   title: 'White Phalaenopsis Orchid',
   category: 'Orchid',
-  description: "Add a pop of white and green to your tablescape with this popular Phalaenopsis orchid. One of the easiest varieties to grow as a houseplant, it is affectionately called the beginner orchid. You may notice a small amount of blooms on your orchid upon delivery. These blooms will open quicker in a warm indoor setting. It will typically bloom about once a year, for up to three months. After a blooming cycle, the flowers will wilt and fall off. This is the orchid’s way to store up energy to re-bloom again next season.",
+  description: "Add a pop of white and green to your tablescape with this popular Phalaenopsis orchid. One of the easiest varieties to grow as a houseplant, it is affectionately called the beginner orchid. You may notice a small amount of blooms on your orchid upon delivery. These blooms will open quicker in a warm indoor setting. It will typically bloom about once a year, for up to three months. \n After a blooming cycle, the flowers will wilt and fall off. This is the orchid’s way to store up energy to re-bloom again next season.",
   price: 18.99,
   quantity: 5,
   seller_id: user10.id
-  )
-# whitephal.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# whitephal.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 whitephal.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/whitephal1.JPG'), filename: 'whitephal1.JPG')
 whitephal.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/whitephal2.JPG'), filename: 'whitephal2.JPG')
+
+whitephalrev2 = Review.create!(
+  reviewer_id: user6.id,
+  product_id: whitephal.id,
+  rating: 5,
+  content: ''
+)
 
 smallphal = Product.create!(
   title: 'Small Phalaenopsis Orchid Set',
@@ -1020,8 +1388,7 @@ smallphal = Product.create!(
   price: 45.00,
   quantity: 6,
   seller_id: user10.id
-  )
-# smallphal.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 smallphal.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/smallphal.jpg'), filename: 'smallphal.jpg')
 
 wilsonara = Product.create!(
@@ -1031,18 +1398,18 @@ wilsonara = Product.create!(
   price: 39.00,
   quantity: 2,
   seller_id: user10.id
-  )
-# wilsonara.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# wilsonara.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 wilsonara.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/wilsonara1.jpg'), filename: 'wilsonara1.jpg')
 wilsonara.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/wilsonara2.jpg'), filename: 'wilsonara2.jpg')
 
+wilsonararev2 = Review.create!(
+  reviewer_id: user15.id,
+  product_id: wilsonara.id,
+  rating: 5,
+  content: 'Gorgeous peach color'
+)
+
 # # -----------------------------------------
-user11 = User.create!(
-  name: 'Peter',
-  email: 'spiderman@gmail.com',
-  password: 'web9875'
-  )
 
 shop11 = Shop.create!(
   name: 'Leaflet Designs',
@@ -1057,9 +1424,15 @@ animals = Product.create!(
   price: 50.00,
   quantity: 1,
   seller_id: user11.id
-  )
-# animals.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 animals.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/animals.JPG'), filename: 'animals.JPG')
+
+animalsrev2 = Review.create!(
+  reviewer_id: user10.id,
+  product_id: animals.id,
+  rating: 5,
+  content: ''
+)
 
 coral = Product.create!(
   title: "Underwater Coral Pot",
@@ -1068,8 +1441,7 @@ coral = Product.create!(
   price: 28.00,
   quantity: 4,
   seller_id: user11.id
-  )
-# coral.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 coral.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/coral.JPG'), filename: 'coral.JPG')
 
 faces = Product.create!(
@@ -1079,9 +1451,15 @@ faces = Product.create!(
   price: 38.00,
   quantity: 2,
   seller_id: user11.id
-  )
-# faces.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 faces.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/faces.jpg'), filename: 'faces.jpg')
+
+facesrev2 = Review.create!(
+  reviewer_id: user5.id,
+  product_id: faces.id,
+  rating: 5,
+  content: 'Put these in my backyard and used them to plant my herbs. Always get compliments asking where they are from!'
+)
 
 fox = Product.create!(
   title: "Cute Fox Pot Set",
@@ -1091,8 +1469,14 @@ fox = Product.create!(
   quantity: 3,
   seller_id: user11.id
   )
-# fox.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 fox.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/fox.jpg'), filename: 'fox.jpg')
+
+foxrev2 = Review.create!(
+  reviewer_id: user9.id,
+  product_id: fox.id,
+  rating: 4,
+  content: 'Came with a very small chip but luckily it is not super noticable.'
+)
 
 leafpot = Product.create!(
   title: "Pottery Set with Leaf Design",
@@ -1101,16 +1485,10 @@ leafpot = Product.create!(
   price: 30.00,
   quantity: 1,
   seller_id: user11.id
-  )
-# leafpot.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 leafpot.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/leaf.JPG'), filename: 'leaf.JPG')
 
 # # ----------------------------------
-user12 = User.create!(
-  name: 'Jon',
-  email: 'jon-snow@whitewall.com',
-  password: 'ghost11'
-  )
 
 shop12 = Shop.create!(
   name: 'GogoGreen Co',
@@ -1125,9 +1503,7 @@ prop1 = Product.create!(
   price: 16.50,
   quantity: 15,
   seller_id: user12.id
-  )
-# prop1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# prop1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 prop1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/propA1.JPG'), filename: 'propA1.JPG')
 prop1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/propA2.JPG'), filename: 'propA2.JPG')
 
@@ -1138,11 +1514,28 @@ prop2 = Product.create!(
   price: 18.50,
   quantity: 12,
   seller_id: user12.id
-  )
-# prop2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# prop2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 prop2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/propB1.JPG'), filename: 'propB1.JPG')
 prop2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/propB2.JPG'), filename: 'propAB.JPG')
+
+prop2rev4 = Review.create!(
+  reviewer_id: user7.id,
+  product_id: prop2.id,
+  rating: 5,
+  content: ''
+)
+prop2rev2 = Review.create!(
+  reviewer_id: user11.id,
+  product_id: prop2.id,
+  rating: 5,
+  content: 'I have already grown some plant babies using these, they are the perfect size.'
+)
+prop2rev3 = Review.create!(
+  reviewer_id: user13.id,
+  product_id: prop2.id,
+  rating: 5,
+  content: ''
+)
 
 retro = Product.create!(
   title: "Retro Handpainted Pot",
@@ -1151,8 +1544,7 @@ retro = Product.create!(
   price: 14.98,
   quantity: 2,
   seller_id: user12.id
-  )
-# retro.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 retro.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/retro.JPG'), filename: 'retro.JPG')
 
 teal = Product.create!(
@@ -1162,16 +1554,10 @@ teal = Product.create!(
   price: 24.60,
   quantity: 5,
   seller_id: user12.id
-  )
-# teal.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 teal.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/teal-ceramic.JPG'), filename: 'teal-ceramic.JPG')
 
 # # -----------------------------------
-user13 = User.create!(
-  name: 'Violet',
-  email: 'succulentgirl@yahoo.com',
-  password: '7895681256'
-  )
 
 shop13 = Shop.create!(
   name: 'Sunshine Succulents',
@@ -1186,9 +1572,15 @@ arr1 = Product.create!(
   price: 45.00,
   quantity: 5,
   seller_id: user13.id
-  )
-# arr1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 arr1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/arr1.JPG'), filename: 'arr1.JPG')
+
+arr1rev1 = Review.create!(
+  reviewer_id: user8.id,
+  product_id: arr1.id,
+  rating: 5,
+  content: 'Made a great birthday gift.'
+)
 
 arr2 = Product.create!(
   title: "Succulent Arrangment- Bird Pot",
@@ -1197,8 +1589,7 @@ arr2 = Product.create!(
   price: 35.00,
   quantity: 3,
   seller_id: user13.id
-  )
-# arr2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 arr2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/arr2.jpg'), filename: 'arr2.jpg')
 
 arr3 = Product.create!(
@@ -1208,9 +1599,21 @@ arr3 = Product.create!(
   price: 40.00,
   quantity: 1,
   seller_id: user13.id
-  )
-# arr3.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 arr3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/arr3.jpg'), filename: 'arr3.jpg')
+
+arr3rev1 = Review.create!(
+  reviewer_id: user3.id,
+  product_id: arr3.id,
+  rating: 4,
+  content: ''
+)
+arr3rev2 = Review.create!(
+  reviewer_id: user9.id,
+  product_id: arr3.id,
+  rating: 1,
+  content: 'Pot was completely shattered when it arrived!'
+)
 
 assort1 = Product.create!(
   title: "Succulent Assortment",
@@ -1219,9 +1622,7 @@ assort1 = Product.create!(
   price: 15.50,
   quantity: 25,
   seller_id: user13.id
-  )
-# assort1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# assort1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 assort1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/assortmentA1.jpg'), filename: 'assortmentA1.jpg')
 assort1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/assortmentA2.jpg'), filename: 'assortmentA2.jpg')
 
@@ -1232,11 +1633,16 @@ assort2 = Product.create!(
   price: 9.50,
   quantity: 25,
   seller_id: user13.id
-  )
-# assort2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# assort2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 assort2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/assortmentB1.jpg'), filename: 'assortmentB1.jpg')
 assort2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/assortmentB2.jpg'), filename: 'assortmentB2.jpg')
+
+assort2rev1 = Review.create!(
+  reviewer_id: user2.id,
+  product_id: assort2.id,
+  rating: 5,
+  content: 'Sprinkled these in my garden, going to give them lots of love so they hopefully grow nice and big.'
+)
 
 bear = Product.create!(
   title: "Cotyledon tomentosa - Bear's Paw",
@@ -1245,12 +1651,17 @@ bear = Product.create!(
   price: 9.98,
   quantity: 12,
   seller_id: user13.id
-  )
-# bear.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# bear.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 bear.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/bearclaw1.jpg'), filename: 'bearclaw1.jpg')
 bear.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/bearclaw2.jpg'), filename: 'bearclaw2.jpg')
 bear.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/bearclaw3.jpg'), filename: 'bearclaw3.jpg')
+
+bearrev1 = Review.create!(
+  reviewer_id: user9.id,
+  product_id: bear.id,
+  rating: 5,
+  content: 'Fuzzy and adorable'
+)
 
 cot = Product.create!(
   title: "RARE Miniature Cotyledon pendens - Cliff Cotyledon Crassulaceae",
@@ -1259,9 +1670,7 @@ cot = Product.create!(
   price: 15.00,
   quantity: 4,
   seller_id: user13.id
-  )
-# cot.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# cot.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 cot.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/cotyledon1.jpg'), filename: 'cotyledon1.jpg')
 cot.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/cotyledon2.jpg'), filename: 'cotyledon2.jpg')
 cot.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/cotyledon3.jpg'), filename: 'cotyledon3.jpg')
@@ -1273,9 +1682,21 @@ dolphin = Product.create!(
   price: 39.00,
   quantity: 2,
   seller_id: user13.id
-  )
-# dolphin.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 dolphin.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/dolphins.jpg'), filename: 'dolphins.jpg')
+
+dolphinrev1 = Review.create!(
+  reviewer_id: user12.id,
+  product_id: dolphin.id,
+  rating: 5,
+  content: ''
+)
+dolphinrev2 = Review.create!(
+  reviewer_id: user14.id,
+  product_id: dolphin.id,
+  rating: 5,
+  content: 'I have never seen this type of succulent before! It seems very healthy.'
+)
 
 pearl = Product.create!(
   title: "String of Pearls",
@@ -1284,8 +1705,7 @@ pearl = Product.create!(
   price: 39.95,
   quantity: 3,
   seller_id: user13.id
-  )
-# pearl.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 pearl.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/stringpearls.jpg'), filename: 'stringpearls.jpg')
 
 donkey = Product.create!(
@@ -1295,9 +1715,15 @@ donkey = Product.create!(
   price: 28.00,
   quantity: 6,
   seller_id: user13.id
-  )
-# donkey.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 donkey.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/donkey-tail.jpg'), filename: 'donkey-tail.jpg')
+
+donkeyrev1 = Review.create!(
+  reviewer_id: user10.id,
+  product_id: donkey.id,
+  rating: 3,
+  content: 'Be caredul, this plant is so brittle and nearly lost all of its foliage when I was transferring it into a pot.'
+)
 
 party = Product.create!(
   title: "Succulent Party Favors",
@@ -1306,19 +1732,25 @@ party = Product.create!(
   price: 2.00,
   quantity: 80,
   seller_id: user13.id
-  )
-# party.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# party.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 party.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/partyfavor1.jpg'), filename: 'partyfavor1.jpg')
 party.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/partyfavor2.jpg'), filename: 'partyfavor2.jpg')
 party.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/partyfavor3.jpg'), filename: 'partyfavor3.jpg')
 
+partyrev1 = Review.create!(
+  reviewer_id: user8.id,
+  product_id: party.id,
+  rating: 5,
+  content: ''
+)
+partyrev2 = Review.create!(
+  reviewer_id: user10.id,
+  product_id: party.id,
+  rating: 5,
+  content: ''
+)
+
 # # -------------------------------
-user14 = User.create!(
-  name: 'Lily',
-  email: 'lilikoi@lils.com',
-  password: 'orangesunset22'
-  )
 
 shop14 = Shop.create!(
   name: 'The Next Gardener Inc',
@@ -1333,9 +1765,7 @@ clippers = Product.create!(
   price: 25.90,
   quantity: 16,
   seller_id: user14.id
-  )
-# clippers.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# clippers.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 clippers.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/clippers1.JPG'), filename: 'clippers1.JPG')
 clippers.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/clippers2.JPG'), filename: 'clippers2.JPG')
 clippers.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/clippers3.JPG'), filename: 'clippers3.JPG')
@@ -1347,26 +1777,36 @@ fert1 = Product.create!(
   price: 12.00,
   quantity: 10,
   seller_id: user14.id
-  )
-# fert1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# fert1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 fert1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerA1.JPG'), filename: 'fertizilzerA1.JPG')
 fert1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerA2.JPG'), filename: 'fertizilzerA2.JPG')
 fert1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerA3.JPG'), filename: 'fertizilzerA3.JPG')
 
+fert1rev1 = Review.create!(
+  reviewer_id: user3.id,
+  product_id: fert1.id,
+  rating: 4,
+  content: ''
+)
+
 fert2 = Product.create!(
   title: "Time Release Fertilizer",
   category: 'Supplies',
-  description: "This nutrient-rich fertilizer works wonders on both indoor and outdoor plants. Releasing nutrients slowly over 4 months, Jack’s ClassiCote Fertilizer is the ideal selection for forgetful plant parents and plants that resent being over-fertilized. With controlled release nutrients including phosphorus and magnesium, Jack’s ClassiCote Fertilizer with Crystal Green’s® crystalline compounds provides continuous nutrition for over four months, supporting stronger roots and vital green growth. Using a time-release formula, plants can feed on key nutrients in small increments, giving them more time for absorption instead of washing away during watering. Jack’s Classicote Fertilizer is great for outdoor potted plants, flowering plants, and is a beneficial addition to your potting soil when repotting.",
+  description: "This nutrient-rich fertilizer works wonders on both indoor and outdoor plants. Releasing nutrients slowly over 4 months, Jack’s ClassiCote Fertilizer is the ideal selection for forgetful plant parents and plants that resent being over-fertilized. With controlled release nutrients including phosphorus and magnesium, Jack’s ClassiCote Fertilizer with Crystal Green’s® crystalline compounds provides continuous nutrition for over four months, supporting stronger roots and vital green growth. \n Using a time-release formula, plants can feed on key nutrients in small increments, giving them more time for absorption instead of washing away during watering. Jack’s Classicote Fertilizer is great for outdoor potted plants, flowering plants, and is a beneficial addition to your potting soil when repotting.",
   price: 16.00,
   quantity: 10,
   seller_id: user14.id
-  )
-# fert2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# fert2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 fert2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerB1.JPG'), filename: 'fertizilzerB1.JPG')
 fert2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerB2.JPG'), filename: 'fertizilzerB2.JPG')
 fert2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerB3.JPG'), filename: 'fertizilzerB3.JPG')
+
+fert2rev1 = Review.create!(
+  reviewer_id: user3.id,
+  product_id: fert2.id,
+  rating: 5,
+  content: 'All of my plants love this stuff!'
+)
 
 glove = Product.create!(
   title: "Pink Gardening Gloves",
@@ -1375,11 +1815,22 @@ glove = Product.create!(
   price: 25.00,
   quantity: 10,
   seller_id: user14.id
-  )
-# glove.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# glove.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 glove.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/gloves1.JPG'), filename: 'gloves1.JPG')
 glove.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/gloves2.JPG'), filename: 'gloves2.JPG')
+
+gloverev1 = Review.create!(
+  reviewer_id: user11.id,
+  product_id: glove.id,
+  rating: 5,
+  content: 'Never thought that I needed gloves until I got these!'
+)
+gloverev2 = Review.create!(
+  reviewer_id: user12.id,
+  product_id: glove.id,
+  rating: 5,
+  content: ''
+)
 
 neem = Product.create!(
   title: "Neem Oil",
@@ -1388,11 +1839,28 @@ neem = Product.create!(
   price: 15.00,
   quantity: 10,
   seller_id: user14.id
-  )
-# neem.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# neem.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 neem.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/neem1.JPG'), filename: 'neem1.JPG')
 neem.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/neem2.JPG'), filename: 'neem2.JPG')
+
+neemrev1 = Review.create!(
+  reviewer_id: user9.id,
+  product_id: neem.id,
+  rating: 4,
+  content: ''
+)
+neemrev2 = Review.create!(
+  reviewer_id: user4.id,
+  product_id: neem.id,
+  rating: 5,
+  content: 'My go to for making my plants shiny or as a natual pesticide.'
+)
+neemrev3 = Review.create!(
+  reviewer_id: user5.id,
+  product_id: neem.id,
+  rating: 4,
+  content: ''
+)
 
 shovel1 = Product.create!(
   title: "Soil Scoop",
@@ -1401,9 +1869,7 @@ shovel1 = Product.create!(
   price: 30.00,
   quantity: 12,
   seller_id: user14.id
-  )
-# shovel1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# shovel1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 shovel1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/shovelA1.JPG'), filename: 'shovelA1.JPG')
 shovel1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/shovelA2.JPG'), filename: 'shovelA2.JPG')
 
@@ -1414,11 +1880,16 @@ shovel2 = Product.create!(
   price: 30.00,
   quantity: 11,
   seller_id: user14.id
-  )
-# shovel2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# shovel2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 shovel2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/shovelB1.JPG'), filename: 'shovelB1.JPG')
 shovel2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/shovelB2.JPG'), filename: 'shovelB2.JPG')
+
+shovel2rev1 = Review.create!(
+  reviewer_id: user15.id,
+  product_id: shovel2.id,
+  rating: 5,
+  content: ''
+)
 
 watercan = Product.create!(
   title: "Watering Can",
@@ -1427,20 +1898,26 @@ watercan = Product.create!(
   price: 35.00,
   quantity: 5,
   seller_id: user14.id
-  )
-# watercan.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# watercan.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
+)
 watercan.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/watercan1.JPG'), filename: 'watercan1.JPG')
 watercan.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/watercan2.JPG'), filename: 'watercan2.JPG')
+
+watercanrev1 = Review.create!(
+  reviewer_id: user15.id,
+  product_id: watercan.id,
+  rating: 5,
+  content: 'I use this everyday to water all my plants, inside and outside.'
+)
+watercanrev2 = Review.create!(
+  reviewer_id: user2.id,
+  product_id: watercan.id,
+  rating: 5,
+  content: 'Very cute bucket'
+)
 
 
 
 # -----------------------------------------------
-user15 = User.create!(
-  name: 'Lacey',
-  email: 'laceywild22@gmail.com',
-  password: 'horseLover22'
-)
 
 shop15 = Shop.create!(
   name: 'Desert Thumb',
@@ -1456,9 +1933,6 @@ tillandsia1 = Product.create!(
   quantity: 6,
   seller_id: user15.id
 )
-# tillandsia1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# tillandsia1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
-
 tillsA1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsA1.JPG')
 tillandsia1.photos.attach(io: tillsA1, filename: 'tillsA1.JPG')
 tillsA2 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsA2.JPG')
@@ -1474,10 +1948,15 @@ tillandsia2 = Product.create!(
   quantity: 7,
   seller_id: user15.id
 )
-# tillandsia2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# tillandsia2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 tillsB1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsB1.JPG')
 tillandsia2.photos.attach(io: tillsB1, filename: 'tillsB1.JPG')
+
+tillandsia2rev1 = Review.create!(
+  reviewer_id: user3.id,
+  product_id: tillandsia2.id,
+  rating: 4,
+  content: ''
+)
 
 cymbidium1 = Product.create!(
   title: 'Cymbidium Koushu',
@@ -1487,10 +1966,15 @@ cymbidium1 = Product.create!(
   quantity: 1,
   seller_id: user15.id
 )
-# cymbidium1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# cymbidium1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 cymbidium1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumA1.JPG'), filename: 'cymbidiumA1.JPG')
 cymbidium1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumA2.JPG'), filename: 'cymbidiumA2.JPG')
+
+cymbidium1rev1 = Review.create!(
+  reviewer_id: user4.id,
+  product_id: cymbidium1.id,
+  rating: 5,
+  content: ''
+)
 
 cymbidium2 = Product.create!(
   title: 'Light Pink Cymbidium',
@@ -1500,8 +1984,6 @@ cymbidium2 = Product.create!(
   quantity: 3,
   seller_id: user15.id
 )
-# cymbidium2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# cymbidium2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 cymbidium2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB3.JPG'), filename: 'cymbidiumB3.JPG')
 cymbidium2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB1.jpg'), filename: 'cymbidiumB1.jpg')
 cymbidium2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB2.JPG'), filename: 'cymbidiumB2.JPG')
@@ -1514,10 +1996,15 @@ cactus1 = Product.create!(
   quantity: 8,
   seller_id: user15.id
 )
-# cactus1.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# cactus1.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 cactus1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/angel-wings1.jpg'), filename: 'angel-wings1.jpg')
 cactus1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/angel-wings2.jpg'), filename: 'angel-wings2.jpg')
+
+cactus1rev1 = Review.create!(
+  reviewer_id: user3.id,
+  product_id: cactus1.id,
+  rating: 5,
+  content: ''
+)
 
 cactus2 = Product.create!(
   title: 'Large Peruvian Apple Cactus',
@@ -1527,8 +2014,6 @@ cactus2 = Product.create!(
   quantity: 1,
   seller_id: user15.id
 )
-# cactus2.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# cactus2.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 cactus2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/cardon.JPG'), filename: 'cardon.JPG')
 
 cactus3 = Product.create!(
@@ -1541,8 +2026,14 @@ cactus3 = Product.create!(
   quantity: 7,
   seller_id: user15.id
 )
-# cactus3.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 cactus3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/euphorbia.JPG'), filename: 'euphorbia.JPG')
+
+cactus3rev1 = Review.create!(
+  reviewer_id: user5.id,
+  product_id: cactus3.id,
+  rating: 5,
+  content: 'Gave this to my friend for his birthday and he loved it!'
+)
 
 cactus4 = Product.create!(
   title: 'Miniature Ceramic Pot with tiny LIVE Micro Mini Cactus',
@@ -1552,46 +2043,77 @@ cactus4 = Product.create!(
   quantity: 10,
   seller_id: user15.id
 )
-# cactus4.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# cactus4.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 cactus4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus1.jpg'), filename: 'minicactus1.jpg')
 cactus4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus2.jpg'), filename: 'minicactus2.jpg')
 cactus4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus3.jpg'), filename: 'minicactus3.jpg')
 
+cactus4rev1 = Review.create!(
+  reviewer_id: user6.id,
+  product_id: cactus4.id,
+  rating: 5,
+  content: 'So cute! So small!'
+)
+cactus4rev2 = Review.create!(
+  reviewer_id: user10.id,
+  product_id: cactus4.id,
+  rating: 5,
+  content: ''
+)
+
 cactus5 = Product.create!(
   title: 'Pink Christmas Cactus',
   category: 'Cactus',
-  description: "Pink Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, pink, salmon, and bi-color. Pink Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright pink and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
+  description: "Pink Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, pink, salmon, and bi-color. \n Pink Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright pink and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
   price: 19.95,
   quantity: 6,
   seller_id: user15.id
 )
-# cactus5.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# cactus5.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 cactus5.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasA1.JPG'), filename: 'xmasA1.JPG')
 cactus5.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasA2.JPG'), filename: 'xmasA2.JPG')
+
+cactus5rev1 = Review.create!(
+  reviewer_id: user3.id,
+  product_id: cactus5.id,
+  rating: 5,
+  content: ''
+)
 
 cactus6 = Product.create!(
   title: 'Red Christmas Cactus',
   category: 'Cactus',
-  description: "Red Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, pink, salmon, and bi-color. Red Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright red and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
+  description: "Red Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, pink, salmon, and bi-color. \n Red Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright red and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
   price: 19.95,
   quantity: 7,
   seller_id: user15.id
 )
-# cactus6.photos.attach(io: open('app/assets/images/demo1.png'), filename: 'demo1.png')
-# cactus6.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 cactus6.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasB1.JPG'), filename: 'xmasB1.JPG')
 cactus6.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasB2.JPG'), filename: 'xmasB2.JPG')
 
 cactus7 = Product.create!(
   title: 'Peach Christmas Cactus',
   category: 'Cactus',
-  description: "Peach Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, peach, salmon, and bi-color. Peach Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright peach and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
+  description: "Peach Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, peach, salmon, and bi-color. \n Peach Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright peach and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
   price: 19.95,
   quantity: 14,
   seller_id: user15.id
 )
-# cactus7.photos.attach(io: open('app/assets/images/demo2.png'), filename: 'demo2.png')
 cactus7.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasC1.JPG'), filename: 'xmasC1.JPG')
 
+cactus7rev1 = Review.create!(
+  reviewer_id: user14.id,
+  product_id: cactus7.id,
+  rating: 5,
+  content: ''
+)
+cactus7rev2 = Review.create!(
+  reviewer_id: user13.id,
+  product_id: cactus7.id,
+  rating: 4,
+  content: ''
+)
+cactus7rev3 = Review.create!(
+  reviewer_id: user12.id,
+  product_id: cactus7.id,
+  rating: 5,
+  content: 'My new favorite plant!'
+)
