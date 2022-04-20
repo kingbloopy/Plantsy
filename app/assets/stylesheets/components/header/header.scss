@@ -49,24 +49,29 @@
     -webkit-transition: background 0.8s;
     transition: background 0.8s;
 
-    & > svg {
-      width: 20px;
-      height: 20px;
+    & > a {
       right: 0;
       position: absolute;
       position: right 100px;
       z-index: 100;
-      padding-right: 20px;
-      padding-left: 18px;
-      padding-top: 7px;
-      padding-bottom: 7px;
-      border-top-right-radius: 34px;
-      border-bottom-right-radius: 34px;
-      background-repeat: no-repeat;
-      -webkit-transition: background 0.8s;
-      transition: background 0.8s;
-      cursor: pointer;
+      display: flex;
+      align-items: center;
+      & > svg {
+        width: 20px;
+        height: 20px;
+        padding-right: 20px;
+        padding-left: 18px;
+        padding-top: 7.5px;
+        padding-bottom: 7.5px;
+        border-top-right-radius: 34px;
+        border-bottom-right-radius: 34px;
+        background-repeat: no-repeat;
+        -webkit-transition: background 0.8s;
+        transition: background 0.8s;
+        cursor: pointer;
+      }
     }
+
     
     &:focus-within {
       border: 1.8px solid $highlight-green;
@@ -74,12 +79,21 @@
       -webkit-transition: background 0.8s;
       transition: background 0.8s;
 
-      & > svg {
-        background-color: $hover-button;
+      & > input {
+        background-color: white;
+        -webkit-transition: background 0.8s;
+        transition: background 0.8s;
+      }
+
+      & > a {
+        & > svg {
+          background-color: $hover-button;
+        }
       }
     }
-    
+
     & > input {
+      // background-color: red;
       background-color: rgb(244, 247, 243);
       width: 100%;
       border: none;
@@ -96,15 +110,10 @@
         font-family: 'Montserrat', sans-serif;
         color: $grey-green;
       }
-      
-      &:focus {
-        background-color: white;
-        -webkit-transition: background 0.8s;
-        transition: background 0.8s;
-      }
     }
+    
 
-    &:hover{
+    &:hover {
       border: 1.8px solid $highlight-green;
     }
   }

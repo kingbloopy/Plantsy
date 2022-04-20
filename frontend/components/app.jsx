@@ -7,6 +7,7 @@ import SplashContainer from "./splash/splash_container";
 import CartContainer from "./cart/cart_container";
 import FooterContainer from "./footer/footer";
 import CategoryIndexContainer from "./products/category_index/category_index_container";
+import SearchResults from "./search/search_results";
 import { Fragment } from 'react';
 import ScrollButton from "./misc/scroll_button";
 import { Content } from './misc/scroll_styles';
@@ -31,6 +32,7 @@ const App = () => (
         <Route path="/supplies" component={CategoryIndexContainer}/>
         <Route path="/air-plants" component={CategoryIndexContainer}/>
         <Route path="/bonsai" component={CategoryIndexContainer}/>
+        <Route path="/search/:query" component={SearchResults}/>
         <Route exact path="/products/:productId" component={ProductShowContainer}/>
         <Route exact path="/cart" component={CartContainer} />
         <SplashContainer exact path="/" />

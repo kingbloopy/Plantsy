@@ -4,7 +4,7 @@ class Api::ProductsController < ApplicationController
     if params[:category]
       @products = Product.where(category: params[:category])
     else
-    @products = Product.all
+      @products = Product.all
     end
     render :index
   end
