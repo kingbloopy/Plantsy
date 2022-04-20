@@ -13,6 +13,7 @@ import ScrollButton from "./misc/scroll_button";
 import { Content } from './misc/scroll_styles';
 import Profile from "./profile/profile";
 import { ProtectedRoute } from "../util/route_util";
+import Upload from "./profile/upload_container";
 
 
 
@@ -34,6 +35,7 @@ const App = () => (
         <Route path="/supplies" component={CategoryIndexContainer}/>
         <Route path="/air-plants" component={CategoryIndexContainer}/>
         <Route path="/bonsai" component={CategoryIndexContainer}/>
+        <ProtectedRoute path="/create-listing" component={Upload}/>
         <Route path="/search/:query" component={SearchResults}/>
         <Route exact path="/products/:productId" component={ProductShowContainer}/>
         <ProtectedRoute path="/profile/:userId" component={Profile}/>

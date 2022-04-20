@@ -36,16 +36,16 @@ const Profile = props => {
             </div>
           </div>
           <div className="profile__upper__add-wrapper">
-            <button>&#43;</button>
+            <Link to="/create-listing">&#43;</Link>
             <h2>Add a listing</h2>
           </div>
         </div>
         <div className="profile__lower">
           <h1>Your shop</h1>
           {props.currentUser.shop ? (
-            <Link>{props.currentUser.shop.name}</Link>
+            <Link className="shop-name" to="/">{props.currentUser.shop.name}</Link>
           ) : (
-            <button>Add a listing to create your shop</button>
+            <Link className="upload" to="/create-listing">Add a listing to create your shop</Link>
           )}
         <div className="recommended__header-wrapper">
           <ul className="recommended__wrapper">
