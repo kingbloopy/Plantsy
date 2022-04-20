@@ -12,6 +12,7 @@ import { Fragment } from 'react';
 import ScrollButton from "./misc/scroll_button";
 import { Content } from './misc/scroll_styles';
 import Profile from "./profile/profile";
+import { ProtectedRoute } from "../util/route_util";
 
 
 
@@ -35,7 +36,7 @@ const App = () => (
         <Route path="/bonsai" component={CategoryIndexContainer}/>
         <Route path="/search/:query" component={SearchResults}/>
         <Route exact path="/products/:productId" component={ProductShowContainer}/>
-        <Route path="/profile/:userId" component={Profile}/>
+        <ProtectedRoute path="/profile/:userId" component={Profile}/>
         <Route exact path="/cart" component={CartContainer} />
         <SplashContainer exact path="/" />
       </Switch>

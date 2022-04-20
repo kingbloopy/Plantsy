@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 const CategoryItem = ({ item }) => {
 
   const cutTitle = item.title.length > 28 ? item.title.slice(0, 20) + ' . . .' : item.title;
+
+  const decimalCount = num => {
+    const n = num.toString();
+    return (n.split('.')[1].length) < 2
+  }
+
   return (
     <Link className="category-item" to={`/products/${item.id}`}>
       <div className="cacategory-item__hover">
@@ -14,9 +20,12 @@ const CategoryItem = ({ item }) => {
       </div>
       <div className="category-item__info">
         <h1>{cutTitle}</h1>
-        {/* insert reviews later */}
         <div>
-          <h2 className="price">${parseFloat(item.price)}</h2>
+          {decimalCount(item.price) ? (
+            <p className="price">${item.price}0</p>
+          ) : (
+            <p className="price">${item.price}</p>
+          )}
           <h3>{item.shop}</h3>
         </div>
       </div>
