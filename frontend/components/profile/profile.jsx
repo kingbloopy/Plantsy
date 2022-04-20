@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { fetchAllProducts } from '../../actions/product_actions';
 import { useEffect } from "react";
 import ProductItem from "../products/product_index_item";
+import Spinner from '../misc/spinner';
+import { Link } from "react-router-dom";
 
 
 const Profile = props => {
@@ -18,32 +20,48 @@ const Profile = props => {
     )
   }
 
+  if (props.products[props.products.length - 1]){
   return (
     <div className="profile">
         <div className="profile__upper">
-          <h1>{props.currentUser.name}</h1>
+          <div className="profile__upper__left">
+            <h1>{props.currentUser.name}</h1>
+            <div className="stats">
+              <p>{products.length} listings</p>
+              {props.currentUser.shop ? (
+                <p>{props.currentUser.shop.sales} sales</p>
+                ) : (
+                <p>0 sales</p>
+              )}
+            </div>
+          </div>
           <div className="profile__upper__add-wrapper">
-            <h1>&#43;</h1>
+            <button>&#43;</button>
             <h2>Add a listing</h2>
           </div>
-          <div className="profile__lower">
-            <h1>Your shop</h1>
-            <div className="shop-stats">
-              <h2>{props.currentUser.shop.name}</h2>
-              <p>{props.currentUser.shop.sales} sales</p>
-            </div>
-            <h2>{products.length} listings</h2>
-          <div className="recommended__header-wrapper">
-            <ul className="recommended__wrapper">
-              {products.map((product, i) => {
-                return <ProductItem profile={true} className="recommended__product" product={product} key={i} />
-              })}
-            </ul>
-          </div>
-          </div>
+        </div>
+        <div className="profile__lower">
+          <h1>Your shop</h1>
+          {props.currentUser.shop ? (
+            <Link>{props.currentUser.shop.name}</Link>
+          ) : (
+            <button>Add a listing to create your shop</button>
+          )}
+        <div className="recommended__header-wrapper">
+          <ul className="recommended__wrapper">
+            {products.map((product, i) => {
+              return <ProductItem profile={true} className="recommended__product" product={product} key={i} />
+            })}
+          </ul>
+        </div>
         </div>
     </div>
   );
+  } else {
+    return (
+      <Spinner/>
+    )
+  }
 }
 
 const mapStateToProps = ({ entities, session }) => ({
