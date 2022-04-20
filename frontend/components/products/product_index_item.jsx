@@ -9,6 +9,10 @@ const ProductItem = props => {
     return (n.split('.')[1].length) < 2
   }
 
+  const price = decimalCount(product.price) ? product.price + '0' : product.price;
+
+  const cutTitle = product.title.length > 28 ? product.title.slice(0, 20) + ' . . .' : product.title;
+
   return (
     <div className="recommended__pic-wrapper">
       <Link className="recommended__link" to={`/products/${product.id}`}>
@@ -16,10 +20,10 @@ const ProductItem = props => {
           {/* <img className="recommended__pic-link" src={product.photoURLs[0]} alt={product.title} /> */}
       </Link>
       <div className="recommended__price-wrapper">
-        {decimalCount(product.price) ? (
-          <p className="recommended__price">${product.price}0</p>
+        {props.profile ? (
+          <p>{cutTitle}</p>
         ) : (
-            <p className="recommended__price">${product.price}</p>
+          <p className="recommended__price">${price}</p>
         )}
       </div>
     </div>

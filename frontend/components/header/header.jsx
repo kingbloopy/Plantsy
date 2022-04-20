@@ -17,7 +17,24 @@ const Header = ({ currentUser, logout, openModal, cart }) => {
 
         <div className="header__button-wrapper">
           {currentUser ? (
+            <div className="header__buttons">
+              <Link to={`/profile/${currentUser.id}`}>
+                <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
+                  width="26pt" height="26pt" viewBox="0 0 48.000000 48.000000"
+                  preserveAspectRatio="xMidYMid meet">
+
+                  <g transform="translate(0.000000,48.000000) scale(0.100000,-0.100000)" stroke="none">
+                    <path d="M172 429 c-48 -14 -109 -80 -123 -131 -23 -89 12 -182 88 -229 57
+-36 154 -34 210 3 62 41 88 90 88 168 0 77 -26 127 -85 166 -43 29 -125 39
+-178 23z m102 -95 c31 -30 9 -84 -34 -84 -24 0 -50 26 -50 50 0 10 7 26 16 34
+8 9 24 16 34 16 10 0 26 -7 34 -16z m51 -134 c19 -31 -28 -70 -85 -70 -57 0
+-104 39 -85 70 8 13 162 13 170 0z"/>
+                  </g>
+                </svg>
+                {/* <img src={window.profilePic}/> */}
+              </Link>
               <button className="header__logout-button" onClick={logout}>Sign out</button>
+            </div>
           ) : (
               <button className="header__signin-button" onClick={() => openModal('login')}>Sign in</button>
           )}

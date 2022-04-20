@@ -1,5 +1,6 @@
 json.user do 
 json.extract! user, :id, :email, :name
+json.shop user.shop
 end
 
 cartitems = user.cartitems.includes(:product)

@@ -5,6 +5,27 @@
   flex-direction: column;
   padding-top: 30px;
   padding-left: 30px;
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    & > a {
+      & > svg {
+        fill: rgb(160, 163, 158);
+        border-radius: 50%;
+        border: 2px solid transparent;
+        -webkit-transition: border 0.8s;
+        transition: border 0.8s;
+        
+        &:hover {
+          border: 2px solid rgb(190, 200, 159);
+          cursor: pointer;
+        }
+      }
+    }
+  }
   
   &__upper {
     align-items: center;
@@ -48,6 +69,8 @@
     position: relative;
     -webkit-transition: background 0.8s;
     transition: background 0.8s;
+    -webkit-transition: border 0.8s;
+    transition: border 0.8s;
 
     & > a {
       right: 0;
@@ -93,7 +116,6 @@
     }
 
     & > input {
-      // background-color: red;
       background-color: rgb(244, 247, 243);
       width: 100%;
       border: none;
