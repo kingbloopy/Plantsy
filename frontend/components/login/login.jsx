@@ -15,12 +15,19 @@ const LoginForm = props => {
   }
 
   const handleSubmit = e => {
-    e.preventDefault();
+    // e.preventDefault();
     const user = {
       email: (email).toLowerCase(),
       password
     }
     props.login(user).then(props.closeModal);
+  }
+
+  const submitHandler = e => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSubmit();
+    }
   }
 
   const handleSubmitDemoUser = e => {
@@ -39,7 +46,7 @@ const LoginForm = props => {
   return(
     <div className="login-form">
       <div className="login-form__inner">
-      <form className="login-form__form" onSubmit={handleSubmit}>
+      <form className="login-form__form" onKeyDown={submitHandler}>
 
         <div className="login-form__form__header-wrapper">
         <h1>Sign in</h1>
@@ -87,7 +94,7 @@ const LoginForm = props => {
         </div> */}
 
         <div className="login-form__form__lower-link-wrapper">
-          <input type="submit" className="login-form__form__submit" value="Sign in"/>
+          <input type="submit" onClick={handleSubmit} className="login-form__form__submit" value="Sign in"/>
 
           {props.troubleLink}
 
