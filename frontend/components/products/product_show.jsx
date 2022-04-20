@@ -98,7 +98,7 @@ const ProductShow = props => {
     
           <div className="product-show__product-info">
             <div className="product-show__seller-info">
-              <Link to="#" className="product-show__seller-info__shop">{product.shop}</Link>
+              <Link to={`/shop/${product.shopId}`} className="product-show__seller-info__shop">{product.shop}</Link>
               {product.sales ? (
                 <p>{product.sales} sales</p>
                 ): (

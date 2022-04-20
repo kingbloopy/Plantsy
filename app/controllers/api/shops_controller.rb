@@ -9,6 +9,13 @@ class Api::ShopsController < ApplicationController
     end
   end
 
+  def show
+    @shop = Shop.find(params[:id])
+    if @shop
+      render :show
+    end
+  end
+
   def update
     @shop = current_user.shop.find_by(id: params[:id])
     if @shop && @shop.update(shop_params)

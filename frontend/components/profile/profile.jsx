@@ -20,7 +20,7 @@ const Profile = props => {
     )
   }
 
-  if (props.products[props.products.length - 1]){
+  if (props.products && products[products.length - 1]){
   return (
     <div className="profile">
         <div className="profile__upper">
