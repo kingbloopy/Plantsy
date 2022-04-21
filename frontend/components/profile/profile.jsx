@@ -8,12 +8,12 @@ import { Link } from "react-router-dom";
 
 
 const Profile = props => {
+  let products;
   
   useEffect(() => {
     props.fetchAllProducts();
   }, []);
 
-  let products;
   if (props && props.products){
     products = props.products.filter(product => (
       product.sellerId === props.currentUser.id)
@@ -54,7 +54,7 @@ const Profile = props => {
               })}
             </ul>
           ) : (
-            null
+            <Spinner/>
           )}
         </div>
         </div>

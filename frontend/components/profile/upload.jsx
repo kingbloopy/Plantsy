@@ -99,11 +99,11 @@ const Upload = props => {
     formData.append('product[category]', category);
     formData.append('product[price]', price);
     formData.append('product[quantity]', quantity);
-    imageFiles.forEach(file => (
-      formData.append('product[photos]', file)
-    ));
-    console.log(formData)
-  
+    formData.append('product[photos]', imageFiles)
+    // imageFiles.forEach(file => (
+    //   formData.append('product[photos]', file)
+    // ));
+
     props.createProduct(formData);
     props.history.goBack();
   }
