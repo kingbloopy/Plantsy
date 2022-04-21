@@ -8,6 +8,7 @@ import TroubleModalContainer from "./trouble_signing_in";
 import CheckoutModalContainer from "./checkout_modal";
 import HelpModalContainer from "./help_center";
 import { useState } from "react";
+import DeleteProduct from "./delete_product";
 
 const Modal = ({ modal, closeModal }) => {
   let [modalTransition, setModalTransition] = useState(false);
@@ -42,6 +43,9 @@ const Modal = ({ modal, closeModal }) => {
       break;
     case 'help':
       component = <HelpModalContainer/>;
+      break;
+    case 'delete-product':
+      component = <DeleteProduct />;
       break;
     default:
       return null;

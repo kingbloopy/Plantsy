@@ -153,8 +153,14 @@
   }
 }
 
+.delete-product-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 .product-delete {
   margin-top: 40px;
-  background-color: red;
+  width: fit-content;
+  text-align: center;
 }
 

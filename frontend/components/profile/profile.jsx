@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchAllProducts, fetchUserProducts } from '../../actions/product_actions';
+import { fetchUserProducts } from '../../actions/product_actions';
 import { useEffect } from "react";
 import ProductItem from "../products/product_index_item";
 import Spinner from '../misc/spinner';
@@ -11,7 +11,6 @@ const Profile = props => {
   let products;
   
   useEffect(() => {
-    // props.fetchAllProducts();
     props.fetchUserProducts(true);
   }, []);
 
@@ -55,9 +54,7 @@ const Profile = props => {
               })}
             </ul>
           ) : (
-            <div>
-              <h1>You currently have no listings</h1>
-            </div>
+            null
           )}
         </div>
       </div>
@@ -70,4 +67,4 @@ const mapStateToProps = ({ entities, session }) => ({
   products: Object.values(entities.products)
 });
 
-export default connect(mapStateToProps, { fetchAllProducts, fetchUserProducts })(Profile);
+export default connect(mapStateToProps, { fetchUserProducts })(Profile);
