@@ -26,10 +26,8 @@ class Api::ProductsController < ApplicationController
 
   def destroy
     @product = current_user.products.find_by(id: params[:id])
-    if @product && @product.destroy
-      render json: @product.id
-    else
-      render json: @product.errors.full_messages, status: 404
+    if @product
+      @product.destroy
     end
   end
 
@@ -44,7 +42,7 @@ class Api::ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:title, :description, :category, :price, :quantity, :seller_id, photos: [])
+    params.require(:product).permit(:title, :description, :category, :price, :quantity, :seller_id)
   end
 
 end

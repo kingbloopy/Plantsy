@@ -70,6 +70,12 @@ const ProductShow = props => {
       outOfStock = "";
     }
 
+    const handleDelete = e => {
+      e.preventDefault();
+      props.removeProduct(product.id);
+      props.history.goBack();
+    }
+
     return(
       <div className="product-show">
         <div className="product-show__inner">
@@ -142,6 +148,11 @@ const ProductShow = props => {
               <h4>Description</h4>
               <p className="product-show__body">{product.description}</p>
             </div>
+            {props.currentUserId === product.sellerId ? (
+              <button onClick={handleDelete}>Delete Listing</button>
+            ) : (
+              null
+            )}
           </div>
 
         </div>

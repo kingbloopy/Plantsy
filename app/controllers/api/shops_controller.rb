@@ -1,6 +1,6 @@
 class Api::ShopsController < ApplicationController
   def create
-    @shop = shop.new(shop_params)
+    @shop = Shop.new(shop_params)
     @shop.owner_id = current_user.id
     if @shop.save
       render :show
@@ -27,6 +27,6 @@ class Api::ShopsController < ApplicationController
 
   private
   def shop_params
-    params.require(:shop).permit(:name)
+    params.require(:shop).permit(:name, :sales)
   end
 end
