@@ -5,6 +5,14 @@ export const fetchAllProducts = () => (
   })
 );
 
+export const fetchUserProducts = userProducts => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/products',
+    data: { userProducts }
+  })
+}
+
 export const fetchProduct = productId => (
   $.ajax({
     method: 'GET',
@@ -19,32 +27,27 @@ export const fetchByCategory = category => (
   })
 )
 
-// export const fetchUserProducts = userId => (
-//   $.ajax({
-//     method: 'GET',
-//     url: `/api/users/${userId}/products`
-//   })
-// );
+export const createProduct = product => (
+  $.ajax({
+    method: 'POST',
+    url: '/api/products',
+    data: product,
+    contentType: false,
+    processData: false,
+  })
+);
 
-// export const createProduct = product => (
-//   $.ajax({
-//     method: 'POST',
-//     url: '/api/products',
-//     data: { product }
-//   })
-// );
+export const updateProduct = product => (
+  $.ajax({
+    method: 'PATCH',
+    url: `/api/products/${product.id}`,
+    data: { product }
+  })
+);
 
-// export const updateProduct = product => (
-//   $.ajax({
-//     method: 'PATCH',
-//     url: `/api/products/${product.id}`,
-//     data: { product }
-//   })
-// );
-
-// export const deleteProduct = product => (
-//   $.ajax({
-//     method: 'DELETE',
-//     url: `/api/products/${product.id}`,
-//   })
-// );
+export const deleteProduct = productId => (
+  $.ajax({
+    method: 'DELETE',
+    url: `/api/products/${productId}`,
+  })
+);

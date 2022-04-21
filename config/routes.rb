@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
     resources :cartitems, only: [:create, :update, :destroy, :index]
     resources :reviews, only: [:create, :update, :destroy]
+    resources :shops, only: [:create, :update, :show]
   end
 
 

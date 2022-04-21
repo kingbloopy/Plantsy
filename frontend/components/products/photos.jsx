@@ -87,7 +87,8 @@ const Photos = props => {
       updateReview={props.updateReview}
       removeReview={props.removeReview}
       title={props.title}
-      average={props.average}/>
+      average={props.average}
+      sellerId={props.sellerId}/>
     </div>
   )
 }

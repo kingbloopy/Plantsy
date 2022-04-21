@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchAllProducts } from '../../actions/product_actions';
+import { fetchUserProducts } from '../../actions/product_actions';
 import { useEffect } from "react";
 import ProductItem from "../products/product_index_item";
 import Spinner from '../misc/spinner';
@@ -8,19 +8,18 @@ import { Link } from "react-router-dom";
 
 
 const Profile = props => {
+  let products;
   
   useEffect(() => {
-    props.fetchAllProducts();
+    props.fetchUserProducts(true);
   }, []);
 
-  let products;
   if (props && props.products){
     products = props.products.filter(product => (
       product.sellerId === props.currentUser.id)
     )
   }
 
-  if (props.products[props.products.length - 1]){
   return (
     <div className="profile">
         <div className="profile__upper">
@@ -36,32 +35,31 @@ const Profile = props => {
             </div>
           </div>
           <div className="profile__upper__add-wrapper">
-            <button>&#43;</button>
+            <Link to="/create-listing">&#43;</Link>
             <h2>Add a listing</h2>
           </div>
         </div>
         <div className="profile__lower">
           <h1>Your shop</h1>
           {props.currentUser.shop ? (
-            <Link>{props.currentUser.shop.name}</Link>
+            <Link className="shop-name" to="/">{props.currentUser.shop.name}</Link>
           ) : (
-            <button>Add a listing to create your shop</button>
+            <Link className="upload" to="/create-listing">Add a listing to create your shop</Link>
           )}
         <div className="recommended__header-wrapper">
-          <ul className="recommended__wrapper">
-            {products.map((product, i) => {
-              return <ProductItem profile={true} className="recommended__product" product={product} key={i} />
-            })}
-          </ul>
+          {products[products.length - 1] ? (
+            <ul className="recommended__wrapper">
+              {products.map((product, i) => {
+                return <ProductItem profile={true} className="recommended__product" product={product} key={i} />
+              })}
+            </ul>
+          ) : (
+            null
+          )}
         </div>
-        </div>
+      </div>
     </div>
   );
-  } else {
-    return (
-      <Spinner/>
-    )
-  }
 }
 
 const mapStateToProps = ({ entities, session }) => ({
@@ -69,4 +67,4 @@ const mapStateToProps = ({ entities, session }) => ({
   products: Object.values(entities.products)
 });
 
-export default connect(mapStateToProps, { fetchAllProducts })(Profile);
+export default connect(mapStateToProps, { fetchUserProducts })(Profile);

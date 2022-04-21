@@ -52,6 +52,7 @@ const Reviews = props => {
 
   const checkReviews = () => {
     let isReview = true;
+    if (props.sellerId === props.currentUserId) isReview = false;
     props.reviews.forEach(review => {
       if (review.reviewer_id === props.currentUserId) isReview = false;
     });

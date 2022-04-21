@@ -151,5 +151,16 @@
     color: $grey-green;
     text-align: end;
   }
-
 }
+
+.delete-product-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.product-delete {
+  margin-top: 40px;
+  width: fit-content;
+  text-align: center;
+}
+

@@ -3,6 +3,8 @@ class Api::ProductsController < ApplicationController
   def index
     if params[:category]
       @products = Product.where(category: params[:category])
+    elsif params[:userProducts] == "true"
+      @products = current_user.products
     else
       @products = Product.all
     end
@@ -14,33 +16,31 @@ class Api::ProductsController < ApplicationController
     render :show
   end
 
-  # def create
-  #   @product = Product.new(product_params)
-  #   @product.seller_id = current_user.id
-  #   if @product.save
-  #     render :show
-  #   else
-  #     render json: @product.errors.full_messages, status: 404
-  #   end
-  # end
+  def create
+    @product = Product.new(product_params)
+    @product.seller_id = current_user.id
+    if @product.save
+      render :show
+    else
+      render json: @product.errors.full_messages, status: 404
+    end
+  end
 
-  # def destroy
-  #   @product = current_user.products.find_by(id: params[:id])
-  #   if @product && @product.destroy
-  #     render json: @product.id
-  #   else
-  #     render json: @product.errors.full_messages, status: 404
-  #   end
-  # end
+  def destroy
+    @product = current_user.products.find_by(id: params[:id])
+    if @product
+      @product.destroy
+    end
+  end
 
-  # def update
-  #   @product = current_user.products.find_by(id: params[:id])
-  #   if @product && @product.update(pin_params)
-  #     render :show
-  #   else
-  #     render json: @product.errors.full_messages, status: 422
-  #   end
-  # end
+  def update
+    @product = current_user.products.find_by(id: params[:id])
+    if @product && @product.update(product_params)
+      render :show
+    else
+      render json: @product.errors.full_messages, status: 422
+    end
+  end
 
   private
   def product_params
