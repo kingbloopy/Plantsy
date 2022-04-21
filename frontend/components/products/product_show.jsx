@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Photos from "./photos";
 import { checkForCartItem } from "../../util/cart_selectors";
-import { openModal } from '../../actions/modal_actions';
 
 const ProductShow = props => {
   const { product, currentUser, cart, maxQuantity } = props;
@@ -89,6 +88,7 @@ const ProductShow = props => {
           updateReview={props.updateReview}
           removeReview={props.removeReview}
           title={product.title}
+          sellerId={product.sellerId}
           average={product.averageRating}/>
           {/* <Photos 
           productId={product.id} 
@@ -100,6 +100,7 @@ const ProductShow = props => {
           removeReview={props.removeReview}
           photos={product.photoURLs}
           title={product.title}
+          sellerId={product.sellerId}
           average={product.averageRating}/> */}
     
           <div className="product-show__product-info">
