@@ -24,6 +24,11 @@ export const fetchAllProducts = () => dispatch => (
   .then(products => dispatch(receiveAllProducts(products)))
 );
 
+export const fetchUserProducts = userProducts => dispatch => (
+  ProductUtil.fetchUserProducts(userProducts)
+  .then(products => dispatch(receiveAllProducts(products)))
+);
+
 export const fetchProduct = (productId) => dispatch => (
   ProductUtil.fetchProduct(productId)
   .then(product => dispatch(receiveProduct(product)))

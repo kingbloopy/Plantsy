@@ -3,6 +3,8 @@ class Api::ProductsController < ApplicationController
   def index
     if params[:category]
       @products = Product.where(category: params[:category])
+    elsif params[:userProducts] == "true"
+      @products = current_user.products
     else
       @products = Product.all
     end

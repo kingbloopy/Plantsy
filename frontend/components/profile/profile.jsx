@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchAllProducts } from '../../actions/product_actions';
+import { fetchAllProducts, fetchUserProducts } from '../../actions/product_actions';
 import { useEffect } from "react";
 import ProductItem from "../products/product_index_item";
 import Spinner from '../misc/spinner';
@@ -11,7 +11,8 @@ const Profile = props => {
   let products;
   
   useEffect(() => {
-    props.fetchAllProducts();
+    // props.fetchAllProducts();
+    props.fetchUserProducts(true);
   }, []);
 
   if (props && props.products){
@@ -47,17 +48,19 @@ const Profile = props => {
             <Link className="upload" to="/create-listing">Add a listing to create your shop</Link>
           )}
         <div className="recommended__header-wrapper">
-          {props.products && products[products.length - 1] ? (
+          {products[products.length - 1] ? (
             <ul className="recommended__wrapper">
               {products.map((product, i) => {
                 return <ProductItem profile={true} className="recommended__product" product={product} key={i} />
               })}
             </ul>
           ) : (
-            <Spinner/>
+            <div>
+              <h1>You currently have no listings</h1>
+            </div>
           )}
         </div>
-        </div>
+      </div>
     </div>
   );
 }
@@ -67,4 +70,4 @@ const mapStateToProps = ({ entities, session }) => ({
   products: Object.values(entities.products)
 });
 
-export default connect(mapStateToProps, { fetchAllProducts })(Profile);
+export default connect(mapStateToProps, { fetchAllProducts, fetchUserProducts })(Profile);

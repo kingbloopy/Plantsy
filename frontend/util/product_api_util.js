@@ -5,6 +5,14 @@ export const fetchAllProducts = () => (
   })
 );
 
+export const fetchUserProducts = userProducts => {
+  return $.ajax({
+    method: 'GET',
+    url: '/api/products',
+    data: { userProducts }
+  })
+}
+
 export const fetchProduct = productId => (
   $.ajax({
     method: 'GET',
@@ -23,7 +31,6 @@ export const createProduct = product => (
   $.ajax({
     method: 'POST',
     url: '/api/products',
-    // data: { product }
     data: product,
     contentType: false,
     processData: false,
@@ -38,9 +45,9 @@ export const updateProduct = product => (
   })
 );
 
-export const deleteProduct = product => (
+export const deleteProduct = productId => (
   $.ajax({
     method: 'DELETE',
-    url: `/api/products/${product.id}`,
+    url: `/api/products/${productId}`,
   })
 );

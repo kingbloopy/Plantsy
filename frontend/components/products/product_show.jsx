@@ -74,6 +74,7 @@ const ProductShow = props => {
       e.preventDefault();
       props.removeProduct(product.id);
       props.history.goBack();
+      alert(`${product.title} has been removed.`)
     }
 
     return(
@@ -149,7 +150,7 @@ const ProductShow = props => {
               <p className="product-show__body">{product.description}</p>
             </div>
             {props.currentUserId === product.sellerId ? (
-              <button onClick={handleDelete}>Delete Listing</button>
+              <button className="product-delete" onClick={handleDelete}>Delete Listing</button>
             ) : (
               null
             )}
