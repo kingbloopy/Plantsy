@@ -20,7 +20,6 @@ const Profile = props => {
     )
   }
 
-  if (props.products && products[products.length - 1]){
   return (
     <div className="profile">
         <div className="profile__upper">
@@ -48,20 +47,19 @@ const Profile = props => {
             <Link className="upload" to="/create-listing">Add a listing to create your shop</Link>
           )}
         <div className="recommended__header-wrapper">
-          <ul className="recommended__wrapper">
-            {products.map((product, i) => {
-              return <ProductItem profile={true} className="recommended__product" product={product} key={i} />
-            })}
-          </ul>
+          {props.products && products[products.length - 1] ? (
+            <ul className="recommended__wrapper">
+              {products.map((product, i) => {
+                return <ProductItem profile={true} className="recommended__product" product={product} key={i} />
+              })}
+            </ul>
+          ) : (
+            null
+          )}
         </div>
         </div>
     </div>
   );
-  } else {
-    return (
-      <Spinner/>
-    )
-  }
 }
 
 const mapStateToProps = ({ entities, session }) => ({
