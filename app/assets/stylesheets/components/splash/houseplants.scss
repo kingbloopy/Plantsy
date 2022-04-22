@@ -1,0 +1,69 @@
+@import '../../root.scss';
+
+.splash-houseplants {
+  border-top: none;
+  padding-top: 50px;
+
+  &__pic-wrapper {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    
+    &:hover {
+      box-shadow: none;
+      transition: none;
+    }
+  }
+  
+  &__item-wrapper {
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    padding: 0px;
+    border-radius: 8px;
+    
+    &:hover {
+      box-shadow: $box-shadow;
+      transition: ease-in 0.16s;
+    }
+  }
+
+  &__info-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 8px;
+    padding-bottom: 20px;
+
+    & > div {
+      margin-top: 0px;
+    }
+  }
+
+  & > a {
+    margin-bottom: 10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+
+    &:hover {
+      cursor: pointer;
+
+      & > .houseplant-arrow {
+        transition: ease-in 0.40s;
+        margin-left: 20px;
+      }
+    }
+    
+    & > .houseplant-arrow {
+      transition: ease-in 0.40s;
+      margin-left: 14px;
+    }
+
+    & > h2 {
+      font-size: 26px;
+    }
+  }
+
+  
+}

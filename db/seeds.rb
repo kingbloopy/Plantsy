@@ -1711,7 +1711,7 @@ pearl.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/upl
 donkey = Product.create!(
   title: "String of Donkey Tails Succulent",
   category: 'Succulent',
-  description: "These succulents are one of the cutest plants that you definitely love to have in your collection. Plants like to hang out of the pot. This plant is extremely easy to loose their leaves naturally, please be aware of the nature of the plant, we also try our best to get them ready for the trip, however, some broken leaves are unavoidable on arrival. Just put the leaves on the soil together with your cuttings, they will grow up and become more baby plants to fill your pot. Well drained soil, moist soil, pots must have drainage holes. Established plants are ok on full sun. Uprooted cuttings and leaves grow better in partial sun area, under some shade.",
+  description: "These succulents are one of the cutest plants that you definitely love to have in your collection. Plants like to hang out of the pot. This plant is extremely easy to loose their leaves naturally, please be aware of the nature of the plant, we also try our best to get them ready for the trip, however, some broken leaves are unavoidable on arrival. \n Just put the leaves on the soil together with your cuttings, they will grow up and become more baby plants to fill your pot. \n \n Well drained soil, moist soil, pots must have drainage holes. Established plants are ok on full sun. Uprooted cuttings and leaves grow better in partial sun area, under some shade.",
   price: 28.00,
   quantity: 6,
   seller_id: user13.id
@@ -1722,7 +1722,7 @@ donkeyrev1 = Review.create!(
   reviewer_id: user10.id,
   product_id: donkey.id,
   rating: 3,
-  content: 'Be caredul, this plant is so brittle and nearly lost all of its foliage when I was transferring it into a pot.'
+  content: 'Be careful, this plant is so brittle and nearly lost all of its foliage when I was transferring it into a pot.'
 )
 
 party = Product.create!(

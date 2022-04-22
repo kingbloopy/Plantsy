@@ -68,7 +68,7 @@ const Header = ({ currentUser, logout, openModal, cart }) => {
         <Link to="/succulents">Succulents</Link>
         <Link to="/cacti">Cacti</Link>
         <Link to="supplies">Supplies</Link>
-        <Link to="air-plants">Air Plants</Link>
+        <Link to="airplants">Air Plants</Link>
         <Link to="bonsai">Bonsai</Link>
       </ul>
     </div>

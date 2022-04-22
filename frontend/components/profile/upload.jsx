@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { HiArrowCircleUp } from 'react-icons/hi';
 import { GiFlowerPot } from 'react-icons/gi';
 import "regenerator-runtime/runtime";
 
@@ -205,27 +204,6 @@ const Upload = props => {
             </label>
             <p className="upload-errors">{titleError}</p>
           </div>
-
-          {/* <div className="upload__right__category-wrapper">
-            <label className="upload__right__category-label">Category
-              <div>
-                <select value={category} onChange={update('category')}>
-                  <option name="default" hidden aria-disabled>Choose a category</option>
-                  <option name="air-plant">Air Plant</option>
-                  <option name="bromeliad">Bromeliad</option>
-                  <option name="bonsai">Bonsai</option>
-                  <option name="cactus">Cactus</option>
-                  <option name="herb">Herb</option>
-                  <option name="house-plant">House Plant</option>
-                  <option name="orchid">Orchid</option>
-                  <option name="pottery">Pottery</option>
-                  <option name="succulent">Succulent</option>
-                  <option name="supplies">Supplies</option>
-                </select>
-              </div>
-            </label>
-            <p className="upload-errors">{categoryError}</p>
-          </div> */}
 
           <div className="list-choice">
             <div className="list-choice-title">Choose a category</div>

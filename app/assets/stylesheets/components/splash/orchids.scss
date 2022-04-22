@@ -8,22 +8,29 @@
     padding-bottom: 10px;
 
     & > h1 {
-      font-size: 20px;
+      font-size: 26px;
       margin-bottom: 6px;
     }
     
     & > a {
       text-decoration: none;
-      font-size: 14px;
+      font-size: 16px;
       font-weight: 500;
       display: flex;
       align-items: center;
       width: fit-content;
 
-      &:hover > img {
+      & > .orchid-arrow {
+        transition: ease-in 0.40s;
+        margin-left: 8px;
+        color: $grey-green;
+      }
+
+      &:hover > .orchid-arrow {
         margin-left: 14px;
         transition: ease-in 0.40s;
         border-radius: 50%;
+        color: $logo-green;
       }
       
       &:hover > h2 {
@@ -72,6 +79,7 @@
         width: 100%;
         height: 100%;
         display: block;
+        border: none;
       }
       
       & > p {
