@@ -61,7 +61,6 @@ const CategoryIndex = props => {
 
   useEffect(() => {
     props.fetchByCategory(searchCategory);
-    window.scrollTo(0, 0);
   }, [path]);
 
   return props.products[props.products.length - 1] ? (

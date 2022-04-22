@@ -710,7 +710,7 @@ parlor.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/up
 parlor.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/parlorpalm2.JPG'), filename: 'parlorpalm2.JPG')
 
 pinkag = Product.create!(
-  title: "Rare Pink Aglaonema Chinese Evergreen ",
+  title: "Rare Pink Aglaonema Chinese Evergreen",
   category: 'House Plant',
   description: "Pink Aglaonema Chinese Evergreen Plants are a simple, slow-growing variety that are accented with stunning strips of bright pink along the leaves. The large, narrow leaves have a distinct oval shape, and their color is brought out best with medium or indirect light. This houseplant needs water when the soil begins to dry out.",
   price: 10.00,
