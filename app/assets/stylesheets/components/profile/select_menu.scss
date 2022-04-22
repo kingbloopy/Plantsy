@@ -1,0 +1,88 @@
+@import '../../root.scss';
+
+.list-choice {
+  width: 300px;
+  position: relative;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.list-choice input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.list-choice-title {
+  width: 100%;
+  display: block;
+  background: rgb(230, 235, 218);
+  text-align: center;
+  padding: 0.55em 1em;
+  box-sizing: border-box;
+  color: $dark-green;
+  border-radius: 0.2em;
+}
+
+.list-choice:hover .list-choice-title {
+  border-radius: 0.2em 0.2em 0 0;
+}
+
+.list-choice-objects label:nth-last-of-type(1) span {
+  border-radius: 0 0 0.2em 0.2em;
+}
+
+.list-choice input[type="radio"]+span {
+  color: $dark-green;
+  background: rgb(230, 235, 218);
+  padding: 0.55em 1em;
+  display: block;
+  text-align: center;
+  box-sizing: border-box;
+  cursor: pointer;
+  width: 100%;
+}
+
+.list-choice-objects {
+  position: absolute;
+  top: 0;
+  padding-top: 2.1em;
+  box-sizing: border-box;
+  width: 100%;
+  overflow: hidden;
+  max-height: 0;
+  transition: all 250ms ease;
+}
+
+.list-choice:hover .list-choice-objects input[type="radio"]+span {
+  position: relative;
+  top: 0;
+  transition: all 250ms ease-in-out;
+}
+
+.list-choice:hover input[type="radio"]+span:hover {
+  background: $light-green;
+}
+
+.list-choice:hover input[type="radio"]:checked+span:hover {
+  background: $light-green;
+}
+
+.list-choice input[type="radio"]:checked+span {
+  background: $light-green;
+  position: absolute;
+  top: 0em;
+  border-radius: 0.2em;
+}
+
+.list-choice:hover input[type="radio"]:checked+span {
+  border-radius: 0;
+}
+
+.list-choice:hover .list-choice-objects label:nth-last-of-type(1) input[type="radio"]:checked+span {
+  border-radius: 0 0 0.2em 0.2em;
+}
+
+.list-choice:hover .list-choice-objects {
+  max-height: 540px;
+}

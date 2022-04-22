@@ -9,7 +9,7 @@ const Upload = props => {
   let [title, setTitle] = useState('');
   let [category, setCategory] = useState('');
   let [description, setDescription] = useState('');
-  let [price, setPrice] = useState(0);
+  let [price, setPrice] = useState('');
   let [quantity, setQuantity] = useState(1);
   let [photoFile, setPhotoFile] = useState(null);
   let [photoUrl, setPhotoUrl] = useState(null);
@@ -26,6 +26,7 @@ const Upload = props => {
 
   const handleUpload = e => {
     e.preventDefault();
+    setImagesError('');
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () => {
@@ -42,14 +43,19 @@ const Upload = props => {
     return e => {
       if (field === 'title') {
         setTitle(e.target.value);
+        setTitleError('');
       } else if (field === 'description') {
         setDescription(e.target.value);
+        setDescError('');
       } else if (field === 'category') {
         setCategory(e.target.value);
+        setCategoryError('');
       } else if (field === 'price') {
         setPrice(e.target.value);
+        setPriceError('');
       } else if (field === 'shopName') {
         setShopName(e.target.value);
+        setShopError('');
       }
     }
   }
@@ -77,8 +83,8 @@ const Upload = props => {
       setCategoryError('Must select a category');
     } else if (!description){
       setDescError('Description cannot be blank');
-    } else if (price === 0) {
-      setPriceError('Must input a price greater that $0');
+    } else if (!price) {
+      setPriceError('Must input a price greater than $0');
     } else {
       if (!props.currentUser.shop){
         const newShop = {
@@ -112,19 +118,6 @@ const Upload = props => {
     <div className="upload">
       <form className="upload__inner" onSubmit={handleForm}>
         <div className="upload__left">
-
-          {props.currentUser.shop ? (
-            null
-          ) : (
-            <div className="upload__left__shop-wrapper text-area">
-              <label>Create shop
-                <div className="text-wrapper">
-                  <textarea placeholder="Give a name to your shop" value={shopName} onChange={update('shopName')}/>
-                </div>
-              </label>
-              <p className="upload__errors">{shopError}</p>
-            </div>
-          )}
 
           <div className="upload__left__images-wrapper">
             {images.length === 4 ? (
@@ -168,6 +161,7 @@ const Upload = props => {
               </div>
             </div>
           </div>
+          <p className="upload-errors img-error">{imagesError}</p>
           <div className="upload__image-wrapper">
             <div className="upload__image-wrapper__new-img">
             </div>
@@ -175,11 +169,7 @@ const Upload = props => {
                 null
               ) : (
             <label>
-              <div className="upload__image-wrapper__img-input">
-                {/* <div className="upload-arrow-wrapper">
-                  <h2>&#43;</h2>
-                  <h3>Choose a file to upload</h3>
-                </div> */}
+              <div className="upload__img-input">
                 <div className="profile__upper__add-wrapper">
                   <h1 to="/create-listing">&#43;</h1>
                   <h2>Choose file</h2>
@@ -189,20 +179,33 @@ const Upload = props => {
             </label>
             )}
           </div>
-          <p className="upload__errors">{imagesError}</p>
         </div>
 
-        <div className="upload__right text-area">
-          <div className="upload__right__title-wrapper">
+        <div className="upload__right">
+
+          {props.currentUser.shop ? (
+            null
+          ) : (
+            <div className="upload__right__shop-wrapper text-area">
+              <label>Create shop
+                <div className="text-wrapper">
+                  <textarea placeholder="Give a name to your shop . . ." value={shopName} onChange={update('shopName')} />
+                </div>
+              </label>
+              <p className="upload-errors">{shopError}</p>
+            </div>
+          )}
+
+          <div className="upload__right__title-wrapper text-area">
             <label className="upload__right__title-label">Title
               <div className="text-wrapper">
                 <textarea placeholder="Add a title for your listing . . ." value={title} onChange={update('title')}/>
               </div>
             </label>
-            <p className="upload__errors">{titleError}</p>
+            <p className="upload-errors">{titleError}</p>
           </div>
 
-          <div className="upload__right__category-wrapper">
+          {/* <div className="upload__right__category-wrapper">
             <label className="upload__right__category-label">Category
               <div>
                 <select value={category} onChange={update('category')}>
@@ -220,7 +223,44 @@ const Upload = props => {
                 </select>
               </div>
             </label>
-            <p className="upload__errors">{categoryError}</p>
+            <p className="upload-errors">{categoryError}</p>
+          </div> */}
+
+          <div className="list-choice">
+            <div className="list-choice-title">Choose a category</div>
+            <div className="list-choice-objects">
+              <label>
+                <input value={'Air Plant'} onChange={update('category')} type="radio" name="category" />                     <span>Air Plant</span>
+              </label>
+              <label>
+                <input value={'Bromeliad'} onChange={update('category')} type="radio" name="category" />                     <span>Bromeliad</span>
+              </label>
+              <label>
+                <input value={'Bonsai'} onChange={update('category')} type="radio" name="category" />                     <span>Bonsai</span>
+              </label>
+              <label>
+                <input value={'Cactus'} onChange={update('category')} type="radio" name="category" />                     <span>Cactus</span>
+              </label>
+              <label>
+                <input value={'Herb'} onChange={update('category')} type="radio" name="category herb" />                     <span>Herb</span>
+              </label>
+              <label>
+                <input value={'House Plant'} onChange={update('category')} type="radio" name="category" />                     <span>House Plant</span>
+              </label>
+              <label>
+                <input value={'Orchid'} onChange={update('category')} type="radio" name="category" />                     <span>Orchid</span>
+              </label>
+              <label>
+                <input value={'Pottery'} onChange={update('category')} type="radio" name="category" />                     <span>Pottery</span>
+              </label>
+              <label>
+                <input value={'Succulent'} onChange={update('category')} type="radio" name="category" />                     <span>Succulent</span>
+              </label>
+              <label>
+                <input value={'Supplies'} onChange={update('category')} type="radio" name="category" />                     <span>Supplies</span>
+              </label>
+            </div>
+            <p className="upload-errors">{categoryError}</p>
           </div>
 
           <div className="upload__right__desc-wrapper text-area">
@@ -229,11 +269,11 @@ const Upload = props => {
                 <textarea placeholder="Tell shoppers about your product, describing the color, care information or variety . . ." value={description} onChange={update('description')}/>
               </div>
             </label>
-            <p className="upload__errors">{descError}</p>
+            <p className="upload-errors">{descError}</p>
           </div>
 
           <div className="product-show__quantity-wrapper quantity-wrapper">
-            <p>Quantity:</p>
+            <p>Quantity</p>
             <div className="quantity-counter">
               <button type="button" onClick={decrement}>&minus;</button>
               <span>{quantity}</span>
@@ -242,17 +282,18 @@ const Upload = props => {
           </div>
 
           <div className="upload__right__price-wrapper">
-            <label>Price
-              <div>$
-                <input value={price === 0 ? '0.00': price} onChange={update('price')}/>
+            <h1>Price</h1>
+            <div>
+              <h2 className="dollar-sign">$</h2>
+              <div className="text-wrapper">
+                <input type='text' placeholder="0.00" value={price} onChange={update('price')}/>
               </div>
-            </label>
-            <p className="upload__errors">{priceError}</p>
+            </div>
+            <p className="upload-errors">{priceError}</p>
           </div>
 
+        <button type="submit" className="upload__create">Create Listing</button>
         </div>
-
-        <button type="submit" className="update__create">Create Listing</button>
       </form>
     </div>
   );

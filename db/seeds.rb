@@ -120,7 +120,7 @@ aloe1 = Product.create!(
   description: 'These healthy aloe vera plants bring a wonderful sense of greenery and healing to a space. Revered for their medicinal power and hardy nature, aloe vera plants are one everyone can acquire many uses and enjoyment from.',
   price: 14.99,
   quantity: 2,
-  seller_id: user2.id
+  seller_id: demo_user.id
 )
 aloeA1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/aloe/aloeA1.JPG')
 aloe1.photos.attach(io: aloeA1, filename: 'aloeA1.JPG')
@@ -264,7 +264,7 @@ strawb = Product.create!(
   description: "Everbearing Strawberries--a low-maintenance, high-yield favorite among strawberry lovers--is extremely popular due to its ability to produce well after spring ends. In fact, Everbearing Strawberries are often harvested as late as the first frost! That means that you'll enjoy delicious, juicy strawberries for many months to come.",
   price: 17.94,
   quantity: 12,
-  seller_id: user2.id
+  seller_id: demo_user.id
 )
 strawb.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/strawb1.jpg'), filename: 'strawb1.jpg')
 strawb.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/strawb2.JPG'), filename: 'strawb2.JPG')
@@ -425,7 +425,7 @@ bambpalm = Product.create!(
   description: "With dense foliage and lush fronds, the Bamboo Palm makes a statement. An air-purifying plant adaptable to low light, this palm can reach heights of up to 8 feet tall in the right conditions. \n \n The Bamboo Palm is a tropical indoor houseplant that compliments any space. Not to be confused with real bamboo, this plant is low maintenance and easy to care for. Native to the forests of Mexico and Central America, Bamboo Palms grow in the shade of larger trees unlike other palms, which makes them adaptable to less than ideal lighting conditions. \n It is a great choice for the home or office because it rates highly on NASA’s list of air-purifying plants.",
   price: 150.95,
   quantity: 1,
-  seller_id: user3.id
+  seller_id: demo_user.id
 )
 bambpalm.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/bamboopalm1.JPG'), filename: 'bamboopalm1.JPG')
 bambpalm.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/bamboopalm2.JPG'), filename: 'bamboopalm2.JPG')
@@ -592,7 +592,7 @@ ivy = Product.create!(
   description: "Botanical Name: Hedera helix; Common Name: English ivy; Origin: Ireland, Scandinavia, western Asia and northern Africa; 'Goldchild’ English ivy has round-tipped leaves of 3 to 5 lobes with bright gold edges and green-gray centers. It will grow several inches upward then drape downward around the container.",
   price: 38.24,
   quantity: 5,
-  seller_id: user4.id
+  seller_id: demo_user.id
 )
 ivy.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/ivy.jpg'), filename: 'ivy.jpg')
 
@@ -796,7 +796,7 @@ spath = Product.create!(
   description: "Best in bright, indirect light; can tolerate low light levels, but will produce more blooms with more light. Water once a week, or when top inch of soil is dry",
   price: 34.99,
   quantity: 12,
-  seller_id: user6.id
+  seller_id: demo_user.id
 )
 spath.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/spath/spath2.JPG'), filename: 'spath2.JPG')
 spath.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/spath/spath1.JPG'), filename: 'spath1.JPG')
@@ -1163,7 +1163,7 @@ brom1 = Product.create!(
   description: "Featuring colorful, long-lasting blooms, the Bromeliad Aechmea Pink is a unique flowering plant to add a touch of the tropics to your space. With blooms that last for up to six months, these are sure to brighten any home.",
   price: 36.99,
   quantity: 20,
-  seller_id: user9.id
+  seller_id: demo_user.id
 )
 brom1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataA1.JPG'), filename: 'fasciataA1.JPG')
 brom1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataA2.JPG'), filename: 'fasciataA2.JPG')
@@ -1423,7 +1423,7 @@ animals = Product.create!(
   description: "Adorable handmade set of animal pottery. Can be used to plant small succulents or other plants of choice. Set includes all four items featured in the photo",
   price: 50.00,
   quantity: 1,
-  seller_id: user11.id
+  seller_id: demo_user.id
 )
 animals.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/animals.JPG'), filename: 'animals.JPG')
 

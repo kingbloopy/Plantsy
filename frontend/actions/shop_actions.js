@@ -16,3 +16,8 @@ export const createShop = shop => dispatch => (
   ShopUtil.createShop(shop)
     .then(shop => dispatch(receiveShop(shop)))
 );
+
+export const updateShop = shop => dispatch => (
+  ShopUtil.updateShop(shop)
+    .then(shop => dispatch(receiveShop(shop)))
+);
