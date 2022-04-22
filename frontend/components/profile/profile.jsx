@@ -15,22 +15,10 @@ const Profile = props => {
   useEffect(() => {
     props.fetchUserProducts(true);
     if (props.currentUser.shop){
-      props.fetchShop(props.currentUser.shop.id)
+      // props.fetchShop(props.currentUser.shop.id)
       setShop(props.currentUser.shop)
     }
   }, []);
-
-  // useEffect(() => {
-  //   if (props.currentUser.shop){
-  //     setShop(props.currentUser.shop)
-  //   }
-  // }, [props.shop.name]);
-
-  // useEffect(() => {
-  //   if (props.currentUser.shop){
-  //     setShop(props.currentUser.shop)
-  //   }
-  // }, [props.currentUser.shop]);
 
   if (props && props.products){
     products = props.products.filter(product => (
