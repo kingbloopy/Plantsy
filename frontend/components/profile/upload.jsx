@@ -91,6 +91,7 @@ const Upload = props => {
           name: shopName,
           sales: 0
         }
+        props.currentUser.shop = newShop;
         props.createShop(newShop);
       }
       handleSubmit();
