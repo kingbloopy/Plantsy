@@ -13,7 +13,6 @@ const ShopProfile = props => {
   const shop = props.shop[0]
 
   useEffect(() => {
-    console.log('hitting')
     props.fetchAllProducts();
     props.fetchShop(shopId);
   }, []);

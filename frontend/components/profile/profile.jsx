@@ -3,16 +3,34 @@ import { connect } from "react-redux";
 import { fetchUserProducts } from '../../actions/product_actions';
 import { useEffect } from "react";
 import ProductItem from "../products/product_index_item";
-import Spinner from '../misc/spinner';
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import { fetchShop, updateShop } from "../../actions/shop_actions";
 
 
 const Profile = props => {
+  let [shop, setShop] = useState('');
   let products;
   
   useEffect(() => {
     props.fetchUserProducts(true);
+    if (props.currentUser.shop){
+      props.fetchShop(props.currentUser.shop.id)
+      setShop(props.currentUser.shop)
+    }
   }, []);
+
+  // useEffect(() => {
+  //   if (props.currentUser.shop){
+  //     setShop(props.currentUser.shop)
+  //   }
+  // }, [props.shop.name]);
+
+  // useEffect(() => {
+  //   if (props.currentUser.shop){
+  //     setShop(props.currentUser.shop)
+  //   }
+  // }, [props.currentUser.shop]);
 
   if (props && props.products){
     products = props.products.filter(product => (
@@ -27,8 +45,8 @@ const Profile = props => {
             <h1>{props.currentUser.name}</h1>
             <div className="stats">
               <p>{products.length} listings</p>
-              {props.currentUser.shop ? (
-                <p>{props.currentUser.shop.sales} sales</p>
+              {shop ? (
+                <p>{shop.sales} sales</p>
                 ) : (
                 <p>0 sales</p>
               )}
@@ -41,10 +59,10 @@ const Profile = props => {
         </div>
         <div className="profile__lower">
           <h1>Your shop</h1>
-          {props.currentUser.shop ? (
-            <Link className="shop-name" to="/">{props.currentUser.shop.name}</Link>
+          {shop ? (
+            <Link className="shop-name" to="/">{shop.name}</Link>
           ) : (
-            <Link className="upload" to="/create-listing">Add a listing to create your shop</Link>
+            <Link className="upload-shop" to="/create-listing">Add a listing to create your shop</Link>
           )}
         <div className="recommended__header-wrapper">
           {products[products.length - 1] ? (
@@ -64,7 +82,11 @@ const Profile = props => {
 
 const mapStateToProps = ({ entities, session }) => ({
   currentUser: entities.users[session.id],
-  products: Object.values(entities.products)
+  products: Object.values(entities.products),
+  shop: Object.values(entities.shop)
 });
 
-export default connect(mapStateToProps, { fetchUserProducts })(Profile);
+export default connect(mapStateToProps,
+  { fetchUserProducts,
+    fetchShop,
+    updateShop })(Profile);

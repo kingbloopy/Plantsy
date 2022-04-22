@@ -211,6 +211,13 @@
           }
         }
       }
+      & > .upload-errors {
+        margin-top: 6px;
+        color: $red;
+        font-weight: 500;
+        font-size: 16px;
+        letter-spacing: 0.3px;
+      }
     }
   }
 }
@@ -220,4 +227,16 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 6px;
+}
+
+.upload-errors {
+  margin-top: 6px;
+  color: $red;
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 0.3px;
+}
+
+.img-error {
+  margin-top: 0px;
 }
