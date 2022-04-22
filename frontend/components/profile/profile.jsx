@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import ProductItem from "../products/product_index_item";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { fetchShop, updateShop } from "../../actions/shop_actions";
+// import { fetchShop, updateShop } from "../../actions/shop_actions";
 
 
 const Profile = props => {
@@ -15,7 +15,6 @@ const Profile = props => {
   useEffect(() => {
     props.fetchUserProducts(true);
     if (props.currentUser.shop){
-      // props.fetchShop(props.currentUser.shop.id)
       setShop(props.currentUser.shop)
     }
   }, []);
@@ -75,6 +74,4 @@ const mapStateToProps = ({ entities, session }) => ({
 });
 
 export default connect(mapStateToProps,
-  { fetchUserProducts,
-    fetchShop,
-    updateShop })(Profile);
+  { fetchUserProducts })(Profile);

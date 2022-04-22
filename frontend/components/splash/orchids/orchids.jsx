@@ -1,6 +1,7 @@
 import React from "react";
 // import OrchidItem from "./orchids_item";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import { BsArrowRightCircle } from 'react-icons/bs';
 
 const Orchids = props => {
 
@@ -19,7 +20,8 @@ if (props.products.length > 0) {
         <h1>Orchids</h1>
         <Link to="/orchids">
           <h2>Shop these unique plants</h2>
-          <img src={window.arrow}/>
+          <BsArrowRightCircle className="orchid-arrow" size={16}/>
+          {/* <img src={window.arrow}/> */}
         </Link>
       </div>
       <ul className="orchids__list-wrapper">

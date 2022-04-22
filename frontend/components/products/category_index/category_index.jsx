@@ -44,7 +44,7 @@ const CategoryIndex = props => {
       searchCategory = 'Supplies';
       categoryInfo = 'Gardening supplies can make the journey to acheiving a green thumb a bit easier. Discover what tools may help you and your plants thrive.'
       break;
-    case '/air-plants':
+    case '/airplants':
       searchCategory = 'Air Plant';
       categoryInfo = 'Tillandsia is a genus of around 650 species of evergreen, perennial flowering plants in the family Bromeliaceae, native to the forests, mountains and deserts of northern Mexico and south-eastern United States, Mesoamerica and the Caribbean to mid Argentina. Air plants are also perfect plants to display in your bedroom because they photosynthesize at night. So while you are sleeping, they emit fresh oxygen into the air. Being among plants can help reduce stress, lower blood pressure, and improve focus at home or work.'
       break;

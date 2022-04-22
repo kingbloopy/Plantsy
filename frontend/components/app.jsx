@@ -33,7 +33,7 @@ const App = () => (
         <Route path="/succulents" component={CategoryIndexContainer}/>
         <Route path="/cacti" component={CategoryIndexContainer}/>
         <Route path="/supplies" component={CategoryIndexContainer}/>
-        <Route path="/air-plants" component={CategoryIndexContainer}/>
+        <Route path="/airplants" component={CategoryIndexContainer}/>
         <Route path="/bonsai" component={CategoryIndexContainer}/>
         <ProtectedRoute path="/create-listing" component={Upload}/>
         <Route path="/search/:query" component={SearchResults}/>
