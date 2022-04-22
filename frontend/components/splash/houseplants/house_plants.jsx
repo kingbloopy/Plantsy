@@ -1,9 +1,7 @@
 import React from "react";
-import { useEffect } from "react";
 import HousePlantItem from "./houseplant_item";
 import { Link } from "react-router-dom";
 import { BsArrowRightCircle } from 'react-icons/bs';
-import Spinner from "../../misc/spinner";
 
 const HousePlants = props => {
 
