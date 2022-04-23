@@ -18,6 +18,11 @@
     border-top-right-radius: 6px;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
+    max-width: 320px;
+
+    & > img {
+      width: 320px;
+    }
     
     &:hover {
       box-shadow: none;
