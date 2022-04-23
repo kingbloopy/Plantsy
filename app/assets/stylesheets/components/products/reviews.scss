@@ -117,11 +117,16 @@
   &__wrapper {
     margin-bottom: 50px;
 
+    & > p {
+      line-height: 22px;
+      font-size: 16px;
+    }
     &__rating {
       display: flex;
       align-items: center;
       justify-content: space-between;
       height: 36px;
+
       
       & > div {
         align-items: center;
