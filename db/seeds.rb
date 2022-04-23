@@ -947,7 +947,7 @@ macrame2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/
 nakedman = Product.create!(
   title: 'Naked Man Orchid Seeds',
   category: 'Orchid',
-  description: "Orchis Italica is widely popular for their petals which in shape, resemble naked men. Preferring partial shade and low nutrient soil and they flower in late spring. Orchis Italica grows up to 50cm in height, with bright pink, densely clustered flowers. Many orchids do not have a flowering season and flowers may be produced at any time if the right conditions are being met. Terrestrial orchids grown outdoors will mostly flower in the summer months. Flowers can last for several months. Autumn is the best season for planting. Spread out the roots in the upper 10 cm (4 inches) of the soil, the rhizome 2-3 cm (1 inch) below the surface, shoot buds upwards. Fill in the remaining substrate without compressing it, and water thoroughly. *Includes 50 seeds*",
+  description: "Orchis Italica is widely popular for their petals which in shape, resemble naked men. Preferring partial shade and low nutrient soil and they flower in late spring. Orchis Italica grows up to 50cm in height, with bright pink, densely clustered flowers. Many orchids do not have a flowering season and flowers may be produced at any time if the right conditions are being met. Terrestrial orchids grown outdoors will mostly flower in the summer months. Flowers can last for several months. \n\n Autumn is the best season for planting. Spread out the roots in the upper 10 cm (4 inches) of the soil, the rhizome 2-3 cm (1 inch) below the surface, shoot buds upwards. Fill in the remaining substrate without compressing it, and water thoroughly. *Includes 50 seeds*",
   price: 12.99,
   quantity: 3,
   seller_id: user7.id
@@ -1004,7 +1004,7 @@ shop8 = Shop.create!(
 zygo = Product.create!(
   title: 'Zygopetalum Orchid',
   category: 'Orchid',
-  description: "Zygo Advance Australia is Z. Titanic x Z. Helen-Ku. The flowers are rather fragrant, and pleasingly so. This orchid's generic name, derived from the Greek word 'zygon', means 'yoked petal.' It refers to the yoke-like growth at the base of the lip caused by the fusion of petals and sepals They occur in humid forests in South America at low- to mid-elevation regions, with most species found in Brazil. The ones for sale are mericlones and all should be beautiful. They stand 15 inches high or more measured from the bottom of the 4-inch pot.",
+  description: "Zygo Advance Australia is Z. Titanic x Z. Helen-Ku. The flowers are rather fragrant, and pleasingly so. This orchid's generic name, derived from the Greek word 'zygon', means 'yoked petal.' It refers to the yoke-like growth at the base of the lip caused by the fusion of petals and sepals They occur in humid forests in South America at low- to mid-elevation regions, with most species found in Brazil. \n\n The ones for sale are mericlones and all should be beautiful. They stand 15 inches high or more measured from the bottom of the 4-inch pot.",
   price: 42.99,
   quantity: 1,
   seller_id: user8.id
@@ -1080,7 +1080,7 @@ zzrev3 = Review.create!(
 chocchip = Product.create!(
   title: "Dendrobium Chocolate Chip Fragrant Orchid",
   category: 'Orchid',
-  description: "Dendrobium Chocolate Chip is an exquisite hybrid between the legendary Micro Chip and normanbyense. It’s a unique miniature orchid with sprays of delicate speckled white flowers. The front of the flowers is detailed with purple lining, while the back of each flower is as close to a chocolate chip cookie as an orchid could ever be! Chocolate Chip is perfect for the entry-level collector who doesn’t have a bunch of space for their collection but wants something extraordinary and impressive. This compact Latouria type Dendrobium is evergreen and has mystical little flowers that shoot out from all sides of the plant. Canes are almost Seussian with their quirky top-heavy shape! Lightly cinnamon-fragrant blooms!",
+  description: "Dendrobium Chocolate Chip is an exquisite hybrid between the legendary Micro Chip and normanbyense. It’s a unique miniature orchid with sprays of delicate speckled white flowers. The front of the flowers is detailed with purple lining, while the back of each flower is as close to a chocolate chip cookie as an orchid could ever be! \n \n Chocolate Chip is perfect for the entry-level collector who doesn’t have a bunch of space for their collection but wants something extraordinary and impressive. This compact Latouria type Dendrobium is evergreen and has mystical little flowers that shoot out from all sides of the plant. \n \n Canes are almost Seussian with their quirky top-heavy shape! Lightly cinnamon-fragrant blooms!",
   price: 44.99,
   quantity: 18,
   seller_id: user8.id
@@ -1109,7 +1109,7 @@ enobi.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/upl
 snow = Product.create!(
   title: "Fragrant Orchid Plant LIVE IN SPIKE Dendrobium Mini Snowflake",
   category: 'Orchid',
-  description: "Dendrobium Mini Snowflake is an exquisite primary hybrid (aberrans x johnsoniae). It's a unique miniature orchid with sprays of delicate snowy white flowers. Dendrobium Mini Snowflake is perfect for the entry level collector who doesn’t have a bunch of space for their collection, but wants something extraordinary and impressive. Pseudobulbs are almost Seussian with their quirky top-heavy shape!",
+  description: "Dendrobium Mini Snowflake is an exquisite primary hybrid (aberrans x johnsoniae). It's a unique miniature orchid with sprays of delicate snowy white flowers. Dendrobium Mini Snowflake is perfect for the entry level collector who doesn’t have a bunch of space for their collection, but wants something extraordinary and impressive. \n \n Pseudobulbs are almost Seussian with their quirky top-heavy shape!",
   price: 44.00,
   quantity: 1,
   seller_id: user8.id
@@ -1336,7 +1336,7 @@ bonsai2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/u
 pinkphal = Product.create!(
   title: 'Pink Phalaenopsis Orchid',
   category: 'Orchid',
-  description: "Add a pop of pink to your tablescape with this popular Phalaenopsis orchid. One of the easiest varieties to grow as a houseplant, it is affectionately called the beginner orchid. You may notice a small amount of blooms on your orchid upon delivery. These blooms will open quicker in a warm indoor setting. It will typically bloom about once a year, for up to three months. After a blooming cycle, the flowers will wilt and fall off. This is the orchid’s way to store up energy to re-bloom again next season.",
+  description: "Add a pop of pink to your tablescape with this popular Phalaenopsis orchid. One of the easiest varieties to grow as a houseplant, it is affectionately called the beginner orchid. \n\n You may notice a small amount of blooms on your orchid upon delivery. These blooms will open quicker in a warm indoor setting. It will typically bloom about once a year, for up to three months. After a blooming cycle, the flowers will wilt and fall off. This is the orchid’s way to store up energy to re-bloom again next season.",
   price: 18.99,
   quantity: 2,
   seller_id: user10.id
@@ -1366,7 +1366,7 @@ pinkphalrev3 = Review.create!(
 whitephal = Product.create!(
   title: 'White Phalaenopsis Orchid',
   category: 'Orchid',
-  description: "Add a pop of white and green to your tablescape with this popular Phalaenopsis orchid. One of the easiest varieties to grow as a houseplant, it is affectionately called the beginner orchid. You may notice a small amount of blooms on your orchid upon delivery. These blooms will open quicker in a warm indoor setting. It will typically bloom about once a year, for up to three months. \n After a blooming cycle, the flowers will wilt and fall off. This is the orchid’s way to store up energy to re-bloom again next season.",
+  description: "Add a pop of white and green to your tablescape with this popular Phalaenopsis orchid. One of the easiest varieties to grow as a houseplant, it is affectionately called the beginner orchid. \n\n You may notice a small amount of blooms on your orchid upon delivery. These blooms will open quicker in a warm indoor setting. It will typically bloom about once a year, for up to three months. After a blooming cycle, the flowers will wilt and fall off. This is the orchid’s way to store up energy to re-bloom again next season.",
   price: 18.99,
   quantity: 5,
   seller_id: user10.id
@@ -1384,7 +1384,7 @@ whitephalrev2 = Review.create!(
 smallphal = Product.create!(
   title: 'Small Phalaenopsis Orchid Set',
   category: 'Orchid',
-  description: "Add a pop of pink to your tablescape with these popular Phalaenopsis orchids. One of the easiest varieties to grow as a houseplant, it is affectionately called the beginner orchid. You may notice a small amount of blooms on your orchids upon delivery. These blooms will open quicker in a warm indoor setting. It will typically bloom about once a year, for up to three months. After a blooming cycle, the flowers will wilt and fall off. This is the orchid’s way to store up energy to re-bloom again next season. You will recieve three small 6in tall orchids or varying colors.",
+  description: "Add a pop of pink to your tablescape with these popular Phalaenopsis orchids. One of the easiest varieties to grow as a houseplant, it is affectionately called the beginner orchid. \n\n You may notice a small amount of blooms on your orchids upon delivery. These blooms will open quicker in a warm indoor setting. It will typically bloom about once a year, for up to three months. After a blooming cycle, the flowers will wilt and fall off. This is the orchid’s way to store up energy to re-bloom again next season. You will recieve three small 6in tall orchids or varying colors.",
   price: 45.00,
   quantity: 6,
   seller_id: user10.id
@@ -1792,7 +1792,7 @@ fert1rev1 = Review.create!(
 fert2 = Product.create!(
   title: "Time Release Fertilizer",
   category: 'Supplies',
-  description: "This nutrient-rich fertilizer works wonders on both indoor and outdoor plants. Releasing nutrients slowly over 4 months, Jack’s ClassiCote Fertilizer is the ideal selection for forgetful plant parents and plants that resent being over-fertilized. With controlled release nutrients including phosphorus and magnesium, Jack’s ClassiCote Fertilizer with Crystal Green’s® crystalline compounds provides continuous nutrition for over four months, supporting stronger roots and vital green growth. \n Using a time-release formula, plants can feed on key nutrients in small increments, giving them more time for absorption instead of washing away during watering. Jack’s Classicote Fertilizer is great for outdoor potted plants, flowering plants, and is a beneficial addition to your potting soil when repotting.",
+  description: "This nutrient-rich fertilizer works wonders on both indoor and outdoor plants. Releasing nutrients slowly over 4 months, Jack’s ClassiCote Fertilizer is the ideal selection for forgetful plant parents and plants that resent being over-fertilized. \n\n With controlled release nutrients including phosphorus and magnesium, Jack’s ClassiCote Fertilizer with Crystal Green’s® crystalline compounds provides continuous nutrition for over four months, supporting stronger roots and vital green growth. \n Using a time-release formula, plants can feed on key nutrients in small increments, giving them more time for absorption instead of washing away during watering. Jack’s Classicote Fertilizer is great for outdoor potted plants, flowering plants, and is a beneficial addition to your potting soil when repotting.",
   price: 16.00,
   quantity: 10,
   seller_id: user14.id
@@ -1961,7 +1961,7 @@ tillandsia2rev1 = Review.create!(
 cymbidium1 = Product.create!(
   title: 'Cymbidium Koushu',
   category: 'Orchid',
-  description: "Cymbidium Koushu Tango is a dazzling orchid that produces intense ruby red blooms, showing its excellent breeding by the Mukoyama Nursery in Japan, one of the leading Cymbidium orchid hybridizers in the world. \n \n Just like the dance for which it was named, this is one red-hot orchid! Its vibrant red petals coupled with its deep, dark lip results in a very seductive bloom. This Cymbidium orchid is very hardy, easy to grow, and also on the smaller side (not quite miniature, but close), making it an easy fit for any collection. You can grow this in any kind of chunky orchid bark, watering twice per week and fertilizing every other week. Avoid direct sun; moderate to bright shady conditions are best. This is a warm-tolerant orchid and can also tolerate near-freezing temperatures for short durations, but bring inside if expecting prolonged cold.",
+  description: "Cymbidium Koushu Tango is a dazzling orchid that produces intense ruby red blooms, showing its excellent breeding by the Mukoyama Nursery in Japan, one of the leading Cymbidium orchid hybridizers in the world. \n \n Just like the dance for which it was named, this is one red-hot orchid! Its vibrant red petals coupled with its deep, dark lip results in a very seductive bloom. This Cymbidium orchid is very hardy, easy to grow, and also on the smaller side (not quite miniature, but close), making it an easy fit for any collection. You can grow this in any kind of chunky orchid bark, watering twice per week and fertilizing every other week. \n\n Avoid direct sun; moderate to bright shady conditions are best. This is a warm-tolerant orchid and can also tolerate near-freezing temperatures for short durations, but bring inside if expecting prolonged cold.",
   price: 26.99,
   quantity: 1,
   seller_id: user15.id
@@ -2063,7 +2063,7 @@ cactus4rev2 = Review.create!(
 cactus5 = Product.create!(
   title: 'Pink Christmas Cactus',
   category: 'Cactus',
-  description: "Pink Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, pink, salmon, and bi-color. \n Pink Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright pink and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
+  description: "Pink Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, pink, salmon, and bi-color. \n Pink Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. \n\n The flowers are bright pink and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
   price: 19.95,
   quantity: 6,
   seller_id: user15.id
@@ -2081,7 +2081,7 @@ cactus5rev1 = Review.create!(
 cactus6 = Product.create!(
   title: 'Red Christmas Cactus',
   category: 'Cactus',
-  description: "Red Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, pink, salmon, and bi-color. \n Red Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright red and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
+  description: "Red Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, pink, salmon, and bi-color. \n Red Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. \n\n The flowers are bright red and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
   price: 19.95,
   quantity: 7,
   seller_id: user15.id
@@ -2092,7 +2092,7 @@ cactus6.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/u
 cactus7 = Product.create!(
   title: 'Peach Christmas Cactus',
   category: 'Cactus',
-  description: "Peach Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, peach, salmon, and bi-color. \n Peach Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. The flowers are bright peach and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
+  description: "Peach Christmas Cactus do well in bright and indirect light. These cheery wintertime flowers brighten up indoor spaces and look beautiful when placed in a brightly colored pot. The flowers have brightly colored downward-facing petals. Christmas cactus comes in a variety of different colors including, yellow, red, white, peach, salmon, and bi-color. \n Peach Christmas Cactus do well indoors in a room that receives bright but indirect light, like an eastern or northern window sill. Christmas Cactus will adapt to low light conditions, but the plant will produce blooms more readily if exposed to bright light. \n\n The flowers are bright peach and appear prolifically when given bright, indirect light, and when exposed to room temperatures, anywhere between 65 - 75 degrees F.",
   price: 19.95,
   quantity: 14,
   seller_id: user15.id
