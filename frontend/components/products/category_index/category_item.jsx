@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const CategoryItem = ({ item }) => {
 
@@ -14,8 +15,8 @@ const CategoryItem = ({ item }) => {
     <Link className="category-item" to={`/products/${item.id}`}>
       <div className="cacategory-item__hover">
         <div className="category-item__pic-wrapper">
-          <img src={window.tester2} alt={item.title} />
-          {/* <img src={item.photoURLs[0]} alt={item.title} /> */}
+          {/* <LazyLoadImage src={window.tester2} alt={item.title} /> */}
+          <LazyLoadImage src={item.photoURLs[0]} alt={item.title} />
         </div>
       </div>
       <div className="category-item__info">

@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import Reviews from "../reviews/reviews";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+
 
 const Photos = props => {
   const photos = props.photos;
@@ -52,13 +54,13 @@ const Photos = props => {
             </svg>
           </button>
           <div className="product-pics__main-picture-wrapper">
-            <img className="product-pics__main-picture"
+            <LazyLoadImage className="product-pics__main-picture"
               src={mainPic === undefined ? (
                 photos[0]
               ) : (
                 mainPic
               )}
-            ></img>
+            />
           </div>
           <button className="product-pics__svg-button" id="right-svg-button" onClick={rightClickHandler}>
             <svg
@@ -74,7 +76,7 @@ const Photos = props => {
         <ul className="product-pics__small-pics-wrapper">
           {photos.map((photo, idx) => (
             <li key={idx} className="product-pics__small-picture-item">
-              <img className="product-pics__small-picture" src={photo} onClick={pictureHandler} />
+              <LazyLoadImage className="product-pics__small-picture" src={photo} onClick={pictureHandler} />
             </li>
           ))}
         </ul>

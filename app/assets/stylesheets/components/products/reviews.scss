@@ -133,15 +133,15 @@
           color: $grey-green;
         }
   
-        & > a {
+        & > h1 {
           font-size: 14px;
           text-decoration: underline;
-          -webkit-transition: color 0.8s;
-          transition: color 0.8s;
+          // -webkit-transition: color 0.8s;
+          // transition: color 0.8s;
   
-          &:hover {
-            color: $highlight-green;
-          }
+          // &:hover {
+          //   color: $highlight-green;
+          // }
         }
       }
 

@@ -13,7 +13,9 @@ const Recommended = (props) => {
     const recProducts = [];
     while (recProducts.length !== 10){
       const randPro = props.products[Math.floor(Math.random() * props.products.length)];
-      recProducts.push(randPro);
+      if (!recProducts.includes(randPro)) {
+        recProducts.push(randPro);
+      }
     }
 
     return (

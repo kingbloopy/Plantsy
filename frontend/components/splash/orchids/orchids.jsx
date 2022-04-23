@@ -1,7 +1,7 @@
 import React from "react";
-// import OrchidItem from "./orchids_item";
 import { Link } from "react-router-dom";
 import { BsArrowRightCircle } from 'react-icons/bs';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const Orchids = props => {
 
@@ -12,48 +12,47 @@ const Orchids = props => {
       <Link to="/orchids">
         <h2>Shop these unique plants</h2>
         <BsArrowRightCircle className="orchid-arrow" size={16}/>
-        {/* <img src={window.arrow}/> */}
       </Link>
     </div>
     <ul className="orchids__list-wrapper">
       <Link to="/products/41">
-        <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.tester1}></img>
-        {/* <img src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/lady.jpg"/> */}
+        {/* <LazyLoadImage className="explore__circles-wrapper__circle-wrapper__circle" src={window.tester1}/> */}
+        <LazyLoadImage src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/lady.jpg"/>
         <p>$46.00</p>
       </Link>
       <Link to="/products/100">
-          <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.pic}></img>
-        {/* <img src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/pink-flower.JPG" /> */}
+          {/* <LazyLoadImage className="explore__circles-wrapper__circle-wrapper__circle" src={window.pic}/> */}
+        <LazyLoadImage src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/pink-flower.JPG" />
         <p>$23.00</p>
       </Link>
       <Link to="/products/68">
-          <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.tester2}></img>
-        {/* <img src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/yellow-orchid.jpg" /> */}
+          {/* <LazyLoadImage className="explore__circles-wrapper__circle-wrapper__circle" src={window.tester2}/> */}
+        <LazyLoadImage src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/yellow-orchid.jpg" />
         <p>$39.00</p>
       </Link>
       <Link to="/products/65">
-          <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.pic}></img>
-        {/* <img src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/phal.jpg" /> */}
+          {/* <LazyLoadImage className="explore__circles-wrapper__circle-wrapper__circle" src={window.pic}/> */}
+        <LazyLoadImage src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/phal.jpg" />
         <p>$18.99</p>
       </Link>
       <Link to="/products/51">
-          <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.tester1}></img>
-        {/* <img src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/purple-orchid.jpg"/> */}
+          {/* <LazyLoadImage className="explore__circles-wrapper__circle-wrapper__circle" src={window.tester1}/> */}
+        <LazyLoadImage src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/purple-orchid.jpg"/>
         <p>$34.00</p>
       </Link>
       <Link to="/products/50">
-          <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.pic}></img>
-        {/* <img src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/chip.jpg"/> */}
+          {/* <LazyLoadImage className="explore__circles-wrapper__circle-wrapper__circle" src={window.pic}/> */}
+        <LazyLoadImage src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/chip.jpg"/>
         <p>$44.99</p>
       </Link>
       <Link to="/products/44">
-          <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.tester2}></img>
-        {/* <img src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/naked.JPG" /> */}
+          {/* <LazyLoadImage className="explore__circles-wrapper__circle-wrapper__circle" src={window.tester2}/> */}
+        <LazyLoadImage src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/naked.JPG" />
         <p>$12.99</p>
       </Link>
       <Link to="/products/46">
-          <img className="explore__circles-wrapper__circle-wrapper__circle" src={window.pic}></img>
-        {/* <img src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/zygo.JPG"/> */}
+          {/* <LazyLoadImage className="explore__circles-wrapper__circle-wrapper__circle" src={window.pic}/> */}
+        <LazyLoadImage src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/zygo.JPG"/>
         <p>$42.99</p>
       </Link>
     </ul>

@@ -10,7 +10,9 @@ const HousePlants = props => {
     const housePlantProducts = props.products.filter(product => product.category === 'House Plant');
     while (products.length !== 4) {
       const randPro = housePlantProducts[Math.floor(Math.random() * housePlantProducts.length)];
-      products.push(randPro);
+      if (!products.includes(randPro)){
+        products.push(randPro);
+      }
     }
   }
 

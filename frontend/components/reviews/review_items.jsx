@@ -66,7 +66,7 @@ const ReviewItems = props => {
     <div className="reviews__wrapper">
       <div className="reviews__wrapper__rating">
         <div>
-          <Link to='/'>{properName(review.reviewer)}</Link>
+          <h1 to='/'>{properName(review.reviewer)}</h1>
           <h2>{review.date}</h2>
         </div>
         {props.currentUserId === review.reviewer_id ? (
