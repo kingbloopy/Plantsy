@@ -4,6 +4,15 @@
   border-top: none;
   padding-top: 80px;
 
+  &__ul-wrapper {
+    grid-row-gap: 0px;
+    grid-column-gap: 20px;
+
+    & > ul {
+      grid-column-gap: 20px;
+    }
+  }
+
   &__pic-wrapper {
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -62,7 +71,6 @@
 
     & > h2 {
       font-size: 26px;
-      margin-left: 8px
     }
   }
 

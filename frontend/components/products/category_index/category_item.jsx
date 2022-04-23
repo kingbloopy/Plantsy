@@ -13,12 +13,10 @@ const CategoryItem = ({ item }) => {
 
   return (
     <Link className="category-item" to={`/products/${item.id}`}>
-      <div className="cacategory-item__hover">
         <div className="category-item__pic-wrapper">
           {/* <LazyLoadImage src={window.tester2} alt={item.title} /> */}
           <LazyLoadImage src={item.photoURLs[0]} alt={item.title} />
         </div>
-      </div>
       <div className="category-item__info">
         <h1>{cutTitle}</h1>
         <div>

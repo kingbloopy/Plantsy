@@ -23,7 +23,7 @@ const HousePlants = props => {
           <h2>House Plants</h2>
           <BsArrowRightCircle className="houseplant-arrow" size={22}/>
         </Link>
-        <div className="category-index__ul-wrapper">
+        <div className="category-index__ul-wrapper splash-houseplants__ul-wrapper">
           <ul className="category-index__items-wrapper">
             {products.map((item, idx) => (
               <li key={idx}>

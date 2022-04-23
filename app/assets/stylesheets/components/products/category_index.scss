@@ -32,7 +32,7 @@
   &__items-wrapper {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-row-gap: 30px;
+    grid-row-gap: 20px;
 
     & > li {
       display: flex;
@@ -92,10 +92,9 @@
     }
 
     & > img {
-      // width: 290px;
+      width: 290px;
       height: 290px;
-      max-width: 290px;
-      width: 100%;
+      object-fit: cover;
 
     }
   }
