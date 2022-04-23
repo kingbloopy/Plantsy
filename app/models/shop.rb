@@ -1,5 +1,5 @@
 class Shop < ApplicationRecord
-  validates :name, presence: true
+  # validates :name, presence: true
 
   belongs_to :owner,
   foreign_key: :owner_id,
