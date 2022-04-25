@@ -9,7 +9,7 @@ const Header = ({ currentUser, logout, openModal, cart }) => {
 
       <div className="header__upper">
 
-        <Link className="header__link" to="/">
+        <Link to="/" className="header__link">
           <img className="header__logo" src={window.plantsyLogo} />
         </Link>
 
