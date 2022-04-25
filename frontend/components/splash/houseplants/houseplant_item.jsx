@@ -14,8 +14,8 @@ const HousePlantItem = ({ item }) => {
   return (
     <Link className="category-item splash-houseplants__item-wrapper" to={`/products/${item.id}`}>
         <div className="category-item__pic-wrapper splash-houseplants__pic-wrapper">
-          {/* <LazyLoadImage src={window.tester2} alt={item.title} /> */}
-          <LazyLoadImage src={item.photoURLs[0]} alt={item.title} />
+          <LazyLoadImage src={window.tester2} alt={item.title} />
+          {/* <LazyLoadImage src={item.photoURLs[0]} alt={item.title} /> */}
         </div>
       <div className="category-item__info splash-houseplants__info-wrapper">
         <h1>{cutTitle}</h1>
