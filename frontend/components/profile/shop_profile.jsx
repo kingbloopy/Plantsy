@@ -31,20 +31,22 @@ const ShopProfile = props => {
   if (props.products && props.shop && products[products.length - 1]) {
     return (
       <div className="category-index">
-          <div className="category-index__info-wrapper shop-header">
-            <h1>
-              Welcome to {props.shop && shop?.name}
-            </h1>
-            <h2>{props.shop && shop?.sales} sales</h2>
+        <div className="category__inner">
+            <div className="category-index__info-wrapper shop-header">
+              <h1>
+                Welcome to {props.shop && shop?.name}
+              </h1>
+              <h2>{props.shop && shop?.sales} sales</h2>
+            </div>
+          <div className="category-index__ul-wrapper">
+            <ul className="category-index__items-wrapper">
+              {products.map((item, idx) => (
+                <li key={idx}>
+                  <CategoryItem item={item} />
+                </li>
+              ))}
+            </ul>
           </div>
-        <div className="category-index__ul-wrapper">
-          <ul className="category-index__items-wrapper">
-            {products.map((item, idx) => (
-              <li key={idx}>
-                <CategoryItem item={item} />
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     );

@@ -221,10 +221,10 @@ const Upload = props => {
                 <input value={'Cactus'} onChange={update('category')} type="radio" name="category" />                     <span>Cactus</span>
               </label>
               <label>
-                <input value={'Herb'} onChange={update('category')} type="radio" name="category herb" />                     <span>Herb</span>
+                <input value={'Herb'} onChange={update('category')} type="radio" name="category herb" />                    <span>Herb</span>
               </label>
               <label>
-                <input value={'House Plant'} onChange={update('category')} type="radio" name="category" />                     <span>House Plant</span>
+                <input value={'House Plant'} onChange={update('category')} type="radio" name="category" />           <span>House Plant</span>
               </label>
               <label>
                 <input value={'Orchid'} onChange={update('category')} type="radio" name="category" />                     <span>Orchid</span>
@@ -244,7 +244,7 @@ const Upload = props => {
 
           <div className="upload__right__desc-wrapper text-area">
             <label className="upload__right__desc-label">Description
-              <div className="text-wrapper">
+              <div className="text-wrapper desc-text-wrapper">
                 <textarea placeholder="Tell shoppers about your product, describing the color, care information or variety . . ." value={description} onChange={update('description')}/>
               </div>
             </label>

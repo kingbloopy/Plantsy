@@ -73,7 +73,7 @@ const CartItem = props => {
       <div className={`${props.cName} cart-item`}>
         <div className="cart-item__seller-info">
           <p>More from this seller</p>
-          <Link to="null">{props.item.shop.name}</Link>
+          <Link to={`/shop/${props.item.shop.id}`}>{props.item.shop.name}</Link>
         </div>
 
         <div className="cart-item__content-wrapper">
@@ -108,9 +108,10 @@ const CartItem = props => {
           </div>
 
           <div className="cart-item__gift-wrapper">
-          <label className="check-wrapper cart-item__gift">
-            <input className="check-box" type="checkbox"/>
-            This order is a gift
+
+          <label class="container check-wrapper cart-item__gift">This order is a gift
+            <input type="checkbox"/>
+              <span class="checkmark"></span>
           </label>
             <p>Prices will not be shown on packing slip</p>
           </div>
