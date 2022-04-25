@@ -21,7 +21,7 @@ const App = () => (
   <Fragment>
     <Content>
       <Modal/>
-      <header>
+      <header className="head">
         <HeaderContainer/>
       </header>
       <Switch>

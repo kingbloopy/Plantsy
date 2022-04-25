@@ -56,19 +56,28 @@
 
   &__bottom {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     background-color: rgba(114, 120, 13, 0.7);
+    
+    &__inner {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1250px;
+      width: 100%;
 
-    & > .us-details {
-      & > h1, & > h2, & > h3 {
-        font-size: 12px;
-        color: $hover-button;
-      }
-      & > h1, & > h2 {
-        padding-right: 10px;
-        border-right: 2px solid $hover-button;
+      & > .us-details {
+        & > h1, & > h2, & > h3 {
+          font-size: 12px;
+          color: $hover-button;
+        }
+        & > h1, & > h2 {
+          padding-right: 10px;
+          border-right: 2px solid $hover-button;
+        }
       }
     }
+
   }
 }

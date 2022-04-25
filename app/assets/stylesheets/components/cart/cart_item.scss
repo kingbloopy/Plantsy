@@ -105,8 +105,8 @@
     width: 100%;
 
     &__img-wrapper {
-      width: 200px;
-      max-height: 200px;
+      max-width: 220px;
+      width: 100%;
       overflow: hidden;
       border-radius: 10px;
       display: flex;
@@ -114,7 +114,9 @@
       margin-right: 20px;
 
       & > img {
-        height: 200px;
+        height: 180px;
+        width: 100%;
+        object-fit: cover;
         border-radius: 10px;
       }
     }
@@ -139,8 +141,6 @@
     justify-content: flex-start;
 
     & > label {
-      display: flex;
-      align-items: center;
       font-size: 16px;
       width: fit-content;
 
@@ -217,3 +217,73 @@
 
 
 
+
+// checkmark styling
+
+.check-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark {
+  position: absolute;
+  top: -4px;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: $hover-button;
+  border: 2px solid rgba(132, 167, 66, 0.3);
+  border-radius: 4px;
+}
+
+.container:hover input~.checkmark {
+  background-color: rgba(132, 167, 66, 0.3);
+}
+
+.container input:checked~.checkmark {
+  background-color: $logo-green;
+  border: 2px solid $logo-green;
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked~.checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  left: 6px;
+  top: 1px;
+  width: 5px;
+  height: 12px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}

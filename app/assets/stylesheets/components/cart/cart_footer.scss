@@ -1,5 +1,9 @@
 @import './root.scss';
 
+.cart-footer-wrapper {
+  width: 100%;
+}
+
 .empty-cart {
   display: flex;
   flex-direction: column;
@@ -33,12 +37,21 @@
 
 .cart-footer {
   margin-top: 30px;
-  border-top: 1px solid rgb(182, 189, 158);
-  display: flex;
-  justify-content: space-between;
+  border-top: 1px solid #b6bd9e;
   padding: 40px;
-  align-items: center;
   font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
+  &__inner {
+    width: 100%;
+    max-width: 1250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   
   &__top-left {
     display: flex;

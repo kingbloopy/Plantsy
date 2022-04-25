@@ -3,14 +3,45 @@
 .splash-houseplants {
   border-top: none;
   padding-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__inner {
+    max-width: 1250px;
+    width: 100%;
+
+
+    & > a {
+      margin-bottom: 10px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      width: fit-content;
+    
+      &:hover {
+        cursor: pointer;
+    
+        & > .houseplant-arrow {
+          transition: ease-in 0.40s;
+          margin-left: 20px;
+        }
+      }
+    
+      & > .houseplant-arrow {
+        transition: ease-in 0.40s;
+        margin-left: 14px;
+      }
+    
+      & > h2 {
+        font-size: 26px;
+      }
+    }
+  }
 
   &__ul-wrapper {
     grid-row-gap: 0px;
     grid-column-gap: 20px;
-
-    & > ul {
-      grid-column-gap: 20px;
-    }
   }
 
   &__pic-wrapper {
@@ -18,7 +49,7 @@
     border-top-right-radius: 6px;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
-    max-width: 320px;
+    // max-width: 320px;
 
     & > img {
       width: 320px;
@@ -52,32 +83,4 @@
       margin-top: 0px;
     }
   }
-
-  & > a {
-    margin-bottom: 10px;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    width: fit-content;
-
-    &:hover {
-      cursor: pointer;
-
-      & > .houseplant-arrow {
-        transition: ease-in 0.40s;
-        margin-left: 20px;
-      }
-    }
-    
-    & > .houseplant-arrow {
-      transition: ease-in 0.40s;
-      margin-left: 14px;
-    }
-
-    & > h2 {
-      font-size: 26px;
-    }
-  }
-
-  
 }

@@ -65,18 +65,20 @@ const CategoryIndex = props => {
 
   return props.products[props.products.length - 1] ? (
     <div className="category-index">
-      <div className="category-index__info-wrapper">
-        <h1>{category}</h1>
-        <h2>{categoryInfo}</h2>
-      </div>
-      <div className="category-index__ul-wrapper">
-        <ul className="category-index__items-wrapper">
-          {props.products.map((item, idx) => (
-            <li key={idx}>
-              <CategoryItem item={item}/>
-            </li>
-          ))}
-        </ul>
+      <div className="category-index__inner">
+        <div className="category-index__info-wrapper">
+          <h1>{category}</h1>
+          <h2>{categoryInfo}</h2>
+        </div>
+        <div className="category-index__ul-wrapper">
+          <ul className="category-index__items-wrapper">
+            {props.products.map((item, idx) => (
+              <li key={idx}>
+                <CategoryItem item={item}/>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   ) : (
