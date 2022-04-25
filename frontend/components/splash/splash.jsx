@@ -8,7 +8,7 @@ import Discover from "./discover/discover";
 const Splash = props => {
 
   return (
-    <div>
+    <div className="splash-wrapper">
       <Explore currentUser={props.currentUser}/>
       <Recommended fetchAllProducts={props.fetchAllProducts} products={props.products} currentUser={props.currentUser}/>
       <Orchids products={props.products} fetchByCategory={props.fetchByCategory} />

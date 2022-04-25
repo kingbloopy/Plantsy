@@ -2,6 +2,15 @@
 
 .footer {
   margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__inner {
+    width: 100vw;
+  }
+  
   &__info {
     background-color: rgba(215, 223, 190, 0.5);
     padding: 60px 40px;
@@ -10,16 +19,21 @@
     align-items: center;
     justify-content: center;
 
+
     & > h1 {
       font-size: 25px;
       padding-bottom: 40px;
       font-family: 'Merriweather Sans', sans-serif;
+      max-width: 1250px;
+      width: 100%;
     }
 
     &__content-wrapper {
       display: flex;
       justify-content: space-between;
       gap: 40px;
+      max-width: 1250px;
+      width: 100%;
 
       & > .section {
         & > h1 {

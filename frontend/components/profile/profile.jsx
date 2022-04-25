@@ -27,40 +27,42 @@ const Profile = props => {
 
   return (
     <div className="profile">
-        <div className="profile__upper">
-          <div className="profile__upper__left">
-            <h1>{props.currentUser.name}</h1>
-            <div className="stats">
-              <p>{products.length} listings</p>
-              {shop ? (
-                <p>{shop.sales} sales</p>
-                ) : (
-                <p>0 sales</p>
-              )}
+      <div className="profile__inner">
+          <div className="profile__upper">
+            <div className="profile__upper__left">
+              <h1>{props.currentUser.name}</h1>
+              <div className="stats">
+                <p>{products.length} listings</p>
+                {shop ? (
+                  <p>{shop.sales} sales</p>
+                  ) : (
+                  <p>0 sales</p>
+                )}
+              </div>
+            </div>
+            <div className="profile__upper__add-wrapper">
+              <Link to="/create-listing">&#43;</Link>
+              <h2>Add a listing</h2>
             </div>
           </div>
-          <div className="profile__upper__add-wrapper">
-            <Link to="/create-listing">&#43;</Link>
-            <h2>Add a listing</h2>
+          <div className="profile__lower">
+            <h1>Your shop</h1>
+            {shop ? (
+              <Link className="shop-name" to="/">{shop.name}</Link>
+            ) : (
+              <Link className="upload-shop" to="/create-listing">Add a listing to create your shop</Link>
+            )}
+          <div className="recommended__header-wrapper">
+            {products[products.length - 1] ? (
+              <ul className="recommended__wrapper">
+                {products.map((product, i) => {
+                  return <ProductItem profile={true} className="recommended__product" product={product} key={i} />
+                })}
+              </ul>
+            ) : (
+              null
+            )}
           </div>
-        </div>
-        <div className="profile__lower">
-          <h1>Your shop</h1>
-          {shop ? (
-            <Link className="shop-name" to="/">{shop.name}</Link>
-          ) : (
-            <Link className="upload-shop" to="/create-listing">Add a listing to create your shop</Link>
-          )}
-        <div className="recommended__header-wrapper">
-          {products[products.length - 1] ? (
-            <ul className="recommended__wrapper">
-              {products.map((product, i) => {
-                return <ProductItem profile={true} className="recommended__product" product={product} key={i} />
-              })}
-            </ul>
-          ) : (
-            null
-          )}
         </div>
       </div>
     </div>

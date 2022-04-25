@@ -2,6 +2,14 @@
 
 .discover {
   padding: 0px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__inner {
+    max-width: 1250px;
+    width: 100%;
+  }
 
   & > p {
     color: $grey-green;
