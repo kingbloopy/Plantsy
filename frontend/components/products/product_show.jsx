@@ -78,7 +78,7 @@ const ProductShow = props => {
     return(
       <div className="product-show">
         <div className="product-show__inner">
-          <Photos 
+          {/* <Photos 
           productId={product.id} 
           currentUserId={props.currentUserId} 
           reviews={props.reviews} 
@@ -89,8 +89,8 @@ const ProductShow = props => {
           removeReview={props.removeReview}
           title={product.title}
           sellerId={product.sellerId}
-          average={product.averageRating}/>
-          {/* <Photos 
+          average={product.averageRating}/> */}
+          <Photos 
           productId={product.id} 
           currentUserId={props.currentUserId} 
           reviews={props.reviews} 
@@ -101,7 +101,7 @@ const ProductShow = props => {
           removeReview={props.removeReview}
           title={product.title}
           sellerId={product.sellerId}
-          average={product.averageRating}/> */}
+          average={product.averageRating}/>
     
           <div className="product-show__product-info">
             <div className="product-show__seller-info">
