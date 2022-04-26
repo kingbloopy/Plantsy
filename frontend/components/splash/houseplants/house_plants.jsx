@@ -18,13 +18,13 @@ const HousePlants = props => {
 
   if (props.products[props.products.length - 1]) {
     return (
-      <div className="category-index splash-houseplants">
+      <div className="splash-houseplants">
         <div className="splash-houseplants__inner">
           <Link to="/houseplants">
             <h2>House Plants</h2>
             <BsArrowRightCircle className="houseplant-arrow" size={22}/>
           </Link>
-            <ul className="category-index__items-wrapper splash-houseplants__ul-wrapper">
+            <ul className="splash-houseplants__ul-wrapper">
               {products.map((item, idx) => (
                 <li key={idx}>
                   <HousePlantItem item={item} />

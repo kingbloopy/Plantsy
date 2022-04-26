@@ -103,3 +103,20 @@
     }
   }
 }
+
+
+@media screen and (max-width: 1024px) {
+  .orchids {
+    &__list-wrapper {
+      column-count: 3;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .orchids {
+    &__list-wrapper {
+      column-count: 2;
+    }
+  }
+}

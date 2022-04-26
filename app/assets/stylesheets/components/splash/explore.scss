@@ -27,7 +27,7 @@
   &__circles-wrapper {
     margin-top: -72px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     max-width: 1250px;
     width: 100%;
     
@@ -67,7 +67,7 @@
       }
       
       &__circle {
-        max-width: 120px;
+        max-width: 114px;
         width: 100%;
         border-radius: 50%;
         border: 1px solid rgba(74, 130, 51, 0.15);
@@ -91,6 +91,26 @@
     &:hover {
       fill: $logo-green;
       cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .explore__circles-wrapper__circle-wrapper {
+    & > img {
+      max-width: 90px;
+    }
+
+    & > h1 {
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .explore__circles-wrapper {
+    & > a:nth-child(5), & > a:nth-child(6) {
+      display: none;
     }
   }
 }

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import React from "react";
-import ProductItem from "../products/product_index_item";
-import Spinner from '../misc/spinner';
+import RecommendedItem from "./recommended_item";
+import Spinner from '../../misc/spinner';
 
 const Recommended = (props) => {
 
@@ -24,9 +24,9 @@ const Recommended = (props) => {
           <h1>Recommended for you</h1>
         </div>
         <div className="recommended__header-wrapper">
-          <ul className="recommended__wrapper">
+          <ul className="recommended__wrapper splash-wrapper">
             {recProducts.map((product, i) => {
-              return <ProductItem className="recommended__product" product={product} key={i}/>
+              return <RecommendedItem className="recommended__product" product={product} key={i}/>
             })}
           </ul>
         </div>
