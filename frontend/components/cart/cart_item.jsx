@@ -84,7 +84,7 @@ const CartItem = props => {
           <div className="cart-item__content-wrapper__text-wrapper">
             <div className="cart-item__content-left">
               <Link to={`/products/${props.item.product_id}`}>{props.item.title}</Link>
-              <div>
+              <div className="media-wrapper">
                 <p className="cart-item__content__quantity">Quantity: <strong>{props.item.quantity}</strong></p>
                 <button className="cart-item__content__remove" onClick={() => props.removeCartItem(props.item.id)}>Remove</button>
               </div>

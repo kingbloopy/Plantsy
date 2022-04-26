@@ -226,3 +226,61 @@ input[type='radio']:checked:after {
   visibility: visible;
   border: 2px solid white;
 }
+
+@media screen and (max-width: 1000px) {
+  .cart__inner {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 680px) {
+
+  .cart-items__upper {
+    & > h1 {
+      font-size: 20px;
+    }
+
+    & > a {
+      font-size: 12px;
+    }
+  }
+
+  .cart-item {
+
+    &__extra {
+      flex-direction: column;
+
+      & > .text-wrapper {
+        margin-bottom: 10px;
+      }
+    }
+
+    &__content-right {
+      align-items: flex-start !important;
+      gap: 10px;
+      
+      & > div {
+        align-items: flex-start !important;
+        gap: 10px;
+      }
+    }
+
+    &__content-wrapper {
+      &__text-wrapper {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .media-wrapper {
+    & > p {
+      margin-top: 10px;
+    }
+    
+    & > button {
+      margin-bottom: 10px;
+    }
+  }
+}
