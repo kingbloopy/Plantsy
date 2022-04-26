@@ -249,3 +249,31 @@
     display: none;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .header {
+    &__upper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+
+      & > a {
+        grid-column-start: 1;
+        grid-row-start: 1;
+      }
+    }
+
+    &__search-wrapper {
+      margin-left: 0px;
+      margin-right: 0px;
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 2;
+    }
+
+    &__button-wrapper {
+      grid-column-start: 2;
+      grid-row-start: 1;
+    }
+  }
+}
