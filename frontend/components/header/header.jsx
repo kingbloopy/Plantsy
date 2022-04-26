@@ -31,15 +31,12 @@ const Header = ({ currentUser, logout, openModal, cart }) => {
 -104 39 -85 70 8 13 162 13 170 0z"/>
                   </g>
                 </svg>
-                {/* <img src={window.profilePic}/> */}
               </Link>
               <button className="header__logout-button" onClick={logout}>Sign out</button>
             </div>
           ) : (
               <button className="header__signin-button" onClick={() => openModal('login')}>Sign in</button>
           )}
-        </div>
-
         {cart.length === 0 ? (
           <div className="cart-number-wrapper">
             <p className="empty"></p>
@@ -55,6 +52,8 @@ const Header = ({ currentUser, logout, openModal, cart }) => {
             </Link>
           </div>
         )}
+        </div>
+
 
       </div>
       

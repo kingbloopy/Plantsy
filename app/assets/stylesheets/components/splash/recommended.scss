@@ -80,21 +80,16 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .recommended {
-    &__wrapper {
-      grid-template-columns: repeat(4, 1fr);
+  .splash-wrapper {
+    grid-template-columns: repeat(4, 1fr);
 
-      & > div:nth-child(9), & > div:nth-child(10) {
-        // background-color: red;
-        display: none;
-      }
+    & > div:nth-child(9), & > div:nth-child(10) {
+      display: none;
     }
   }
 }
 @media screen and (max-width: 600px) {
-  .recommended {
-    &__wrapper {
-      grid-template-columns: repeat(2, 1fr);
-    }
+  .splash-wrapper {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

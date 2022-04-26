@@ -14,6 +14,11 @@
   max-width: 1250px;
   width: 100%;
 
+  &__button-wrapper {
+    display: flex;
+  }
+  
+
   &__buttons {
     display: flex;
     align-items: center;
@@ -38,6 +43,7 @@
   &__upper {
     align-items: center;
     display: flex;
+    margin-bottom: 20px;
   }
 
   &__cart {
@@ -179,7 +185,6 @@
   }
 
   &__nav-links {
-    margin-top: 20px;
     display: flex;
     justify-content: space-around;
     
@@ -236,5 +241,11 @@
     height: fit-content;
     border: 2px solid white;
     transition: ease-out 0.40s;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .header__nav-links {
+    display: none;
   }
 }

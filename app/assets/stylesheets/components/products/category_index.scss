@@ -111,3 +111,54 @@
 .shop-header {
   background-color: rgba(252, 193, 203, 0.5);
 }
+
+@media screen and (max-width: 1024px) {
+  .category-index {
+
+    &__items-wrapper {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__info-wrapper {
+      height: 120px;
+
+      & > h1 {
+        font-size: 20px;
+      }
+
+      & > h2 {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .category-index {
+
+    &__items-wrapper {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__info-wrapper {
+      height: 160px;
+
+      & > h1 {
+        font-size: 18px;
+      }
+
+      & > h2 {
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .category-index {
+
+    &__items-wrapper {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

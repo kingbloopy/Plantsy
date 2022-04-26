@@ -24,7 +24,7 @@ const Recommended = (props) => {
           <h1>Recommended for you</h1>
         </div>
         <div className="recommended__header-wrapper">
-          <ul className="recommended__wrapper">
+          <ul className="recommended__wrapper splash-wrapper">
             {recProducts.map((product, i) => {
               return <RecommendedItem className="recommended__product" product={product} key={i}/>
             })}
