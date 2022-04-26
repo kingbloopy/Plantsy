@@ -20,14 +20,12 @@ const RecommendedItem = props => {
       <Link className="recommended__link" to={`/products/${product.id}`}>
         <img className="recommended__pic-link" src={window.tester1} />
           {/* <LazyLoadImage className="recommended__pic-link" src={product.photoURLs[0]} alt={product.title} /> */}
-      </Link>
-      <div className="recommended__price-wrapper">
         {props.profile ? (
           <p>{cutTitle}</p>
         ) : (
           <p className="recommended__price">${price}</p>
         )}
-      </div>
+      </Link>
     </div>
   );
 }
