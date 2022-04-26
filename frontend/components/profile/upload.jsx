@@ -271,7 +271,9 @@ const Upload = props => {
             <p className="upload-errors">{priceError}</p>
           </div>
 
+        <div className="upload__create-wrapper">
         <button type="submit" className="upload__create">Create Listing</button>
+        </div>
         </div>
       </form>
     </div>

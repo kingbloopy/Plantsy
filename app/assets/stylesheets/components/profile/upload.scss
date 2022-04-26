@@ -10,9 +10,18 @@
   padding-left: 50px;
   padding-right: 50px;
 
-  &__create {
+  &__create-wrapper {
     margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  &__create {
     padding: 20px 0px;
+    max-width: 580px;
+    width: 100%;
     font-size: 16px;
     letter-spacing: 0.5px;
     font-weight: 500;
@@ -240,4 +249,12 @@
 
 .desc-text-wrapper {
   height: 110px !important;
+}
+
+@media screen and (max-width: 960px) {
+  .upload {
+    &__inner {
+      flex-direction: column;
+    }
+  }
 }
