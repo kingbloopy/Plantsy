@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { fetchUserProducts } from '../../actions/product_actions';
 import { useEffect } from "react";
-import ProductItem from "../products/product_index_item";
+import RecommendedItem from "../splash/recommended/recommended_item";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 // import { fetchShop, updateShop } from "../../actions/shop_actions";
@@ -56,7 +56,7 @@ const Profile = props => {
             {products[products.length - 1] ? (
               <ul className="recommended__wrapper">
                 {products.map((product, i) => {
-                  return <ProductItem profile={true} className="recommended__product" product={product} key={i} />
+                  return <RecommendedItem profile={true} className="recommended__product" product={product} key={i} />
                 })}
               </ul>
             ) : (

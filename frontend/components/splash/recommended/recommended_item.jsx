@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
-const ProductItem = props => {
+const RecommendedItem = props => {
   const product = props.product;
 
   const decimalCount = num => {
@@ -19,7 +19,7 @@ const ProductItem = props => {
     <div className="recommended__pic-wrapper">
       <Link className="recommended__link" to={`/products/${product.id}`}>
         <img className="recommended__pic-link" src={window.tester1} />
-          {/* <img className="recommended__pic-link" src={product.photoURLs[0]} alt={product.title} /> */}
+          {/* <LazyLoadImage className="recommended__pic-link" src={product.photoURLs[0]} alt={product.title} /> */}
       </Link>
       <div className="recommended__price-wrapper">
         {props.profile ? (
@@ -32,7 +32,7 @@ const ProductItem = props => {
   );
 }
 
-export default ProductItem;
+export default RecommendedItem;
 
 
 {/* <li key={props.pro.id}>
