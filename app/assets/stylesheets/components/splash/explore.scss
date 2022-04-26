@@ -27,7 +27,7 @@
   &__circles-wrapper {
     margin-top: -72px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     max-width: 1250px;
     width: 100%;
     
@@ -67,7 +67,7 @@
       }
       
       &__circle {
-        max-width: 120px;
+        max-width: 114px;
         width: 100%;
         border-radius: 50%;
         border: 1px solid rgba(74, 130, 51, 0.15);

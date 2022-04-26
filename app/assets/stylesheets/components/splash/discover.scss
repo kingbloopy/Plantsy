@@ -9,20 +9,19 @@
   &__inner {
     max-width: 1250px;
     width: 100%;
-  }
 
-  & > p {
-    color: $grey-green;
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 8px;
+    & > p {
+      color: $grey-green;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+  
+    & > h2 {
+      font-size: 26px;
+      margin-bottom: 6px;
+    }
   }
-
-  & > h2 {
-    font-size: 26px;
-    margin-bottom: 6px;
-  }
-
 }
 
 
@@ -85,6 +84,13 @@
 @media screen and (max-width: 1024px) {
   .image-grid {
     --num-cols: 2;
-    --row-height: 200px;
+    --row-height: 300px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .image-grid {
+    --num-cols: 2;
+    --row-height: 160px;
   }
 }

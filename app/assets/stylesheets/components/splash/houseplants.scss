@@ -2,10 +2,16 @@
 
 .splash-houseplants {
   border-top: none;
-  padding-top: 80px;
+  padding: 80px 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  // &__list-wrapper {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  // }
 
   &__inner {
     max-width: 1250px;
@@ -40,6 +46,11 @@
   }
 
   &__ul-wrapper {
+    // display: flex;
+    // flex-wrap: wrap;
+    // gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     grid-row-gap: 0px;
     grid-column-gap: 20px;
   }
@@ -49,10 +60,17 @@
     border-top-right-radius: 6px;
     border-bottom-right-radius: 0px;
     border-bottom-left-radius: 0px;
-    // max-width: 320px;
+    display: flex;
+    align-items: center;
+    height: 230px;
+    overflow: hidden;
 
     & > img {
-      width: 320px;
+      // width: 290px;
+      max-width: 290px;
+      width: 100%;
+      height: 290px;
+      object-fit: cover;
     }
     
     &:hover {
@@ -63,8 +81,13 @@
   
   &__item-wrapper {
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    padding: 0px;
     border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    max-width: 290px;
+    width: 100%;
+    
     
     &:hover {
       box-shadow: $box-shadow;
@@ -81,6 +104,38 @@
 
     & > div {
       margin-top: 0px;
+    }
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  .splash-houseplants {
+    &__ul-wrapper {
+      grid-row-gap: 16px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__item-wrapper {
+      max-width: 490px;
+    }
+
+    &__pic-wrapper {
+      height: 390px;
+
+      & > img {
+        max-width: 490px;
+        height: 390px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .splash-houseplants {
+    &__ul-wrapper {
+      grid-row-gap: 16px;
+      grid-template-columns: repeat(1, 1fr);
     }
   }
 }
