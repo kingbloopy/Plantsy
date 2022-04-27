@@ -1,5 +1,14 @@
 @import '../../root.scss';
 
+footer {
+  flex-shrink: 0;
+}
+
+.bpEmTI {
+  display: flex;
+  flex-direction: column;
+}
+
 .profile {
   border-top: 2px solid rgb(182, 189, 158);
   padding-top: 40px;
@@ -10,6 +19,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex: 1 0 auto;
 
   &__inner {
     max-width: 1250px;

@@ -4,7 +4,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const HousePlantItem = ({ item }) => {
 
-  const cutTitle = item.title.length > 8 ? item.title.slice(0, 8) + ' . . .' : item.title;
+  const cutTitle = item.title.length > 20 ? item.title.slice(0, 15) + ' . . .' : item.title;
 
   const decimalCount = num => {
     const n = num.toString();
@@ -14,8 +14,8 @@ const HousePlantItem = ({ item }) => {
   return (
     <Link className="splash-houseplants__item-wrapper" to={`/products/${item.id}`}>
         <div className="splash-houseplants__pic-wrapper">
-          {/* <LazyLoadImage src={window.tester2} alt={item.title} /> */}
-          <LazyLoadImage src={item.photoURLs[0]} alt={item.title} />
+          <LazyLoadImage src={window.tester2} alt={item.title} />
+          {/* <LazyLoadImage src={item.photoURLs[0]} alt={item.title} /> */}
         </div>
       <div className="splash-houseplants__info-wrapper">
         <h1>{cutTitle}</h1>

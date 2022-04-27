@@ -6,7 +6,6 @@ import HousePlants from "./houseplants/house_plants";
 import Discover from "./discover/discover";
 
 const Splash = props => {
-
   return (
     <div className="splash-wrapper">
       <Explore currentUser={props.currentUser}/>
