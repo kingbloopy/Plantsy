@@ -2,8 +2,11 @@
 
 .reviews {
   margin-top: 40px;
-  max-width: 700px;
   width: 100%;
+  
+  @media screen and (max-width: 1224px) {
+    max-width: 700px;
+  }
 
   &__remove, &__edit {
     padding-top: 7px;
