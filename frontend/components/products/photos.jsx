@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import Reviews from "../reviews/reviews";
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 
@@ -81,16 +80,6 @@ const Photos = props => {
           ))}
         </ul>
       </div>
-      <Reviews currentUserId={props.currentUserId} 
-      reviews={props.reviews} 
-      fetchAllReviews={props.fetchAllReviews} 
-      productId={props.productId} 
-      createReview={props.createReview}
-      updateReview={props.updateReview}
-      removeReview={props.removeReview}
-      title={props.title}
-      average={props.average}
-      sellerId={props.sellerId}/>
     </div>
   )
 }

@@ -24,28 +24,30 @@ const SearchResults = props => {
   if (props.products && props.products[props.products.length - 1]) {
     return (
     <div className="category-index">
-      {products.length !== 0 ? (
-        <div className="category-index__info-wrapper">
-          <h1>
-            Search results for {searchValue}
-          </h1>
-        </div>
-      ) : (
+      <div className="category-index__inner">
+        {products.length !== 0 ? (
           <div className="category-index__info-wrapper">
             <h1>
-              Sorry, We couldn't find any results for {searchValue}
+              Search results for {searchValue}
             </h1>
-          <h2>Try searching for something else instead?</h2>
+          </div>
+        ) : (
+            <div className="category-index__info-wrapper">
+              <h1>
+                Sorry, We couldn't find any results for {searchValue}
+              </h1>
+            <h2>Try searching for something else instead?</h2>
+          </div>
+        )}
+        <div className="category-index__ul-wrapper">
+          <ul className="category-index__items-wrapper">
+            {products.map((item, idx) => (
+              <li key={idx}>
+                <CategoryItem item={item} />
+              </li>
+            ))}
+          </ul>
         </div>
-      )}
-      <div className="category-index__ul-wrapper">
-        <ul className="category-index__items-wrapper">
-          {products.map((item, idx) => (
-            <li key={idx}>
-              <CategoryItem item={item} />
-            </li>
-          ))}
-        </ul>
       </div>
     </div>
     )
