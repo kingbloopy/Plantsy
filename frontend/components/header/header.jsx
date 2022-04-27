@@ -9,9 +9,13 @@ const Header = ({ currentUser, logout, openModal, cart }) => {
 
       <div className="header__upper">
 
-        <Link to="/" className="header__link">
+      <button onClick={() => window.location.href = "/"}>
+        <img className="header__logo" src={window.plantsyLogo} />
+      </button>
+        {/* <Link to="/" className="header__link">
+        <Link to="/" className="header__link" onClick={() => {window.location.href = "/"}}>
           <img className="header__logo" src={window.plantsyLogo} />
-        </Link>
+        </Link> */}
 
         <SearchBar/>
 

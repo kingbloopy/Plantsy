@@ -8,4 +8,12 @@ const mapStateToProps = ({ entities, session }) => ({
   currentUser: entities.users[session.id]
 });
 
-export default connect(mapStateToProps, { fetchAllProducts })(Splash);
+const mapDispatchToProps = dispatch => {
+  debugger
+  return {
+    fetchAllProducts: () => dispatch(fetchAllProducts())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Splash);
+// export default connect(mapStateToProps, { fetchAllProducts })(Splash);

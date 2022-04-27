@@ -25,23 +25,23 @@ const App = () => (
         <HeaderContainer/>
       </header>
       <Switch>
-        <Route path="/bromeliads" component={CategoryIndexContainer}/>
-        <Route path="/herbs" component={CategoryIndexContainer}/>
-        <Route path="/orchids" component={CategoryIndexContainer}/>
-        <Route path="/pottery" component={CategoryIndexContainer}/>
-        <Route path="/houseplants" component={CategoryIndexContainer}/>
-        <Route path="/succulents" component={CategoryIndexContainer}/>
-        <Route path="/cacti" component={CategoryIndexContainer}/>
-        <Route path="/supplies" component={CategoryIndexContainer}/>
-        <Route path="/airplants" component={CategoryIndexContainer}/>
-        <Route path="/bonsai" component={CategoryIndexContainer}/>
-        <ProtectedRoute path="/create-listing" component={Upload}/>
-        <Route path="/search/:query" component={SearchResults}/>
-        <Route path="/shop/:query" component={ShopProfile}/>
+        <Route exact path="/bromeliads" component={CategoryIndexContainer}/>
+        <Route exact path="/herbs" component={CategoryIndexContainer}/>
+        <Route exact path="/orchids" component={CategoryIndexContainer}/>
+        <Route exact path="/pottery" component={CategoryIndexContainer}/>
+        <Route exact path="/houseplants" component={CategoryIndexContainer}/>
+        <Route exact path="/succulents" component={CategoryIndexContainer}/>
+        <Route exact path="/cacti" component={CategoryIndexContainer}/>
+        <Route exact path="/supplies" component={CategoryIndexContainer}/>
+        <Route exact path="/airplants" component={CategoryIndexContainer}/>
+        <Route exact path="/bonsai" component={CategoryIndexContainer}/>
+        <ProtectedRoute exact path="/create-listing" component={Upload}/>
+        <Route exact path="/search/:query" component={SearchResults}/>
+        <Route exact path="/shop/:query" component={ShopProfile}/>
         <Route exact path="/products/:productId" component={ProductShowContainer}/>
-        <ProtectedRoute path="/profile/:userId" component={Profile}/>
+        <ProtectedRoute exact path="/profile/:userId" component={Profile}/>
         <Route exact path="/cart" component={CartContainer} />
-        <Route exact path="/" component={SplashContainer} />
+        <Route path="/" component={SplashContainer} />
       </Switch>
       <footer>
         <FooterContainer/>
