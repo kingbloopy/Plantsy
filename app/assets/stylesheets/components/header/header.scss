@@ -14,6 +14,10 @@
   max-width: 1250px;
   width: 100%;
 
+  @media screen and (max-width: 600px) {
+    padding-right: 20px;
+  }
+
   &__button-wrapper {
     display: flex;
   }
@@ -250,7 +254,7 @@
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 660px) {
   .header {
     &__upper {
       display: grid;
@@ -269,11 +273,14 @@
       grid-column-start: 1;
       grid-column-end: 2;
       grid-row-start: 2;
+      grid-column: span 2;
+      margin-top: 10px;
     }
 
     &__button-wrapper {
       grid-column-start: 2;
       grid-row-start: 1;
+      justify-content: flex-end;
     }
   }
 }
