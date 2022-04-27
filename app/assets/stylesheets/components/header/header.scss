@@ -14,7 +14,7 @@
   max-width: 1250px;
   width: 100%;
 
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 660px) {
     padding-right: 20px;
   }
 
@@ -261,9 +261,10 @@
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, 1fr);
 
-      & > a {
+      & > button {
         grid-column-start: 1;
         grid-row-start: 1;
+        display: flex;
       }
     }
 

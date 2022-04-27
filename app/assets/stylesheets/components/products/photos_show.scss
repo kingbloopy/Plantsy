@@ -75,18 +75,14 @@
     border-radius: 10px;
     
     @media screen and (max-width: 825px) {
-      width: 460px;
-      height: 460px;
+      width: 440px;
+      height: 440px;
     }
     @media screen and (max-width: 700px) {
       width: 360px;
       height: 360px;
     }
 
-    @media screen and (max-width: 700px) {
-      width: 340px;
-      height: 340px;
-    }
     // transform: scale(1.1);
     // transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
     // animation-name: fadeIn;
@@ -101,15 +97,11 @@
     align-items: center;
     
     @media screen and (max-width: 825px) {
-      height: 460px;
+      height: 440px;
     }
     
-    @media screen and (max-width: 735px) {
+    @media screen and (max-width: 700px) {
       height: 360px;
-    }
-    
-    @media screen and (max-width: 600px) {
-      height: 260px;
     }
   }
 
@@ -120,14 +112,9 @@
     padding: 6px;
     overflow: hidden;
     
-    @media screen and (max-width: 735px) {
+    @media screen and (max-width: 825px) {
       height: 60px;
       width: 60px;
-    }
-    
-    @media screen and (max-width: 600px) {
-      height: 40px;
-      width: 40px;
     }
   }
 

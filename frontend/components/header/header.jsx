@@ -12,10 +12,6 @@ const Header = ({ currentUser, logout, openModal, cart }) => {
       <button onClick={() => window.location.href = "/"}>
         <img className="header__logo" src={window.plantsyLogo} />
       </button>
-        {/* <Link to="/" className="header__link">
-        <Link to="/" className="header__link" onClick={() => {window.location.href = "/"}}>
-          <img className="header__logo" src={window.plantsyLogo} />
-        </Link> */}
 
         <SearchBar/>
 
