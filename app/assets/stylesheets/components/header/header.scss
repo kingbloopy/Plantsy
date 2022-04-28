@@ -14,6 +14,10 @@
   max-width: 1250px;
   width: 100%;
 
+  &__nav-wrapper {
+    display: flex;
+  }
+
   @media screen and (max-width: 660px) {
     padding-right: 20px;
   }
@@ -180,6 +184,7 @@
 
   &__logo {
     max-width: 160px;
+    min-width: 155px;
     width: 100%;
     height: 45px;
 
@@ -261,7 +266,7 @@
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, 1fr);
 
-      & > button {
+      &__nav-wrapper {
         grid-column-start: 1;
         grid-row-start: 1;
         display: flex;
@@ -283,5 +288,94 @@
       grid-row-start: 1;
       justify-content: flex-end;
     }
+  }
+}
+
+.header-side-bar {
+  display: none;
+  font-size: 40px;
+  color: $logo-green;
+  padding-top: 2px;
+  padding-bottom: 10px;
+  padding-left: 9px;
+  padding-right: 9px;
+  border-radius: 50%;
+  -webkit-transition: background 0.8s;
+  transition: background 0.8s;
+  
+  &:hover {
+    cursor: pointer;
+    background-color: $hover-button;
+  }
+  
+  @media screen and (max-width: 800px) {
+    display: block;
+    margin-right: 10px;
+    margin-bottom: 2px;
+  }
+  @media screen and (max-width: 660px) {
+
+  }
+}
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: white;
+  box-shadow: $box-shadow;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: $dark-green;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: $logo-green;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.closebtn {
+  margin-top: 8px;
+  font-size: 40px !important;
+  padding-top: 6px !important;
+  padding-bottom: 5px !important;
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+  border-radius: 50%;
+  
+  &:hover {
+    -webkit-transition: background 0.8s;
+    transition: background 0.8s;
+    background-color: $hover-button;
+    color: $dark-green !important;
+  }
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
   }
 }
