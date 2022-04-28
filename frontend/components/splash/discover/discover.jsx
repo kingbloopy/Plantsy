@@ -23,8 +23,8 @@ const Discover = props => {
             <p>Pink Aglaonema Evergreen</p>
           </Link>
           <Link to="/products/55">
-            <img src={window.tester1}></img>
-            {/* <LazyLoadImage src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/discover/brom.jpg" /> */}
+            {/* <img src={window.tester1}></img> */}
+            <LazyLoadImage src="https://plantsy-dev.s3.us-west-1.amazonaws.com/splash/discover/brom.jpg" />
             <p>Blue Tango Bromeliad</p>
           </Link>
           <Link to="/products/104">

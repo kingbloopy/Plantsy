@@ -1,10 +1,14 @@
 @import '../../root.scss';
 
 .discover {
-  padding: 0px 40px;
+  margin: 0px 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media screen and (max-width: 450px) {
+    margin: 0px 20px;
+  }
 
   &__inner {
     max-width: 1250px;
@@ -20,6 +24,10 @@
     & > h2 {
       font-size: 26px;
       margin-bottom: 6px;
+      
+      @media screen and (max-width: 450px) {
+      font-size: 22px;
+      }
     }
   }
 }
@@ -69,6 +77,10 @@
     border: 1px solid rgba(255, 255, 255, 0.8);
     width: fit-content;
     z-index: 1;
+    
+    @media screen and (max-width: 450px) {
+      font-size: 8px;
+    }
   }
 }
 

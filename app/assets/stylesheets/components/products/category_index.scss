@@ -10,6 +10,11 @@
   justify-content: center;
   align-items: center;
 
+  @media screen and (max-width: 450px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
   &__inner {
     max-width: 1250px;
     width: 100%;
@@ -161,4 +166,8 @@
       grid-template-columns: repeat(1, 1fr);
     }
   }
+}
+
+.search-info {
+  height: 100px;
 }

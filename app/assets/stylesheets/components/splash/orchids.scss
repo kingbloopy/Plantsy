@@ -1,11 +1,15 @@
 @import './root.scss';
 
 .orchids {
-  margin: 0px 50px;
+  margin: 0px 40px;
   margin-top: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
+  
+  @media screen and (max-width: 450px) {
+    margin: 40px 20px;
+  }
 
   &__inner {
     max-width: 1250px;
@@ -67,6 +71,10 @@
     }
     @media screen and (max-width: 600px) {
       column-count: 2;
+
+      & > a:nth-child(8) {
+        display: none;
+      }
     }
 
 
