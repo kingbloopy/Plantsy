@@ -80,8 +80,8 @@ const ProductShow = props => {
       <div className="product-show">
         <div className="product-show__inner">
           <div className="product-show__upper">
-            <Photos photos={[window.tester1, window.tester2]} />
-            {/* <Photos photos={product.photoURLs} /> */}
+            {/* <Photos photos={[window.tester1, window.tester2]} /> */}
+            <Photos photos={product.photoURLs} />
       
             <div className="product-show__product-info">
               <div className="product-show__seller-info">
