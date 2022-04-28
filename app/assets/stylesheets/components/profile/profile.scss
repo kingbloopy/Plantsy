@@ -94,6 +94,10 @@ footer {
       font-size: 20px;
       font-weight: 400;
       text-decoration: underline dotted;
+      
+      @media screen and (max-width: 450px) {
+        font-size: 14px;
+      }
     }
 
     & > .shop-name {

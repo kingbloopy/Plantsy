@@ -4,7 +4,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 const HousePlantItem = ({ item }) => {
 
-  const cutTitle = item.title.length > 20 ? item.title.slice(0, 15) + ' . . .' : item.title;
+  const cutTitle = item.title.length > 15 ? item.title.slice(0, 15) + ' . . .' : item.title;
 
   const decimalCount = num => {
     const n = num.toString();

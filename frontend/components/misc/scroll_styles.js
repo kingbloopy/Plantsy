@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Content = styled.div`
 overflowY: scroll;
 height: 100vh;
+overflow-x: hidden;
 `;
 
 export const Button = styled.div`

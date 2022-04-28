@@ -9,9 +9,10 @@ const CartShow = props => {
   const decimalCount = num => {
     const n = num.toString();
     if (n.includes('.')) {
-      return (n.split('.')[1].length) < 2
+      let split = n.split('.')
+      return split[1].length; 
     } else {
-      return true
+      return 2
     }
   }
 
@@ -20,7 +21,13 @@ const CartShow = props => {
     cartItems.forEach(item => {
       total += parseFloat(item.total_price);
     });
-    return decimalCount(total) ? total + '.00' : total;
+    if (decimalCount(total) === 0){
+      return total;
+    } else if (decimalCount(total) === 1){
+      return total + '0';
+    } else {
+      return total + '.00';
+    }
   }
 
   const checkoutHandleClick = e => {

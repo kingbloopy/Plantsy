@@ -119,6 +119,14 @@
 
 .shop-header {
   background-color: rgba(252, 193, 203, 0.5);
+
+  @media screen and (max-width: 450px) {
+    height: 100px !important;
+
+    & > h1 {
+      font-size: 16px;
+    }
+  }
 }
 
 @media screen and (max-width: 1024px) {
@@ -129,7 +137,9 @@
     }
 
     &__info-wrapper {
-      height: 120px;
+      max-height: 120px;
+      height: 100%;
+      // height: 120px;
 
       & > h1 {
         font-size: 20px;
@@ -150,7 +160,8 @@
     }
 
     &__info-wrapper {
-      height: 160px;
+      max-height: 340px;
+      height: 100%;
 
       & > h1 {
         font-size: 18px;

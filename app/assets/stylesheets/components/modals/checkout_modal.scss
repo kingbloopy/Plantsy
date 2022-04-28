@@ -9,13 +9,20 @@
     font-size: 18px;
     font-weight: 500;
     margin-top: 6px;
+    
+    @media screen and (max-width: 450px) {
+      font-size: 16px;
+    }
   }
-
+  
   & > p {
     margin-top: 8px;
     font-size: 14px;
     color: $grey-green;
     line-height: 16px;
+    @media screen and (max-width: 450px) {
+      font-size: 12px;
+    }
   }
   
   & > h2 {
@@ -36,6 +43,9 @@
     padding: 10px 18px;
     border-radius: 24px;
     
+    @media screen and (max-width: 450px) {
+      font-size: 16px;
+    }
     &:hover {
       box-shadow: $box-shadow;
       transition: ease-in 0.16s;

@@ -7,6 +7,7 @@
   &__seller-info {
     margin-bottom: 14px;
 
+    
     & > p {
       font-size: 12px;
       color: $grey-green;
@@ -17,6 +18,10 @@
       font-weight: 500;
       text-decoration: none;
       font-size: 18px;
+      
+      @media screen and (max-width: 450px) {
+        font-size: 14px;
+      }
 
       &:hover {
         text-decoration: underline;
@@ -32,6 +37,10 @@
     & > a {
       text-decoration: none;
       font-size: 20px;
+      
+      @media screen and (max-width: 450px) {
+        font-size: 18px;
+      }
 
       &:hover {
         text-decoration: underline;
@@ -44,6 +53,14 @@
         padding-left: 6px;
         font-weight: 500;
         margin-bottom: 8px;
+        
+        @media screen and (max-width: 600px) {
+          font-size: 12px;
+          padding-left: 0px;
+        }
+        @media screen and (max-width: 450px) {
+          font-size: 12px;
+        }
         
         & > strong {
           font-size: 18px;
@@ -96,6 +113,10 @@
     &__people {
       font-size: 16px;
       color: $red;
+      
+      @media screen and (max-width: 450px) {
+        font-size: 12px;
+      }
     }
   }
 
@@ -153,6 +174,10 @@
       font-size: 14px;
       margin-top: 6px;
       color: $grey-green;
+      
+      @media screen and (max-width: 450px) {
+        font-size: 12px;
+      }
     }
   }
 
