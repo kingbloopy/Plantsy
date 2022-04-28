@@ -14,8 +14,8 @@ const CategoryItem = ({ item }) => {
   return (
     <Link className="category-item" to={`/products/${item.id}`}>
         <div className="category-item__pic-wrapper">
-          <LazyLoadImage src={window.tester2} alt={item.title} />
-          {/* <LazyLoadImage src={item.photoURLs[0]} alt={item.title} /> */}
+          {/* <LazyLoadImage src={window.tester2} alt={item.title} /> */}
+          <LazyLoadImage src={item.photoURLs[0]} alt={item.title} />
         </div>
       <div className="category-item__info">
         <h1>{cutTitle}</h1>
