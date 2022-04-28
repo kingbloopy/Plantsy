@@ -4,14 +4,40 @@ import SearchBar from "../search/search_bar";
 
 const Header = ({ currentUser, logout, openModal, cart }) => {
 
+  const openNav = () => {
+    document.getElementById("mySidenav").style.width = "250px";
+  }
+
+  const closeNav = () => {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+
   return (
     <div className="header">
 
       <div className="header__upper">
 
-      <button onClick={() => window.location.href = "/"}>
-        <img className="header__logo" src={window.plantsyLogo} />
-      </button>
+
+        
+        <div className="header__nav-wrapper">
+          <div id="mySidenav" className="sidenav">
+            <a href="#" className="closebtn" onClick={() => closeNav()}>&times;</a>
+            <Link to="/bromeliads" onClick={() => closeNav()}>Bromeliads</Link>
+            <Link onClick={() => closeNav()} to="/herbs">Herbs</Link>
+            <Link onClick={() => closeNav()} to="/orchids">Orchids</Link>
+            <Link onClick={() => closeNav()} to="/pottery">Pottery</Link>
+            <Link onClick={() => closeNav()} to="/houseplants">Houseplants</Link>
+            <Link onClick={() => closeNav()} to="/succulents">Succulents</Link>
+            <Link onClick={() => closeNav()} to="/cacti">Cacti</Link>
+            <Link onClick={() => closeNav()} to="/supplies">Supplies</Link>
+            <Link onClick={() => closeNav()} to="/airplants">Air Plants</Link>
+            <Link onClick={() => closeNav()} to="/bonsai">Bonsai</Link>
+          </div>
+          <span className="header-side-bar" onClick={() => openNav()}>&#9776;</span>
+          <button onClick={() => window.location.href = "/"}>
+            <img className="header__logo" src={window.plantsyLogo} />
+          </button>
+        </div>
 
         <SearchBar/>
 
@@ -66,9 +92,9 @@ const Header = ({ currentUser, logout, openModal, cart }) => {
         <Link to="/houseplants">Houseplants</Link>
         <Link to="/succulents">Succulents</Link>
         <Link to="/cacti">Cacti</Link>
-        <Link to="supplies">Supplies</Link>
-        <Link to="airplants">Air Plants</Link>
-        <Link to="bonsai">Bonsai</Link>
+        <Link to="/supplies">Supplies</Link>
+        <Link to="/airplants">Air Plants</Link>
+        <Link to="/bonsai">Bonsai</Link>
       </ul>
     </div>
   );
