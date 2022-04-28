@@ -84,7 +84,7 @@
 }
 
 @media screen and (max-width: 1024px) {
-  .splash-wrapper {
+  .recommended__wrapper {
     grid-template-columns: repeat(4, 1fr);
 
     & > div:nth-child(9), & > div:nth-child(10) {
@@ -92,8 +92,18 @@
     }
   }
 }
-@media screen and (max-width: 600px) {
+
+@media screen and (max-width: 1024px) {
   .splash-wrapper {
+    & > div:nth-child(9), & > div:nth-child(10) {
+      display: none;
+    }
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .recommended__wrapper {
     grid-template-columns: repeat(2, 1fr);
   }
 }

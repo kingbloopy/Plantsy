@@ -73,6 +73,10 @@
         font-size: 20px;
         font-weight: 400;
         color: $grey-green;
+
+        @media screen and (max-width: 450px) {
+          font-size: 18px;
+        }
       }
     }
 
@@ -82,19 +86,25 @@
       grid-row-gap: 20px;
       grid-column-gap: 20px;
       
+      @media screen and (max-width: 450px) {
+        grid-row-gap: 10px;
+        grid-column-gap: 10px;
+      }
+      
       & > div {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        // max-width: 250px;
-        // width: 100%;
         width: 250px;
-        // max-height: 250px;
         height: 250px;
-        // height: 100%;
         border-radius: 16px;
         background-color: rgba(104, 132, 52, 0.2);
+        
+        @media screen and (max-width: 450px) {
+          width: 150px;
+          height: 150px;
+        }
         
         & > img {
           border-radius: 16px;

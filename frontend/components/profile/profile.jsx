@@ -52,6 +52,7 @@ const Profile = props => {
             ) : (
               <Link className="upload-shop" to="/create-listing">Add a listing to create your shop</Link>
             )}
+
           <div className="recommended__header-wrapper">
             {products[products.length - 1] ? (
               <ul className="recommended__wrapper">
