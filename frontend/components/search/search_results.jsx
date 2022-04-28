@@ -26,13 +26,13 @@ const SearchResults = props => {
     <div className="category-index">
       <div className="category-index__inner">
         {products.length !== 0 ? (
-          <div className="category-index__info-wrapper">
+          <div className="category-index__info-wrapper search-info">
             <h1>
               Search results for {searchValue}
             </h1>
           </div>
         ) : (
-            <div className="category-index__info-wrapper">
+            <div className="category-index__info-wrapper search-info">
               <h1>
                 Sorry, We couldn't find any results for {searchValue}
               </h1>

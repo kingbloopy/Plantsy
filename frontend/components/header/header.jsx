@@ -31,10 +31,10 @@ const Header = ({ currentUser, logout, openModal, cart }) => {
         
         <div className="header__nav-wrapper">
           <div id="mySidenav" className="sidenav">
-            <a href="#" className="closebtn" onClick={() => closeNav()}>&times;</a>
+            <button className="closebtn" onClick={() => closeNav()}>&times;</button>
             {currentUser ? (
               <div className="header__buttons nav-header-buttons">
-                <Link to={`/profile/${currentUser.id}`}>
+                <Link onClick={() => closeNav()} to={`/profile/${currentUser.id}`}>
                   <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                     width="26pt" height="26pt" viewBox="0 0 48.000000 48.000000"
                     preserveAspectRatio="xMidYMid meet">
