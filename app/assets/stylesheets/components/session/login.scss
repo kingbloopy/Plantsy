@@ -108,6 +108,10 @@
         border-radius: 24px;
         margin-top: 16px;
         
+        @media screen and (max-width: 450px) {
+          font-size: 10px !important;
+        }
+        
         &:hover {
           box-shadow: $box-shadow;
           transition: ease-in 0.16s;
@@ -159,6 +163,10 @@
       background-color: $dark-green !important;
       color: white !important;
       border-radius: 24px !important;
+
+      @media screen and (max-width: 450px) {
+        font-size: 10px !important;
+      }
 
       &:hover {
         background-color: $dark-hover-green !important;

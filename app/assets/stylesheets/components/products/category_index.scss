@@ -56,8 +56,6 @@
 }
 
 .category-item {
-  // max-width: 290px;
-  // width: 100%;
   padding: 6px;
   overflow: hidden;
   display: flex;
@@ -90,25 +88,31 @@
     display: flex;
     align-items: center;
     text-decoration: none;
-    // width: 290px;
-    // height: 230px;
+    width: 290px;
     height: 230px;
-    max-width: 290px;
-    width: 100%;
     overflow: hidden;
     border-radius: 6px;
     position: relative;
-
+    
+    @media screen and (max-width: 450px) {
+      width: 260px;
+      height: 210px;
+    }
+    
     &:hover {
       box-shadow: $box-shadow;
       transition: ease-in 0.16s;
     }
-
+    
     & > img {
       width: 290px;
       height: 290px;
       object-fit: cover;
-
+      
+      @media screen and (max-width: 450px) {
+        width: 260px;
+        height: 210px;
+      }
     }
   }
 }

@@ -7,8 +7,13 @@
   border-top: 2px solid rgb(182, 189, 158);
   padding-top: 40px;
   padding-bottom: 80px;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 40px;
+  padding-right: 40px;
+
+  @media screen and (max-width: 450px) {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 
   &__create-wrapper {
     margin-top: 20px;
@@ -102,8 +107,8 @@
         background-color: rgba(104, 132, 52, 0.2);
         
         @media screen and (max-width: 450px) {
-          width: 150px;
-          height: 150px;
+          width: 140px;
+          height: 140px;
         }
         
         & > img {
