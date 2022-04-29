@@ -109,9 +109,9 @@ const CartItem = props => {
 
           <div className="cart-item__gift-wrapper">
 
-          <label class="container check-wrapper cart-item__gift">This order is a gift
+          <label className="container check-wrapper cart-item__gift">This order is a gift
             <input type="checkbox"/>
-              <span class="checkmark"></span>
+              <span className="checkmark"></span>
           </label>
             <p>Prices will not be shown on packing slip</p>
           </div>

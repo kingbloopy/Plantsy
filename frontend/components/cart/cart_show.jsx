@@ -11,8 +11,6 @@ const CartShow = props => {
     if (n.includes('.')) {
       let split = n.split('.')
       return split[1].length; 
-    } else {
-      return 2
     }
   }
 
@@ -21,7 +19,7 @@ const CartShow = props => {
     cartItems.forEach(item => {
       total += parseFloat(item.total_price);
     });
-    if (decimalCount(total) === 0){
+    if (decimalCount(total) === 2){
       return total;
     } else if (decimalCount(total) === 1){
       return total + '0';
