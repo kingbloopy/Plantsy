@@ -20,7 +20,7 @@ const Footer = props => {
                 <p>Plantsy is a global online marketplace, where people come together to grow, sell, buy, and collect unique plants. We're also a community pushing for positive change for small businesses, people, and the planet.</p>
               </div>
               <div className="section">
-                <h1>Support independed growers</h1>
+                <h1>Support independent growers</h1>
                 <p>There’s no Plantsy warehouse – just millions of people growing the plants they love. We make the whole process easy, helping you connect directly with growers to find something extraordinary.</p>
               </div>
               <div className="section">
