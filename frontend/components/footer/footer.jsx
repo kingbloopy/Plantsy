@@ -6,7 +6,6 @@ import SmallFooterContainer from "./small_footer";
 const Footer = props => {
   const location = useLocation();
   const path = location.pathname;
-  // console.log(location.pathname)
 
   if (path === '/'){
     return (
@@ -43,7 +42,5 @@ const Footer = props => {
     );
   }
 }
-
-// export default withRouter(Footer);
 
 export default connect(null, null)(Footer);
