@@ -2,16 +2,15 @@
 <html>
   <head>
     <title>Plantsy</title>
+    <meta property="og:title" content="Plantsy"/>
+    <meta property="og:image" content="https://media.giphy.com/media/hJTEuUlM0NHXQqNKfB/giphy.gif" />
+    <meta property="og:description" content="Plantsy is a full-stack clone of Esty where users can create/sell products, leave reviews, and add products to their cart. Plantsy was programmed using ReactJS, Ruby on Rails, PostgreSQL, CSS, HTML, Javascript, Heroku, jQuery, Webpack, and Git."/>
+    <meta property="og:url" content="https://plantsy-etsy.herokuapp.com/#/"/>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <meta property="og:title" content="Plantsy"/>
-    <meta property='og:image' content="https://media.giphy.com/media/hJTEuUlM0NHXQqNKfB/giphy.gif"/>
-    <meta property="og:description" 
-    content="Plantsy is a full-stack clone of Esty where users can create/sell products, leave reviews, and add products to their cart. Plantsy was programmed using ReactJS, Ruby on Rails, PostgreSQL, CSS, HTML, Javascript, Heroku, jQuery, Webpack, and Git."/>
-    <meta property="og:url" 
-    content="https://plantsy-etsy.herokuapp.com/#/"/>
 
     <%= favicon_link_tag asset_path('favicon.ico') %>
 
@@ -21,7 +20,6 @@
     <script type="text/javascript">
       window.plantsyLogo = "<%= image_url('plantsy_logo.png') %>";
     </script>
-    
     <script type="text/javascript">
       window.cartImg = "<%= image_url('cart.png') %>";
     </script>
@@ -43,9 +41,7 @@
     </script>
     
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@100;300;400;500;600&family=Space+Mono&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Merriweather+Sans:wght@300;400;500;600;800&family=Montserrat:wght@100;300;400;500;600&family=Prompt:wght@200;300;400;600&family=Space+Mono&family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <title>Plantsy</title>
   </head>
 
   <body>
