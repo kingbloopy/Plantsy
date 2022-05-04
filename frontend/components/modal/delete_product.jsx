@@ -3,14 +3,12 @@ import { connect } from "react-redux";
 import { removeProduct } from "../../actions/product_actions";
 import { closeModal, openModal } from "../../actions/modal_actions";
 import { withRouter } from "react-router-dom";
-import "regenerator-runtime/runtime";
-import { async } from "regenerator-runtime/runtime";
 
 const DeleteModal = props => {
 
-  async function handleDelete(e) {
+  const handleDelete = e => {
     e.preventDefault();
-    await props.removeProduct(props.productId);
+    props.removeProduct(props.productId);
     props.closeModal();
     props.history.goBack();
   }
