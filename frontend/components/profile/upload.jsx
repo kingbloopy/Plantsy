@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { GiFlowerPot } from 'react-icons/gi';
-import "regenerator-runtime/runtime";
 
 const Upload = props => {
 
@@ -97,7 +96,7 @@ const Upload = props => {
     }
   }
   
-  async function handleSubmit(){
+  const handleSubmit = () => {
     const formData = new FormData();
     
     formData.append('product[title]', title);
