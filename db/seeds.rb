@@ -9,6 +9,8 @@ ActiveRecord::Base.connection.reset_pk_sequence!('reviews')
 ActiveRecord::Base.connection.reset_pk_sequence!('active_storage_attachments')
 ActiveRecord::Base.connection.reset_pk_sequence!('active_storage_blobs')
 
+require 'open-uri'
+
 demo_user = User.create!(
   name: 'Demo',
   email: 'demo@demo.com',
