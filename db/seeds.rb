@@ -9,8 +9,6 @@ ActiveRecord::Base.connection.reset_pk_sequence!('reviews')
 ActiveRecord::Base.connection.reset_pk_sequence!('active_storage_attachments')
 ActiveRecord::Base.connection.reset_pk_sequence!('active_storage_blobs')
 
-require 'open-uri'
-
 demo_user = User.create!(
   name: 'Demo',
   email: 'demo@demo.com',
@@ -122,9 +120,9 @@ aloe1 = Product.create!(
   quantity: 2,
   seller_id: demo_user.id
 )
-aloeA1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/aloe/aloeA1.JPG')
+aloeA1 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/aloe/aloeA1.JPG')
 aloe1.photos.attach(io: aloeA1, filename: 'aloeA1.JPG')
-aloeA3 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/aloe/aloeA3.JPG')
+aloeA3 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/aloe/aloeA3.JPG')
 aloe1.photos.attach(io: aloeA3, filename: 'aloeA3.JPG')
 
 aloerev1 = Review.create!(
@@ -148,9 +146,9 @@ aloe2 = Product.create!(
   price: 12.50,
   quantity: 11,
   seller_id: user2.id)
-aloeB1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/aloe/aloeB1.jpg')
+aloeB1 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/aloe/aloeB1.jpg')
 aloe2.photos.attach(io: aloeB1, filename: 'aloeB1.jpg')
-aloeB2 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/aloe/aloeB2.jpg')
+aloeB2 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/aloe/aloeB2.jpg')
 aloe2.photos.attach(io: aloeB2, filename: 'aloeB2.jpg')
 
 aloerev3 = Review.create!(
@@ -167,7 +165,7 @@ basil = Product.create!(
   price: 6.99,
   quantity: 23,
   seller_id: user2.id)
-basil.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/basil.JPG'), filename: 'basil.JPG')
+basil.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/basil.JPG'), filename: 'basil.JPG')
 
 basilrev1 = Review.create!(
   reviewer_id: user3.id,
@@ -189,8 +187,8 @@ herbs1 = Product.create!(
   price: 28.15,
   quantity: 9,
   seller_id: user2.id)
-herbs1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsA1.JPG'), filename: 'herbsA1.JPG')
-herbs1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsA2.jpg'), filename: 'herbsA2.jpg')
+herbs1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsA1.JPG'), filename: 'herbsA1.JPG')
+herbs1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsA2.jpg'), filename: 'herbsA2.jpg')
 
 herbsrev1 = Review.create!(
   reviewer_id: user5.id,
@@ -219,9 +217,9 @@ herbs2 = Product.create!(
   quantity: 7,
   seller_id: user2.id
 )
-herbs2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsB1.JPG'), filename: 'herbsB1.JPG')
-herbs2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsB2.JPG'), filename: 'herbsB2.JPG')
-herbs2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsB3.JPG'), filename: 'herbsB3.JPG')
+herbs2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsB1.JPG'), filename: 'herbsB1.JPG')
+herbs2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsB2.JPG'), filename: 'herbsB2.JPG')
+herbs2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/herbsB3.JPG'), filename: 'herbsB3.JPG')
 
 herbsrev4 = Review.create!(
   reviewer_id: user9.id,
@@ -238,7 +236,7 @@ mint = Product.create!(
   quantity: 19,
   seller_id: user2.id
 )
-mint.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/mint.jpg'), filename: 'mint.jpg')
+mint.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/mint.jpg'), filename: 'mint.jpg')
 
 rosemary = Product.create!(
   title: "Live Rosemary Plant",
@@ -248,8 +246,8 @@ rosemary = Product.create!(
   quantity: 10,
   seller_id: user2.id
 )
-rosemary.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/rosemary1.jpg'), filename: 'rosemary1.jpg')
-rosemary.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/rosemary2.jpg'), filename: 'rosemary2.jpg')
+rosemary.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/rosemary1.jpg'), filename: 'rosemary1.jpg')
+rosemary.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/rosemary2.jpg'), filename: 'rosemary2.jpg')
 
 rosemaryrev1 = Review.create!(
   reviewer_id: user10.id,
@@ -266,8 +264,8 @@ strawb = Product.create!(
   quantity: 12,
   seller_id: demo_user.id
 )
-strawb.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/strawb1.jpg'), filename: 'strawb1.jpg')
-strawb.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/strawb2.JPG'), filename: 'strawb2.JPG')
+strawb.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/strawb1.jpg'), filename: 'strawb1.jpg')
+strawb.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/herbs/strawb2.JPG'), filename: 'strawb2.JPG')
 
 strawbrev1 = Review.create!(
   reviewer_id: user8.id,
@@ -296,7 +294,7 @@ herbbox = Product.create!(
   quantity: 9,
   seller_id: user2.id
 )
-herbbox.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/herbbox.jpg'), filename: 'herbbox.jpg')
+herbbox.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/herbbox.jpg'), filename: 'herbbox.jpg')
 
 strawbox = Product.create!(
   title: "Hanging Planter for Strawberry Plants",
@@ -306,9 +304,9 @@ strawbox = Product.create!(
   quantity: 18,
   seller_id: user2.id
 )
-strawbox.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/strawbpot1.JPG'), filename: 'strawbpot1.JPG')
-strawbox.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/strawbpot2.JPG'), filename: 'strawbpot2.JPG')
-strawbox.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/strawbpot3.JPG'), filename: 'strawbpot3.JPG')
+strawbox.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/strawbpot1.JPG'), filename: 'strawbpot1.JPG')
+strawbox.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/strawbpot2.JPG'), filename: 'strawbpot2.JPG')
+strawbox.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/strawbpot3.JPG'), filename: 'strawbpot3.JPG')
 
 strawboxrev1 = Review.create!(
   reviewer_id: user3.id,
@@ -336,9 +334,9 @@ calathea1 = Product.create!(
   quantity: 16,
   seller_id: user3.id
 )
-catathea4 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/calathea/calathea4.JPG')
+catathea4 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/calathea/calathea4.JPG')
 calathea1.photos.attach(io: catathea4, filename: 'calathea4.JPG')
-catathea3 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/calathea/calathea3.jpg')
+catathea3 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/calathea/calathea3.jpg')
 calathea1.photos.attach(io: catathea3, filename: 'calathea3.jpg')
 
 calathearev1 = Review.create!(
@@ -356,7 +354,7 @@ hanging1 = Product.create!(
   quantity: 23,
   seller_id: user3.id
 )
-hangingA1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/hanging-planter/hangingA1.JPG')
+hangingA1 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/hanging-planter/hangingA1.JPG')
 hanging1.photos.attach(io: hangingA1, filename: 'hangingA1.JPG')
 
 hangingrev1 = Review.create!(
@@ -380,9 +378,9 @@ hanging2 = Product.create!(
   quantity: 12,
   seller_id: user3.id
 )
-hangingB2 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/hanging-planter/hangingB2.JPG')
+hangingB2 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/hanging-planter/hangingB2.JPG')
 hanging2.photos.attach(io: hangingB2, filename: 'hangingB2.JPG')
-hangingB1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/hanging-planter/hangingB1.JPG')
+hangingB1 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/hanging-planter/hangingB1.JPG')
 hanging2.photos.attach(io: hangingB1, filename: 'hangingB1.JPG')
 
 pinkanth = Product.create!(
@@ -393,8 +391,8 @@ pinkanth = Product.create!(
   quantity: 11,
   seller_id: user3.id
 )
-pinkanth.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/anthurium1.jpg'), filename: 'anthurium1.jpg')
-pinkanth.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/anthurium2.JPG'), filename: 'anthurium2.JPG')
+pinkanth.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/anthurium1.jpg'), filename: 'anthurium1.jpg')
+pinkanth.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/anthurium2.JPG'), filename: 'anthurium2.JPG')
 
 pinkanthrev1 = Review.create!(
   reviewer_id: user4.id,
@@ -417,7 +415,7 @@ aspfern = Product.create!(
   quantity: 3,
   seller_id: user3.id
 )
-aspfern.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/asparagus-fern.JPG'), filename: 'asparagus-fern.JPG')
+aspfern.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/asparagus-fern.JPG'), filename: 'asparagus-fern.JPG')
 
 bambpalm = Product.create!(
   title: "Bamboo Palm",
@@ -427,8 +425,8 @@ bambpalm = Product.create!(
   quantity: 1,
   seller_id: demo_user.id
 )
-bambpalm.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/bamboopalm1.JPG'), filename: 'bamboopalm1.JPG')
-bambpalm.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/bamboopalm2.JPG'), filename: 'bamboopalm2.JPG')
+bambpalm.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/bamboopalm1.JPG'), filename: 'bamboopalm1.JPG')
+bambpalm.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/bamboopalm2.JPG'), filename: 'bamboopalm2.JPG')
 
 bambpalmrev1 = Review.create!(
   reviewer_id: user8.id,
@@ -445,7 +443,7 @@ chinese = Product.create!(
   quantity: 2,
   seller_id: user3.id
 )
-chinese.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/chinese-money.JPG'), filename: 'chinese-money.JPG')
+chinese.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/chinese-money.JPG'), filename: 'chinese-money.JPG')
 
 chineserev1 = Review.create!(
   reviewer_id: user2.id,
@@ -462,9 +460,9 @@ croton = Product.create!(
   quantity: 9,
   seller_id: user3.id
 )
-croton.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/croton1.jpg'), filename: 'croton1.jpg')
-croton.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/croton2.jpg'), filename: 'croton2.jpg')
-croton.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/croton3.jpg'), filename: 'croton3.jpg')
+croton.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/croton1.jpg'), filename: 'croton1.jpg')
+croton.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/croton2.jpg'), filename: 'croton2.jpg')
+croton.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/croton3.jpg'), filename: 'croton3.jpg')
 
 crotonrev1 = Review.create!(
   reviewer_id: user10.id,
@@ -487,8 +485,8 @@ ag1 = Product.create!(
   quantity: 5,
   seller_id: user3.id
 )
-ag1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/diamondag2.jpg'), filename: 'diamondag2.jpg')
-ag1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/diamondag1.JPG'), filename: 'diamondag1.JPG')
+ag1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/diamondag2.jpg'), filename: 'diamondag2.jpg')
+ag1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/diamondag1.JPG'), filename: 'diamondag1.JPG')
 
 agrev1 = Review.create!(
   reviewer_id: user9.id,
@@ -514,7 +512,7 @@ calathea2 = Product.create!(
   quantity: 4,
   seller_id: user4.id
 )
-catathea2file = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/calathea/calathea2.jpg')
+catathea2file = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/calathea/calathea2.jpg')
 calathea2.photos.attach(io: catathea2file, filename: 'calathea2.jpg')
 
 monstera1 = Product.create!(
@@ -525,9 +523,9 @@ monstera1 = Product.create!(
   quantity: 3,
   seller_id: user4.id
 )
-monsteraA1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraA1.jpg')
+monsteraA1 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraA1.jpg')
 monstera1.photos.attach(io: monsteraA1, filename: 'monsteraA1.jpg')
-monsteraA2 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraA2.jpg')
+monsteraA2 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraA2.jpg')
 monstera1.photos.attach(io: monsteraA2, filename: 'monsteraA2.jpg')
 
 monsterarev1 = Review.create!(
@@ -551,9 +549,9 @@ fiddle = Product.create!(
   quantity: 1,
   seller_id: user4.id
 )
-fiddle.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/fiddle1.JPG'), filename: 'fiddle1.JPG')
-fiddle.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/fiddle2.jpg'), filename: 'fiddle2.jpg')
-fiddle.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/fiddle3.jpg'), filename: 'fiddle3.jpg')
+fiddle.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/fiddle1.JPG'), filename: 'fiddle1.JPG')
+fiddle.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/fiddle2.jpg'), filename: 'fiddle2.jpg')
+fiddle.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/fiddle3.jpg'), filename: 'fiddle3.jpg')
 
 fiddlerev1 = Review.create!(
   reviewer_id: user15.id,
@@ -570,8 +568,8 @@ goldstar = Product.create!(
   quantity: 1,
   seller_id: user4.id
 )
-goldstar.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/goldstar1.JPG'), filename: 'goldstar1.JPG')
-goldstar.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/goldstar2.JPG'), filename: 'goldstar2.JPG')
+goldstar.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/goldstar1.JPG'), filename: 'goldstar1.JPG')
+goldstar.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/goldstar2.JPG'), filename: 'goldstar2.JPG')
 
 
 hoja = Product.create!(
@@ -582,9 +580,9 @@ hoja = Product.create!(
   quantity: 4,
   seller_id: user4.id
 )
-hoja.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/hoja1.JPG'), filename: 'hoja1.JPG')
-hoja.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/hoja2.JPG'), filename: 'hoja2.JPG')
-hoja.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/hoja3.JPG'), filename: 'hoja3.JPG')
+hoja.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/hoja1.JPG'), filename: 'hoja1.JPG')
+hoja.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/hoja2.JPG'), filename: 'hoja2.JPG')
+hoja.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/hoja3.JPG'), filename: 'hoja3.JPG')
 
 ivy = Product.create!(
   title: "English Ivy",
@@ -594,7 +592,7 @@ ivy = Product.create!(
   quantity: 5,
   seller_id: demo_user.id
 )
-ivy.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/ivy.jpg'), filename: 'ivy.jpg')
+ivy.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/ivy.jpg'), filename: 'ivy.jpg')
 
 ivyrev1 = Review.create!(
   reviewer_id: user6.id,
@@ -611,8 +609,8 @@ fern = Product.create!(
   quantity: 14,
   seller_id: user4.id
 )
-fern.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/maidenhair1.jpg'), filename: 'maidenhair1.jpg')
-fern.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/maidenhair2.jpg'), filename: 'maidenhair2.jpg')
+fern.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/maidenhair1.jpg'), filename: 'maidenhair1.jpg')
+fern.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/maidenhair2.jpg'), filename: 'maidenhair2.jpg')
 
 calathearev1 = Review.create!(
   reviewer_id: user7.id,
@@ -635,8 +633,8 @@ marg = Product.create!(
   quantity: 2,
   seller_id: user4.id
 )
-marg.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/marginata1.JPG'), filename: 'marginata1.JPG')
-marg.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/marginata2.JPG'), filename: 'marginata2.JPG')
+marg.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/marginata1.JPG'), filename: 'marginata1.JPG')
+marg.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/marginata2.JPG'), filename: 'marginata2.JPG')
 
 margrev1 = Review.create!(
   reviewer_id: user13.id,
@@ -663,10 +661,10 @@ monstera2 = Product.create!(
   quantity: 4,
   seller_id: user5.id
 )
-monsteraB1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraB1.JPG')
+monsteraB1 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraB1.JPG')
 monstera2.photos.attach(io: monsteraB1, filename: 'monsteraB1.JPG')
-monstera2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraB2.JPG'), filename: 'monsteraB2.JPG')
-monstera2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraB3.JPG'), filename: 'monsteraB3.JPG')
+monstera2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraB2.JPG'), filename: 'monsteraB2.JPG')
+monstera2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraB3.JPG'), filename: 'monsteraB3.JPG')
 
 minimoney = Product.create!(
   title: "Mini Money Tree",
@@ -676,8 +674,8 @@ minimoney = Product.create!(
   quantity: 4,
   seller_id: user5.id
 )
-minimoney.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/minimoney1.JPG'), filename: 'minimoney1.JPG')
-minimoney.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/minimoney2.JPG'), filename: 'minimoney2.JPG')
+minimoney.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/minimoney1.JPG'), filename: 'minimoney1.JPG')
+minimoney.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/minimoney2.JPG'), filename: 'minimoney2.JPG')
 
 minimoneyrev1 = Review.create!(
   reviewer_id: user2.id,
@@ -694,9 +692,9 @@ paradise = Product.create!(
   quantity: 3,
   seller_id: user5.id
 )
-paradise.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/paradise1.jpg'), filename: 'paradise1.jpg')
-paradise.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/paradise2.jpg'), filename: 'paradise2.jpg')
-paradise.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/paradise3.jpg'), filename: 'paradise3.jpg')
+paradise.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/paradise1.jpg'), filename: 'paradise1.jpg')
+paradise.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/paradise2.jpg'), filename: 'paradise2.jpg')
+paradise.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/paradise3.jpg'), filename: 'paradise3.jpg')
 
 parlor = Product.create!(
   title: "Parlor Palm",
@@ -706,8 +704,8 @@ parlor = Product.create!(
   quantity: 1,
   seller_id: user5.id
 )
-parlor.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/parlorpalm1.JPG'), filename: 'parlorpalm1.JPG')
-parlor.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/parlorpalm2.JPG'), filename: 'parlorpalm2.JPG')
+parlor.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/parlorpalm1.JPG'), filename: 'parlorpalm1.JPG')
+parlor.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/parlorpalm2.JPG'), filename: 'parlorpalm2.JPG')
 
 pinkag = Product.create!(
   title: "Rare Pink Aglaonema Chinese Evergreen",
@@ -717,8 +715,8 @@ pinkag = Product.create!(
   quantity: 8,
   seller_id: user5.id
 )
-pinkag.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/pinkag1.jpg'), filename: 'pinkag1.jpg')
-pinkag.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/pinkag2.PNG'), filename: 'pinkag2.PNG')
+pinkag.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/pinkag1.jpg'), filename: 'pinkag1.jpg')
+pinkag.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/pinkag2.PNG'), filename: 'pinkag2.PNG')
 
 pinkagrev1 = Review.create!(
   reviewer_id: user10.id,
@@ -741,10 +739,10 @@ pep = Product.create!(
   quantity: 4,
   seller_id: user5.id
 )
-pep.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/peperomia-collection1.JPG'), filename: 'peperomia-collection1.JPG')
-pep.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/peperomia-collection2.JPG'), filename: 'peperomia-collection2.JPG')
-pep.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/peperomia-collection3.JPG'), filename: 'peperomia-collection3.JPG')
-pep.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/peperomia-collection4.JPG'), filename: 'peperomia-collection4.JPG')
+pep.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/peperomia-collection1.JPG'), filename: 'peperomia-collection1.JPG')
+pep.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/peperomia-collection2.JPG'), filename: 'peperomia-collection2.JPG')
+pep.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/peperomia-collection3.JPG'), filename: 'peperomia-collection3.JPG')
+pep.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/peperomia-collection4.JPG'), filename: 'peperomia-collection4.JPG')
 
 peprev1 = Review.create!(
   reviewer_id: user7.id,
@@ -769,7 +767,7 @@ monstera3 = Product.create!(
   quantity: 8,
   seller_id: user6.id
 )
-monstera3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraC2.jpg'), filename: 'monsteraC2.jpg')
+monstera3.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/monstera-deliciosa/monsteraC2.jpg'), filename: 'monsteraC2.jpg')
 
 monstera3rev1 = Review.create!(
   reviewer_id: user12.id,
@@ -786,9 +784,9 @@ snake2 = Product.create!(
   quantity: 7,
   seller_id: user6.id
 )
-snake2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeB1.JPG'), filename: 'snakeB1.JPG')
-snake2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeB2.jpg'), filename: 'snakeB2.jpg')
-snake2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeB3.JPG'), filename: 'snakeB3.JPG')
+snake2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeB1.JPG'), filename: 'snakeB1.JPG')
+snake2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeB2.jpg'), filename: 'snakeB2.jpg')
+snake2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeB3.JPG'), filename: 'snakeB3.JPG')
 
 spath = Product.create!(
   title: 'Peace Lily Plant (Spathiphyllum)',
@@ -798,9 +796,9 @@ spath = Product.create!(
   quantity: 12,
   seller_id: demo_user.id
 )
-spath.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/spath/spath2.JPG'), filename: 'spath2.JPG')
-spath.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/spath/spath1.JPG'), filename: 'spath1.JPG')
-spath.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/spath/spath3.JPG'), filename: 'spath3.JPG')
+spath.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/spath/spath2.JPG'), filename: 'spath2.JPG')
+spath.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/spath/spath1.JPG'), filename: 'spath1.JPG')
+spath.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/spath/spath3.JPG'), filename: 'spath3.JPG')
 
 spathrev1 = Review.create!(
   reviewer_id: user7.id,
@@ -829,8 +827,8 @@ ponytail = Product.create!(
   quantity: 7,
   seller_id: user6.id
 )
-ponytail.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/ponytail1.JPG'), filename: 'ponytail1.JPG')
-ponytail.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/ponytail2.JPG'), filename: 'ponytail2.JPG')
+ponytail.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/ponytail1.JPG'), filename: 'ponytail1.JPG')
+ponytail.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/ponytail2.JPG'), filename: 'ponytail2.JPG')
 
 ponytailrev1 = Review.create!(
   reviewer_id: user2.id,
@@ -847,8 +845,8 @@ prayer = Product.create!(
   quantity: 1,
   seller_id: user6.id
 )
-prayer.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/prayer1.jpg'), filename: 'prayer1.jpg')
-prayer.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/prayer2.jpg'), filename: 'prayer2.jpg')
+prayer.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/prayer1.jpg'), filename: 'prayer1.jpg')
+prayer.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/prayer2.jpg'), filename: 'prayer2.jpg')
 
 serpant = Product.create!(
   title: 'Medusa China Doll (Serpent Tree)',
@@ -858,9 +856,9 @@ serpant = Product.create!(
   quantity: 9,
   seller_id: user6.id
 )
-serpant.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/serpant1.jpg'), filename: 'serpant1.jpg')
-serpant.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/serpant2.jpg'), filename: 'serpant2.jpg')
-serpant.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/serpant3.jpg'), filename: 'serpant3.jpg')
+serpant.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/serpant1.jpg'), filename: 'serpant1.jpg')
+serpant.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/serpant2.jpg'), filename: 'serpant2.jpg')
+serpant.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/serpant3.jpg'), filename: 'serpant3.jpg')
 
 serpantrev1 = Review.create!(
   reviewer_id: user2.id,
@@ -883,7 +881,7 @@ spider = Product.create!(
   quantity: 4,
   seller_id: user6.id
 )
-spider.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/spider.JPG'), filename: 'spider.JPG')
+spider.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/spider.JPG'), filename: 'spider.JPG')
 
 
 
@@ -903,8 +901,8 @@ ladyslipper = Product.create!(
   quantity: 2,
   seller_id: user7.id
 )
-ladyslipper.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/lady-slipper2.jpg'), filename: 'lady-slipper2.jpg')
-ladyslipper.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/lady-slipper1.jpg'), filename: 'lady-slipper1.jpg')
+ladyslipper.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/lady-slipper2.jpg'), filename: 'lady-slipper2.jpg')
+ladyslipper.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/lady-slipper1.jpg'), filename: 'lady-slipper1.jpg')
 
 ladyslipperrev1 = Review.create!(
   reviewer_id: user9.id,
@@ -921,9 +919,9 @@ macrame1 = Product.create!(
   quantity: 7,
   seller_id: user7.id
 )
-macrame1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameA1.JPG'), filename: 'macrameA1.JPG')
-macrame1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameA2.JPG'), filename: 'macrameA2.JPG')
-macrame1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameA3.JPG'), filename: 'macrameA3.JPG')
+macrame1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameA1.JPG'), filename: 'macrameA1.JPG')
+macrame1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameA2.JPG'), filename: 'macrameA2.JPG')
+macrame1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameA3.JPG'), filename: 'macrameA3.JPG')
 
 macrame1rev1 = Review.create!(
   reviewer_id: user10.id,
@@ -940,9 +938,9 @@ macrame2 = Product.create!(
   quantity: 5,
   seller_id: user7.id
 )
-macrame2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameB1.JPG'), filename: 'macrameB1.JPG')
-macrame2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameB2.JPG'), filename: 'macrameB2.JPG')
-macrame2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameB3.JPG'), filename: 'macrameAB.JPG')
+macrame2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameB1.JPG'), filename: 'macrameB1.JPG')
+macrame2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameB2.JPG'), filename: 'macrameB2.JPG')
+macrame2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/macrameB3.JPG'), filename: 'macrameAB.JPG')
 
 nakedman = Product.create!(
   title: 'Naked Man Orchid Seeds',
@@ -952,8 +950,8 @@ nakedman = Product.create!(
   quantity: 3,
   seller_id: user7.id
 )
-nakedman.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/monkey-face1.JPG'), filename: 'monkey-face1.JPG')
-nakedman.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/monkey-face2.JPG'), filename: 'monkey-face2.JPG')
+nakedman.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/monkey-face1.JPG'), filename: 'monkey-face1.JPG')
+nakedman.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/monkey-face2.JPG'), filename: 'monkey-face2.JPG')
 
 nakedmanrev2 = Review.create!(
   reviewer_id: user4.id,
@@ -976,9 +974,9 @@ oncidium = Product.create!(
   quantity: 4,
   seller_id: user7.id
 )
-oncidium.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/oncidium2.jpg'), filename: 'oncidium2.jpg')
-oncidium.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/oncidium1.JPG'), filename: 'oncidium1.JPG')
-oncidium.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/oncidium3.jpg'), filename: 'oncidium3.jpg')
+oncidium.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/oncidium2.jpg'), filename: 'oncidium2.jpg')
+oncidium.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/oncidium1.JPG'), filename: 'oncidium1.JPG')
+oncidium.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/oncidium3.jpg'), filename: 'oncidium3.jpg')
 
 oncidiumrev1 = Review.create!(
   reviewer_id: user6.id,
@@ -1009,8 +1007,8 @@ zygo = Product.create!(
   quantity: 1,
   seller_id: user8.id
 )
-zygo.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/zygopetalum4.jpg'), filename: 'zygopetalum4.jpg')
-zygo.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/zygopetalum2.JPG'), filename: 'zygopetalum2.JPG')
+zygo.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/zygopetalum4.jpg'), filename: 'zygopetalum4.jpg')
+zygo.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/zygopetalum2.JPG'), filename: 'zygopetalum2.JPG')
 
 zygorev1 = Review.create!(
   reviewer_id: user5.id,
@@ -1026,8 +1024,8 @@ brom2 = Product.create!(
   price: 50.25,
   quantity: 38,
   seller_id: user8.id)
-brom2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataB1.JPG'), filename: 'fasciataB1.JPG')
-brom2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataB2.JPG'), filename: 'fasciataB2.JPG')
+brom2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataB1.JPG'), filename: 'fasciataB1.JPG')
+brom2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataB2.JPG'), filename: 'fasciataB2.JPG')
 
 brom2rev1 = Review.create!(
   reviewer_id: user15.id,
@@ -1044,9 +1042,9 @@ umbrella = Product.create!(
   quantity: 29,
   seller_id: user8.id
 )
-umbrella.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/umbrella1.jpg'), filename: 'umbrella1.jpg')
-umbrella.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/umbrella2.jpg'), filename: 'umbrella2.jpg')
-umbrella.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/umbrella3.jpg'), filename: 'umbrella3.jpg')
+umbrella.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/umbrella1.jpg'), filename: 'umbrella1.jpg')
+umbrella.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/umbrella2.jpg'), filename: 'umbrella2.jpg')
+umbrella.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/umbrella3.jpg'), filename: 'umbrella3.jpg')
 
 zz = Product.create!(
   title: "ZZ (Zamioculcas Zamiifolia)",
@@ -1056,7 +1054,7 @@ zz = Product.create!(
   quantity: 2,
   seller_id: user8.id
 )
-zz.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/zz.JPG'), filename: 'zz.JPG')
+zz.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/houseplants/zz.JPG'), filename: 'zz.JPG')
 
 zzrev1 = Review.create!(
   reviewer_id: user9.id,
@@ -1085,8 +1083,8 @@ chocchip = Product.create!(
   quantity: 18,
   seller_id: user8.id
 )
-chocchip.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/chocchip1.jpg'), filename: 'chocchip1.jpg')
-chocchip.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/chocchip2.jpg'), filename: 'chocchip2.jpg')
+chocchip.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/chocchip1.jpg'), filename: 'chocchip1.jpg')
+chocchip.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/chocchip2.jpg'), filename: 'chocchip2.jpg')
 
 chocchiprev1 = Review.create!(
   reviewer_id: user9.id,
@@ -1103,8 +1101,8 @@ enobi = Product.create!(
   quantity: 3,
   seller_id: user8.id
 )
-enobi.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/enobipurple1.jpg'), filename: 'enobipurple1.jpg')
-enobi.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/enobipurple2.jpg'), filename: 'enobipurple2.jpg')
+enobi.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/enobipurple1.jpg'), filename: 'enobipurple1.jpg')
+enobi.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/enobipurple2.jpg'), filename: 'enobipurple2.jpg')
 
 snow = Product.create!(
   title: "Fragrant Orchid Plant LIVE IN SPIKE Dendrobium Mini Snowflake",
@@ -1114,9 +1112,9 @@ snow = Product.create!(
   quantity: 1,
   seller_id: user8.id
 )
-snow.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/minisnowflake1.JPG'), filename: 'minisnowflake1.JPG')
-snow.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/minisnowflake2.JPG'), filename: 'minisnowflake2.JPG')
-snow.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/minisnowflake3.JPG'), filename: 'minisnowflake3.JPG')
+snow.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/minisnowflake1.JPG'), filename: 'minisnowflake1.JPG')
+snow.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/minisnowflake2.JPG'), filename: 'minisnowflake2.JPG')
+snow.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/minisnowflake3.JPG'), filename: 'minisnowflake3.JPG')
 
 snowrev2 = Review.create!(
   reviewer_id: user3.id,
@@ -1147,8 +1145,8 @@ pothos1 = Product.create!(
   quantity: 10,
   seller_id: user9.id
 )
-pothos1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/pothos/pothosA1.JPG'), filename: 'pothosA1.JPG')
-pothos1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/pothos/pothosA4.JPG'), filename: 'pothosA4.JPG')
+pothos1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/pothos/pothosA1.JPG'), filename: 'pothosA1.JPG')
+pothos1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/pothos/pothosA4.JPG'), filename: 'pothosA4.JPG')
 
 pothos1rev1 = Review.create!(
   reviewer_id: user14.id,
@@ -1165,8 +1163,8 @@ brom1 = Product.create!(
   quantity: 20,
   seller_id: demo_user.id
 )
-brom1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataA1.JPG'), filename: 'fasciataA1.JPG')
-brom1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataA2.JPG'), filename: 'fasciataA2.JPG')
+brom1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataA1.JPG'), filename: 'fasciataA1.JPG')
+brom1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/fasciataA2.JPG'), filename: 'fasciataA2.JPG')
 
 brom3 = Product.create!(
   title: 'Blue Tango Bromeliad',
@@ -1176,8 +1174,8 @@ brom3 = Product.create!(
   quantity: 4,
   seller_id: user9.id
 )
-brom3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/flowerbromA1.jpg'), filename: 'flowerbromA1.jpg')
-brom3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/flowerbromA2.jpg'), filename: 'flowerbromA2.jpg')
+brom3.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/flowerbromA1.jpg'), filename: 'flowerbromA1.jpg')
+brom3.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/flowerbromA2.jpg'), filename: 'flowerbromA2.jpg')
 
 brom3rev1 = Review.create!(
   reviewer_id: user10.id,
@@ -1194,8 +1192,8 @@ brom4 = Product.create!(
   quantity: 5,
   seller_id: user9.id
 )
-brom4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/flowerbromB1.jpg'), filename: 'flowerbromB1.jpg')
-brom4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/flowerbromB2.jpg'), filename: 'flowerbromB2.jpg')
+brom4.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/flowerbromB1.jpg'), filename: 'flowerbromB1.jpg')
+brom4.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/flowerbromB2.jpg'), filename: 'flowerbromB2.jpg')
 
 brom5 = Product.create!(
   title: 'Tropical Delight Guzmania Bromeliad',
@@ -1205,8 +1203,8 @@ brom5 = Product.create!(
   quantity: 18,
   seller_id: user9.id
 )
-brom5.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/orangebrom1.jpg'), filename: 'orangebrom1.jpg')
-brom5.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/orangebrom2.jpg'), filename: 'orangebrom2.jpg')
+brom5.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/orangebrom1.jpg'), filename: 'orangebrom1.jpg')
+brom5.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/orangebrom2.jpg'), filename: 'orangebrom2.jpg')
 
 brom5rev1 = Review.create!(
   reviewer_id: user7.id,
@@ -1229,8 +1227,8 @@ brom6 = Product.create!(
   quantity: 3,
   seller_id: user9.id
 )
-brom6.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/pineapple1.JPG'), filename: 'pineapple1.JPG')
-brom6.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/pineapple2.JPG'), filename: 'pineapple2.JPG')
+brom6.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/pineapple1.JPG'), filename: 'pineapple1.JPG')
+brom6.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/pineapple2.JPG'), filename: 'pineapple2.JPG')
 
 brom7 = Product.create!(
   title: 'Purple Bromeliad Guzmania, 6" Pot',
@@ -1240,7 +1238,7 @@ brom7 = Product.create!(
   quantity: 12,
   seller_id: user9.id
 )
-brom7.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/purplebrom.jpg'), filename: 'purplebrom.jpg')
+brom7.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/purplebrom.jpg'), filename: 'purplebrom.jpg')
 
 brom7rev1 = Review.create!(
   reviewer_id: user11.id,
@@ -1257,7 +1255,7 @@ brom8 = Product.create!(
   quantity: 12,
   seller_id: user9.id
 )
-brom8.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/redbrom.jpg'), filename: 'redbrom.jpg')
+brom8.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bromeliad/redbrom.jpg'), filename: 'redbrom.jpg')
 
 
 # # -----------------------------------------
@@ -1276,8 +1274,8 @@ pothos2 = Product.create!(
   quantity: 1,
   seller_id: user10.id
 )
-pothos2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/pothos/pothosB2.jpg'), filename: 'pothosB2.jpg')
-pothos2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/pothos/pothosB3.PNG'), filename: 'pothosB3.PNG')
+pothos2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/pothos/pothosB2.jpg'), filename: 'pothosB2.jpg')
+pothos2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/pothos/pothosB3.PNG'), filename: 'pothosB3.PNG')
 
 pothos2rev1 = Review.create!(
   reviewer_id: user9.id,
@@ -1294,8 +1292,8 @@ snake1 = Product.create!(
   quantity: 3,
   seller_id: user10.id
 )
-snake1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeA2.JPG'), filename: 'snakeA2.JPG')
-snake1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeA3.PNG'), filename: 'snakeA3.PNG')
+snake1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeA2.JPG'), filename: 'snakeA2.JPG')
+snake1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/snake/snakeA3.PNG'), filename: 'snakeA3.PNG')
 
 snake1rev1 = Review.create!(
   reviewer_id: user4.id,
@@ -1312,8 +1310,8 @@ bonsai1 = Product.create!(
   quantity: 5,
   seller_id: user10.id
 )
-bonsai1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bonsai/bonsaiA2.jpg'), filename: 'bonsaiA2.jpg')
-bonsai1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bonsai/bonsaiA1.jpg'), filename: 'bonsaiA1.jpg')
+bonsai1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bonsai/bonsaiA2.jpg'), filename: 'bonsaiA2.jpg')
+bonsai1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bonsai/bonsaiA1.jpg'), filename: 'bonsaiA1.jpg')
 
 bonsai1rev1 = Review.create!(
   reviewer_id: user3.id,
@@ -1330,8 +1328,8 @@ bonsai2 = Product.create!(
   quantity: 2,
   seller_id: user10.id
 )
-bonsai2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bonsai/cypressbonsai1.JPG'), filename: 'cypressbonsai1.JPG')
-bonsai2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bonsai/cypressbonsai2.JPG'), filename: 'cypressbonsai2.JPG')
+bonsai2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bonsai/cypressbonsai1.JPG'), filename: 'cypressbonsai1.JPG')
+bonsai2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/bonsai/cypressbonsai2.JPG'), filename: 'cypressbonsai2.JPG')
 
 pinkphal = Product.create!(
   title: 'Pink Phalaenopsis Orchid',
@@ -1341,8 +1339,8 @@ pinkphal = Product.create!(
   quantity: 2,
   seller_id: user10.id
 )
-pinkphal.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/pinkphal1.jpg'), filename: 'pinkphal1.jpg')
-pinkphal.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/pinkphal2.jpg'), filename: 'pinkphal2.jpg')
+pinkphal.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/pinkphal1.jpg'), filename: 'pinkphal1.jpg')
+pinkphal.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/pinkphal2.jpg'), filename: 'pinkphal2.jpg')
 
 pinkphalrev1 = Review.create!(
   reviewer_id: user9.id,
@@ -1371,8 +1369,8 @@ whitephal = Product.create!(
   quantity: 5,
   seller_id: user10.id
 )
-whitephal.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/whitephal1.JPG'), filename: 'whitephal1.JPG')
-whitephal.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/whitephal2.JPG'), filename: 'whitephal2.JPG')
+whitephal.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/whitephal1.JPG'), filename: 'whitephal1.JPG')
+whitephal.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/whitephal2.JPG'), filename: 'whitephal2.JPG')
 
 whitephalrev2 = Review.create!(
   reviewer_id: user6.id,
@@ -1389,7 +1387,7 @@ smallphal = Product.create!(
   quantity: 6,
   seller_id: user10.id
 )
-smallphal.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/smallphal.jpg'), filename: 'smallphal.jpg')
+smallphal.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/smallphal.jpg'), filename: 'smallphal.jpg')
 
 wilsonara = Product.create!(
   title: "Wilsonara Pacific Passage 'Peach Cobbler'",
@@ -1399,8 +1397,8 @@ wilsonara = Product.create!(
   quantity: 2,
   seller_id: user10.id
 )
-wilsonara.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/wilsonara1.jpg'), filename: 'wilsonara1.jpg')
-wilsonara.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/wilsonara2.jpg'), filename: 'wilsonara2.jpg')
+wilsonara.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/wilsonara1.jpg'), filename: 'wilsonara1.jpg')
+wilsonara.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/moreorchids/wilsonara2.jpg'), filename: 'wilsonara2.jpg')
 
 wilsonararev2 = Review.create!(
   reviewer_id: user15.id,
@@ -1425,7 +1423,7 @@ animals = Product.create!(
   quantity: 1,
   seller_id: demo_user.id
 )
-animals.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/animals.JPG'), filename: 'animals.JPG')
+animals.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/animals.JPG'), filename: 'animals.JPG')
 
 animalsrev2 = Review.create!(
   reviewer_id: user10.id,
@@ -1442,7 +1440,7 @@ coral = Product.create!(
   quantity: 4,
   seller_id: user11.id
 )
-coral.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/coral.JPG'), filename: 'coral.JPG')
+coral.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/coral.JPG'), filename: 'coral.JPG')
 
 faces = Product.create!(
   title: "Handmade Pottery for Plants",
@@ -1452,7 +1450,7 @@ faces = Product.create!(
   quantity: 2,
   seller_id: user11.id
 )
-faces.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/faces.jpg'), filename: 'faces.jpg')
+faces.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/faces.jpg'), filename: 'faces.jpg')
 
 facesrev2 = Review.create!(
   reviewer_id: user5.id,
@@ -1469,7 +1467,7 @@ fox = Product.create!(
   quantity: 3,
   seller_id: user11.id
   )
-fox.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/fox.jpg'), filename: 'fox.jpg')
+fox.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/fox.jpg'), filename: 'fox.jpg')
 
 foxrev2 = Review.create!(
   reviewer_id: user9.id,
@@ -1486,7 +1484,7 @@ leafpot = Product.create!(
   quantity: 1,
   seller_id: user11.id
 )
-leafpot.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/leaf.JPG'), filename: 'leaf.JPG')
+leafpot.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/leaf.JPG'), filename: 'leaf.JPG')
 
 # # ----------------------------------
 
@@ -1504,8 +1502,8 @@ prop1 = Product.create!(
   quantity: 15,
   seller_id: user12.id
 )
-prop1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/propA1.JPG'), filename: 'propA1.JPG')
-prop1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/propA2.JPG'), filename: 'propA2.JPG')
+prop1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/propA1.JPG'), filename: 'propA1.JPG')
+prop1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/propA2.JPG'), filename: 'propA2.JPG')
 
 prop2 = Product.create!(
   title: "Glass Propagation Tubes",
@@ -1515,8 +1513,8 @@ prop2 = Product.create!(
   quantity: 12,
   seller_id: user12.id
 )
-prop2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/propB1.JPG'), filename: 'propB1.JPG')
-prop2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/propB2.JPG'), filename: 'propAB.JPG')
+prop2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/propB1.JPG'), filename: 'propB1.JPG')
+prop2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/propB2.JPG'), filename: 'propAB.JPG')
 
 prop2rev4 = Review.create!(
   reviewer_id: user7.id,
@@ -1545,7 +1543,7 @@ retro = Product.create!(
   quantity: 2,
   seller_id: user12.id
 )
-retro.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/retro.JPG'), filename: 'retro.JPG')
+retro.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/retro.JPG'), filename: 'retro.JPG')
 
 teal = Product.create!(
   title: "Marbled Teal Ceramic Pot",
@@ -1555,7 +1553,7 @@ teal = Product.create!(
   quantity: 5,
   seller_id: user12.id
 )
-teal.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/teal-ceramic.JPG'), filename: 'teal-ceramic.JPG')
+teal.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/pottery/teal-ceramic.JPG'), filename: 'teal-ceramic.JPG')
 
 # # -----------------------------------
 
@@ -1573,7 +1571,7 @@ arr1 = Product.create!(
   quantity: 5,
   seller_id: user13.id
 )
-arr1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/arr1.JPG'), filename: 'arr1.JPG')
+arr1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/arr1.JPG'), filename: 'arr1.JPG')
 
 arr1rev1 = Review.create!(
   reviewer_id: user8.id,
@@ -1590,7 +1588,7 @@ arr2 = Product.create!(
   quantity: 3,
   seller_id: user13.id
 )
-arr2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/arr2.jpg'), filename: 'arr2.jpg')
+arr2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/arr2.jpg'), filename: 'arr2.jpg')
 
 arr3 = Product.create!(
   title: "Assorted Succulent Arrangment- Handmade Pot",
@@ -1600,7 +1598,7 @@ arr3 = Product.create!(
   quantity: 1,
   seller_id: user13.id
 )
-arr3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/arr3.jpg'), filename: 'arr3.jpg')
+arr3.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/arr3.jpg'), filename: 'arr3.jpg')
 
 arr3rev1 = Review.create!(
   reviewer_id: user3.id,
@@ -1623,8 +1621,8 @@ assort1 = Product.create!(
   quantity: 25,
   seller_id: user13.id
 )
-assort1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/assortmentA1.jpg'), filename: 'assortmentA1.jpg')
-assort1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/assortmentA2.jpg'), filename: 'assortmentA2.jpg')
+assort1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/assortmentA1.jpg'), filename: 'assortmentA1.jpg')
+assort1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/assortmentA2.jpg'), filename: 'assortmentA2.jpg')
 
 assort2 = Product.create!(
   title: "Tiny Succulent Assortment",
@@ -1634,8 +1632,8 @@ assort2 = Product.create!(
   quantity: 25,
   seller_id: user13.id
 )
-assort2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/assortmentB1.jpg'), filename: 'assortmentB1.jpg')
-assort2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/assortmentB2.jpg'), filename: 'assortmentB2.jpg')
+assort2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/assortmentB1.jpg'), filename: 'assortmentB1.jpg')
+assort2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/assortmentB2.jpg'), filename: 'assortmentB2.jpg')
 
 assort2rev1 = Review.create!(
   reviewer_id: user2.id,
@@ -1652,9 +1650,9 @@ bear = Product.create!(
   quantity: 12,
   seller_id: user13.id
 )
-bear.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/bearclaw1.jpg'), filename: 'bearclaw1.jpg')
-bear.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/bearclaw2.jpg'), filename: 'bearclaw2.jpg')
-bear.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/bearclaw3.jpg'), filename: 'bearclaw3.jpg')
+bear.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/bearclaw1.jpg'), filename: 'bearclaw1.jpg')
+bear.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/bearclaw2.jpg'), filename: 'bearclaw2.jpg')
+bear.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/bearclaw3.jpg'), filename: 'bearclaw3.jpg')
 
 bearrev1 = Review.create!(
   reviewer_id: user9.id,
@@ -1671,9 +1669,9 @@ cot = Product.create!(
   quantity: 4,
   seller_id: user13.id
 )
-cot.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/cotyledon1.jpg'), filename: 'cotyledon1.jpg')
-cot.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/cotyledon2.jpg'), filename: 'cotyledon2.jpg')
-cot.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/cotyledon3.jpg'), filename: 'cotyledon3.jpg')
+cot.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/cotyledon1.jpg'), filename: 'cotyledon1.jpg')
+cot.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/cotyledon2.jpg'), filename: 'cotyledon2.jpg')
+cot.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/cotyledon3.jpg'), filename: 'cotyledon3.jpg')
 
 dolphin = Product.create!(
   title: "String of Dolphins",
@@ -1683,7 +1681,7 @@ dolphin = Product.create!(
   quantity: 2,
   seller_id: user13.id
 )
-dolphin.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/dolphins.jpg'), filename: 'dolphins.jpg')
+dolphin.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/dolphins.jpg'), filename: 'dolphins.jpg')
 
 dolphinrev1 = Review.create!(
   reviewer_id: user12.id,
@@ -1706,7 +1704,7 @@ pearl = Product.create!(
   quantity: 3,
   seller_id: user13.id
 )
-pearl.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/stringpearls.jpg'), filename: 'stringpearls.jpg')
+pearl.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/stringpearls.jpg'), filename: 'stringpearls.jpg')
 
 donkey = Product.create!(
   title: "String of Donkey Tails Succulent",
@@ -1716,7 +1714,7 @@ donkey = Product.create!(
   quantity: 6,
   seller_id: user13.id
 )
-donkey.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/donkey-tail.jpg'), filename: 'donkey-tail.jpg')
+donkey.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/donkey-tail.jpg'), filename: 'donkey-tail.jpg')
 
 donkeyrev1 = Review.create!(
   reviewer_id: user10.id,
@@ -1733,9 +1731,9 @@ party = Product.create!(
   quantity: 80,
   seller_id: user13.id
 )
-party.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/partyfavor1.jpg'), filename: 'partyfavor1.jpg')
-party.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/partyfavor2.jpg'), filename: 'partyfavor2.jpg')
-party.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/partyfavor3.jpg'), filename: 'partyfavor3.jpg')
+party.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/partyfavor1.jpg'), filename: 'partyfavor1.jpg')
+party.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/partyfavor2.jpg'), filename: 'partyfavor2.jpg')
+party.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/succulents/partyfavor3.jpg'), filename: 'partyfavor3.jpg')
 
 partyrev1 = Review.create!(
   reviewer_id: user8.id,
@@ -1766,9 +1764,9 @@ clippers = Product.create!(
   quantity: 16,
   seller_id: user14.id
 )
-clippers.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/clippers1.JPG'), filename: 'clippers1.JPG')
-clippers.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/clippers2.JPG'), filename: 'clippers2.JPG')
-clippers.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/clippers3.JPG'), filename: 'clippers3.JPG')
+clippers.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/clippers1.JPG'), filename: 'clippers1.JPG')
+clippers.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/clippers2.JPG'), filename: 'clippers2.JPG')
+clippers.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/clippers3.JPG'), filename: 'clippers3.JPG')
 
 fert1 = Product.create!(
   title: "Houseplant Special Fertilizer",
@@ -1778,9 +1776,9 @@ fert1 = Product.create!(
   quantity: 10,
   seller_id: user14.id
 )
-fert1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerA1.JPG'), filename: 'fertizilzerA1.JPG')
-fert1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerA2.JPG'), filename: 'fertizilzerA2.JPG')
-fert1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerA3.JPG'), filename: 'fertizilzerA3.JPG')
+fert1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerA1.JPG'), filename: 'fertizilzerA1.JPG')
+fert1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerA2.JPG'), filename: 'fertizilzerA2.JPG')
+fert1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerA3.JPG'), filename: 'fertizilzerA3.JPG')
 
 fert1rev1 = Review.create!(
   reviewer_id: user3.id,
@@ -1797,9 +1795,9 @@ fert2 = Product.create!(
   quantity: 10,
   seller_id: user14.id
 )
-fert2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerB1.JPG'), filename: 'fertizilzerB1.JPG')
-fert2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerB2.JPG'), filename: 'fertizilzerB2.JPG')
-fert2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerB3.JPG'), filename: 'fertizilzerB3.JPG')
+fert2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerB1.JPG'), filename: 'fertizilzerB1.JPG')
+fert2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerB2.JPG'), filename: 'fertizilzerB2.JPG')
+fert2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/fertizilzerB3.JPG'), filename: 'fertizilzerB3.JPG')
 
 fert2rev1 = Review.create!(
   reviewer_id: user3.id,
@@ -1816,8 +1814,8 @@ glove = Product.create!(
   quantity: 10,
   seller_id: user14.id
 )
-glove.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/gloves1.JPG'), filename: 'gloves1.JPG')
-glove.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/gloves2.JPG'), filename: 'gloves2.JPG')
+glove.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/gloves1.JPG'), filename: 'gloves1.JPG')
+glove.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/gloves2.JPG'), filename: 'gloves2.JPG')
 
 gloverev1 = Review.create!(
   reviewer_id: user11.id,
@@ -1840,8 +1838,8 @@ neem = Product.create!(
   quantity: 10,
   seller_id: user14.id
 )
-neem.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/neem1.JPG'), filename: 'neem1.JPG')
-neem.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/neem2.JPG'), filename: 'neem2.JPG')
+neem.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/neem1.JPG'), filename: 'neem1.JPG')
+neem.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/neem2.JPG'), filename: 'neem2.JPG')
 
 neemrev1 = Review.create!(
   reviewer_id: user9.id,
@@ -1870,8 +1868,8 @@ shovel1 = Product.create!(
   quantity: 12,
   seller_id: user14.id
 )
-shovel1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/shovelA1.JPG'), filename: 'shovelA1.JPG')
-shovel1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/shovelA2.JPG'), filename: 'shovelA2.JPG')
+shovel1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/shovelA1.JPG'), filename: 'shovelA1.JPG')
+shovel1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/shovelA2.JPG'), filename: 'shovelA2.JPG')
 
 shovel2 = Product.create!(
   title: "Hand Trowel",
@@ -1881,8 +1879,8 @@ shovel2 = Product.create!(
   quantity: 11,
   seller_id: user14.id
 )
-shovel2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/shovelB1.JPG'), filename: 'shovelB1.JPG')
-shovel2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/shovelB2.JPG'), filename: 'shovelB2.JPG')
+shovel2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/shovelB1.JPG'), filename: 'shovelB1.JPG')
+shovel2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/shovelB2.JPG'), filename: 'shovelB2.JPG')
 
 shovel2rev1 = Review.create!(
   reviewer_id: user15.id,
@@ -1899,8 +1897,8 @@ watercan = Product.create!(
   quantity: 5,
   seller_id: user14.id
 )
-watercan.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/watercan1.JPG'), filename: 'watercan1.JPG')
-watercan.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/watercan2.JPG'), filename: 'watercan2.JPG')
+watercan.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/watercan1.JPG'), filename: 'watercan1.JPG')
+watercan.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/supplies/watercan2.JPG'), filename: 'watercan2.JPG')
 
 watercanrev1 = Review.create!(
   reviewer_id: user15.id,
@@ -1933,11 +1931,11 @@ tillandsia1 = Product.create!(
   quantity: 6,
   seller_id: user15.id
 )
-tillsA1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsA1.JPG')
+tillsA1 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsA1.JPG')
 tillandsia1.photos.attach(io: tillsA1, filename: 'tillsA1.JPG')
-tillsA2 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsA2.JPG')
+tillsA2 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsA2.JPG')
 tillandsia1.photos.attach(io: tillsA2, filename: 'tillsB2.JPG')
-tillsA3 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsA3.PNG')
+tillsA3 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsA3.PNG')
 tillandsia1.photos.attach(io: tillsA3, filename: 'tillsA3.PNG')
 
 tillandsia2 = Product.create!(
@@ -1948,7 +1946,7 @@ tillandsia2 = Product.create!(
   quantity: 7,
   seller_id: user15.id
 )
-tillsB1 = open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsB1.JPG')
+tillsB1 = URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/tillandsias/tillsB1.JPG')
 tillandsia2.photos.attach(io: tillsB1, filename: 'tillsB1.JPG')
 
 tillandsia2rev1 = Review.create!(
@@ -1966,8 +1964,8 @@ cymbidium1 = Product.create!(
   quantity: 1,
   seller_id: user15.id
 )
-cymbidium1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumA1.JPG'), filename: 'cymbidiumA1.JPG')
-cymbidium1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumA2.JPG'), filename: 'cymbidiumA2.JPG')
+cymbidium1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumA1.JPG'), filename: 'cymbidiumA1.JPG')
+cymbidium1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumA2.JPG'), filename: 'cymbidiumA2.JPG')
 
 cymbidium1rev1 = Review.create!(
   reviewer_id: user4.id,
@@ -1984,9 +1982,9 @@ cymbidium2 = Product.create!(
   quantity: 3,
   seller_id: user15.id
 )
-cymbidium2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB3.JPG'), filename: 'cymbidiumB3.JPG')
-cymbidium2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB1.jpg'), filename: 'cymbidiumB1.jpg')
-cymbidium2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB2.JPG'), filename: 'cymbidiumB2.JPG')
+cymbidium2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB3.JPG'), filename: 'cymbidiumB3.JPG')
+cymbidium2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB1.jpg'), filename: 'cymbidiumB1.jpg')
+cymbidium2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/orchids/cymbidiumB2.JPG'), filename: 'cymbidiumB2.JPG')
 
 cactus1 = Product.create!(
   title: 'Angel Wings Cactus - Opuntia Microdasys Albata',
@@ -1996,8 +1994,8 @@ cactus1 = Product.create!(
   quantity: 8,
   seller_id: user15.id
 )
-cactus1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/angel-wings1.jpg'), filename: 'angel-wings1.jpg')
-cactus1.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/angel-wings2.jpg'), filename: 'angel-wings2.jpg')
+cactus1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/angel-wings1.jpg'), filename: 'angel-wings1.jpg')
+cactus1.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/angel-wings2.jpg'), filename: 'angel-wings2.jpg')
 
 cactus1rev1 = Review.create!(
   reviewer_id: user3.id,
@@ -2014,7 +2012,7 @@ cactus2 = Product.create!(
   quantity: 1,
   seller_id: user15.id
 )
-cactus2.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/cardon.JPG'), filename: 'cardon.JPG')
+cactus2.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/cardon.JPG'), filename: 'cardon.JPG')
 
 cactus3 = Product.create!(
   title: 'Miniature Saguaro, Euphorbia Aeruginosa, Spurge Cactus, dwarf tree-like cactus',
@@ -2026,7 +2024,7 @@ cactus3 = Product.create!(
   quantity: 7,
   seller_id: user15.id
 )
-cactus3.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/euphorbia.JPG'), filename: 'euphorbia.JPG')
+cactus3.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/euphorbia.JPG'), filename: 'euphorbia.JPG')
 
 cactus3rev1 = Review.create!(
   reviewer_id: user5.id,
@@ -2043,9 +2041,9 @@ cactus4 = Product.create!(
   quantity: 10,
   seller_id: user15.id
 )
-cactus4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus1.jpg'), filename: 'minicactus1.jpg')
-cactus4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus2.jpg'), filename: 'minicactus2.jpg')
-cactus4.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus3.jpg'), filename: 'minicactus3.jpg')
+cactus4.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus1.jpg'), filename: 'minicactus1.jpg')
+cactus4.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus2.jpg'), filename: 'minicactus2.jpg')
+cactus4.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/minicactus3.jpg'), filename: 'minicactus3.jpg')
 
 cactus4rev1 = Review.create!(
   reviewer_id: user6.id,
@@ -2068,8 +2066,8 @@ cactus5 = Product.create!(
   quantity: 6,
   seller_id: user15.id
 )
-cactus5.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasA1.JPG'), filename: 'xmasA1.JPG')
-cactus5.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasA2.JPG'), filename: 'xmasA2.JPG')
+cactus5.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasA1.JPG'), filename: 'xmasA1.JPG')
+cactus5.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasA2.JPG'), filename: 'xmasA2.JPG')
 
 cactus5rev1 = Review.create!(
   reviewer_id: user3.id,
@@ -2086,8 +2084,8 @@ cactus6 = Product.create!(
   quantity: 7,
   seller_id: user15.id
 )
-cactus6.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasB1.JPG'), filename: 'xmasB1.JPG')
-cactus6.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasB2.JPG'), filename: 'xmasB2.JPG')
+cactus6.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasB1.JPG'), filename: 'xmasB1.JPG')
+cactus6.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasB2.JPG'), filename: 'xmasB2.JPG')
 
 cactus7 = Product.create!(
   title: 'Peach Christmas Cactus',
@@ -2097,7 +2095,7 @@ cactus7 = Product.create!(
   quantity: 14,
   seller_id: user15.id
 )
-cactus7.photos.attach(io: open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasC1.JPG'), filename: 'xmasC1.JPG')
+cactus7.photos.attach(io: URI.open('https://plantsy-dev.s3.us-west-1.amazonaws.com/uploads/cactus/xmasC1.JPG'), filename: 'xmasC1.JPG')
 
 cactus7rev1 = Review.create!(
   reviewer_id: user14.id,
